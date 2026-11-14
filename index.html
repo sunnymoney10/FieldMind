@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FieldMind</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one phone-width column, bottom tab bar, accounts open as full-screen sheets. */
+/* Dark field shell (Deep Ink) with porcelain "paper" panels for briefs. Signal Pink = brand + primary action. Citron = found/ready, pink chip = conflict, outline = unknown. */
+:root{
+  --bg:#13151D; --surface:#20232E; --surface-2:#2B2F3C; --ink:#F6F5F1; --muted:#A3AAB6; --line:#323644; --line-strong:#5A6072;
+  --accent:#FF3D8C; --accent-ink:#171923; --accent-soft:#3A1E2C; --accent-text:#FF85B6;
+  --signal:#DCEF55; --amber:#F2C14E;
+  --good:#6DD3BA; --good-soft:#15302A; --warn:#EDBE6A; --warn-soft:#352A12; --bad:#F29482; --bad-soft:#3A1F1B; --info:#BFC5D0; --info-soft:#2A2E3A;
+  --display:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --r:12px;
+  color-scheme:dark;
+}
+.paper{
+  --bg:#F6F5F1; --surface:#FFFFFF; --surface-2:#EEECE6; --ink:#171923; --muted:#5D6574; --line:#E4E2DC; --line-strong:#9AA0AB;
+  --accent-text:#B3195C; --accent-soft:#FBE3EE;
+  --good:#1B6B5A; --good-soft:#DDEFEA; --warn:#7A5410; --warn-soft:#F7E9CF; --bad:#9A3324; --bad-soft:#F6E1DC; --info:#454D5C; --info-soft:#E8EAEE;
+  color:var(--ink); background:var(--bg); color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 var(--body);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:20px;font-weight:800}
+h3{font-size:15px;font-weight:600;font-family:var(--body)}
+a{color:var(--accent-text)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+.app{display:flex;flex-direction:column;height:100%;max-width:640px;margin:0 auto}
+header.top{display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top) + 12px) 16px 10px;}
+header.top h1{font-size:22px;font-weight:800}
+header.top .sync{margin-left:auto;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.dot.ok{background:var(--good)} .dot.warn{background:var(--warn)}
+main{flex:1;overflow-y:auto;padding:0 16px 24px;-webkit-overflow-scrolling:touch}
+nav.tabs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);background:var(--surface);padding-bottom:env(safe-area-inset-bottom)}
+nav.tabs button{background:none;border:0;padding:9px 4px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11.5px;color:var(--muted);cursor:pointer;position:relative}
+nav.tabs button svg{width:22px;height:22px}
+nav.tabs button[aria-current="page"]{color:var(--accent-text);font-weight:600}
+nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--accent);color:var(--accent-ink);font-size:10px;border-radius:9px;padding:0 5px;min-width:16px;line-height:16px;font-weight:600}
+
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.spread{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.mono{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
+.section-h{display:flex;justify-content:space-between;align-items:baseline;margin:18px 0 8px}
+.section-h h2{font-size:17px}
+.section-h .muted{font-size:13px}
+
+.banner{border-radius:var(--r);padding:12px 14px;font-size:13.5px;display:flex;gap:10px;align-items:flex-start}
+.banner.demo{background:var(--accent-soft);color:var(--ink)}
+.banner.warn{background:var(--warn-soft)}
+
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 14px;cursor:pointer;font-weight:500;display:inline-flex;align-items:center;gap:6px;justify-content:center;min-height:42px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--accent-text);padding:6px 8px;min-height:36px}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn.block{width:100%}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.iconbtn{background:none;border:0;padding:8px;cursor:pointer;color:var(--muted);border-radius:8px;display:inline-flex}
+.iconbtn svg{width:22px;height:22px}
+.iconbtn.on{color:var(--accent)}
+
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:20px;background:var(--line);color:var(--ink);white-space:nowrap}
+.pill.accent{background:var(--accent-soft);color:var(--accent-text)}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.info{background:var(--info-soft);color:var(--info)}
+
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+.tile .n{font-family:var(--display);font-weight:800;font-size:26px;font-variant-numeric:tabular-nums;line-height:1.1}
+.tile .l{font-size:12px;color:var(--muted)}
+.meter{height:8px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:8px}
+.meter > i{display:block;height:100%;background:var(--accent);border-radius:6px}
+
+.list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.item{display:flex;gap:10px;align-items:center;padding:12px 10px 12px 14px;border-top:1px solid var(--line);cursor:pointer;background:none;border-left:0;border-right:0;border-bottom:0;width:100%;text-align:left}
+.item:first-child{border-top:0}
+.item .main{flex:1;min-width:0}
+.item .t{font-weight:600;overflow-wrap:anywhere}
+.item .s{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.item .pills{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.stripe{width:4px;align-self:stretch;border-radius:3px;background:var(--line);flex:none}
+.stripe.bad{background:var(--bad)} .stripe.warn{background:var(--warn)} .stripe.good{background:var(--good)} .stripe.accent{background:var(--accent)}
+.group-h{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:14px 2px 6px;display:flex;justify-content:space-between}
+
+.search{width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:6px 12px;font-size:13px;white-space:nowrap;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.empty{text-align:center;padding:28px 16px;color:var(--muted)}
+
+/* Sheets */
+.sheet{position:fixed;inset:0;background:var(--bg);z-index:20;display:flex;flex-direction:column;max-width:640px;margin:0 auto}
+.sheet[hidden]{display:none}
+.sheet header{display:flex;align-items:center;gap:6px;padding:calc(env(safe-area-inset-top) + 8px) 8px 8px;border-bottom:1px solid var(--line);background:var(--surface)}
+.sheet header h2{font-size:17px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sheet .body{flex:1;overflow-y:auto;padding:16px 16px calc(24px + env(safe-area-inset-bottom))}
+.sheet .foot{padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--surface);display:flex;gap:8px}
+.sheet .foot .btn{flex:1}
+
+.field{display:flex;flex-direction:column;gap:5px}
+.field > label,.field > .lab{font-size:13px;font-weight:600}
+.field .hint{font-size:12px;color:var(--muted)}
+input[type=text],input[type=number],input[type=date],input[type=time],input[type=url],select,textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);min-height:42px}
+textarea{min-height:80px;resize:vertical}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:inline-block;border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:7px 12px;font-size:13.5px;cursor:pointer}
+.opt input:checked + span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.opt input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:14px}
+.check input{width:20px;height:20px;accent-color:var(--accent);flex:none;margin:1px 0 0}
+
+.ev{border:1px solid var(--line);border-radius:var(--r);padding:12px;background:var(--surface);border-left-width:4px}
+.ev.supports{border-left-color:var(--good)} .ev.contradicts{border-left-color:var(--bad)} .ev.mixed{border-left-color:var(--warn)} .ev.neutral,.ev.unknown{border-left-color:var(--line)}
+.ev .claim{font-weight:600}
+.ev .meta{font-size:12.5px;color:var(--muted);margin-top:6px}
+.ev .act{display:flex;gap:4px;margin-top:6px}
+
+.mimo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mimo > div{border-radius:10px;padding:10px;font-size:13px}
+.mimo .hist{background:var(--line)}
+.mimo .cur{background:var(--accent-soft)}
+.mimo b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+
+.gates{display:flex;flex-direction:column}
+.gate{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.gate:first-child{border-top:0}
+.gate .g{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:12px;font-weight:700}
+.gate.done .g{background:var(--good);border-color:var(--good);color:var(--surface)}
+.gate .when{margin-left:auto;font-size:12px;color:var(--muted)}
+
+.timeline{display:flex;flex-direction:column;gap:8px}
+.visit{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface);font-size:13.5px}
+
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar .lbl{display:flex;justify-content:space-between;font-size:13.5px;gap:8px}
+.bar .track{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:4px}
+.bar .track i{display:block;height:100%;background:var(--accent)}
+.bar .sub{font-size:12.5px;color:var(--muted);margin-top:4px}
+
+.funnel .step{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;font-size:13.5px;padding:6px 0}
+.funnel .track{grid-column:1/-1;height:8px;background:var(--line);border-radius:6px;overflow:hidden}
+.funnel .track i{display:block;height:100%;background:var(--info)}
+
+.mapgrid{display:grid;grid-template-columns:auto 1fr;gap:8px 10px;align-items:center;font-size:13.5px}
+.mapgrid .col{font-family:var(--mono);font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+
+.modal{position:fixed;inset:0;background:rgba(20,10,15,.45);z-index:40;display:grid;place-items:center;padding:20px}
+.modal[hidden]{display:none}
+.modal .box{background:var(--surface);border-radius:16px;padding:18px;max-width:380px;width:100%;display:flex;flex-direction:column;gap:12px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;z-index:50;max-width:90%}
+.toast[hidden]{display:none}
+.logo{width:30px;height:30px;flex:none}
+.brief{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.brief .story{padding:14px;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5}
+.brief .story .when{font-size:12px;color:var(--muted);margin-top:6px}
+.brief dl{margin:0;display:grid;grid-template-columns:1fr}
+.brief .kv{padding:10px 14px;border-top:1px solid var(--line);display:grid;grid-template-columns:104px 1fr;gap:10px;font-size:14px}
+.brief .kv:first-child{border-top:0}
+.brief dt{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.brief dd{margin:0}
+.brief ul{margin:0;padding-left:18px}
+.brief .ask{background:var(--surface);padding:12px 14px;font-size:15px;font-weight:600;border-top:2px solid var(--accent)}
+.brief .ask b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-text);margin-bottom:2px}
+.dossier .row2{padding:10px 14px;border-top:1px solid var(--line);display:grid;grid-template-columns:104px 1fr;gap:10px;font-size:14px}
+.dossier .row2:first-child{border-top:0}
+.dossier .k{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.dossier .src{font-size:12px;color:var(--muted);margin-top:2px}
+.dossier .st{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:10px;margin-right:6px;vertical-align:1px}
+.st.found{background:var(--good-soft);color:var(--good)} .st.not_found{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)} .st.not_checked{background:var(--line);color:var(--muted)} .st.conflict{background:var(--warn-soft);color:var(--warn)}
+.h-sub{font-family:var(--body);font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin:6px 2px 6px}
+.dossier .src{font-family:var(--mono);font-size:11.5px}
+.watch{margin:0;padding:12px 14px 12px 30px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+details.sources{border-top:1px solid var(--line);padding-top:12px}
+details.sources>summary{display:flex;justify-content:space-between;font-weight:700;font-size:16px;cursor:pointer;list-style:none;padding:6px 2px}
+details.sources>summary::-webkit-details-marker{display:none}
+details.sources>summary::after{content:"Show";font-size:13px;color:var(--accent-text);font-weight:600}
+details.sources[open]>summary::after{content:"Hide"}
+details.card>summary{cursor:pointer;font-weight:600}
+.cov{font-size:12.5px;color:var(--muted);padding:0 2px 4px}
+.cov .nf{color:var(--warn)}
+
+.route-h{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin:6px 0 14px}
+.route-h h1{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.route-h .sub{color:var(--muted);font-size:15px}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--surface);border-radius:12px;padding:4px;gap:4px;margin-bottom:14px}
+.seg button{border:0;background:none;padding:8px 6px;border-radius:9px;font-weight:600;color:var(--muted);cursor:pointer;min-height:40px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap;line-height:1.3}
+.chip.ok{background:var(--signal);color:#171923}
+.chip.attn{background:var(--accent);color:#171923}
+.chip.warn{background:var(--amber);color:#171923}
+.chip.line{box-shadow:inset 0 0 0 1.5px var(--line-strong);color:var(--ink)}
+.chip.dim{background:var(--surface-2);color:var(--ink)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.cl{display:block;width:100%;text-align:left;background:var(--surface);border:2px solid transparent;border-radius:16px;padding:14px;cursor:pointer;color:var(--ink);font:inherit}
+.cl.open{border-color:var(--accent)}
+.cl-top{display:flex;gap:12px;align-items:flex-start}
+.cl-top svg{width:24px;height:24px;flex:none;color:var(--accent);margin-top:2px}
+.cl-name{font-size:19px;font-weight:700;line-height:1.2}
+.cl-sub{color:var(--muted);font-size:14px}
+.cl-list{margin:-6px 0 10px;border-radius:0 0 16px 16px;overflow:hidden}
+.insight{background:#F6F5F1;color:#171923;border-radius:16px;padding:16px}
+.insight h2{font-size:19px;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.insight .nums{display:grid;grid-template-columns:repeat(3,1fr)}
+.insight .nums>div{padding:0 10px;border-left:1px solid #DAD7CF}
+.insight .nums>div:first-child{padding-left:0;border-left:0}
+.insight .n{font-size:30px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.insight .l{font-size:13.5px;color:#454D5C}
+nav.tabs{grid-template-columns:repeat(5,1fr)!important;align-items:end}
+nav.tabs .center{display:flex;justify-content:center}
+nav.tabs .center button{width:62px;height:62px;border-radius:50%;background:var(--accent);margin-top:-22px;display:grid;place-items:center;padding:0;color:#171923;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+nav.tabs .center button svg{width:34px;height:34px}
+.hero .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.hero h1{font-size:30px;font-weight:800;line-height:1.08;letter-spacing:-.02em;margin:6px 0 8px}
+.hero .addr{color:var(--muted);font-size:14.5px}
+.panel{margin:16px -16px -24px;padding:16px 16px 28px;border-radius:22px 22px 0 0;min-height:65vh;display:flex;flex-direction:column;gap:14px}
+.fof{background:var(--surface);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;box-shadow:0 5px 0 var(--accent)}
+.fof .k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent-text);text-transform:uppercase}
+.fof .q{font-size:17px;font-weight:700;line-height:1.3;margin-top:2px}
+.orows{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:2px 12px}
+.orow{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.orow:first-child{border-top:0}
+.orow svg{width:22px;height:22px;color:var(--ink);margin-top:1px}
+.orow .t{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:700;font-size:15.5px}
+.orow .d{font-size:14px;color:var(--muted);margin-top:2px}
+.dims{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.dims>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+.dims .dk{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dims .dv{font-size:13.5px;font-weight:700;line-height:1.3;margin-top:3px}
+.srcs{display:flex;flex-direction:column;gap:10px}
+.src-card{background:#F6F5F1;color:#171923;border-radius:14px;padding:14px;display:grid;grid-template-columns:28px minmax(0,1fr) 28px;gap:10px}
+.src-card svg.ic{width:24px;height:24px;color:#171923}
+.src-card .h{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:700;font-size:15.5px}
+.src-card .b{font-size:14px;margin-top:3px;color:#2B303A}
+.src-card .m{font-family:var(--mono);font-size:11.5px;color:#5D6574;margin-top:5px}
+.src-card .ext{color:#171923;display:inline-flex}
+.src-card .acts{display:flex;gap:6px;margin-top:6px}
+.src-card .acts button{background:none;border:0;color:#B3195C;font:600 13px var(--body);padding:4px 0;cursor:pointer;min-height:32px}
+.src-card .chip.line{box-shadow:inset 0 0 0 1.5px #9AA0AB;color:#171923}
+.src-card .chip.dim{background:#E4E2DC;color:#171923}
+.src-card.disputed .b{text-decoration:line-through}
+.means{background:#F6F5F1;color:#171923;border-radius:14px;padding:14px;font-size:14.5px}
+.means b{display:flex;gap:8px;align-items:center;font-size:16px;margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <svg class="logo" viewBox="0 0 120 120" aria-hidden="true"><path d="M40 100 C 22 99 11 86 14 71 C 5 63 7 45 21 41 C 21 25 37 15 51 21 C 59 10 79 11 85 23 C 101 21 111 37 105 51 C 115 62 109 81 94 83 C 92 96 75 101 65 93 C 57 87 59 75 69 72 C 79 69 83 59 75 53 C 67 47 56 52 55 61 C 54 49 41 44 35 53" fill="none" stroke="var(--accent)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="53" r="8.5" fill="var(--ink)"/></svg>
+    <h1>FieldMind</h1>
+    <div class="sync" id="sync"><span class="dot" id="syncDot"></span><span id="syncText">Loading</span></div>
+  </header>
+  <main id="view"></main>
+  <nav class="tabs" aria-label="Sections">
+    <button data-tab="route" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>Route</button>
+    <button data-tab="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Search</button>
+    <div class="center"><button data-act="briefme" aria-label="Research and import"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M40 100 C 22 99 11 86 14 71 C 5 63 7 45 21 41 C 21 25 37 15 51 21 C 59 10 79 11 85 23 C 101 21 111 37 105 51 C 115 62 109 81 94 83 C 92 96 75 101 65 93 C 57 87 59 75 69 72 C 79 69 83 59 75 53 C 67 47 56 52 55 61 C 54 49 41 44 35 53" fill="none" stroke="#171923" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="53" r="8.5" fill="#171923"/></svg></button></div>
+    <button data-tab="saves"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Saves<span class="badge" id="retBadge" hidden></span></button>
+    <button data-tab="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>More</button>
+  </nav>
+</div>
+
+<section class="sheet" id="sheet" hidden aria-modal="true" role="dialog">
+  <header><button class="iconbtn" id="sheetBack" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button><h2 id="sheetTitle"></h2><span id="sheetHead"></span></header>
+  <div class="body" id="sheetBody"></div>
+  <div class="foot" id="sheetFoot" hidden></div>
+</section>
+
+<div class="modal" id="modal" hidden><div class="box" role="alertdialog" aria-modal="true"><h3 id="modalTitle"></h3><div id="modalText" class="small muted"></div><div class="row" style="justify-content:flex-end"><button class="btn" id="modalNo">Cancel</button><button class="btn primary" id="modalYes">OK</button></div></div></div>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+"use strict";
+/* ============ Domain ============ */
+const OUTCOMES = {
+  optin:        {label:"Opt-in / enrolled", official:"Enrolled", tone:"good"},
+  dm_absent:    {label:"Decision-maker absent", official:"Decision-maker absent", tone:"warn"},
+  followup:     {label:"Follow-up / bad timing", official:"Bad timing / follow-up", tone:"info"},
+  unqualified:  {label:"Unqualified location", official:"Unqualified location", tone:"bad"},
+  not_interested:{label:"Not interested", official:"Not interested", tone:"bad"},
+  other:        {label:"Other", official:"Other", tone:""}
+};
+const SUBS = {
+  dm_absent: {q:"Who did you actually reach?", opts:{employee:"Employee only", manager:"Manager, not account holder", nobody:"Nobody available", closed_hours:"Closed at that hour"}},
+  followup:  {q:"How firm is the return?", opts:{confirmed:"Confirmed appointment", window:"Told a specific window", vague:"Vague “come back sometime”", busy:"Decision-maker busy right now"}},
+  unqualified:{q:"What was actually wrong?", opts:{perm_closed:"Permanently closed", vacant:"Vacant premises", wrong_suite:"Wrong suite / address mismatch", temp_closed:"Temporarily closed", restricted:"Restricted business type", no_central:"No central AC / heat pump", tstat:"Thermostat incompatible", wifi:"Wi-Fi not suitable", other:"Something else"}},
+  not_interested:{q:"What was behind it?", opts:{incentive:"Incentive not worth it", comfort:"Comfort concerns", distrust:"Distrust of utility programs", landlord:"Landlord / corporate decides", no_reason:"No reason given", other:"Something else"}}
+};
+const RETURNABLE = new Set(["dm_absent","followup","temp_closed","wrong_suite","landlord","busy"]);
+const GATES = [
+  {k:"authorized", t:"Reached the authorized account holder"},
+  {k:"interest", t:"Genuine interest established"},
+  {k:"equipment", t:"Thermostat and cooling checked, with permission"},
+  {k:"wifi", t:"Secure 2.4 GHz Wi-Fi and access confirmed"},
+  {k:"enrolled", t:"Official enrollment and install appointment"}
+];
+const SOURCES = ["Public permit","Business listing","Business website","Customer review","Job posting","News / local media","GIS / property record","Observed on site","Told by staff","Told by owner","Other"];
+const RELEVANCE = {supports:"Supports", contradicts:"Contradicts", mixed:"Mixed", neutral:"Neutral", unknown:"Unknown"};
+const LEVEL = {business:"Business", premises:"Premises", equipment:"Equipment"};
+const DIMS = {
+  business:{t:"Business", d:"Operating model, ownership, history, changes"},
+  people:{t:"People", d:"Who operates it and who decides"},
+  infrastructure:{t:"Infrastructure", d:"Building, HVAC, permits, controls"},
+  behavior:{t:"Participation", d:"Programs, investments, community involvement"},
+  energy:{t:"Energy experience", d:"Outages, comfort, costs, energy projects"}
+};
+function researchLinks(a){
+  const nm = a.name ? `"${a.name.replace(/^Example · /,"")}"` : "", place=[a.city, "NC"].filter(Boolean).join(" ");
+  const g = q => "https://www.google.com/search?q="+encodeURIComponent(q);
+  return {
+    business: g(`${nm} ${place} opened OR "new ownership" OR relocated OR expansion`),
+    people: g(`${nm} ${place} owner OR founder OR "general manager"`),
+    infrastructure: g(`"${a.addr||""}" ${a.city||""} permit HVAC OR mechanical OR "rooftop unit"`),
+    behavior: g(`${nm} ${place} chamber OR sponsor OR "energy efficiency" OR grant OR award`),
+    energy: g(`${nm} ${place} reviews "AC" OR hot OR "power outage" OR "lost power"`)
+  };
+}
+const ACCESS_TIMING = new Set(["dm_absent","followup"]);
+
+/* ============ Utils ============ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad = n => String(n).padStart(2,"0");
+const todayStr = (d=new Date()) => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const monthKey = s => s.slice(0,7);
+const fmtDate = s => { if(!s) return ""; const [y,m,d]=s.slice(0,10).split("-").map(Number); return new Date(y,m-1,d).toLocaleDateString(undefined,{month:"short",day:"numeric"}); };
+const fmtWhen = iso => { const d=new Date(iso); return d.toLocaleDateString(undefined,{month:"short",day:"numeric"})+" · "+d.toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"}); };
+const uid = () => Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);
+const norm = s => String(s||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim()
+  .replace(/\b(street)\b/g,"st").replace(/\b(avenue)\b/g,"ave").replace(/\b(road)\b/g,"rd").replace(/\b(drive)\b/g,"dr").replace(/\b(boulevard)\b/g,"blvd").replace(/\b(suite|ste|unit)\b/g,"ste");
+function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return (h>>>0).toString(36);}
+function accountId(a){ return a.acct ? "a-"+String(a.acct).replace(/[^A-Za-z0-9]/g,"").slice(0,60) : "n-"+hash(norm(a.name)+"|"+norm(a.addr)+"|"+norm(a.zip)); }
+
+function parseCSV(text){
+  text = text.replace(/^﻿/,"");
+  const first = text.split(/\r?\n/)[0] || "";
+  const delim = (first.split("\t").length > first.split(",").length) ? "\t" : ",";
+  const rows=[]; let row=[], f="", q=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(q){ if(c==='"'){ if(text[i+1]==='"'){f+='"';i++;} else q=false; } else f+=c; }
+    else if(c==='"') q=true;
+    else if(c===delim){ row.push(f); f=""; }
+    else if(c==="\n"||c==="\r"){ if(c==="\r"&&text[i+1]==="\n") i++; row.push(f); f=""; if(row.some(x=>x.trim()!=="")) rows.push(row); row=[]; }
+    else f+=c;
+  }
+  row.push(f); if(row.some(x=>x.trim()!=="")) rows.push(row);
+  return rows;
+}
+const FIELDS = [
+  {k:"name", t:"Business name", re:/(business|dba|company|customer\s*name|premise\s*name|^name$|account\s*name)/i},
+  {k:"addr", t:"Street address", re:/(service\s*addr|address|street|addr)/i},
+  {k:"city", t:"City", re:/city|town/i},
+  {k:"zip", t:"ZIP", re:/zip|postal/i},
+  {k:"acct", t:"Account number", re:/(account\s*(no|num|#|id)|acct|premise\s*id|^account$)/i},
+  {k:"phone", t:"Phone", re:/phone|tel/i},
+  {k:"contact", t:"Contact name", re:/contact/i},
+  {k:"device", t:"Device (previous occupant)", re:/device|thermostat|equipment/i},
+  {k:"bizType", t:"Business type", re:/(type|category|naics|sic|segment)/i}
+];
+function guessMap(headers){
+  const map={}, used=new Set();
+  for(const f of FIELDS){
+    const i = headers.findIndex((h,ix)=>!used.has(ix) && f.re.test(h));
+    if(i>-1){ map[f.k]=i; used.add(i); }
+  }
+  return map;
+}
+function rowsToAccounts(rows, map, list, batch){
+  const headers = rows[0], out=[];
+  for(const r of rows.slice(1)){
+    const a = {list};
+    for(const f of FIELDS){ if(map[f.k]!=null && map[f.k]>-1) a[f.k] = (r[map[f.k]]||"").trim(); }
+    if(!a.name && !a.addr) continue;
+    const extra={}; headers.forEach((h,i)=>{ if(!Object.values(map).includes(i) && (r[i]||"").trim()) extra[h.trim().slice(0,40)] = r[i].trim().slice(0,200); });
+    if(Object.keys(extra).length) a.extra = extra;
+    a.id = accountId(a);
+    const stCol = headers.findIndex(h=>/status/i.test(h));
+    a.listStatus = stCol>-1 ? String(r[stCol]||"").trim() : "";
+    a.sourceRows = [Object.assign(Object.fromEntries(headers.map((h,i)=>[String(h).trim()||("Column "+(i+1)), String(r[i]??"").trim()])), batch?{_batch:batch}:{})];
+    out.push(a);
+  }
+  return out;
+}
+function mergeImport(existing, incoming){
+  const res = {added:0, updated:0, dupInFile:0, rows:incoming.length, premises:0, shared:0}, seen=new Set(), next={...existing};
+  const namesById={}; incoming.forEach(a=>{ (namesById[a.id]=namesById[a.id]||[]); if(a.name && !namesById[a.id].includes(a.name)) namesById[a.id].push(a.name); });
+  res.premises = Object.keys(namesById).length;
+  res.shared = Object.values(namesById).filter(n=>n.length>1).length + 0;
+  const dupCount={}; incoming.forEach(a=>dupCount[a.id]=(dupCount[a.id]||0)+1);
+  res.shared = Object.keys(dupCount).filter(k=>dupCount[k]>1).length;
+  let ord = Math.max(0, ...Object.values(existing).map(x=>x.ord||0));
+  const rowsById={}; incoming.forEach(a=>{ (rowsById[a.id]=rowsById[a.id]||[]).push(...(a.sourceRows||[])); });
+  for(const a of incoming){
+    if(seen.has(a.id)){ res.dupInFile++; continue; }
+    a.sourceRows = rowsById[a.id];
+    a.suppressed = a.sourceRows.some(r=>SUPPRESS_RE.test(pickCol(r,[/status/i, /suppress/i])));
+    a.origin = "list";
+    seen.add(a.id);
+    const alts = (namesById[a.id]||[]).filter(n=>n!==a.name);
+    if(alts.length) a.altNames = alts;
+    if(!next[a.id]) a.ord = ++ord;
+    if(next[a.id]){ next[a.id] = {...next[a.id], ...a, importedAt: next[a.id].importedAt}; res.updated++; }
+    else { next[a.id] = {...a, importedAt: new Date().toISOString()}; res.added++; }
+  }
+  return {accounts:next, ...res};
+}
+
+/* ============ Domain model ============
+   Stored: one record per premise (keyed by premise ID) holding the untouched source rows from each list import.
+   Derived here, never stored: list records, utility account references (with first/last seen dates), historical
+   devices, listed names, list membership, and the current occupant (only from research evidence). */
+const SUPPRESS_RE = /suppress|do\s*not|dnc|reject|inelig|remove|hold|exclude/i;
+function pickCol(r, res){ for(const re of res){ const k=Object.keys(r).find(k=>k!=="_batch" && re.test(k)); if(k) return r[k]; } return ""; }
+function listRecords(a){
+  return (a.sourceRows||[]).map((r,i)=>({ i, batch:r._batch||"", raw:r,
+    company: pickCol(r,[/company|business|dba/i, /^name$/i]),
+    account: pickCol(r,[/itron/i, /utility\s*account|account\s*(no|num|#|id)$/i]),
+    device:  pickCol(r,[/device|thermostat/i]),
+    created: pickCol(r,[/created|date/i]),
+    status:  pickCol(r,[/status/i]) }));
+}
+function parseDate(t){ const d=new Date(t); return isNaN(d)?null:d; }
+function entityModel(id){
+  const a=S.accounts[id], recs=listRecords(a);
+  const byTime=recs.slice().sort((x,y)=>((parseDate(y.created)||0)-(parseDate(x.created)||0)));
+  const accounts={}; recs.forEach(r=>{ if(!r.account) return; const d=parseDate(r.created); const x=accounts[r.account]||(accounts[r.account]={ref:r.account, names:[], devices:[], first:d, last:d}); if(r.company && !x.names.includes(r.company)) x.names.push(r.company); if(r.device && !x.devices.includes(r.device)) x.devices.push(r.device); if(d){ if(!x.first||d<x.first) x.first=d; if(!x.last||d>x.last) x.last=d; } });
+  const acctList=Object.values(accounts).sort((x,y)=>((x.first||0)-(y.first||0)));
+  const devices={}; recs.forEach(r=>{ if(!r.device) return; const x=devices[r.device]||(devices[r.device]={device:r.device, accounts:[], names:[]}); if(r.account && !x.accounts.includes(r.account)) x.accounts.push(r.account); if(r.company && !x.names.includes(r.company)) x.names.push(r.company); });
+  if(!recs.length && a.device) devices[a.device]={device:a.device, accounts:[], names:[]};
+  const names=[]; byTime.forEach(r=>{ if(r.company && !names.includes(r.company)) names.push(r.company); }); if(!names.length && a.name) names.push(a.name);
+  const batches=[...new Set(recs.map(r=>r.batch).filter(Boolean))].map(b=>(S.meta.batches||[]).find(x=>x.id===b)||{id:b});
+  const occ=S.notes[id]?.brief?.occupant;
+  const current = occ && occ.name && (occ.status==="verified"||occ.status==="found") ? occ : null;
+  return { premise:{id:a.acct||id, address:[a.addr,a.city,a.zip].filter(Boolean).join(", ")}, records:recs, names, listedName:names[0]||a.name||"", accounts:acctList, succession:acctList.length>1, devices:Object.values(devices), batches, occupant:occ||null, currentOccupant:current, origin:a.origin||"list", suppressed:!!a.suppressed, listStatus:a.listStatus||"" };
+}
+const devicesOf = a => { const m = S.accounts[a.id] ? entityModel(a.id) : null; const d = m ? m.devices.map(x=>x.device) : []; return d.length? d : (a.device?[a.device]:[]); };
+
+/* ============ Research import ============ */
+const SALIENCE = {high:{t:"Energy signals documented", tone:"info"}, some:{t:"Some energy signals", tone:"info"}, none_found:{t:"No energy signals found", tone:""}};
+const ROUTES = {owner_operator:"Owner-operator", manager_needs_approval:"Manager on site, may need approval", corporate:"Corporate or franchise decides", landlord:"Landlord controls HVAC", unknown:"Unknown"};
+function isResearch(obj){ return !!obj && typeof obj==="object" && (obj.schema==="fieldmind.research" || obj.fieldmind_research!=null); }
+const CLAIM_TYPES=["operating_status","occupant_identity","hours","ownership","decision_route","structure","property","occupancy_change","hvac","electrical","energy_experience","participation","other"];
+const ABOUT=["premises","occupant","utility_account","equipment","landlord","other"];
+const CLAIM_STATUS=["verified","found","inferred","historical","conflicting"];
+const OCC_STATUS=["verified","found","inferred","conflicting","unknown"];
+const PROFILE_STATUS=["found","not_found","not_checked","conflict"];
+const ISO_DATE=/^\d{4}-\d{2}-\d{2}/;
+const DIM_FROM_TYPE={operating_status:"business",occupant_identity:"business",hours:"business",occupancy_change:"business",structure:"business",ownership:"people",decision_route:"people",property:"infrastructure",hvac:"infrastructure",electrical:"infrastructure",energy_experience:"energy",participation:"behavior",other:"business"};
+function convertV1(obj){
+  const typeFor = e => ({business:"operating_status", people:"ownership", infrastructure:"property", behavior:"participation", energy:"energy_experience"})[e.dim]||"other";
+  const aboutFor = e => ({business:"occupant", premises:"premises", equipment:"equipment"})[e.level]||"other";
+  return { schema:"fieldmind.research", version:2, generated:obj.generated, converted_from:1,
+    premises:(obj.accounts||[]).map(r=>{ const at=r.researchedAt||obj.generated||"";
+      return { match:r.match||{}, researched_at:at, occupant:{name:null, status:"unknown"},
+        summary:r.story?.summary||"", find_out_first:r.askFirst||"", can_infer:r.story?.canInfer||[], cannot_conclude:r.story?.cannotConclude||[],
+        decision_route: r.decision ? {...r.decision, status:"inferred"} : undefined, profile:r.profile||{}, salience:r.salience||"",
+        thermostat_estimate: r.thermostats ? {...r.thermostats, status:"inferred"} : null, watchouts:r.watchouts||[],
+        coverage:(r.coverage||[]).map(c=>({dimension:c.dim, checked:c.checked, result:c.result})),
+        claims:(r.evidence||[]).map((e,j)=>({ id:"c"+(j+1), claim:e.claim, claim_type:typeFor(e), about:aboutFor(e),
+          status: (e.rel==="contradicts"||e.rel==="mixed")?"conflicting":(e.basis==="inferred"?"inferred":(e.time==="historical"?"historical":"found")),
+          basis: e.basis==="inferred"?"inferred":"observed", source:{name:e.source||"", type:e.source||"", url:e.link||""},
+          observed_at:(at||"").slice(0,10), effective_date:e.date||null, excerpt:e.detail||"", dimension:e.dim })) }; }) };
+}
+function validateResearch(obj){
+  const errors=[], warnings=[], premises=[];
+  if(!obj || typeof obj!=="object" || Array.isArray(obj)) return {ok:false, errors:["The file isn't a JSON object."], warnings, premises};
+  let src=obj;
+  if(obj.fieldmind_research===1){ if(!Array.isArray(obj.accounts)) return {ok:false, errors:["Older research file has no accounts list."], warnings, premises}; src=convertV1(obj); warnings.push("Older research format (v1) was converted. Claim types and occupant were not in that format, so the current occupant shows as not established."); }
+  else if(obj.schema!=="fieldmind.research" || obj.version!==2) return {ok:false, errors:["Not a FieldMind research file. Expected schema \"fieldmind.research\", version 2."], warnings, premises};
+  if(!Array.isArray(src.premises)) return {ok:false, errors:["The file has no premises list."], warnings, premises};
+  src.premises.forEach((p,i)=>{
+    const where=`Premise ${i+1}${p&&p.match&&p.match.name?` (${p.match.name})`:""}`;
+    if(!p || typeof p!=="object"){ errors.push(where+": not an object. Skipped."); return; }
+    const pe=[];
+    if(!p.match || !(p.match.ref || (p.match.name && p.match.addr))) pe.push("match needs a ref, or a name and address");
+    if(!p.researched_at || !ISO_DATE.test(String(p.researched_at))) pe.push("researched_at must be a date");
+    if(p.occupant && !OCC_STATUS.includes(p.occupant.status)) pe.push("occupant.status isn't recognised");
+    if(p.occupant && (p.occupant.status==="found"||p.occupant.status==="verified") && !p.occupant.name) pe.push("occupant marked found without a name");
+    if(p.decision_route && !Object.keys(ROUTES).includes(p.decision_route.route)) pe.push("decision_route.route isn't recognised");
+    for(const [k,f] of Object.entries(p.profile||{})) if(!f || !PROFILE_STATUS.includes(f.status)) pe.push(`profile.${k}.status isn't recognised`);
+    if(p.thermostat_estimate && p.thermostat_estimate.status!=="inferred") pe.push("thermostat_estimate must be marked inferred");
+    if(pe.length){ errors.push(where+": "+pe.join("; ")+". Skipped."); return; }
+    const claims=[];
+    (Array.isArray(p.claims)?p.claims:[]).forEach((c,j)=>{
+      const cw=`${where}, claim ${(c&&c.id)||j+1}`, ce=[];
+      if(!c || !c.claim) ce.push("no claim text");
+      else {
+        if(!CLAIM_TYPES.includes(c.claim_type)) ce.push("claim_type isn't recognised");
+        if(!ABOUT.includes(c.about)) ce.push("about isn't recognised");
+        if(!CLAIM_STATUS.includes(c.status)) ce.push("status isn't recognised");
+        if(c.basis!=="observed" && c.basis!=="inferred") ce.push("basis must be observed or inferred");
+        if(!c.observed_at || !ISO_DATE.test(String(c.observed_at))) ce.push("observed_at is missing");
+        const url=c.source&&c.source.url||"", okRef = /^https?:\/\//i.test(url) || (c.source && ["field_observation","authorized_list"].includes(c.source.type));
+        if(c.basis==="observed" && (!c.source || !c.source.name || !okRef)) ce.push("observed claim has no source link");
+        if(c.basis==="inferred" && !okRef && !(Array.isArray(c.derived_from) && c.derived_from.length)) ce.push("inferred claim names no source or derived_from");
+        if(c.status==="inferred" && c.basis!=="inferred") ce.push("status inferred needs basis inferred");
+      }
+      if(ce.length){ errors.push(cw+": "+ce.join("; ")+". Dropped."); return; }
+      claims.push(c);
+    });
+    premises.push({...p, claims});
+  });
+  return {ok:true, errors, warnings, premises, generated:src.generated, convertedFrom:src.converted_from||null};
+}
+const refOf = id => "r"+hash("fm:"+id).slice(0,6);
+function matchAccount(m, accounts){
+  if(!m) return null;
+  if(m.ref){ for(const id of Object.keys(accounts)) if(refOf(id)===m.ref) return id; }
+  if(m.id && accounts[m.id]) return m.id;
+  if(m.acct){ const id=accountId({acct:m.acct}); if(accounts[id]) return id; }
+  const nn=norm(m.name), na=norm(m.addr);
+  for(const [id,a] of Object.entries(accounts)){
+    if(nn && norm(a.name).replace(/^example /,"")===nn.replace(/^example /,"") && (!na || norm(a.addr)===na || norm(a.addr).startsWith(na) || na.startsWith(norm(a.addr)))) return id;
+  }
+  return null;
+}
+const FIELD_LABEL={hours:"Hours",owner:"Owner",structure:"Structure",property:"Property",occupancy:"Occupancy",hvac:"Last HVAC work",electrical:"Last electrical",route:"Who decides",salience:"Energy relevance"};
+function diffBriefs(prev, r){
+  const out=[], pp=prev.profile||{}, np=r.profile||{};
+  const show = f => f ? `${({found:"Found",not_found:"Not found",not_checked:"Not checked",conflict:"Conflicting"})[f.status]||""}${f.value?": "+f.value:""}` : "";
+  for(const k of ["hours","owner","structure","property","occupancy","hvac","electrical"]){
+    const a=pp[k], b=np[k]; if(!b) continue;
+    if(!a || a.status!==b.status || norm(a.value)!==norm(b.value)) out.push({field:k, from:show(a)||"—", to:show(b)});
+  }
+  const ra=prev.decision?.route, rb=r.decision?.route;
+  if(rb && ra!==rb) out.push({field:"route", from:ROUTES[ra]||"—", to:ROUTES[rb]||rb});
+  if(r.salience && prev.salience!==r.salience) out.push({field:"salience", from:SALIENCE[prev.salience]?.t||"—", to:SALIENCE[r.salience]?.t||r.salience});
+  return out;
+}
+function applyResearch(v, accounts, notes){
+  const res={matched:0, unmatched:[], suppressed:0, evidence:0, changed:0};
+  for(const p of v.premises){
+    const id = matchAccount(p.match, accounts);
+    if(!id){ res.unmatched.push(p.match.name||p.match.ref||"(no name)"); continue; }   // research never adds or approves prospects
+    res.matched++;
+    if(accounts[id].suppressed) res.suppressed++;
+    const n = notes[id] || (notes[id]={today:false, evidence:[], visits:[], ret:null, dm:{}});
+    const at = p.researched_at;
+    const claimById={}; (p.claims||[]).forEach(c=>{ if(c.id) claimById[c.id]=c; });
+    const profile={}; for(const [k,f] of Object.entries(p.profile||{})){ const c=(f.evidence||[]).map(x=>claimById[x]).find(Boolean); profile[k]={...f, source:f.source||(c&&c.source&&c.source.name)||"", link:f.link||(c&&c.source&&c.source.url)||"", date:f.date||(c&&c.effective_date)||""}; }
+    const norm2 = {profile, decision:p.decision_route||null, salience:p.salience||""};
+    if(n.brief){
+      const ch = diffBriefs(n.brief, norm2);
+      const po=n.brief.occupant, no=p.occupant; if((no&&no.name||"")!==(po&&po.name||"") || (no&&no.status)!==(po&&po.status)) ch.push({field:"occupant", from:po&&po.name?`${po.name} (${po.status})`:"Not established", to:no&&no.name?`${no.name} (${no.status})`:"Not established"});
+      if(ch.length){ n.changes=(n.changes||[]).concat(ch.map(c=>({...c, at, since:n.brief.researchedAt}))).slice(-30); res.changed++; }
+      n.briefHistory=(n.briefHistory||[]).concat([{researchedAt:n.brief.researchedAt, occupant:n.brief.occupant||null, profile:n.brief.profile, decision:n.brief.decision, summary:n.brief.story?.summary||""}]).slice(-5);
+    }
+    n.brief = {schemaVersion:2, convertedFrom:v.convertedFrom||null, occupant:p.occupant||{name:null,status:"unknown"}, profile, story:{summary:p.summary||"", canInfer:p.can_infer||[], cannotConclude:p.cannot_conclude||[]}, salience:p.salience||"", decision:p.decision_route||null, thermostats:p.thermostat_estimate||null, watchouts:p.watchouts||[], askFirst:p.find_out_first||"", coverage:(p.coverage||[]).map(c=>({dim:c.dimension, checked:c.checked, result:c.result})), researchedAt:at};
+    const keyOf = e => norm(e.claim)+"|"+norm(e.link||e.source);
+    const have = new Set(n.evidence.map(keyOf));
+    const idMap={};
+    for(const c of (p.claims||[])){
+      const ev = {id:uid(), claim:String(c.claim).slice(0,300), claimType:c.claim_type, about:c.about, status:c.status, basis:c.basis,
+        source:(c.source&&c.source.name)||"", sourceType:(c.source&&c.source.type)||"", link:(c.source&&c.source.url)||"",
+        observedAt:c.observed_at, date:c.effective_date||"", detail:String(c.excerpt||"").slice(0,800),
+        dim: c.dimension && DIMS[c.dimension] ? c.dimension : (DIM_FROM_TYPE[c.claim_type]||"business"),
+        level: ({premises:"premises", equipment:"equipment"})[c.about]||"business", time: c.status==="historical"?"historical":"current",
+        rel: c.status==="conflicting"?"mixed":"neutral", conflictsWith:c.conflicts_with||[], derivedFrom:c.derived_from||[], srcClaimId:c.id||"",
+        verified:c.status==="verified", fromResearch:true, researchedAt:at, addedAt:new Date().toISOString()};
+      if(have.has(keyOf(ev))) continue; have.add(keyOf(ev)); n.evidence.push(ev); idMap[c.id]=ev.id; res.evidence++;
+    }
+    n.evidence.forEach(e=>{ if(e.conflictsWith && e.conflictsWith.length) e.conflictsWith=e.conflictsWith.map(x=>idMap[x]||x); });
+  }
+  return res;
+}
+function researchRequest(ids){
+  ids = ids.filter(id=>S.accounts[id] && !S.accounts[id].suppressed);
+  const lines = ids.map(id=>{ const a=S.accounts[id]; return "- "+[a.name, [a.addr,a.city,a.zip].filter(Boolean).join(", "), "ref "+refOf(id), a.list==="mimo"?"MIMO"+(devicesOf(a).length?" (prev device "+devicesOf(a).join(" + ")+")":""):"", a.bizType||""].filter(Boolean).join(" | "); });
+  return "Run FieldMind research (schema v2) on these premises and give me the import file. Copy each ref into match.ref exactly.\n\n"+lines.join("\n");
+}
+
+/* ============ State ============ */
+let S = { accounts:{}, notes:{}, meta:{target:200}, demo:false };
+let UI = { tab:"route", routeMode:"clusters", openCluster:null, briefTab:"overview", srcFilter:"all", filter:"all", q:"", sheet:null };
+const note = id => S.notes[id] || (S.notes[id] = {today:false, evidence:[], visits:[], ret:null, dm:{}});
+const lastVisit = id => { const v = S.notes[id]?.visits; return v && v.length ? v[v.length-1] : null; };
+
+function accountStatus(id){
+  const n = S.notes[id], v = lastVisit(id);
+  if(!v) return {k:"new", t:"Not visited", tone:""};
+  if(v.result==="optin") return {k:"enrolled", t:"Enrolled", tone:"good"};
+  if(n && n.ret && n.ret.date) return {k:"returning", t:"Return "+fmtDate(n.ret.date), tone:"info"};
+  if(v.result==="unqualified" || v.result==="not_interested") return {k:"closed", t:OUTCOMES[v.result].label, tone:"bad"};
+  return {k:"visited", t:OUTCOMES[v.result].label, tone:OUTCOMES[v.result].tone};
+}
+const clip=(t,n)=>{ t=String(t||""); if(t.length<=n) return t; const c=t.slice(0,n); return c.slice(0,c.lastIndexOf(" ")>60?c.lastIndexOf(" "):n).replace(/[,;:.]$/,"")+"…"; };
+function parseAddr(addr){
+  const m = String(addr||"").trim().match(/^(\d+)\s+(.*)$/);
+  let num = m ? Number(m[1]) : null, rest = (m ? m[2] : String(addr||"")).replace(/\s+(ste|suite|unit|bldg|#).*$/i,"").trim();
+  rest = rest.replace(/\b(blvd|boulevard)\b/i,"Blvd").replace(/\b(rd|road)\b/i,"Rd").replace(/\b(dr|drive)\b/i,"Dr").replace(/\b(ave|avenue)\b/i,"Ave").replace(/\b(st|street)\b/i,"St").replace(/\b(ln|lane)\b/i,"Ln");
+  return {num, street: rest.toLowerCase().replace(/(^|\s)\S/g, c=>c.toUpperCase())};
+}
+function clusters(ids){
+  const g={};
+  for(const id of ids){ const a=S.accounts[id], p=parseAddr(a.addr), k=(p.street||"No street")+"|"+(a.city||"").toLowerCase(); (g[k]=g[k]||{key:k, street:p.street||"No street", city:a.city||"", ids:[]}).ids.push(id); }
+  const ordOf = id => S.accounts[id].ord ?? 1e9;
+  const out = Object.values(g);
+  out.forEach(c=>{ c.ids.sort((x,y)=> (ordOf(x)-ordOf(y)) || ((parseAddr(S.accounts[x].addr).num||0)-(parseAddr(S.accounts[y].addr).num||0))); c.first=Math.min(...c.ids.map(ordOf)); const nums=c.ids.map(i=>parseAddr(S.accounts[i].addr).num).filter(n=>n!=null); c.range = nums.length? (Math.min(...nums)===Math.max(...nums)? String(nums[0]) : `${Math.min(...nums)}–${Math.max(...nums)}`) : ""; });
+  return out.sort((a,b)=>a.first-b.first || a.street.localeCompare(b.street));
+}
+const READY = {
+  ready:{t:"Local owner likely", tone:"good"},
+  route:{t:"Landlord or corporate route", tone:"info"},
+  check:{t:"Occupant unconfirmed", tone:"warn"},
+  unknown:{t:"Decision route unknown", tone:""},
+  none:{t:"Not researched", tone:""},
+  suppressed:{t:"Suppressed on list", tone:"bad"}
+};
+// Labels describe evidence, not enrollment readiness. "Local owner likely" needs a found/verified occupant
+// AND an owner-operator route with a stated basis.
+function readiness(id){
+  const a=S.accounts[id]; if(a && a.suppressed) return {k:"suppressed", ...READY.suppressed, reason:"Marked "+(a.listStatus||"suppressed")+" on Brian's list. Don't contact."};
+  const b=S.notes[id]?.brief;
+  if(!b) return {k:"none", ...READY.none, reason:""};
+  const p=b.profile||{}, d=b.decision||{}, occ=p.occupancy?.status, who=b.occupant;
+  const occFound = occ==="found" || (who && (who.status==="found"||who.status==="verified"));
+  if(occ==="conflict" || (who && who.status==="conflicting")) return {k:"check", ...READY.check, reason:p.occupancy?.value||b.askFirst||""};
+  if(d.route==="corporate"||d.route==="landlord") return {k:"route", ...READY.route, reason:d.basis||d.who||""};
+  if(d.route==="owner_operator" && d.basis && occFound) return {k:"ready", ...READY.ready, reason: (d.when? "Best time: "+d.when+". " : "")+"Inferred from: "+d.basis};
+  if(!occFound) return {k:"check", ...READY.check, reason:"No source shows who's operating here now. "+(b.askFirst||"")};
+  return {k:"unknown", ...READY.unknown, reason:b.askFirst||""};
+}
+function gatesFor(id){
+  const out={}; for(const v of (S.notes[id]?.visits||[])) for(const g of (v.gates||[])) if(!out[g]) out[g]=v.at;
+  return out;
+}
+function returnsList(){
+  const t = todayStr(), list=[];
+  for(const [id,n] of Object.entries(S.notes)){ if(n.ret && n.ret.date && S.accounts[id]) list.push({id, ...n.ret, overdue:n.ret.date<t, due:n.ret.date===t}); }
+  return list.sort((a,b)=> a.date.localeCompare(b.date) || (a.time||"").localeCompare(b.time||""));
+}
+function allVisits(){
+  const out=[]; for(const [id,n] of Object.entries(S.notes)) for(const v of (n.visits||[])) if(S.accounts[id]) out.push({...v, accountId:id});
+  return out.sort((a,b)=>a.at.localeCompare(b.at));
+}
+function stats(month){
+  const vs = allVisits().filter(v=>monthKey(todayStr(new Date(v.at)))===month);
+  const mins = vs.reduce((s,v)=>s+(Number(v.minutes)||0),0);
+  const opt = vs.filter(v=>v.result==="optin");
+  const kw = opt.reduce((s,v)=>s+(Number(v.kw)||0),0);
+  const by = {}; for(const v of vs){ const b = by[v.result] || (by[v.result]={n:0,subs:{}}); b.n++; if(v.sub) b.subs[v.sub]=(b.subs[v.sub]||0)+1; }
+  const gateCounts = Object.fromEntries(GATES.map(g=>[g.k, vs.filter(v=>(v.gates||[]).includes(g.k)).length]));
+  const access = vs.filter(v=>ACCESS_TIMING.has(v.result)).length;
+  return {visits:vs.length, mins, hours:mins/60, optins:opt.length, kw, by, gateCounts, access, perHour: mins? opt.length/(mins/60) : 0, days:new Set(vs.map(v=>todayStr(new Date(v.at)))).size};
+}
+
+/* ============ Persistence ============ */
+const Store = {
+  mode:"demo", db:null, uid:null, queues:{},
+  setSync(state, text){ $("#syncDot").className = "dot "+(state||""); $("#syncText").textContent = text; },
+  async init(){
+    let timer = setTimeout(()=>{ if(this.mode==="demo"&&!this.ready) this.useLocal("Couldn't reach cloud storage. Saving on this device."); }, 10000);
+    try{
+      const db = window.claude && window.claude.use ? await window.claude.use("db") : null;
+      const user = db && window.claude.use ? await window.claude.use("user") : null;
+      const id = user ? await user.id() : null;
+      if(db && id){
+        this.db=db; this.uid=id;
+        const loaded = await this.loadCloud();
+        clearTimeout(timer); this.ready=true; this.mode="cloud";
+        this.setSync("ok","Synced");
+        applyLoaded(loaded);
+        return;
+      }
+    }catch(e){ console.warn(e); }
+    clearTimeout(timer); this.ready=true;
+    this.useLocal("Saving on this device only.");
+  },
+  useLocal(msg){
+    this.mode="local";
+    let loaded=null; try{ loaded = JSON.parse(localStorage.getItem("fieldmind.v1")||"null"); }catch(e){}
+    this.setSync("warn", "This device");
+    this.localMsg = msg;
+    applyLoaded(loaded);
+  },
+  ws(){ return this.db.doc("data/users/"+this.uid+"/workspace"); },
+  async loadCloud(){
+    const ws = this.ws();
+    const [metaSnap, chunks, notes] = await Promise.all([ws.get(), ws.collection("chunks").get(), ws.collection("notes").get()]);
+    if(!metaSnap.exists && chunks.empty) return null;
+    const accounts={}; chunks.docs.forEach(d=>Object.assign(accounts, d.data().items||{}));
+    const nts={}; notes.docs.forEach(d=>{ nts[d.id]=JSON.parse(JSON.stringify(d.data())); });
+    return {accounts, notes:nts, meta:{target:200, ...(metaSnap.exists?metaSnap.data():{})}};
+  },
+  q(key, fn){ const p=(this.queues[key]||Promise.resolve()).then(fn,fn); this.queues[key]=p.catch(()=>{}); return p; },
+  async write(key, fn){
+    try{ await this.q(key, fn); }
+    catch(e){ console.warn(e); this.setSync("warn","Not saved"); toast(e && e.code==="quota_exceeded" ? "Storage is full. Delete old accounts and try again." : "Couldn't save that change. Check your connection and try again."); throw e; }
+  },
+  saveLocal(){ try{ localStorage.setItem("fieldmind.v1", JSON.stringify({accounts:S.accounts, notes:S.notes, meta:S.meta})); }catch(e){ toast("This browser won't keep data. Use the Copy backup button in Insights."); } },
+  async saveAccounts(){
+    if(S.demo) return;
+    if(this.mode!=="cloud") return this.saveLocal();
+    const ws=this.ws(), ids=Object.keys(S.accounts), CH=60, n=Math.ceil(ids.length/CH), old=S.meta.chunks||0;
+    this.setSync("","Saving");
+    for(let i=0;i<n;i++){ const items={}; ids.slice(i*CH,(i+1)*CH).forEach(id=>items[id]=S.accounts[id]); await this.write("c"+i, ()=>ws.collection("chunks").doc("c"+i).set({items})); }
+    for(let i=n;i<old;i++) await this.write("c"+i, ()=>ws.collection("chunks").doc("c"+i).delete());
+    S.meta.chunks=n; await this.saveMeta();
+  },
+  async saveNote(id){
+    if(S.demo) return;
+    if(this.mode!=="cloud") return this.saveLocal();
+    this.setSync("","Saving");
+    const body = JSON.parse(JSON.stringify(S.notes[id]||{}));
+    await this.write("n:"+id, ()=>this.ws().collection("notes").doc(id).set(body));
+    this.setSync("ok","Synced");
+  },
+  async deleteNote(id){ if(this.mode==="cloud") await this.write("n:"+id, ()=>this.ws().collection("notes").doc(id).delete()); else this.saveLocal(); },
+  async saveMeta(){
+    if(S.demo) return;
+    if(this.mode!=="cloud") return this.saveLocal();
+    await this.write("meta", ()=>this.ws().set(JSON.parse(JSON.stringify(S.meta))));
+    this.setSync("ok","Synced");
+  }
+};
+function applyLoaded(loaded){
+  if(loaded && loaded.accounts && Object.keys(loaded.accounts).length){
+    S = {accounts:loaded.accounts, notes:loaded.notes||{}, meta:{target:200, ...(loaded.meta||{})}, demo:false};
+  }
+  render();
+}
+
+/* ============ Example workspace (not saved) ============ */
+function loadDemo(){
+  const now = new Date(), iso = (dDays,h) => { const d=new Date(now); d.setDate(d.getDate()+dDays); d.setHours(h,15,0,0); return d.toISOString(); };
+  const t = (dDays) => { const d=new Date(now); d.setDate(d.getDate()+dDays); return todayStr(d); };
+  const A = [
+    {name:"Example · Brightline Dental Studio", addr:"412 Example Pkwy, Ste 3", city:"Raleigh", zip:"27606", acct:"EX-10021", bizType:"Dental office", list:"approved"},
+    {name:"Example · Copper Kettle Bakery", addr:"88 Sample St", city:"Raleigh", zip:"27606", acct:"EX-10022", bizType:"Bakery", list:"approved"},
+    {name:"Example · Northside Auto Glass", addr:"1500 Demo Rd", city:"Raleigh", zip:"27609", acct:"EX-10023", bizType:"Auto service", list:"mimo", device:"IntelliTemp"},
+    {name:"Example · Lotus Nail Lounge", addr:"220 Placeholder Ave, Ste 110", city:"Cary", zip:"27511", acct:"EX-10024", bizType:"Salon", list:"approved"},
+    {name:"Example · Harbor Insurance Group", addr:"7 Fictional Ct", city:"Cary", zip:"27511", acct:"EX-10025", bizType:"Office", list:"mimo", device:"Emerson"}
+  ];
+  const accounts={}; A.forEach(a=>{ a.id=accountId(a); accounts[a.id]=a; });
+  const id = i => A[i].id;
+  const notes = {
+    [id(0)]:{today:true, brief:{researchedAt:iso(-1,7), salience:"high", askFirst:"Is the new rooftop unit on the same thermostat as the waiting room, or did they add a separate control?",
+      story:{summary:"Patients complained about a warm waiting room last summer. The owner answered publicly that a new unit was coming, and a mechanical permit followed in the spring. Cooling and patient comfort have had the owner's personal attention.", canInfer:["The owner engages with comfort issues directly and publicly","Cooling equipment changed within the last year"], cannotConclude:["That the new equipment is compatible","That the owner wants to join","That they'd accept event-day temperature changes in a patient area"]},
+      decision:{route:"owner_operator", who:"Practice owner (dentist), named on the practice website", when:"Before 8:30am, before patients", basis:"Owner replies to reviews personally; staff said mornings"},
+      thermostats:{low:2, high:3, basis:"About 2,400 sq ft suite on county records; separate operatory and front-office zones are typical for dental"},
+      watchouts:["Patient comfort is a sensitive topic for them. Lead with the 50% option.","Permit covers the whole building, so confirm which unit serves Suite 3"],
+      coverage:[{dim:"infrastructure",checked:"City permit search",result:"found"},{dim:"behavior",checked:"Chamber and local program directories",result:"not_found"},{dim:"people",checked:"Practice website team page",result:"found"}]},
+      dm:{name:"Dr. Patel (owner)", role:"Owner", best:"Before 8:30am"}, evidence:[
+      {id:uid(), dim:"infrastructure", claim:"Rooftop cooling unit replaced", detail:"Permit is for the whole building. Which suite it serves and the current thermostat are unverified.", source:"Public permit", date:t(-140), rel:"supports", level:"equipment", basis:"observed", time:"historical", verified:false, link:""},
+      {id:uid(), dim:"energy", claim:"Several reviews mention a warm waiting room last summer; owner replied that a new unit was coming", source:"Customer review", date:t(-200), rel:"mixed", level:"business", basis:"observed", time:"historical", verified:false, link:""}
+    ], visits:[{id:uid(), at:iso(-6,14), result:"dm_absent", sub:"employee", gates:[], minutes:6, notes:"Front desk says owner is in early. Mornings only."}], ret:{date:t(0), time:"08:15", kind:"window", note:"Owner in before patients"}},
+    [id(1)]:{today:true, evidence:[{id:uid(), dim:"business", claim:"Listing shows closed Mondays and Tuesdays", source:"Business listing", date:t(-10), rel:"neutral", level:"business", basis:"observed", time:"current", verified:false, link:""}], visits:[], ret:null, dm:{}},
+    [id(2)]:{today:false, evidence:[], visits:[{id:uid(), at:iso(-3,11), result:"followup", sub:"confirmed", gates:["authorized","interest"], minutes:14, notes:"New owner since spring. Interested, wants to see the thermostat with his tech."}], ret:{date:t(2), time:"10:00", kind:"confirmed", note:"Meet owner + HVAC tech"}, dm:{name:"Marcus (new owner)", role:"Owner", best:"Late morning"}},
+    [id(3)]:{today:false, evidence:[], visits:[
+      {id:uid(), at:iso(-9,13), result:"optin", sub:"", level:"75", kw:4.5, gates:["authorized","interest","equipment","wifi","enrolled"], minutes:22, notes:"Owner present. Two thermostats, both fine. Install booked."}
+    ], ret:null, dm:{}},
+    [id(4)]:{today:false, evidence:[], visits:[{id:uid(), at:iso(-12,15), result:"unqualified", sub:"wrong_suite", gates:[], minutes:5, notes:"Address is the whole building; account looks like it belongs to Suite 200, not this office."}], ret:{date:t(-1), time:"", kind:"vague", note:"Find Suite 200 tenant"}, dm:{}}
+  };
+  S = {accounts, notes, meta:{target:200}, demo:true};
+}
+
+/* ============ Rendering ============ */
+function setTab(t){ UI.tab=t; document.querySelectorAll("nav.tabs button[data-tab]").forEach(b=>b.setAttribute("aria-current", b.dataset.tab===t?"page":"false")); render(); $("#view").scrollTop=0; }
+document.querySelectorAll("nav.tabs button[data-tab]").forEach(b=>b.addEventListener("click",()=>setTab(b.dataset.tab)));
+
+function render(){
+  const v = $("#view");
+  const r = returnsList().filter(x=>x.overdue||x.due).length;
+  const badge=$("#retBadge"); badge.hidden=!r; badge.textContent=r;
+  v.innerHTML = topBanner() + ({route:viewRoute, search:viewAccounts, saves:viewSaves, more:viewInsights, today:viewToday, accounts:viewAccounts}[UI.tab]||viewRoute)();
+  if(UI.sheet) UI.sheet.refresh && UI.sheet.refresh();
+}
+function topBanner(){
+  if(S.demo) return `<div class="banner demo" style="margin-bottom:12px"><div><b>You're looking at example accounts.</b> Nothing here is saved. Import your approved list to start your own workspace.<div style="margin-top:8px"><button class="btn primary" data-act="import">Import a list</button></div></div></div>`;
+  if(Store.mode==="local" && Store.localMsg) return `<div class="banner warn" style="margin-bottom:12px">${esc(Store.localMsg)} Use Copy backup in Insights now and then.</div>`;
+  return "";
+}
+function accountRow(id, extra=""){
+  const a=S.accounts[id], n=S.notes[id], st=accountStatus(id);
+  const ev=(n?.evidence||[]).length;
+  const stripe = st.k==="returning" && n.ret.date<=todayStr() ? "bad" : (st.tone==="good"?"good":st.k==="returning"?"info":st.k==="closed"?"":"");
+  const rd = readiness(id), alts = a.altNames||[];
+  return `<button class="item" data-open="${esc(id)}"><span class="stripe ${stripe}"></span><span class="main"><span class="t">${esc(a.name||"(no name)")}</span><span class="s" style="display:block">${esc([a.addr,a.city].filter(Boolean).join(", "))}${alts.length?` · also listed: ${esc(alts.join(", "))}`:""}</span>${rd.k!=="none" && st.k==="new"?`<span class="s" style="display:block;color:var(--ink);margin-top:3px"><span class="pill ${rd.tone}">${rd.t}</span> ${esc(clip(rd.reason,130))}</span>`:""}<span class="pills">${a.list==="mimo"?'<span class="pill">MIMO</span>':""}${st.k!=="new" && !(extra && st.k==="returning")?`<span class="pill ${st.tone}">${esc(st.t)}</span>`:""}${n?.brief?.thermostats?`<span class="pill">~${esc(n.brief.thermostats.low)}${n.brief.thermostats.high&&n.brief.thermostats.high!=n.brief.thermostats.low?"–"+esc(n.brief.thermostats.high):""} tstat</span>`:""}${ev&&!n?.brief?`<span class="pill">${ev} evidence</span>`:""}${extra}</span></span><span class="iconbtn ${n?.today?"on":""}" data-star="${esc(id)}" role="button" aria-label="${n?.today?"Remove from saves":"Save for today"}" tabindex="0">${starSvg(n?.today)}</span></button>`;
+}
+const starSvg = on => `<svg viewBox="0 0 24 24" fill="${on?"currentColor":"none"}" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>`;
+
+function viewToday(){
+  const month = todayStr().slice(0,7), st = stats(month), tgt = Number(S.meta.target)||200;
+  const due = returnsList().filter(r=>r.overdue||r.due);
+  const dueIds = new Set(due.map(r=>r.id));
+  const planned = Object.keys(S.accounts).filter(id=>S.notes[id]?.today && !dueIds.has(id));
+  const todayVisits = allVisits().filter(v=>todayStr(new Date(v.at))===todayStr());
+  const byZip = {}; planned.forEach(id=>{ const z=S.accounts[id].zip||"No ZIP"; (byZip[z]=byZip[z]||[]).push(id); });
+  let html = `<div class="tiles">
+    <div class="tile"><div class="n">${st.kw.toFixed(1)}<span class="muted" style="font-size:15px"> / ${tgt} kW</span></div><div class="l">This month</div><div class="meter"><i style="width:${Math.min(100,st.kw/tgt*100).toFixed(1)}%"></i></div></div>
+    <div class="tile"><div class="n">${st.perHour?st.perHour.toFixed(2):"–"}</div><div class="l">Opt-ins per field hour (${st.optins} opt-in${st.optins===1?"":"s"}, ${st.hours.toFixed(1)} h)</div></div>
+  </div>`;
+  html += `<div class="section-h"><h2>Returns due</h2><span class="muted">${due.length}</span></div>`;
+  html += due.length ? `<div class="list">${due.map(r=>accountRow(r.id, `<span class="pill ${r.overdue?"bad":"warn"}">${r.overdue?"Overdue "+fmtDate(r.date):"Today"}${r.time?" "+esc(r.time):""}</span>${r.kind==="confirmed"?'<span class="pill good">Confirmed</span>':r.kind==="vague"?'<span class="pill">Vague</span>':""}`)).join("")}</div>` : `<div class="card muted small">No returns due today.</div>`;
+  html += `<div class="section-h"><h2>Planned stops</h2><span class="muted">${planned.length}</span></div>`;
+  if(planned.length){ const unb = planned.filter(id=>!S.notes[id]?.brief).length; if(unb) html += `<div class="card small spread" style="margin-bottom:4px"><span>${unb} planned stop${unb===1?" has":"s have"} no brief yet.</span><button class="btn" data-act="reqtoday">Copy research request</button></div>`; for(const c of clusters(planned)) html += `<div class="group-h"><span>${esc(c.street)}${c.range?" · "+esc(c.range):""}</span><span>${c.ids.length}</span></div><div class="list">${c.ids.map(id=>accountRow(id)).join("")}</div>`; }
+  else html += `<div class="card small muted">Star the stops from Brian's list you're working today. They group here by street, in his order.</div>`;
+  html += `<div class="section-h"><h2>Logged today</h2><span class="muted">${todayVisits.length} visit${todayVisits.length===1?"":"s"}</span></div>`;
+  html += todayVisits.length ? `<div class="list">${todayVisits.slice().reverse().map(v=>accountRow(v.accountId)).join("")}</div>` : `<div class="card small muted">Visits you log today show up here.</div>`;
+  return html;
+}
+
+function viewAccounts(){
+  const ids = Object.keys(S.accounts);
+  const q = norm(UI.q);
+  const counts = {all:ids.length, new:0, mimo:0, researched:0, returning:0, enrolled:0, closed:0};
+  ids.forEach(id=>{ const k=accountStatus(id).k; if(counts[k]!=null) counts[k]++; if(S.accounts[id].list==="mimo") counts.mimo++; if(S.notes[id]?.brief) counts.researched++; });
+  const filt = ids.filter(id=>{
+    const a=S.accounts[id], k=accountStatus(id).k;
+    if(UI.filter==="mimo" && a.list!=="mimo") return false;
+    if(UI.filter==="researched" && !S.notes[id]?.brief) return false;
+    if(!["all","mimo","researched"].includes(UI.filter) && k!==UI.filter) return false;
+    if(q && !norm([a.name,a.addr,a.city,a.zip,a.acct,a.bizType].join(" ")).includes(q)) return false;
+    return true;
+  });
+  const F = [["all","All"],["new","Not visited"],["returning","Returning"],["researched","Briefed"],["mimo","MIMO"],["enrolled","Enrolled"],["closed","Closed out"]];
+  let html = `<div class="row" style="margin-bottom:10px"><input class="search" id="q" type="text" placeholder="Search name, address, ZIP, account #" value="${esc(UI.q)}" aria-label="Search accounts" style="flex:1"></div>
+  <div class="row"><button class="btn" data-act="import">Import list</button><button class="btn" data-act="add">Add account</button><button class="btn" data-act="reqfilter">Copy research request</button></div>
+  <div class="chips" role="group" aria-label="Filter">${F.map(([k,t])=>`<button class="chip" data-filter="${k}" aria-pressed="${UI.filter===k}">${t} <span class="muted">${counts[k]}</span></button>`).join("")}</div>`;
+  const li = S.meta.lastImport;
+  const researched = ids.filter(id=>S.notes[id]?.brief).length;
+  if(li && !S.demo) html = `<div class="tiles" style="grid-template-columns:repeat(4,1fr);margin-bottom:10px">${[[li.rows,"records"],[li.premises,"premises"],[li.shared,"shared premises"],[researched+"/"+ids.length,"researched"]].map(([n,l])=>`<div class="tile" style="padding:8px 10px"><div class="n" style="font-size:19px">${n}</div><div class="l">${l}</div></div>`).join("")}</div>` + html;
+  if(!filt.length) return html + `<div class="empty">No accounts match.</div>`;
+  let shown=0;
+  for(const c of clusters(filt)){
+    if(shown>400){ html+=`<div class="empty small">Showing the first 400. Search or filter to narrow down.</div>`; break; }
+    const tally={}; c.ids.forEach(id=>{ const k=readiness(id).k; tally[k]=(tally[k]||0)+1; });
+    const sum = ["ready","route","check","unknown","none"].filter(k=>tally[k]).map(k=>`<span class="pill ${READY[k].tone}">${tally[k]} ${READY[k].t.toLowerCase()}</span>`).join(" ");
+    html += `<div class="group-h" style="flex-direction:column;align-items:flex-start;gap:6px;text-transform:none;letter-spacing:0"><span style="display:flex;justify-content:space-between;width:100%;text-transform:uppercase;letter-spacing:.06em"><span>${esc(c.street)}${c.range?" · "+esc(c.range):""}</span><span>${c.ids.length}</span></span><span class="pills" style="display:flex;gap:4px;flex-wrap:wrap">${sum}</span></div><div class="list">${c.ids.slice(0,400-shown).map(id=>accountRow(id)).join("")}</div>`;
+    shown+=c.ids.length;
+  }
+  return html;
+}
+
+function viewReturns(){
+  const list = returnsList();
+  if(!list.length) return `<div class="empty">No returns scheduled. When you log a follow-up or an absent decision-maker, set a return date and it lands here.</div>`;
+  const groups = {overdue:[], today:[], upcoming:[]};
+  list.forEach(r=> (r.overdue?groups.overdue:r.due?groups.today:groups.upcoming).push(r));
+  const label = {overdue:"Overdue", today:"Today", upcoming:"Upcoming"};
+  let html="";
+  for(const k of ["overdue","today","upcoming"]){
+    if(!groups[k].length) continue;
+    html += `<div class="section-h"><h2>${label[k]}</h2><span class="muted">${groups[k].length}</span></div><div class="list">${groups[k].map(r=>accountRow(r.id, `<span class="pill ${k==="overdue"?"bad":k==="today"?"warn":""}">${fmtDate(r.date)}${r.time?" "+esc(r.time):""}</span>${r.kind==="confirmed"?'<span class="pill good">Confirmed</span>':r.kind==="vague"?'<span class="pill">Vague</span>':r.kind==="window"?'<span class="pill info">Window</span>':""}${r.note?`<span class="pill">${esc(r.note.slice(0,40))}</span>`:""}`)).join("")}</div>`;
+  }
+  return html;
+}
+
+function benchmarkHtml(){
+  const ids=Object.keys(S.accounts); if(!ids.length || S.demo) return "";
+  const br=ids.filter(id=>S.notes[id]?.brief), N=br.length;
+  const pct=(k)=> N? Math.round(k/N*100)+"%" : "–";
+  const occ=br.filter(id=>S.notes[id].brief.profile?.occupancy?.status==="found").length;
+  const dec=br.filter(id=>{ const d=S.notes[id].brief.decision; return d && d.route && d.route!=="unknown" && d.basis; }).length;
+  const con=br.filter(id=>Object.values(S.notes[id].brief.profile||{}).some(f=>f?.status==="conflict")).length;
+  const ev=br.flatMap(id=>S.notes[id].evidence||[]);
+  const nolink=ev.filter(e=>!e.link).length, ver=ev.filter(e=>e.verified).length, dis=ev.filter(e=>e.disputed).length;
+  const fc=ids.flatMap(id=>(S.notes[id]?.visits||[]).filter(v=>v.fieldCheck).map(v=>({...v.fieldCheck, result:v.result, minutes:v.minutes})));
+  const om=fc.filter(x=>x.occMatch==="yes"||x.occMatch==="no"), rm=fc.filter(x=>x.routeSeen&&x.routeSeen!=="unknown"&&x.briefRoute&&x.briefRoute!=="unknown");
+  const grp=k=>{ const g=fc.filter(x=>x.briefUsed===k), mins=g.reduce((s,x)=>s+(x.minutes||0),0), opt=g.filter(x=>x.result==="optin").length; return {n:g.length, rate: mins? (opt/(mins/60)).toFixed(2) : "–"}; };
+  const gy=grp("yes"), gn=grp("no");
+  const row=(l,v,sub)=>`<div class="bar"><div class="lbl"><span>${l}</span><span class="mono">${v}</span></div>${sub?`<div class="sub">${sub}</div>`:""}</div>`;
+  return `<div class="section-h"><h2>Experiment 001 · MIMO benchmark</h2></div><div class="card"><div class="bars">
+    ${row("Premises researched", `${N} of ${ids.length}`)}
+    ${row("Current occupant identified", pct(occ), `${occ} premises where a source shows who's operating now`)}
+    ${row("Decision route supported by evidence", pct(dec), `${dec} with a route and a stated basis`)}
+    ${row("Unresolved contradictions", pct(con), `${con} premises with a conflicting profile field`)}
+    ${row("Findings without a source link", ev.length? Math.round(nolink/ev.length*100)+"%" : "–", `${nolink} of ${ev.length}. Target: 0`)}
+    ${row("Occupant correct (field check)", om.length? Math.round(om.filter(x=>x.occMatch==="yes").length/om.length*100)+"%":"No checks yet", om.length?`${om.filter(x=>x.occMatch==="yes").length} of ${om.length} visits`:"Answer the field check when you log a visit")}
+    ${row("Decision route correct (field check)", rm.length? Math.round(rm.filter(x=>x.routeSeen===x.briefRoute).length/rm.length*100)+"%":"No checks yet", rm.length?`${rm.filter(x=>x.routeSeen===x.briefRoute).length} of ${rm.length} visits`:"")}
+    ${row("Opt-ins per on-site hour: with brief vs without", `${gy.rate} vs ${gn.rate}`, `${gy.n} visits with the brief, ${gn.n} without. Too few to conclude anything until both reach about 30.`)}
+    ${row("Findings checked in Source Evidence", ver+dis? `${ver} confirmed · ${dis} wrong` : "None yet", ver+dis? `${Math.round(ver/(ver+dis)*100)}% confirmed` : "Mark findings verified or wrong from Source Evidence after visits")}
+  </div><p class="small muted" style="margin:10px 0 0">Measures research quality first. FieldMind makes no claim about conversion or productivity until the with-brief and without-brief groups are large enough to compare.</p></div>`;
+}
+function viewInsights(){ return benchmarkHtml() + viewInsightsBase(); }
+function viewInsightsBase(){
+  const months = [...new Set(allVisits().map(v=>todayStr(new Date(v.at)).slice(0,7)))].sort().reverse();
+  const cur = todayStr().slice(0,7); if(!months.includes(cur)) months.unshift(cur);
+  UI.month = UI.month && months.includes(UI.month) ? UI.month : cur;
+  const st = stats(UI.month), tgt=Number(S.meta.target)||200;
+  const mLabel = m => { const [y,mm]=m.split("-").map(Number); return new Date(y,mm-1,1).toLocaleDateString(undefined,{month:"long",year:"numeric"}); };
+  let html = `<div class="row" style="margin-bottom:12px"><select id="monthSel" aria-label="Month" style="width:auto">${months.map(m=>`<option value="${m}" ${m===UI.month?"selected":""}>${mLabel(m)}</option>`).join("")}</select></div>
+  <div class="tiles">
+    <div class="tile"><div class="n">${st.perHour?st.perHour.toFixed(2):"–"}</div><div class="l">Opt-ins per field hour</div></div>
+    <div class="tile"><div class="n">${st.kw.toFixed(1)}</div><div class="l">kW enrolled of ${tgt} target</div><div class="meter"><i style="width:${Math.min(100,st.kw/tgt*100).toFixed(1)}%"></i></div></div>
+    <div class="tile"><div class="n">${st.visits}</div><div class="l">Visits over ${st.days} field day${st.days===1?"":"s"}</div></div>
+    <div class="tile"><div class="n">${st.visits?Math.round(st.access/st.visits*100)+"%":"–"}</div><div class="l">Access or timing outcomes</div></div>
+  </div>
+  <p class="small muted" style="margin:8px 2px 0">Field hours count the on-site minutes you log per visit, not drive time. kW comes from what you enter on each opt-in; official credited production may differ.</p>`;
+  html += `<div class="section-h"><h2>What the labels hide</h2></div><div class="card"><div class="bars">`;
+  const order = Object.keys(OUTCOMES).filter(k=>st.by[k]).sort((a,b)=>st.by[b].n-st.by[a].n);
+  if(!order.length) html += `<div class="muted small">Log visits to see your outcome breakdown.</div>`;
+  for(const k of order){
+    const b=st.by[k], pct=b.n/st.visits*100;
+    const subs = SUBS[k] ? Object.entries(b.subs).sort((x,y)=>y[1]-x[1]).map(([s,n])=>`${esc(SUBS[k].opts[s]||s)} ${n}`).join(" · ") : "";
+    html += `<div class="bar"><div class="lbl"><span>${OUTCOMES[k].label}</span><span class="mono">${b.n} · ${pct.toFixed(0)}%</span></div><div class="track"><i style="width:${pct.toFixed(1)}%"></i></div>${subs?`<div class="sub">${subs}</div>`:""}</div>`;
+  }
+  html += `</div></div>`;
+  html += `<div class="section-h"><h2>How far visits got</h2></div><div class="card funnel">`;
+  for(const g of GATES){ const n=st.gateCounts[g.k], p=st.visits?n/st.visits*100:0; html+=`<div class="step"><span>${g.t}</span><span class="mono">${n}</span><div class="track"><i style="width:${p.toFixed(1)}%"></i></div></div>`; }
+  html += `</div>`;
+  html += `<div class="section-h"><h2>Data</h2></div><div class="card stack">
+    <div class="field"><label for="tgt">Monthly kW target</label><input id="tgt" type="number" inputmode="decimal" value="${esc(tgt)}" min="1"></div>
+    <div class="row"><button class="btn" data-act="exportcsv">Export visits (CSV)</button><button class="btn" data-act="backup">Copy backup</button><button class="btn" data-act="restore">Restore backup</button></div>
+    <div class="small muted">${S.demo?"Examples aren't saved.":Store.mode==="cloud"?"Saved to your private FieldMind storage. Only you can read it, even if you share this page.":"Saved in this browser only."} ${Object.keys(S.accounts).length} accounts.</div>
+    ${S.demo?"":`<button class="btn danger" data-act="wipe">Delete all accounts and visits</button>`}
+  </div>`;
+  return html;
+}
+
+/* ============ Route ============ */
+const MARK = `<svg viewBox="0 0 120 120" aria-hidden="true" style="width:28px;height:28px;flex:none"><path d="M40 100 C 22 99 11 86 14 71 C 5 63 7 45 21 41 C 21 25 37 15 51 21 C 59 10 79 11 85 23 C 101 21 111 37 105 51 C 115 62 109 81 94 83 C 92 96 75 101 65 93 C 57 87 59 75 69 72 C 79 69 83 59 75 53 C 67 47 56 52 55 61 C 54 49 41 44 35 53" fill="none" stroke="var(--accent)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="53" r="8.5" fill="currentColor"/></svg>`;
+const PIN = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12zm0-9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>`;
+function routeLabel(ids){
+  if(S.demo) return "Example accounts";
+  const zips={}; ids.forEach(id=>{ const z=(S.accounts[id].zip||"").slice(0,5); if(z) zips[z]=(zips[z]||0)+1; });
+  const top=Object.entries(zips).sort((a,b)=>b[1]-a[1]).slice(0,2).map(x=>x[0]).join(", ");
+  const mimo = ids.some(id=>S.accounts[id].list==="mimo");
+  return ["Brian", mimo?"MIMO":"Approved", top].filter(Boolean).join(" · ");
+}
+function likelyActive(id){ const p=S.notes[id]?.brief?.profile; return !!p && (p.occupancy?.status==="found" || p.hours?.status==="found"); }
+function viewRoute(){
+  const ids=Object.keys(S.accounts), cls=clusters(ids);
+  let h = `<div class="route-h"><div><h1>Today's Route</h1><div class="sub">${esc(routeLabel(ids))}</div></div><span class="chip line">${ids.length} stops · ${cls.length} cluster${cls.length===1?"":"s"}</span></div>
+  <div class="seg" role="group" aria-label="View"><button data-mode="clusters" aria-pressed="${UI.routeMode==="clusters"}">Clusters</button><button data-mode="list" aria-pressed="${UI.routeMode==="list"}">List</button></div>`;
+  if(!ids.length) return h + `<div class="empty">Import Brian's list to see your route.</div>`;
+  if(UI.routeMode==="list"){
+    h += `<div class="list">${cls.flatMap(c=>c.ids).map(id=>accountRow(id)).join("")}</div>`;
+  } else {
+    h += `<div class="stack">`;
+    for(const c of cls){
+      const t={}; c.ids.forEach(id=>{ const k=readiness(id).k; t[k]=(t[k]||0)+1; });
+      const researched = c.ids.length-(t.none||0), open = UI.openCluster===c.key;
+      const chips = researched ? [
+        t.ready?`<span class="chip dim">${t.ready} local owner likely</span>`:"",
+        t.suppressed?`<span class="chip dim">${t.suppressed} suppressed</span>`:"",
+        t.check?`<span class="chip dim">${t.check} occupant unconfirmed</span>`:"",
+        t.route?`<span class="chip dim">${t.route} landlord/corp</span>`:"",
+        (t.unknown||0)+(t.none||0)?`<span class="chip dim">? ${(t.unknown||0)+(t.none||0)} unclear</span>`:""
+      ].join("") : `<span class="chip dim">Not researched</span>`;
+      h += `<div><button class="cl ${open?"open":""}" data-cluster="${esc(c.key)}" aria-expanded="${open}"><div class="cl-top">${PIN}<div style="flex:1;min-width:0"><div class="cl-name">${esc(c.street)}</div><div class="cl-sub">${c.ids.length} stop${c.ids.length===1?"":"s"}${c.range?" · "+esc(c.range):""}</div></div>${t.ready?`<span class="chip ok">${t.ready} local</span>`:`<span class="chip line">—</span>`}</div><div class="chips" style="margin:10px 0 0 36px">${chips}</div></button>${open?`<div class="list cl-list">${c.ids.map(id=>accountRow(id)).join("")}</div>`:""}</div>`;
+    }
+    h += `</div>`;
+  }
+  const verify = ids.filter(id=>readiness(id).k==="check").length, researched = ids.filter(id=>S.notes[id]?.brief).length;
+  h += `<div class="insight" style="margin-top:16px"><h2><svg viewBox="0 0 24 24" width="22" height="22" fill="var(--accent)" aria-hidden="true"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>Route insights</h2><div class="nums"><div><div class="n">${ids.length}</div><div class="l">Unique premises</div></div><div><div class="n">${ids.filter(likelyActive).length}</div><div class="l">Likely active</div></div><div><div class="n">${verify}</div><div class="l">Need verification</div></div></div><div class="l" style="margin-top:10px">${researched} of ${ids.length} researched${researched<ids.length?" · tap the center button to research the rest":""}</div></div>`;
+  return h;
+}
+function viewSaves(){ return viewToday() + `<div class="section-h"><h2>All returns</h2></div>` + viewReturns(); }
+function openBriefMe(){
+  const ids=clusters(Object.keys(S.accounts)).flatMap(c=>c.ids), todo=ids.filter(id=>!S.notes[id]?.brief && !S.accounts[id].suppressed), saved=ids.filter(id=>S.notes[id]?.today && !S.notes[id]?.brief);
+  openSheet("Research", ()=>`<div class="stack"><p style="margin:0">${ids.length-todo.length} of ${ids.length} premises researched.</p>
+    <button class="btn primary block" data-act="reqnext" ${todo.length?"":"disabled"}>Copy request for the next ${Math.min(15,todo.length)||""} in Brian's order</button>
+    <button class="btn block" data-act="reqtoday" ${saved.length?"":"disabled"}>Copy request for saved stops (${saved.length})</button>
+    <button class="btn block" data-act="import">Import a research file or list</button>
+    <p class="small muted" style="margin:0">Paste the request to Claude. It researches each business and sends back a file to import here.</p></div>`, "");
+}
+
+/* ============ Brief ============ */
+const IC = {
+  store:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 9l1.5-5h13L20 9M4 9v11h16V9M4 9h16M9 20v-6h6v6"/></svg>`,
+  person:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/></svg>`,
+  bolt:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>`,
+  clock:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
+  device:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 15c1-2 5-2 6 0" stroke-linecap="round"/><circle cx="9" cy="9" r="1"/></svg>`,
+  building:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13M9 21v-5h6v5M8 11h2M14 11h2"/></svg>`,
+  doc:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg>`,
+  globe:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>`,
+  ext:`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg>`,
+  info:`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>`
+};
+const CHIP_FOR = {found:["ok","Found"], not_found:["line","Unknown"], not_checked:["line","Not verified"], conflict:["attn","Conflicting"]};
+function fchip(f, okLabel){ if(!f) return `<span class="chip line">Unknown</span>`; const [c,t]=CHIP_FOR[f.status]||CHIP_FOR.not_checked; return `<span class="chip ${c}">${esc(f.status==="found"&&okLabel?okLabel:t)}</span>`; }
+function clusterPos(id){ const cls=clusters(Object.keys(S.accounts)); for(const c of cls){ const i=c.ids.indexOf(id); if(i>-1) return {c, i:i+1, n:c.ids.length}; } return null; }
+function headerChips(id){
+  const a=S.accounts[id], b=S.notes[id]?.brief, p=b?.profile||{}, rd=readiness(id), out=[];
+  if(rd.k==="suppressed") out.push(`<span class="chip attn">Suppressed on list · don't contact</span>`);
+  if(a.origin==="rep") out.push(`<span class="chip line">Added by you · not on an approved list</span>`);
+  if(rd.k==="ready") out.push(`<span class="chip ok">${esc(rd.t)}</span>`);
+  else if(rd.k==="check") out.push(`<span class="chip warn">Verify occupant</span>`);
+  else if(rd.k==="route") out.push(`<span class="chip warn">${esc(rd.t)}</span>`);
+  else if(rd.k==="unknown") out.push(`<span class="chip warn">Decision-maker unknown</span>`);
+  for(const [k,f] of Object.entries(p)) if(f && f.status==="conflict") out.push(`<span class="chip attn">${esc((FIELD_LABEL[k]||k))} conflict</span>`);
+  if(a.list==="mimo") out.push(`<span class="chip line">MIMO</span>`);
+  const st=accountStatus(id); if(st.k!=="new") out.push(`<span class="chip dim">${esc(st.t)}</span>`);
+  return out.join("");
+}
+function openAccount(id){
+  const a=S.accounts[id]; if(!a) return;
+  const n=note(id), srcN = n.evidence.length + (a.device||a.list==="mimo"?1:0);
+  openSheet("", ()=>accountBody(id), `<button class="btn" data-act="sources" data-id="${esc(id)}">Sources (${srcN})</button><button class="btn primary" data-act="visit" data-id="${esc(id)}">Log visit</button>`,
+    {account:id, brand:true, head:`<button class="iconbtn ${n.today?"on":""}" id="sheetStar" data-star="${esc(id)}" aria-label="Save for today">${starSvg(n.today)}</button><button class="iconbtn" data-act="editacct" data-id="${esc(id)}" aria-label="Edit account"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>`});
+}
+function accountBody(id){
+  const a=S.accounts[id], n=note(id), b=n.brief, pos=clusterPos(id);
+  const addr=[a.addr,a.city].filter(Boolean).join(" · ");
+  const m=entityModel(id), cur=m.currentOccupant, other=m.names.filter(x=>!cur||x!==cur.name);
+  let h = `<div class="hero">${pos?`<div class="eyebrow">${esc(pos.c.street)} · ${pos.i} of ${pos.n} on ${a.origin==="rep"?"your added stops":"Brian's list"}</div>`:""}<h1>${esc(cur?cur.name:(m.listedName||"(no name)"))}</h1>${cur?`<div class="addr">Operating here (${esc(cur.status)}). Listed as: ${esc(m.names.join(", "))}</div>`:`<div class="addr">Name from Brian's list. Current occupant not established.${other.length>1?` Also listed: ${esc(other.slice(1).join(", "))}`:""}</div>`}<div class="addr">${esc(addr)}${a.city?", NC":""}</div><div class="chips" style="margin-top:10px">${headerChips(id)}</div></div>`;
+  h += `<div class="panel paper">`;
+  if(b && b.askFirst) h += `<div class="fof"><div class="k">Find out first</div><div class="q">${esc(b.askFirst)}</div></div>`;
+  if(!b) h += `<div class="fof"><div class="k">Not researched yet</div><div class="q">Tap the pink button below the list to send this business for research.</div></div>`;
+  const tabs=[["overview","Overview"],["business","Business"],["energy","Energy"],["notes","Notes"]];
+  h += `<div class="seg" role="tablist" style="margin:0;background:var(--surface-2)">${tabs.map(([k,t])=>`<button role="tab" data-btab="${k}" aria-pressed="${UI.briefTab===k}" aria-selected="${UI.briefTab===k}">${t}</button>`).join("")}</div>`;
+  h += ({overview:tabOverview, business:tabBusiness, energy:tabEnergy, notes:tabNotes}[UI.briefTab]||tabOverview)(id);
+  return h + `</div>`;
+}
+function orow(icon, title, chip, detail){ return `<div class="orow">${icon}<div><div class="t">${esc(title)} ${chip||""}</div>${detail?`<div class="d">${detail}</div>`:""}</div></div>`; }
+function tabOverview(id){
+  const a=S.accounts[id], n=note(id), b=n.brief;
+  if(!b) return `<div class="orows">${orow(IC.device,"Prior program equipment", devicesOf(a).map(d=>`<span class="chip dim">${esc(d)}</span>`).join(" ")+` <span class="chip dim">Historical</span>`, "Recorded for a previous account. Not evidence of current equipment or eligibility.")}</div>`;
+  const p=b.profile||{}, d=b.decision||{}, t=b.thermostats, s=b.story||{};
+  const occ=p.occupancy;
+  const sig=[]; if(a.device||a.list==="mimo") sig.push("prior participation"); if(t) sig.push(`est. ${t.low}${t.high&&t.high!=t.low?"–"+t.high:""} thermostat${(t.high||t.low)==1?"":"s"} (inferred)`); if(b.salience==="high"||b.salience==="some") sig.push("energy signals");
+  const acc = {owner_operator:"Local owner (inferred)", manager_needs_approval:"Manager; approval likely", corporate:"Corporate route", landlord:"Landlord route", unknown:"Not established"}[d.route||"unknown"]||"Not established";
+  const est = ["hours","owner","structure","property","occupancy","hvac","electrical"].filter(k=>p[k]?.status==="found").length;
+  let h = `<div class="dims"><div><div class="dk">Opportunity</div><div class="dv">${sig.length?esc(sig.join(" · ")):"No signals found"}</div></div><div><div class="dk">Decision access</div><div class="dv">${esc(acc)}</div></div><div><div class="dk">Research</div><div class="dv">${est} of 7 established</div></div></div>`;
+  h += `<div class="orows">`;
+  h += orow(IC.store,"Business status", fchip(occ,"Likely active"), esc(occ?.value||""));
+  h += orow(IC.person,"Ownership / operator", fchip(p.owner), esc([p.owner?.status==="found"?p.owner.value:"", ROUTES[d.route]||"", d.when?"Best time: "+d.when:""].filter(Boolean).join(" · ")));
+  h += orow(IC.bolt,"HVAC context", fchip(p.hvac), esc((p.hvac?.status==="found"?p.hvac.value+". ":"No documented HVAC work found. ") + (t ? `Estimate ${t.low}${t.high&&t.high!=t.low?"–"+t.high:""} thermostat${(t.high||t.low)==1?"":"s"} (inferred: ${t.basis||"no basis given"}).` : "")));
+  h += orow(IC.clock,"Operating hours", fchip(p.hours), esc(p.hours?.value||""));
+  if(devicesOf(a).length||a.list==="mimo") h += orow(IC.device,"Prior program equipment", devicesOf(a).map(d=>`<span class="chip dim">${esc(d)}</span>`).join(" ")+` <span class="chip dim">Historical</span>`, "Recorded for a previous account. Not evidence of current equipment or eligibility.");
+  h += `</div>`;
+  if(s.summary) h += `<div><h3 class="h-sub">The picture so far</h3><div style="font-size:15px;line-height:1.5">${esc(s.summary)}</div><div class="small muted mono" style="margin-top:4px">Researched ${fmtDate(todayStr(new Date(b.researchedAt)))}</div></div>`;
+  if(b.watchouts?.length) h += `<div><h3 class="h-sub">Watch for</h3><div class="brief"><ul class="watch">${b.watchouts.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div></div>`;
+  if(n.changes && n.changes.length){ const latest=n.changes.filter(c=>c.at===b.researchedAt); if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${FIELD_LABEL[c.field]||c.field}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates.</div></div>`; }
+  return h;
+}
+function secRows(title, rows){ const r=rows.filter(Boolean); return r.length?`<section><h3 class="h-sub">${title}</h3><div class="brief dossier">${r.join("")}</div></section>`:""; }
+const drow=(k,v)=> v ? `<div class="row2"><div class="k">${k}</div><div>${v}</div></div>` : "";
+function tabBusiness(id){
+  const a=S.accounts[id], b=note(id).brief; if(!b) return `<div class="card small">No research yet.</div>`;
+  const p=b.profile||{}, d=b.decision, s=b.story||{};
+  let h = secRows("The people", [ d?drow("Who decides", `<b>${esc(ROUTES[d.route]||d.route||"Unknown")}</b>${d.who?`<div>${esc(d.who)}</div>`:""}${d.when?`<div>Best time: ${esc(d.when)}</div>`:""}${d.basis?`<div class="src">${esc(d.basis)}</div>`:""}`):"", drow("Owner", fieldHtml(p.owner)), drow("Structure", fieldHtml(p.structure)) ]);
+  h += secRows("The place", [ drow("Hours", fieldHtml(p.hours)), drow("Occupancy", fieldHtml(p.occupancy)+((a.altNames||[]).length?`<div class="src">Also on the list here: ${esc(a.altNames.join(", "))}</div>`:"")), drow("Property", fieldHtml(p.property)) ]);
+  if((s.canInfer||[]).length||(s.cannotConclude||[]).length) h += `<section><h3 class="h-sub">How sure we are</h3><div class="card small">${(s.canInfer||[]).length?`<b>Reasonable to infer</b><ul>${s.canInfer.map(w=>`<li>${esc(w)}</li>`).join("")}</ul>`:""}${(s.cannotConclude||[]).length?`<b>Not established</b><ul>${s.cannotConclude.map(w=>`<li>${esc(w)}</li>`).join("")}</ul>`:""}</div></section>`;
+  return h;
+}
+function tabEnergy(id){
+  const a=S.accounts[id], b=note(id).brief, g=gatesFor(id), p=b?.profile||{}, t=b?.thermostats, sal=SALIENCE[b?.salience];
+  let h = secRows("The energy story", [ sal?drow("Relevance", esc(sal.t)+` <span class="chip line">Inferred</span>`):"", t?drow("Thermostat estimate", `<b>${esc(t.low)}${t.high&&t.high!=t.low?"–"+esc(t.high):""}</b> <span class="chip line">Inferred</span>${t.basis?`<div class="src">${esc(t.basis)}</div>`:""}<div class="src">Not a count. Confirm on site.</div>`):"", drow("Last HVAC work", fieldHtml(p.hvac)), drow("Last electrical", fieldHtml(p.electrical)), (devicesOf(a).length||a.list==="mimo")?drow("Program history", `${devicesOf(a).length?`Earlier participation recorded with <b>${esc(devicesOf(a).join(" and "))}</b>. `:""}Belongs to a previous account; says nothing about current equipment or eligibility.<div class="src">Brian's list</div>`):"" ]);
+  h += `<section><h3 class="h-sub">Enrollment gates · ${Object.keys(g).length}/${GATES.length}</h3><div class="card gates">${GATES.map(x=>`<div class="gate ${g[x.k]?"done":""}"><span class="g">${g[x.k]?"✓":""}</span><span>${x.t}</span>${g[x.k]?`<span class="when">${fmtDate(todayStr(new Date(g[x.k])))}</span>`:""}</div>`).join("")}</div></section>`;
+  return h;
+}
+const mask = v => { v=String(v||""); return v.length>4 ? "•••• "+v.slice(-4) : v; };
+const SENSITIVE = /premise|account|acct|itron/i;
+function tabNotes(id){
+  const a=S.accounts[id], n=note(id);
+  const maps="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent([a.name,a.addr,a.city].filter(Boolean).join(" "));
+  let h = `<div class="row"><a class="btn" href="${maps}" target="_blank" rel="noopener">Open in Maps</a><button class="btn" data-act="evidence" data-id="${esc(id)}">Add a finding</button></div>`;
+  if(n.ret && n.ret.date) h += `<div class="banner ${n.ret.date<todayStr()?"warn":"demo"}"><div><b>Return ${fmtDate(n.ret.date)}${n.ret.time?" at "+esc(n.ret.time):""}</b> · ${n.ret.kind==="confirmed"?"Confirmed":n.ret.kind==="window"?"Specific window":"Vague"}${n.ret.note?`<div>${esc(n.ret.note)}</div>`:""}<div><button class="btn ghost" style="padding-left:0" data-act="clearret" data-id="${esc(id)}">Clear return</button></div></div></div>`;
+  if(n.dm && (n.dm.name||n.dm.best)) h += `<div class="card small"><b>Decision-maker:</b> ${esc(n.dm.name||"Unknown")}${n.dm.role?` (${esc(n.dm.role)})`:""}${n.dm.best?`<br><b>Best time:</b> ${esc(n.dm.best)}`:""}</div>`;
+  h += `<section><h3 class="h-sub">Visits · ${n.visits.length}</h3>${n.visits.length?`<div class="timeline">${n.visits.slice().reverse().map(v=>visitCard(id,v)).join("")}</div>`:`<div class="card small muted">No visits yet.</div>`}</section>`;
+  const show = UI.reveal===id;
+  const m = entityModel(id), fmtD = d => d? d.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}) : "date unknown";
+  h += `<section><h3 class="h-sub">The record</h3><div class="brief dossier">
+    ${drow("Premises", esc(m.premise.address)+`<div class="src">Premise ${esc(show?m.premise.id:mask(m.premise.id))}</div>`)}
+    ${drow("On the list", m.origin==="rep"?"Added by you. Not on an approved list.":`${m.records.length} record${m.records.length===1?"":"s"} · ${esc(m.batches.map(b=>(b.file||"import")+(b.at?" ("+fmtDate(String(b.at).slice(0,10))+")":"")).join(", ")||"import")}${m.listStatus?`<div class="src">Status: ${esc(m.listStatus)}${m.suppressed?" · suppressed":""}</div>`:""}`)}
+    ${drow("Listed names", m.names.map(x=>esc(x)).join("<br>")+`<div class="src">From the list, newest first. A listed name isn't proof of who operates here now.</div>`)}
+    ${m.accounts.length?drow("Utility accounts", m.accounts.map(x=>`<span class="mono">${esc(show?x.ref:mask(x.ref))}</span> · ${esc(x.names.join(", "))}<div class="src">Seen ${fmtD(x.first)}${x.last&&x.first&&+x.last!==+x.first?" to "+fmtD(x.last):""}</div>`).join("")+(m.succession?`<div class="src">More than one account at this premise: the account changed over time.</div>`:"")):""}
+    ${m.devices.length?drow("Historical devices", m.devices.map(x=>`${esc(x.device)}${x.accounts.length?` · account <span class="mono">${esc(show?x.accounts.join(", "):x.accounts.map(mask).join(", "))}</span>`:""}`).join("<br>")+`<div class="src">Previous participation only. Not current equipment.</div>`):""}
+    ${drow("Current occupant", m.currentOccupant?`${esc(m.currentOccupant.name)} <span class="chip ok">${esc(m.currentOccupant.status)}</span>`:(m.occupant&&m.occupant.name?`${esc(m.occupant.name)} <span class="chip line">${esc(m.occupant.status)}</span>`:"Not established"))}
+  </div></section>`;
+  if(a.acct) h += `<div class="small muted">Premise <span class="mono">${esc(show?a.acct:mask(a.acct))}</span> <button class="btn ghost" style="min-height:28px;padding:2px 6px" data-act="reveal" data-id="${esc(id)}">${show?"Hide":"Show"} IDs</button></div>`;
+  const rows = a.sourceRows||[];
+  if(rows.length) h += `<details class="card small"><summary>Source records from Brian's list (${rows.length})</summary>${rows.map((r,i)=>`<div class="mapgrid" style="margin-top:10px;padding-top:8px;${i?"border-top:1px solid var(--line)":""}">${Object.entries(r).filter(([k])=>k!=="_batch").map(([k,v])=>`<span class="col">${esc(k)}</span><span class="${SENSITIVE.test(k)?"mono":""}">${esc(SENSITIVE.test(k)&&!show?mask(v):v)||'<span class="muted">—</span>'}</span>`).join("")}</div>`).join("")}<div class="muted" style="margin-top:8px">Original rows, unchanged. Repeated rows for this premise are kept, not merged away.</div></details>`;
+  else if(a.extra) h += `<details class="card small"><summary>Other columns from Brian's list</summary><div class="mapgrid" style="margin-top:8px">${Object.entries(a.extra).map(([k,v])=>`<span class="col">${esc(k)}</span><span>${esc(SENSITIVE.test(k)&&!show?mask(v):v)}</span>`).join("")}</div></details>`;
+  return h;
+}
+
+/* ============ Sources ============ */
+const EV_CLASS = {verified:["ok","✓ Verified"], found:["ok","Found"], inferred:["line","Inferred"], historical:["dim","Historical"], conflicting:["attn","Conflicting"], unknown:["line","Unknown"]};
+function evClass(e){ if(e.disputed) return "conflicting"; if(e.verified) return "verified"; if(e.status && EV_CLASS[e.status]) return e.status; if(e.rel==="contradicts" || e.rel==="mixed") return "conflicting"; if(e.verified) return "verified"; if(e.basis==="inferred") return "inferred"; if(e.time==="historical") return "historical"; return "found"; }
+const SRC_CAT = {business:"Business", infrastructure:"Property", people:"People", energy:"Energy", behavior:"Energy"};
+function srcIcon(e){ const s=(e.source||"").toLowerCase(); if(/permit|gis|property|flyer/.test(s)) return IC.building; if(/website|other/.test(s)) return IC.globe; if(/listing|review|google|booksy/.test(s)) return IC.store; if(/staff|owner/.test(s)) return IC.person; return IC.doc; }
+const HOSTS={"business.google.com":"Google Business Profile","google.com":"Google","booksy.com":"Booksy","loopnet.ca":"LoopNet","loopnet.com":"LoopNet","images.loopnet.ca":"Leasing flyer (LoopNet)","sosnc.gov":"NC Secretary of State","kimcorealty.com":"Kimco Realty","cricketwireless.com":"Cricket store locator","restaurantguru.com":"Restaurant Guru","commercialcafe.com":"CommercialCafe","commercialsearch.com":"CommercialSearch","cityfeet.com":"Cityfeet","salonrenter.com":"SalonRenter","wineberserkers.com":"Wine Berserkers forum"};
+function sourceName(e){
+  if(!e.link) return e.source||"Source";
+  try{ const h=new URL(e.link).hostname.replace(/^www\./,""); return HOSTS[h] || HOSTS[h.split(".").slice(-2).join(".")] || h; }catch(err){ return e.source||"Source"; }
+}
+function sourceItems(id){
+  const a=S.accounts[id], n=note(id), items=n.evidence.map(e=>({e, cat:SRC_CAT[e.dim]||"Other"}));
+  if(a.device||a.list==="mimo") items.push({prog:true, cat:"Other"});
+  return items;
+}
+function openSources(id){
+  UI.srcFilter="all";
+  openSheet("", ()=>sourcesBody(id), `<button class="btn" data-act="evidence" data-id="${esc(id)}">Add a finding</button>`, {brand:true, back:()=>openAccount(id)});
+}
+function sourcesBody(id){
+  const a=S.accounts[id], n=note(id), b=n.brief, items=sourceItems(id);
+  const cats=["Business","Property","People","Energy","Other"].map(c=>[c, items.filter(i=>i.cat===c).length]).filter(x=>x[1]);
+  const shown = UI.srcFilter==="all" ? items : items.filter(i=>i.cat===UI.srcFilter);
+  let h = `<div class="hero"><h1 style="margin-top:0">Source Evidence</h1><div class="addr">${esc(a.name)}</div></div>
+  <div class="chips" style="margin:14px 0">${[["all","All",items.length],...cats.map(([c,k])=>[c,c,k])].map(([k,t,c])=>`<button class="chip ${UI.srcFilter===k?"attn":"line"}" data-srcf="${esc(k)}" style="border:0;cursor:pointer;font-size:14px;padding:7px 14px">${t} (${c})</button>`).join("")}</div><div class="srcs">`;
+  for(const it of shown){
+    if(it.prog){ h += `<div class="src-card">${IC.clock.replace("<svg","<svg class=\"ic\"")}<div><div class="h">Program history (MIMO) <span class="chip dim">Historical</span></div><div class="b">${a.device?`Previous occupant enrolled with ${esc(a.device)}.`:"Previous occupant enrolled."} New enrollment and system verification required.</div><div class="m">Brian's list</div></div><span></span></div>`; continue; }
+    const e=it.e, ec=EV_CLASS[evClass(e)], chip = `<span class="chip ${ec[0]}">${e.disputed?"Disputed in field":ec[1]}</span>`;
+    h += `<div class="src-card ${e.disputed?"disputed":""}">${srcIcon(e).replace("<svg","<svg class=\"ic\"")}<div><div class="h">${esc(sourceName(e))} ${chip}</div><div class="b">${esc(e.claim)}</div>${e.detail?`<div class="b" style="color:#5D6574;text-decoration:none">${esc(e.detail)}</div>`:""}${e.disputed?`<div class="b" style="text-decoration:none"><b>Field correction:</b> ${esc(e.disputed.note)}</div>`:""}<div class="m">${[e.source, e.date?fmtDate(e.date):"", e.basis==="inferred"?"Inferred":"Observed", LEVEL[e.level]||"", e.researchedAt?"researched "+fmtDate(todayStr(new Date(e.researchedAt))):""].filter(Boolean).join(" · ")}</div><div class="acts">${e.disputed?`<button data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo correction</button>`:`${e.verified?"":`<button data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Mark verified</button>`}<button data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong?</button><button data-act="editev" data-id="${esc(id)}" data-ev="${esc(e.id)}">Edit</button>`}</div></div>${e.link?`<a class="ext" href="${esc(e.link)}" target="_blank" rel="noopener" aria-label="Open source">${IC.ext}</a>`:"<span></span>"}</div>`;
+  }
+  if(!shown.length) h += `<div class="means">Nothing in this category yet.</div>`;
+  h += `</div>`;
+  const nf=(b?.coverage||[]).filter(c=>c.result!=="found");
+  if(nf.length && UI.srcFilter==="all") h += `<div class="means" style="margin-top:10px"><b>Checked, nothing found</b>${nf.map(c=>`<div class="small">${esc(c.checked)}: ${c.result==="not_found"?"not found (not proof it doesn't exist)":"not checked"}</div>`).join("")}</div>`;
+  h += `<details class="means" style="margin-top:10px"><summary style="cursor:pointer;font-weight:700">How findings are labeled</summary><div class="small" style="margin-top:6px;display:flex;flex-direction:column;gap:4px"><div><b>Verified:</b> confirmed by you in the field or an authoritative record.</div><div><b>Found:</b> a retrieved source says it; not independently confirmed.</div><div><b>Inferred:</b> reasoning from the evidence, not stated by a source.</div><div><b>Historical:</b> true of an earlier occupant or time.</div><div><b>Conflicting:</b> sources disagree, or you marked it wrong.</div><div><b>Unknown:</b> searched, nothing established.</div><div>There's no single confidence score on purpose.</div></div></details>`;
+  if(b){ const rd=readiness(id), cc=b.story?.cannotConclude||[]; h += `<div class="means" style="margin-top:10px"><b>${IC.info}What this means</b>${esc(rd.reason||b.story?.summary||"")}${cc.length?` Confirm in person: ${esc(cc.join("; ").replace(/^./,c=>c.toLowerCase()))}.`:""}</div>`; }
+  return h;
+}
+
+/* ============ Sheets ============ */
+function openSheet(title, bodyFn, footHtml, opts={}){
+  UI.sheet = {title, bodyFn, footHtml, refresh(){ $("#sheetBody").innerHTML = bodyFn(); }, ...opts};
+  $("#sheetTitle").innerHTML = opts.brand ? `<span style="display:inline-flex;align-items:center;gap:8px">${MARK}FieldMind</span>` : esc(title);
+  $("#sheetHead").innerHTML = opts.head || "";
+  $("#sheetBody").innerHTML = bodyFn();
+  const f=$("#sheetFoot"); f.hidden=!footHtml; f.innerHTML=footHtml||"";
+  $("#sheet").hidden=false; $("#sheetBody").scrollTop=0;
+  opts.onOpen && opts.onOpen();
+}
+function closeSheet(){ const back = UI.sheet && UI.sheet.back; UI.sheet=null; $("#sheet").hidden=true; if(back) back(); else render(); }
+$("#sheetBack").addEventListener("click", closeSheet);
+
+function openAccountOld(id){
+  const a=S.accounts[id]; if(!a) return;
+  openSheet(a.name||"Account", ()=>accountBody(id), `<button class="btn" data-act="evidence" data-id="${esc(id)}">Add evidence</button><button class="btn primary" data-act="visit" data-id="${esc(id)}">Log visit</button>`,
+    {account:id, head:`<button class="iconbtn ${note(id).today?"on":""}" id="sheetStar" data-star="${esc(id)}" aria-label="Plan for today">${starSvg(note(id).today)}</button>`});
+}
+function accountBodyOld(id){
+  const a=S.accounts[id], n=note(id), st=accountStatus(id), g=gatesFor(id);
+  const addr=[a.addr,a.city,a.zip].filter(Boolean).join(", ");
+  const maps = "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent([a.name,addr].join(" "));
+  const search = "https://www.google.com/search?q="+encodeURIComponent([a.name,a.city].filter(Boolean).join(" "));
+  let h = `<div class="stack">
+  <div><div class="row" style="margin-bottom:6px">${a.list==="mimo"?'<span class="pill">MIMO list</span>':'<span class="pill">Approved list</span>'}<span class="pill ${st.tone}">${esc(st.t)}</span>${a.bizType?`<span class="pill">${esc(a.bizType)}</span>`:""}</div>
+    <div>${esc(addr)||'<span class="muted">No address</span>'}</div>
+    ${(a.altNames||[]).length?`<div class="small" style="margin-top:2px"><b>Also on the list for this premise:</b> ${esc(a.altNames.join(", "))}</div>`:""}
+    <div class="small muted">${a.acct?`Account <span class="mono">${esc(a.acct)}</span>`:""}${a.phone?` · ${esc(a.phone)}`:""}${a.contact?` · ${esc(a.contact)}`:""}</div>
+    <div class="row" style="margin-top:6px"><a class="btn ghost" href="${maps}" target="_blank" rel="noopener">Open in Maps</a><a class="btn ghost" href="${search}" target="_blank" rel="noopener">Search the web</a><button class="btn ghost" data-act="editacct" data-id="${esc(id)}">Edit</button></div></div>`;
+  h += briefHtml(n, a);
+  if(n.changes && n.changes.length && n.brief){
+    const latest = n.changes.filter(c=>c.at===n.brief.researchedAt);
+    if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${FIELD_LABEL[c.field]||c.field}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates. Old equipment and participation records belong to whoever was here then.</div></div>`;
+  }
+  if(a.list==="mimo" && !n.brief?.profile) h += `<div class="card"><h3 style="margin-bottom:8px">One address, two histories</h3><div class="mimo"><div class="hist"><b>Previous occupant</b>Was enrolled.${a.device?` Device on file: <b style="display:inline;text-transform:none;letter-spacing:0;font-size:13px">${esc(a.device)}</b>.`:" No device on file."}</div><div class="cur"><b>Current account</b>Needs fresh qualification and opt-in. Whether that device is still there, or still works, is unverified.</div></div></div>`;
+  if(n.ret && n.ret.date) h += `<div class="banner ${n.ret.date<todayStr()?"warn":"demo"}"><div><b>Return ${fmtDate(n.ret.date)}${n.ret.time?" at "+esc(n.ret.time):""}</b> · ${n.ret.kind==="confirmed"?"Confirmed":n.ret.kind==="window"?"Specific window":"Vague"}${n.ret.note?`<div>${esc(n.ret.note)}</div>`:""}<div><button class="btn ghost" style="padding-left:0" data-act="clearret" data-id="${esc(id)}">Clear return</button></div></div></div>`;
+  if(n.dm && (n.dm.name||n.dm.best)) h += `<div class="card small"><b>Decision-maker:</b> ${esc(n.dm.name||"Unknown")}${n.dm.role?` (${esc(n.dm.role)})`:""}${n.dm.best?`<br><b>Best time:</b> ${esc(n.dm.best)}`:""}</div>`;
+  const gatesHtml = `<div><div class="section-h" style="margin-top:4px"><h2>Enrollment gates</h2><span class="muted">${Object.keys(g).length}/${GATES.length}</span></div><div class="card gates">${GATES.map(x=>`<div class="gate ${g[x.k]?"done":""}"><span class="g">${g[x.k]?"✓":""}</span><span>${x.t}</span>${g[x.k]?`<span class="when">${fmtDate(todayStr(new Date(g[x.k])))}</span>`:""}</div>`).join("")}</div></div>`;
+  const links = researchLinks(a);
+  h += `<details class="sources" ${n.brief?"":"open"}><summary><span>Sources and findings <span class="muted">${n.evidence.length}</span></span></summary><div style="margin-top:10px">`;
+  if(!n.evidence.length) h += `<div class="card small" style="margin-bottom:8px">Nothing has been established about this business yet. Tap a dimension below to run a targeted search, then add what you find.</div>`;
+  h += `<div class="stack">`;
+  for(const [k,dm] of Object.entries(DIMS)){
+    const evs = n.evidence.filter(e=>(e.dim||"business")===k);
+    h += `<div><div class="spread" style="padding:4px 2px"><span><b>${dm.t}</b> <span class="muted small">${evs.length?evs.length:"Nothing yet"}</span></span><a class="btn ghost" style="min-height:32px" href="${links[k]}" target="_blank" rel="noopener">Search</a></div>`;
+    const cov = (n.brief?.coverage||[]).filter(c=>c.dim===k);
+    if(cov.length) h += `<div class="cov">${cov.map(c=>`${esc(c.checked)}: <span class="${c.result==="not_found"?"nf":""}">${c.result==="found"?"found":c.result==="not_found"?"not found (not proof it doesn't exist)":"not checked"}</span>`).join("<br>")}</div>`;
+    h += evs.length ? `<div class="stack">${evs.map(e=>evidenceCard(id,e)).join("")}</div>` : (cov.length?"":`<div class="small muted" style="padding:0 2px 4px">${dm.d}</div>`);
+    h += `</div>`;
+  }
+  h += `</div>`;
+  h += `</div></details>` + gatesHtml + `<div><div class="section-h" style="margin-top:4px"><h2>Visits</h2><span class="muted">${n.visits.length}</span></div>`;
+  h += n.visits.length ? `<div class="timeline">${n.visits.slice().reverse().map(v=>visitCard(id,v)).join("")}</div>` : `<div class="card small muted">No visits yet.</div>`;
+  if(a.extra) h += `</div><details class="card small"><summary>Other columns from your list</summary><div class="mapgrid" style="margin-top:8px">${Object.entries(a.extra).map(([k,v])=>`<span class="col">${esc(k)}</span><span>${esc(v)}</span>`).join("")}</div></details>`;
+  else h += `</div>`;
+  return h + `</div>`;
+}
+const ST_LABEL={found:"Found",not_found:"Not found",not_checked:"Not checked",conflict:"Conflicting"};
+function fieldHtml(f){
+  if(!f) return "";
+  const st=ST_LABEL[f.status]?f.status:"not_checked";
+  return `<span class="st ${st}">${ST_LABEL[st]}</span>${f.value?esc(f.value):""}${f.source||f.date?`<div class="src">${f.link?`<a href="${esc(f.link)}" target="_blank" rel="noopener">${esc(f.source||"Source")}</a>`:esc(f.source||"")}${f.date?" · "+fmtDate(f.date):""}</div>`:""}`;
+}
+function briefHtml(n, a){
+  const b=n.brief;
+  if(!b) return `<div class="card small">No research yet. Copy a research request from the Accounts or Today tab, send it to Claude, and import the file it gives you.</div>`;
+  const p=b.profile||{}, s=b.story||{}, d=b.decision, t=b.thermostats, sal=SALIENCE[b.salience];
+  const row=(k,v)=> v ? `<div class="row2"><div class="k">${k}</div><div>${v}</div></div>` : "";
+  const sec=(title,rows)=>{ const r=rows.filter(Boolean); return r.length?`<section><h3 class="h-sub">${title}</h3><div class="brief dossier">${r.join("")}</div></section>`:""; };
+  const kw = t && t.low!=null ? (t.high && t.high!=t.low ? `${(t.low*1.8).toFixed(1)}–${(t.high*1.8).toFixed(1)} kW` : `${(t.low*1.8).toFixed(1)} kW`) : "";
+  const prog = a.list==="mimo" || a.device ? `${a.device?`Previous occupant had <b>${esc(a.device)}</b>. `:""}Fresh opt-in needed; current device unverified.<div class="src">Brian's list</div>` : "";
+  let h = `<section class="picture"><h3 class="h-sub">The picture so far</h3><div class="brief">${s.summary?`<div class="story">${esc(s.summary)}<div class="when">Researched ${fmtDate(todayStr(new Date(b.researchedAt)))}</div></div>`:""}${b.askFirst?`<div class="ask"><b>Find out first</b>${esc(b.askFirst)}</div>`:""}</div></section>`;
+  h += sec("The people", [
+    d ? row("Who decides", `<b>${esc(ROUTES[d.route]||d.route||"Unknown")}</b>${d.who?`<div>${esc(d.who)}</div>`:""}${d.when?`<div>Best time: ${esc(d.when)}</div>`:""}${d.basis?`<div class="src">${esc(d.basis)}</div>`:""}`) : "",
+    row("Owner", fieldHtml(p.owner)),
+    row("Structure", fieldHtml(p.structure))
+  ]);
+  h += sec("The place", [
+    row("Hours", fieldHtml(p.hours)),
+    row("Occupancy", fieldHtml(p.occupancy) + ((a.altNames||[]).length?`<div class="src">Also on the list here: ${esc(a.altNames.join(", "))}</div>`:"")),
+    row("Property", fieldHtml(p.property))
+  ]);
+  h += sec("The energy story", [
+    sal ? row("Relevance", `<span class="pill ${sal.tone}">${sal.t}</span>`) : "",
+    t ? row("At stake", `<b>${esc(t.low)}${t.high&&t.high!=t.low?"–"+esc(t.high):""} thermostat${(t.high||t.low)==1?"":"s"}</b> · ${kw}${t.basis?`<div class="src">${esc(t.basis)}</div>`:""}`) : "",
+    row("Last HVAC work", fieldHtml(p.hvac)),
+    row("Last electrical", fieldHtml(p.electrical)),
+    row("Program history", prog)
+  ]);
+  if(b.watchouts && b.watchouts.length) h += `<section><h3 class="h-sub">Watch for</h3><div class="brief"><ul class="watch">${b.watchouts.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div></section>`;
+  if((s.canInfer||[]).length || (s.cannotConclude||[]).length) h += `<details class="card small"><summary>What we can and can't conclude</summary>${(s.canInfer||[]).length?`<div style="margin-top:8px"><b>Reasonable to infer</b><ul>${s.canInfer.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>`:""}${(s.cannotConclude||[]).length?`<div><b>Not established</b><ul>${s.cannotConclude.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>`:""}</details>`;
+  return h;
+}
+function evidenceCard(id,e){
+  if(e.disputed) return `<div class="ev contradicts" style="opacity:.85"><div class="spread"><span class="claim"><s>${esc(e.claim)}</s></span><span class="pill bad">Disputed</span></div><div class="small" style="margin-top:4px"><b>Field correction ${fmtDate(todayStr(new Date(e.disputed.at)))}:</b> ${esc(e.disputed.note)}</div><div class="meta">Original source: ${esc(e.source)}${e.link?` · <a href="${esc(e.link)}" target="_blank" rel="noopener">open</a>`:""}</div><div class="act"><button class="btn ghost" data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo</button></div></div>`;
+  const meta = [esc(e.source), e.date?fmtDate(e.date):"", e.researchedAt?"researched "+fmtDate(todayStr(new Date(e.researchedAt))):"", e.time==="current"?"Current":"Historical", e.basis==="inferred"?"Inferred":"Observed", LEVEL[e.level]||"", e.verified?"Verified in field":"Needs field verification"].filter(Boolean).join(" · ");
+  return `<div class="ev ${e.rel}"><div class="spread"><span class="claim">${esc(e.claim)}</span><span class="pill ${e.rel==="supports"?"good":e.rel==="contradicts"?"bad":e.rel==="mixed"?"warn":""}">${RELEVANCE[e.rel]}</span></div>${e.detail?`<div class="small" style="margin-top:4px">${esc(e.detail)}</div>`:""}<div class="meta">Source: ${meta}</div>${e.link?`<div class="small"><a href="${esc(e.link)}" target="_blank" rel="noopener">Open source</a></div>`:""}<div class="act">${e.verified?"":`<button class="btn ghost" data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Mark verified</button>`}<button class="btn ghost" data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong?</button><button class="btn ghost" data-act="editev" data-id="${esc(id)}" data-ev="${esc(e.id)}">Edit</button></div></div>`;
+}
+function openDispute(id, evId){
+  const ev = note(id).evidence.find(x=>x.id===evId); if(!ev) return;
+  openSheet("What's actually true?", ()=>`<div class="stack"><div class="card small"><b>Finding:</b> ${esc(ev.claim)}<div class="muted">Source: ${esc(ev.source)}</div></div><div class="field"><label for="dnote">What you saw or were told</label><textarea id="dnote" placeholder="Barbershop moved to Ste 141; Ste 139 is empty"></textarea><span class="hint">The original finding stays on record, marked as disputed, so you can see what changed and why.</span></div></div>`,
+    `<button class="btn primary block" data-act="savedispute" data-id="${esc(id)}" data-ev="${esc(evId)}">Save correction</button>`, {back:()=>openSources(id)});
+}
+function visitCard(id,v){
+  const o=OUTCOMES[v.result]||OUTCOMES.other, sub = v.sub && SUBS[v.result] ? SUBS[v.result].opts[v.sub] : "";
+  return `<div class="visit"><div class="spread"><b>${o.label}</b><span class="muted small">${fmtWhen(v.at)}</span></div>${sub?`<div>${esc(sub)}</div>`:""}${v.result==="optin"?`<div>${v.level?esc(v.level)+"% participation":""}${v.kw?` · ${esc(v.kw)} kW`:""}${v.install?` · Install ${fmtDate(v.install)}`:""}</div>`:""}${v.notes?`<div class="muted" style="margin-top:4px">${esc(v.notes)}</div>`:""}<div class="small muted" style="margin-top:4px">${v.minutes||0} min on site · ${(v.gates||[]).length} gate${(v.gates||[]).length===1?"":"s"} reached <button class="btn ghost" style="min-height:0;padding:2px 6px" data-act="delvisit" data-id="${esc(id)}" data-v="${esc(v.id)}">Delete</button></div></div>`;
+}
+
+/* ---- Visit form ---- */
+function openVisit(id, opts={}){
+  const n=note(id), back=()=>openAccount(id);
+  const V = {result:"", sub:"", gates:[], minutes:10, notes:"", retDate:"", retTime:"", retKind:"", retNote:"", dmName:n.dm?.name||"", dmRole:n.dm?.role||"", dmBest:n.dm?.best||"", level:"", kw:"", install:""};
+  const radios = (name, obj, val) => `<div class="opts" role="radiogroup">${Object.entries(obj).map(([k,t])=>`<label class="opt"><input type="radio" name="${name}" value="${k}" ${val===k?"checked":""}><span>${esc(t)}</span></label>`).join("")}</div>`;
+  const body = () => {
+    let h = `<form id="vform" class="stack" onsubmit="return false">
+      <div class="field"><span class="lab">What happened?</span>${radios("result", Object.fromEntries(Object.entries(OUTCOMES).map(([k,o])=>[k,o.label])), V.result)}${V.result?`<span class="hint">Official disposition: ${OUTCOMES[V.result].official}</span>`:""}</div>`;
+    if(SUBS[V.result]) h += `<div class="field"><span class="lab">${SUBS[V.result].q}</span>${radios("sub", SUBS[V.result].opts, V.sub)}</div>`;
+    if(V.result==="optin") h += `<div class="field"><span class="lab">Participation level</span>${radios("level",{"50":"50%","75":"75%"},V.level)}</div>
+      <div class="row" style="flex-wrap:nowrap"><div class="field" style="flex:1"><label for="kw">kW (if known)</label><input id="kw" name="kw" type="number" step="0.1" inputmode="decimal" value="${esc(V.kw)}"></div><div class="field" style="flex:1"><label for="install">Install date</label><input id="install" name="install" type="date" value="${esc(V.install)}"></div></div>`;
+    if(V.result){
+      h += `<div class="field"><span class="lab">Gates reached on this visit</span>${GATES.map(g=>`<label class="check"><input type="checkbox" name="gates" value="${g.k}" ${V.gates.includes(g.k)?"checked":""}><span>${g.t}</span></label>`).join("")}</div>`;
+      const wantsReturn = RETURNABLE.has(V.result) || RETURNABLE.has(V.sub);
+      h += `<div class="card stack"><h3>${wantsReturn?"When to come back":"Come back? (optional)"}</h3>
+        <div class="row" style="flex-wrap:nowrap"><div class="field" style="flex:1"><label for="retDate">Date</label><input id="retDate" name="retDate" type="date" value="${esc(V.retDate)}"></div><div class="field" style="flex:1"><label for="retTime">Time</label><input id="retTime" name="retTime" type="time" value="${esc(V.retTime)}"></div></div>
+        <div class="field"><span class="lab">How firm is it?</span>${radios("retKind",{confirmed:"Confirmed",window:"Specific window",vague:"Vague"},V.retKind)}</div>
+        <div class="field"><label for="retNote">Reason to return</label><input id="retNote" name="retNote" type="text" value="${esc(V.retNote)}" placeholder="Owner in before 9am"></div></div>`;
+      if(V.result!=="optin") h += `<div class="card stack"><h3>Decision-maker</h3>
+        <div class="field"><label for="dmName">Name, if you learned it</label><input id="dmName" name="dmName" type="text" value="${esc(V.dmName)}"></div>
+        <div class="field"><label for="dmRole">Role</label><input id="dmRole" name="dmRole" type="text" value="${esc(V.dmRole)}" placeholder="Owner, regional manager, landlord"></div>
+        <div class="field"><label for="dmBest">Best time to catch them</label><input id="dmBest" name="dmBest" type="text" value="${esc(V.dmBest)}"></div></div>`;
+      h += `<div class="card stack"><h3>Field check <span class="muted small">(measures research accuracy)</span></h3>
+        <div class="field"><span class="lab">Did you read the FieldMind brief before this visit?</span>${radios("briefUsed",{yes:"Yes",no:"No"},V.briefUsed)}</div>
+        <div class="field"><span class="lab">Business operating here matches the brief?</span>${radios("occMatch",{yes:"Yes",no:"No",unsure:"Couldn't tell",none:"No brief"},V.occMatch)}</div>
+        <div class="field"><span class="lab">Who decides, as you found it</span>${radios("routeSeen",{owner_operator:"Owner on site",manager_needs_approval:"Manager, needs approval",corporate:"Corporate",landlord:"Landlord",unknown:"Couldn't tell"},V.routeSeen)}</div></div>`;
+      h += `<div class="field"><label for="minutes">Minutes on site</label><input id="minutes" name="minutes" type="number" inputmode="numeric" min="0" value="${esc(V.minutes)}"></div>
+        <div class="field"><label for="vnotes">Notes</label><textarea id="vnotes" name="notes" placeholder="What you saw, who you spoke with, what to check next time">${esc(V.notes)}</textarea></div>`;
+    }
+    return h + `</form>`;
+  };
+  const read = () => {
+    const f=$("#vform"); if(!f) return;
+    const fd=new FormData(f);
+    for(const k of ["result","sub","level","retKind","briefUsed","occMatch","routeSeen"]) V[k]=fd.get(k)||"";
+    for(const k of ["kw","install","retDate","retTime","retNote","dmName","dmRole","dmBest","minutes","notes"]) if(fd.has(k)) V[k]=fd.get(k);
+    V.gates = fd.getAll("gates");
+  };
+  openSheet("Log visit", body, `<button class="btn primary block" data-act="savevisit">Save visit</button>`, {back, onOpen(){
+    const f=$("#sheetBody");
+    f.onchange = e => { const prev=V.result; read(); if(e.target.name==="result"||e.target.name==="sub"){ if(e.target.name==="result" && prev!==V.result){ V.sub=""; } if(!V.retKind && V.result==="followup") V.retKind="vague"; f.innerHTML=body(); } };
+    f.oninput = () => read();
+  }});
+  UI.saveVisit = async () => {
+    read();
+    if(!V.result){ toast("Pick what happened first."); return; }
+    if(SUBS[V.result] && !V.sub){ toast("Pick the detail behind that outcome."); return; }
+    const v = {id:uid(), at:new Date().toISOString(), result:V.result, sub:V.sub, gates:V.gates, minutes:Number(V.minutes)||0, notes:V.notes.trim()};
+    if(V.briefUsed||V.occMatch||V.routeSeen) v.fieldCheck = {briefUsed:V.briefUsed||"", occMatch:V.occMatch||"", routeSeen:V.routeSeen||"", briefRoute:n.brief?.decision?.route||"", briefOccupant:n.brief?.occupant?.name||"", briefResearchedAt:n.brief?.researchedAt||""};
+    if(V.result==="optin"){ v.level=V.level; v.kw=V.kw?Number(V.kw):""; v.install=V.install; }
+    n.visits.push(v);
+    if(V.retDate) n.ret = {date:V.retDate, time:V.retTime, kind:V.retKind||"vague", note:V.retNote.trim()};
+    else if(V.result==="optin" || V.result==="unqualified" || V.result==="not_interested") n.ret = null;
+    if(V.dmName||V.dmRole||V.dmBest) n.dm = {name:V.dmName.trim(), role:V.dmRole.trim(), best:V.dmBest.trim()};
+    n.today = false;
+    try{ await Store.saveNote(id); }catch(e){ return; }
+    toast(S.demo?"Logged (examples aren't saved)":"Visit saved");
+    openAccount(id);
+  };
+}
+
+/* ---- Evidence form ---- */
+function openEvidence(id, evId){
+  const n=note(id), existing = evId ? n.evidence.find(e=>e.id===evId) : null;
+  const E = existing ? {dim:"business", ...existing} : {claim:"", detail:"", dim:"infrastructure", source:"Public permit", date:"", link:"", rel:"unknown", level:"premises", basis:"observed", time:"historical", verified:false};
+  const radios = (name, obj, val) => `<div class="opts">${Object.entries(obj).map(([k,t])=>`<label class="opt"><input type="radio" name="${name}" value="${k}" ${val===k?"checked":""}><span>${esc(t)}</span></label>`).join("")}</div>`;
+  const body = () => `<form id="eform" class="stack" onsubmit="return false">
+    <div class="field"><label for="claim">Finding</label><input id="claim" name="claim" type="text" value="${esc(E.claim)}" placeholder="Rooftop cooling unit replaced"><span class="hint">State only what the source shows. Keep guesses for Detail.</span></div>
+    <div class="field"><span class="lab">Dimension</span>${radios("dim",Object.fromEntries(Object.entries(DIMS).map(([k,v])=>[k,v.t])),E.dim)}<span class="hint">For people, keep to professional roles and documented decisions. Leave out personal beliefs and private circumstances.</span></div>
+    <div class="field"><label for="detail">Detail</label><textarea id="detail" name="detail" placeholder="Suite assignment unclear. Thermostat type unknown.">${esc(E.detail||"")}</textarea></div>
+    <div class="row" style="flex-wrap:nowrap"><div class="field" style="flex:1"><label for="source">Source</label><select id="source" name="source">${SOURCES.map(s=>`<option ${s===E.source?"selected":""}>${s}</option>`).join("")}</select></div><div class="field" style="flex:1"><label for="edate">Date of record</label><input id="edate" name="date" type="date" value="${esc(E.date)}"></div></div>
+    <div class="field"><label for="link">Link</label><input id="link" name="link" type="url" value="${esc(E.link)}" placeholder="https://"></div>
+    <div class="field"><span class="lab">Does it help the case for this account?</span>${radios("rel",RELEVANCE,E.rel)}</div>
+    <div class="field"><span class="lab">It describes the</span>${radios("level",LEVEL,E.level)}</div>
+    <div class="field"><span class="lab">Seen or inferred?</span>${radios("basis",{observed:"Observed in the source",inferred:"My inference"},E.basis)}</div>
+    <div class="field"><span class="lab">Still true today?</span>${radios("time",{current:"Current",historical:"Historical"},E.time)}</div>
+    <label class="check"><input type="checkbox" name="verified" ${E.verified?"checked":""}><span>I've verified this in the field</span></label>
+  </form>`;
+  openSheet(existing?"Edit evidence":"Add evidence", body, `${existing?`<button class="btn danger" data-act="delev">Delete</button>`:""}<button class="btn primary" data-act="saveev">Save</button>`, {back:()=>openAccount(id)});
+  const read = () => { const fd=new FormData($("#eform")); for(const k of ["claim","detail","dim","source","date","link","rel","level","basis","time"]) E[k]=(fd.get(k)||"").toString(); E.verified=fd.has("verified"); };
+  UI.saveEv = async () => {
+    read(); if(!E.claim.trim()){ toast("Write the finding first."); return; }
+    if(E.link && !/^https?:\/\//i.test(E.link)) E.link = "https://"+E.link;
+    E.claim=E.claim.trim();
+    if(existing) Object.assign(existing, E); else n.evidence.push({...E, id:uid(), addedAt:new Date().toISOString()});
+    try{ await Store.saveNote(id); }catch(e){ return; }
+    openAccount(id);
+  };
+  UI.delEv = async () => { if(!(await ask("Delete this evidence?","It will be removed from this account."))) return; n.evidence = n.evidence.filter(e=>e.id!==evId); try{ await Store.saveNote(id); }catch(e){ return; } openAccount(id); };
+}
+
+/* ---- Account add/edit ---- */
+function openAccountForm(id){
+  const a = id ? {...S.accounts[id]} : {name:"",addr:"",city:"",zip:"",acct:"",phone:"",contact:"",bizType:"",device:"",list:"approved"};
+  const body = () => `<form id="aform" class="stack" onsubmit="return false">
+    ${FIELDS.map(f=>`<div class="field"><label for="f_${f.k}">${f.t}</label><input id="f_${f.k}" name="${f.k}" type="text" value="${esc(a[f.k]||"")}"></div>`).join("")}
+    <div class="card small">${id&&a.origin!=="rep"?"This premise came from Brian's list. Its list status, approval and suppression can't be changed here.":"Stops you add yourself are marked as not on an approved list. Check eligibility through the official process before enrolling."}</div>
+  </form>`;
+  openSheet(id?"Edit account":"Add account", body, `${id?`<button class="btn danger" data-act="delacct">Delete</button>`:""}<button class="btn primary" data-act="saveacct">Save</button>`, {back: id?()=>openAccount(id):null});
+  UI.saveAcct = async () => {
+    const fd=new FormData($("#aform")); const b={}; FIELDS.forEach(f=>b[f.k]=(fd.get(f.k)||"").toString().trim());
+    if(!id){ b.list="rep"; b.origin="rep"; }
+    if(!b.name){ toast("Add a business name."); return; }
+    if(S.demo) startReal();
+    let key = id;
+    if(id){ S.accounts[id] = {...S.accounts[id], ...b}; }
+    else { b.id=accountId(b); b.importedAt=new Date().toISOString(); b.manual=true; if(S.accounts[b.id]){ toast("That account is already in your list."); openAccount(b.id); return; } S.accounts[b.id]=b; key=b.id; }
+    try{ await Store.saveAccounts(); }catch(e){ return; }
+    UI.sheet=null; openAccount(key);
+  };
+  UI.delAcct = async () => {
+    if(!(await ask("Delete this account?","Its evidence and visit history go too. This can't be undone."))) return;
+    delete S.accounts[id]; delete S.notes[id];
+    try{ await Store.saveAccounts(); await Store.deleteNote(id); }catch(e){}
+    UI.sheet=null; $("#sheet").hidden=true; render();
+  };
+}
+function startReal(){ S = {accounts:{}, notes:{}, meta:{target:Number(S.meta.target)||200}, demo:false}; }
+
+/* ---- Import ---- */
+function openImport(){
+  const I = {rows:null, map:{}, list:"approved", fileName:""};
+  const body = () => {
+    let h = `<div class="stack"><p class="small muted" style="margin:0">Use the CSV export of the list Brian sends. FieldMind matches accounts by account number, or by name and address when there's no number, so re-importing an updated list keeps your notes.</p>
+      <div class="field"><label for="file">Choose a CSV list or a research file</label><input id="file" type="file" accept=".csv,.tsv,.txt,.json,text/csv,application/json"></div>
+      <div class="field"><label for="paste">Or paste the rows, header included</label><textarea id="paste" placeholder="Business Name,Service Address,City,Zip,Account Number">${""}</textarea><button class="btn" data-act="parsepaste">Read pasted rows</button></div>`;
+    if(I.rows){
+      const headers=I.rows[0];
+      h += `<div class="card stack"><h3>${esc(I.fileName||"Pasted rows")} · ${I.rows.length-1} rows</h3>
+        <div class="field"><span class="lab">Which list is this?</span><div class="opts"><label class="opt"><input type="radio" name="ilist" value="approved" ${I.list==="approved"?"checked":""}><span>Approved list</span></label><label class="opt"><input type="radio" name="ilist" value="mimo" ${I.list==="mimo"?"checked":""}><span>MIMO list</span></label></div><span class="hint">On a MIMO list the device column describes the previous occupant's equipment.</span></div>
+        <div class="field"><span class="lab">Match your columns</span><div class="mapgrid">${FIELDS.map(f=>`<label for="m_${f.k}">${f.t}</label><select id="m_${f.k}" data-map="${f.k}"><option value="-1">Not in this file</option>${headers.map((hd,i)=>`<option value="${i}" ${I.map[f.k]===i?"selected":""}>${esc(hd||"Column "+(i+1))}</option>`).join("")}</select>`).join("")}</div><span class="hint">Columns you don't match are kept under “Other columns”.</span></div>
+        <div class="small muted">First row preview: ${esc((I.rows[1]||[]).slice(0,5).join(" · "))}</div></div>`;
+    }
+    return h+`</div>`;
+  };
+  openSheet("Import a list", body, `<button class="btn primary block" data-act="doimport" ${""}>Import</button>`, {onOpen(){ bind(); }});
+  function bind(){
+    const fi=$("#file"); if(fi) fi.onchange = async () => { const f=fi.files[0]; if(!f) return; const text=await f.text(); load(text, f.name); };
+    document.querySelectorAll("[data-map]").forEach(s=>s.onchange=()=>{ I.map[s.dataset.map]=Number(s.value); });
+    document.querySelectorAll("input[name=ilist]").forEach(r=>r.onchange=()=>{ I.list=r.value; });
+  }
+  function load(text, name){
+    if(/^\s*\{/.test(text)){
+      let obj=null; try{ obj=JSON.parse(text); }catch(e){}
+      if(isResearch(obj)){ importResearch(obj); return; }
+      toast("That file isn't a FieldMind research file or a CSV."); return;
+    }
+    const rows=parseCSV(text);
+    if(rows.length<2){ toast("That file needs a header row and at least one account."); return; }
+    I.rows=rows; I.fileName=name||""; I.map=guessMap(rows[0]);
+    if(/mimo|move/i.test(name||"")) I.list="mimo";
+    $("#sheetBody").innerHTML=body(); bind();
+  }
+  UI.parsePaste = () => load($("#paste").value, "");
+  UI.doImport = async () => {
+    if(!I.rows){ toast("Choose a file or paste rows first."); return; }
+    if(I.map.name==null && I.map.addr==null){ toast("Match at least the business name or address column."); return; }
+    const batch = "b"+Date.now().toString(36);
+    const incoming = rowsToAccounts(I.rows, I.map, I.list, batch);
+    if(!incoming.length){ toast("No rows had a name or address."); return; }
+    if(S.demo) startReal();
+    const r = mergeImport(S.accounts, incoming);
+    S.accounts = r.accounts;
+    S.meta.lastImport = {rows:r.rows, premises:r.premises, shared:r.shared, at:new Date().toISOString()};
+    S.meta.batches = (S.meta.batches||[]).concat([{id:batch, at:S.meta.lastImport.at, file:I.fileName||"pasted rows", rows:r.rows, premises:r.premises, columns:(I.rows[0]||[]).length, list:I.list}]).slice(-20);
+    try{ await Store.saveAccounts(); }catch(e){ return; }
+    UI.sheet=null; $("#sheet").hidden=true; UI.filter="all"; setTab("search");
+    toast(`${r.rows} records → ${r.premises} premises${r.shared?`, ${r.shared} listed under two names`:""}`);
+  };
+}
+
+async function importResearch(obj){
+  const v = validateResearch(obj);
+  if(!v.ok){ showImportReport({errors:v.errors, warnings:v.warnings, fatal:true}); return; }
+  if(S.demo){ toast("Import Brian's list first. Research only attaches to premises already on an approved list."); return; }
+  const r = applyResearch(v, S.accounts, S.notes);
+  try{ for(const p of v.premises){ const id=matchAccount(p.match, S.accounts); if(id) await Store.saveNote(id); } }catch(e){ return; }
+  showImportReport({...r, errors:v.errors, warnings:v.warnings});
+}
+function showImportReport(r){
+  openSheet("Research import", ()=>`<div class="stack">
+    ${r.fatal?`<div class="banner warn"><div><b>Nothing was imported.</b></div></div>`:`<div class="tiles"><div class="tile"><div class="n">${r.matched}</div><div class="l">Premises matched</div></div><div class="tile"><div class="n">${r.evidence}</div><div class="l">Findings added</div></div></div>`}
+    ${!r.fatal && r.unmatched && r.unmatched.length?`<div class="card small"><b>${r.unmatched.length} not on your list — not added.</b> Research can't add or approve prospects.<div class="muted">${esc(r.unmatched.slice(0,8).join(", "))}${r.unmatched.length>8?"…":""}</div></div>`:""}
+    ${r.suppressed?`<div class="card small"><b>${r.suppressed} suppressed on Brian's list.</b> Research is stored, but they stay suppressed.</div>`:""}
+    ${r.changed?`<div class="card small">${r.changed} premise${r.changed===1?"":"s"} changed since earlier research. History is kept.</div>`:""}
+    ${(r.warnings||[]).map(w=>`<div class="card small">${esc(w)}</div>`).join("")}
+    ${(r.errors||[]).length?`<details class="card small" ${r.fatal?"open":""}><summary>${r.errors.length} problem${r.errors.length===1?"":"s"} in the file</summary><ul>${r.errors.slice(0,50).map(e=>`<li>${esc(e)}</li>`).join("")}</ul></details>`:""}
+  </div>`, `<button class="btn primary block" data-act="closereport">Done</button>`);
+}
+
+/* ---- Backup / export ---- */
+function visitsCSV(){
+  const cols=["date","time","business","address","city","zip","account","list","outcome","official_disposition","detail","gates_reached","minutes","participation","kw","install_date","notes"];
+  const q = v => { const s=String(v??""); return /[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s; };
+  const lines=[cols.join(",")];
+  for(const v of allVisits()){ const a=S.accounts[v.accountId], d=new Date(v.at);
+    lines.push([todayStr(d), `${pad(d.getHours())}:${pad(d.getMinutes())}`, a.name, a.addr, a.city, a.zip, a.acct, a.list, OUTCOMES[v.result]?.label, OUTCOMES[v.result]?.official, v.sub&&SUBS[v.result]?SUBS[v.result].opts[v.sub]:"", (v.gates||[]).join(" "), v.minutes, v.level||"", v.kw||"", v.install||"", v.notes].map(q).join(","));
+  }
+  return lines.join("\n");
+}
+async function exportCSV(){
+  const csv=visitsCSV(), name=`fieldmind-visits-${todayStr()}.csv`;
+  try{ const dl = window.claude && await window.claude.use("downloads"); if(dl){ await dl.save({filename:name, data:csv}); return; } }catch(e){ if(e && e.code && e.code!=="capability_disabled") { /* declined */ return; } }
+  copyText(csv, "Visits copied as CSV. Paste into a spreadsheet.");
+}
+async function copyText(t, msg){ try{ await navigator.clipboard.writeText(t); toast(msg); }catch(e){ openSheet("Copy this", ()=>`<textarea style="min-height:60vh" readonly>${esc(t)}</textarea>`, ""); } }
+function openRestore(){
+  openSheet("Restore backup", ()=>`<div class="stack"><p class="small muted" style="margin:0">Paste a backup copied from FieldMind. It replaces everything currently stored.</p><textarea id="rtext" style="min-height:40vh"></textarea></div>`, `<button class="btn primary block" data-act="dorestore">Replace my data</button>`);
+}
+
+/* ============ Dialogs ============ */
+function ask(title, text){ return new Promise(res=>{ $("#modalTitle").textContent=title; $("#modalText").textContent=text||""; $("#modal").hidden=false; $("#modalYes").focus(); const done=v=>{ $("#modal").hidden=true; $("#modalYes").onclick=$("#modalNo").onclick=null; res(v); }; $("#modalYes").onclick=()=>done(true); $("#modalNo").onclick=()=>done(false); }); }
+let toastT; function toast(m){ const t=$("#toast"); t.textContent=m; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true, 3200); }
+
+/* ============ Events ============ */
+document.addEventListener("click", async e => {
+  const star = e.target.closest("[data-star]");
+  if(star){ e.stopPropagation(); const id=star.dataset.star, n=note(id); n.today=!n.today; star.classList.toggle("on", n.today); star.innerHTML=starSvg(n.today); toast(n.today?"Saved for today":"Removed from saves"); Store.saveNote(id).catch(()=>{}); if(!UI.sheet) render(); return; }
+  const open = e.target.closest("[data-open]"); if(open){ UI.briefTab="overview"; openAccount(open.dataset.open); return; }
+  const cl = e.target.closest("[data-cluster]"); if(cl){ UI.openCluster = UI.openCluster===cl.dataset.cluster?null:cl.dataset.cluster; render(); return; }
+  const md = e.target.closest("[data-mode]"); if(md){ UI.routeMode=md.dataset.mode; render(); return; }
+  const bt = e.target.closest("[data-btab]"); if(bt){ UI.briefTab=bt.dataset.btab; UI.sheet&&UI.sheet.refresh(); return; }
+  const sf = e.target.closest("[data-srcf]"); if(sf){ UI.srcFilter=sf.dataset.srcf; UI.sheet&&UI.sheet.refresh(); return; }
+  const f = e.target.closest("[data-filter]"); if(f){ UI.filter=f.dataset.filter; render(); return; }
+  const b = e.target.closest("[data-act]"); if(!b) return;
+  const id=b.dataset.id, act=b.dataset.act;
+  if(act==="import") openImport();
+  else if(act==="briefme") openBriefMe();
+  else if(act==="sources") openSources(id);
+  else if(act==="closereport"){ UI.sheet=null; $("#sheet").hidden=true; setTab("route"); }
+  else if(act==="reveal"){ UI.reveal = UI.reveal===id?null:id; UI.sheet&&UI.sheet.refresh(); }
+  else if(act==="reqnext"){ const ids=clusters(Object.keys(S.accounts)).flatMap(c=>c.ids).filter(i=>!S.notes[i]?.brief && !S.accounts[i].suppressed).slice(0,15); copyText(researchRequest(ids), `Copied ${ids.length} businesses. Paste to Claude.`); }
+  else if(act==="add") openAccountForm(null);
+  else if(act==="editacct") openAccountForm(id);
+  else if(act==="visit") openVisit(id);
+  else if(act==="evidence") openEvidence(id);
+  else if(act==="editev") openEvidence(id, b.dataset.ev);
+  else if(act==="dispute") openDispute(id, b.dataset.ev);
+  else if(act==="savedispute"){ const t=($("#dnote").value||"").trim(); if(!t){ toast("Say what's actually true."); return; } const ev=note(id).evidence.find(x=>x.id===b.dataset.ev); if(ev){ ev.disputed={note:t, at:new Date().toISOString()}; ev.verified=false; try{ await Store.saveNote(id); }catch(e){ return; } } openSources(id); }
+  else if(act==="undispute"){ const ev=note(id).evidence.find(x=>x.id===b.dataset.ev); if(ev){ delete ev.disputed; await Store.saveNote(id).catch(()=>{}); UI.sheet.refresh(); } }
+  else if(act==="verify"){ const ev=note(id).evidence.find(x=>x.id===b.dataset.ev); if(ev){ ev.verified=true; ev.verifiedAt=new Date().toISOString(); ev.time="current"; await Store.saveNote(id).catch(()=>{}); UI.sheet.refresh(); } }
+  else if(act==="clearret"){ note(id).ret=null; await Store.saveNote(id).catch(()=>{}); UI.sheet.refresh(); }
+  else if(act==="delvisit"){ if(await ask("Delete this visit?","Your stats will update.")){ const n=note(id); n.visits=n.visits.filter(v=>v.id!==b.dataset.v); await Store.saveNote(id).catch(()=>{}); UI.sheet.refresh(); } }
+  else if(act==="savevisit") UI.saveVisit();
+  else if(act==="saveev") UI.saveEv();
+  else if(act==="delev") UI.delEv();
+  else if(act==="saveacct") UI.saveAcct();
+  else if(act==="delacct") UI.delAcct();
+  else if(act==="parsepaste") UI.parsePaste();
+  else if(act==="doimport") UI.doImport();
+  else if(act==="exportcsv") exportCSV();
+  else if(act==="reqtoday"){ const ids=Object.keys(S.accounts).filter(i=>S.notes[i]?.today && !S.notes[i]?.brief); copyText(researchRequest(ids), "Copied. Paste it to Claude."); }
+  else if(act==="reqfilter"){ const ids=[...document.querySelectorAll("#view [data-open]")].map(x=>x.dataset.open).filter(i=>!S.notes[i]?.brief).slice(0,25); if(!ids.length){ toast("Everything shown already has a brief."); return; } copyText(researchRequest(ids), `Copied ${ids.length} account${ids.length===1?"":"s"} without briefs. Paste to Claude.`); }
+  else if(act==="backup") copyText(JSON.stringify({fieldmind:1, accounts:S.accounts, notes:S.notes, meta:S.meta}), "Backup copied. Paste it into a note or email to yourself.");
+  else if(act==="restore") openRestore();
+  else if(act==="dorestore"){
+    let d; try{ d=JSON.parse($("#rtext").value); }catch(err){ toast("That isn't a FieldMind backup."); return; }
+    if(!d || !d.accounts){ toast("That isn't a FieldMind backup."); return; }
+    if(!(await ask("Replace all data?","Everything currently stored is replaced by the backup."))) return;
+    const oldNotes = Object.keys(S.notes);
+    S={accounts:d.accounts, notes:d.notes||{}, meta:{target:200, ...(d.meta||{}), chunks:S.meta.chunks||0}, demo:false};
+    try{ await Store.saveAccounts(); if(Store.mode==="cloud"){ for(const k of oldNotes) if(!S.notes[k]) await Store.deleteNote(k); for(const k of Object.keys(S.notes)) await Store.saveNote(k); } }catch(err){ return; }
+    UI.sheet=null; $("#sheet").hidden=true; render(); toast("Backup restored");
+  }
+  else if(act==="wipe"){
+    if(!(await ask("Delete everything?","All accounts, evidence and visits are removed. Copy a backup first if you might want them."))) return;
+    const ids=Object.keys(S.notes); S.accounts={};
+    try{ await Store.saveAccounts(); if(Store.mode==="cloud") for(const k of ids) await Store.deleteNote(k); }catch(err){}
+    S.notes={}; Store.saveLocal && Store.mode!=="cloud" && Store.saveLocal();
+    loadDemo(); render(); toast("All data deleted");
+  }
+});
+document.addEventListener("input", e => {
+  if(e.target.id==="q"){ UI.q=e.target.value; const pos=e.target.selectionStart; render(); const q=$("#q"); q.focus(); q.setSelectionRange(pos,pos); }
+});
+document.addEventListener("change", async e => {
+  if(e.target.id==="monthSel"){ UI.month=e.target.value; render(); }
+  if(e.target.id==="tgt"){ const v=Number(e.target.value); if(v>0){ S.meta.target=v; await Store.saveMeta().catch(()=>{}); render(); } }
+});
+document.addEventListener("keydown", e => {
+  if(e.key==="Escape" && !$("#modal").hidden){ $("#modalNo").click(); return; }
+  if(e.key==="Escape" && UI.sheet){ closeSheet(); return; }
+  if((e.key==="Enter"||e.key===" ") && e.target.matches("[data-star]")){ e.preventDefault(); e.target.click(); }
+});
+
+/* ============ Boot ============ */
+loadDemo();
+render();
+Store.init();
+</script>
+</body>
+</html>
