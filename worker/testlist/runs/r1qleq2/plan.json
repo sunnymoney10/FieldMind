@@ -1,0 +1,58 @@
+[
+ {
+  "step": 1,
+  "kind": "search",
+  "query": "\"4325 Glenwood Ave\" Raleigh NC",
+  "goal": "who operates at the exact address now",
+  "dimension": "business"
+ },
+ {
+  "step": 2,
+  "kind": "search",
+  "query": "BRIO ITALIAN GRILLE 4325 Glenwood Ave Raleigh NC",
+  "goal": "is the listed name still operating here",
+  "dimension": "business"
+ },
+ {
+  "step": 3,
+  "kind": "search",
+  "query": "BRIO ITALIAN GRILLE owner founder Raleigh",
+  "goal": "ownership / operator people",
+  "dimension": "people"
+ },
+ {
+  "step": 4,
+  "kind": "search",
+  "query": "BRIO ITALIAN GRILLE North Carolina Secretary of State business registration",
+  "goal": "legal entity, registered agent, officers",
+  "dimension": "people"
+ },
+ {
+  "step": 5,
+  "kind": "search",
+  "query": "4325 Glenwood Ave Raleigh property owner parcel Wake County",
+  "goal": "property owner (landlord route)",
+  "dimension": "infrastructure"
+ },
+ {
+  "step": 6,
+  "kind": "search",
+  "query": "4325 Glenwood Ave Raleigh permit HVAC mechanical",
+  "goal": "HVAC / mechanical permits",
+  "dimension": "energy"
+ },
+ {
+  "step": 7,
+  "kind": "fetch",
+  "query": "business's own website (from results)",
+  "goal": "hours, about page, address confirmation",
+  "dimension": "business"
+ },
+ {
+  "step": 8,
+  "kind": "fetch",
+  "query": "best independent source (from results)",
+  "goal": "corroboration, dates, history",
+  "dimension": "business"
+ }
+]

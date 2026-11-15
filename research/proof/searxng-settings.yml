@@ -1,0 +1,28 @@
+engines:
+- disabled: false
+  name: duckduckgo
+- disabled: false
+  name: brave
+- disabled: false
+  name: bing
+general:
+  enable_metrics: false
+outgoing:
+  max_request_timeout: 12.0
+  request_timeout: 8.0
+search:
+  formats:
+  - html
+  - json
+server:
+  bind_address: 127.0.0.1
+  limiter: false
+  port: 18889
+  public_instance: false
+  secret_key: ephemeral-replaced-by-env
+use_default_settings:
+  engines:
+    keep_only:
+    - duckduckgo
+    - brave
+    - bing

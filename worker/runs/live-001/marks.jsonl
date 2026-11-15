@@ -1,0 +1,7 @@
+{"phase": "prepare", "at": "2026-11-15T03:13:25+00:00"}
+{"phase": "retrieve", "at": "2026-11-15T03:13:25+00:00"}
+{"phase": "extract", "at": "2026-11-15T03:15:10+00:00"}
+{"phase": "check", "at": "2026-11-15T03:15:46+00:00"}
+{"phase": "assemble", "at": "2026-11-15T03:15:46+00:00"}
+{"phase": "done", "at": "2026-11-15T03:15:46+00:00"}
+{"checked_profile": ["hours", "hvac", "electrical"], "not_found": ["NC Secretary of State record for Videri (form search unreachable; name search returned only unrelated entities)", "HVAC, mechanical or electrical permits for 327 W Davie St", "Current hours from a first-party source (business website fetch blocked)", "County property record for 327 W Davie St (parcel service unreachable)"]}

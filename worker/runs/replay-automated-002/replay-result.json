@@ -1,0 +1,25 @@
+{
+ "sha256_matches_original": {
+  "S1": true,
+  "S2": true,
+  "S3": true,
+  "S4": true
+ },
+ "searches": 4,
+ "fetches": 5,
+ "usable_pages": 4,
+ "draft_claims": 5,
+ "accepted": 5,
+ "rejected": {},
+ "labels": {
+  "verified": 0,
+  "found": 4,
+  "inferred": 0,
+  "historical": 1,
+  "conflicting": 0
+ },
+ "elapsed_seconds": 30,
+ "q1": "Candidate operator: Videri Chocolate Factory (address in source, suite not confirmed; R01). A candidate until a reviewer accepts the identity.",
+ "q5": "The list has no suite. Sources put Videri Chocolate Factory in Suite 100. Is this premises that suite?",
+ "owner_row": "Not found in permitted public sources. Historical: R04"
+}

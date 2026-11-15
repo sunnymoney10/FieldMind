@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "job_id": "8ffec3dea0de4c7bbf5bf209aaf6fecd",
+  "metrics": {
+    "status": "PARTIAL PASS: bounded deterministic public research; BLOCKED: authenticated Claude Code execution and general semantic verification",
+    "started_at": "2026-11-15T03:55:32.707217+00:00",
+    "finished_at": "2026-11-15T03:56:41.849285+00:00",
+    "elapsed_seconds": 69.14208905300075,
+    "stage_cumulative_seconds": {
+      "discovery_finished_seconds": 5.133651613999973,
+      "retrieval_finished_seconds": 68.67849982299958,
+      "brief_finished_seconds": 69.14206770099918
+    },
+    "searches": 4,
+    "pages_requested": 5,
+    "usable_pages": 4,
+    "qualified_leads": 5,
+    "model_api_calls": 0,
+    "model_tokens": 0,
+    "external_service_incremental_charges_usd": 0,
+    "unmetered_costs": [
+      "existing workspace compute",
+      "assistant inference",
+      "engineering and independent review"
+    ],
+    "claude_code_used": false,
+    "manual_source_transfer": false
+  },
+  "claims": 5,
+  "failures": [
+    {
+      "url": "https://viderichocolatefactory.com/about-us",
+      "status": 302,
+      "reason": "Not usable as evidence"
+    }
+  ],
+  "search_failures": [
+    {
+      "query": "\"Videri Chocolate Factory\" \"Raleigh\" address",
+      "engines": [
+        [
+          "brave",
+          "too many requests"
+        ],
+        [
+          "duckduckgo",
+          "CAPTCHA"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "query": "\"Videri Chocolate Factory\" \"Raleigh\" owner founder",
+      "engines": [
+        [
+          "brave",
+          "Suspended: too many requests"
+        ],
+        [
+          "duckduckgo",
+          "CAPTCHA"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "query": "\"327 W Davie St\" \"Raleigh\" HVAC permit",
+      "engines": [
+        [
+          "brave",
+          "Suspended: too many requests"
+        ],
+        [
+          "duckduckgo",
+          "CAPTCHA"
+        ]
+      ],
+      "error": null
+    },
+    {
+      "query": "\"Videri Chocolate Factory\" \"Raleigh\" energy cooling",
+      "engines": [
+        [
+          "brave",
+          "Suspended: too many requests"
+        ],
+        [
+          "duckduckgo",
+          "CAPTCHA"
+        ]
+      ],
+      "error": null
+    }
+  ],
+  "assertions": [
+    "real UI start -> live search/retrieval -> draft -> explicit save -> existing sources view -> reload",
+    "public fields only",
+    "no automatic attachment",
+    "authority unknown",
+    "account unchanged",
+    "source links rendered",
+    "no injected handlers",
+    "no browser errors"
+  ],
+  "scope": "One independently selected public business; synthetic account ID/history only; no real MIMO records"
+}

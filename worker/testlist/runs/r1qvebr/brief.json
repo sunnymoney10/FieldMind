@@ -1,0 +1,298 @@
+{
+ "schema": "fieldmind.precontact-benchmark-brief/v1",
+ "record_ref": "r1qvebr",
+ "arm": "assisted",
+ "researcher_ref": "fmworker-prototype",
+ "research_as_of": "2026-11-14",
+ "policy_version": "fm-research-policy-v0",
+ "synthetic": false,
+ "program_context": {
+  "label": "Duke EnergyWise Business MIMO opportunity research",
+  "official_rule_version": null,
+  "current_eligibility": "not_established"
+ },
+ "q1_current_operator": {
+  "summary": "A current source reports Zest Cafe as closed at this address (C01). Current operator unknown.",
+  "subject_and_suite": "8831 Six Forks Rd, Raleigh, NC 27615",
+  "state": "source_supported",
+  "candidate_identity_refs": [
+   "C01"
+  ],
+  "accepted_identity_reference": null,
+  "claim_refs": [
+   "C01"
+  ],
+  "listed_name_historical": "ZEST CAFE",
+  "alternatives_not_merged": []
+ },
+ "q2_decision_authority": {
+  "business_ownership": {
+   "summary": "Not found in permitted public sources. Historical: C05",
+   "state": "unknown",
+   "claim_refs": [
+    "C05"
+   ],
+   "what_is_not_established": "Who holds this authority now"
+  },
+  "business_operations": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  },
+  "utility_account": {
+   "summary": "Not established. Public sources cannot show who holds or can sign for the utility account.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Account holder and signing authority; needs authorized confirmation"
+  },
+  "property": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  },
+  "hvac_facilities": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  }
+ },
+ "q3_energy_hvac_context": {
+  "historical_participation": {
+   "summary": "None supplied with this request",
+   "claim_refs": []
+  },
+  "historical_equipment": {
+   "summary": "Not sent to the research worker (device fields stay in FieldMind)",
+   "claim_refs": []
+  },
+  "current_account": {
+   "summary": "Unknown. Not researchable from public sources.",
+   "state": "unknown",
+   "claim_refs": []
+  },
+  "current_hvac": {
+   "summary": "No current HVAC or controls facts found in permitted sources",
+   "state": "unknown",
+   "claim_refs": []
+  },
+  "current_eligibility": {
+   "state": "not_established",
+   "summary": "Not established by MIMO history or this research brief",
+   "official_review_ref": null
+  }
+ },
+ "q4_uncertainty": {
+  "historical": [
+   "C05: Zest was run by co-owners Ben and Amanda Swirsky (profile, undated)"
+  ],
+  "stale": [],
+  "inferred": [
+   "I01: No operator is in the space now: Zest has closed and Paris Baguette has not opened (from C02, C04)"
+  ],
+  "unknown": [
+   "business_ownership: not established",
+   "business_operations: not established",
+   "utility_account: not established",
+   "property: not established",
+   "hvac_facilities: not established",
+   "Who controls HVAC for the vacant space (landlord or incoming tenant)",
+   "Construction or mechanical permits for the build-out"
+  ],
+  "contradicted": []
+ },
+ "q5_verify_first": {
+  "question": "Who operates at 8831 Six Forks Rd, Raleigh, NC 27615 today?",
+  "reason": "The current operator is not established",
+  "risk_avoided": "Briefing the rep on the wrong business",
+  "evidence_refs": [
+   "C01",
+   "C05"
+  ],
+  "requires_separate_contact_permission": true
+ },
+ "q6_priority_judgment": {
+  "before": null,
+  "after": null,
+  "changed": null,
+  "rationale": null,
+  "evidence_refs": [],
+  "human_judgment_not_eligibility": true,
+  "note": "Left for the rep. The worker does not score or rank."
+ },
+ "findings": [
+  {
+   "claim_id": "C01",
+   "text": "Zest Cafe & Home Art closed at the end of 2025 after about 30 years",
+   "subject": "Zest Cafe",
+   "scope": "entity (name-tied)",
+   "label": "source_supported",
+   "temporal": "current",
+   "claim_type": "operating_status",
+   "authority_role": null,
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "published": "2026-10-30",
+   "effective_date": "2026-10-30",
+   "source_id": "F1",
+   "url": "https://whatnow.com/?p=450905",
+   "excerpt": "\"before closing at the end of 2025.\"",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "C02",
+   "text": "Paris Baguette franchisee Devang Shah signed a lease for the 4,500 sq ft former Zest space at 8831 Six Forks Rd; opening targeted summer 2027",
+   "subject": "8831 Six Forks Rd",
+   "scope": "8831 Six Forks Rd, Raleigh, NC 27615",
+   "label": "source_supported",
+   "temporal": "current",
+   "claim_type": "occupancy_change",
+   "authority_role": null,
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "published": "2026-10-30",
+   "effective_date": "2026-10-30",
+   "source_id": "F1",
+   "url": "https://whatnow.com/?p=450905",
+   "excerpt": "\"Paris Baguette is taking over the former Zest Caf\u00e9 and Home Art space at 8831 Six Forks Road, Raleigh\"",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "C04",
+   "text": "Landlord's leasing page lists Space 16 at 8831 Six Forks Rd as available, 4,500 SF, former restaurant",
+   "subject": "8831 Six Forks Rd",
+   "scope": "8831 Six Forks Rd, Raleigh, NC 27615",
+   "label": "source_supported",
+   "temporal": "current",
+   "claim_type": "property",
+   "authority_role": null,
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "published": null,
+   "effective_date": null,
+   "source_id": "V1",
+   "url": "https://www.kimcorealty.com/properties/six-forks-station-sc/118970/space/00016/view",
+   "excerpt": "8831 Six Forks Road, Raleigh, NC 27615",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "C05",
+   "text": "Zest was run by co-owners Ben and Amanda Swirsky (profile, undated)",
+   "subject": "Zest Cafe",
+   "scope": "8831 Six Forks Rd, Raleigh, NC 27615",
+   "label": "historical",
+   "temporal": "historical",
+   "claim_type": "ownership",
+   "authority_role": "business_ownership",
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "published": null,
+   "effective_date": null,
+   "source_id": "V4",
+   "url": "https://waltermagazine.com/current-issue/zest-cafe-home-art/",
+   "excerpt": "\u2014Amanda Swirsky, co-owner, Zest Cafe & Home Art",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "I01",
+   "text": "No operator is in the space now: Zest has closed and Paris Baguette has not opened",
+   "subject": "8831 Six Forks Rd",
+   "scope": "entity (name-tied)",
+   "label": "inferred",
+   "temporal": "current",
+   "claim_type": "occupancy_change",
+   "authority_role": null,
+   "retrieved_at": null,
+   "published": null,
+   "effective_date": null,
+   "source_id": null,
+   "url": null,
+   "excerpt": null,
+   "derived_from": [
+    "C02",
+    "C04"
+   ],
+   "conflicts_with": []
+  }
+ ],
+ "source_register_refs": [
+  {
+   "id": "S1",
+   "kind": "search",
+   "query": "\"8831 Six Forks\" Raleigh",
+   "url": null,
+   "outcome": "ok",
+   "source_type": "search_results",
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "error": null
+  },
+  {
+   "id": "S2",
+   "kind": "search",
+   "query": "Zest Cafe Six Forks Station Raleigh closed Paris Baguette",
+   "url": null,
+   "outcome": "ok",
+   "source_type": "search_results",
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "error": null
+  },
+  {
+   "id": "V1",
+   "kind": "search_result",
+   "query": null,
+   "url": "https://www.kimcorealty.com/properties/six-forks-station-sc/118970/space/00016/view",
+   "outcome": "ok",
+   "source_type": "listing",
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "error": null
+  },
+  {
+   "id": "V2",
+   "kind": "search_result",
+   "query": null,
+   "url": "https://www.kimcorealty.com/properties/six-forks-station-sc/118970/view",
+   "outcome": "ok",
+   "source_type": "listing",
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "error": null
+  },
+  {
+   "id": "V3",
+   "kind": "search_result",
+   "query": null,
+   "url": "https://waltermagazine.com/?p=16202",
+   "outcome": "ok",
+   "source_type": "news",
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "error": null
+  },
+  {
+   "id": "V4",
+   "kind": "search_result",
+   "query": null,
+   "url": "https://waltermagazine.com/current-issue/zest-cafe-home-art/",
+   "outcome": "ok",
+   "source_type": "news",
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "error": null
+  },
+  {
+   "id": "F1",
+   "kind": "fetch",
+   "query": null,
+   "url": "https://whatnow.com/?p=450905",
+   "outcome": "ok",
+   "source_type": "news",
+   "retrieved_at": "2026-11-15T03:40:38+00:00",
+   "error": null
+  }
+ ],
+ "research_limitations": [
+  "Searched, not found: Who controls HVAC for the vacant space (landlord or incoming tenant)",
+  "Searched, not found: Construction or mechanical permits for the build-out",
+  "Captured text is the retrieval tool's extract of each page, not the raw page",
+  "Identity is a candidate until a reviewer accepts it"
+ ]
+}

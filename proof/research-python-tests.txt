@@ -1,0 +1,18 @@
+test_allowlist (test_boundary.BoundaryTests.test_allowlist) ... ok
+test_input_bounds (test_boundary.BoundaryTests.test_input_bounds) ... ok
+test_projection_no_promotion (test_boundary.BoundaryTests.test_projection_no_promotion) ... ok
+test_unsafe_destinations (test_boundary.BoundaryTests.test_unsafe_destinations) ... ok
+test_date_not_current_verification (test_evidence.EvidenceTests.test_date_not_current_verification) ... ok
+test_different_suites_remain_distinct (test_evidence.EvidenceTests.test_different_suites_remain_distinct) ... ok
+test_directive_never_changes_permissions (test_evidence.EvidenceTests.test_directive_never_changes_permissions) ... ok
+test_footer_not_equipment (test_evidence.EvidenceTests.test_footer_not_equipment) ... ok
+test_generic_founding_text_not_authority (test_evidence.EvidenceTests.test_generic_founding_text_not_authority) ... ok
+test_historical_owner_not_account_authority (test_evidence.EvidenceTests.test_historical_owner_not_account_authority) ... ok
+test_navigation_not_evidence (test_evidence.EvidenceTests.test_navigation_not_evidence) ... ok
+test_primary_process_qualified (test_evidence.EvidenceTests.test_primary_process_qualified) ... ok
+test_unrelated_directory_equipment_rejected (test_evidence.EvidenceTests.test_unrelated_directory_equipment_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.120s
+
+OK

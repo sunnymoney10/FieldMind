@@ -1,0 +1,256 @@
+{
+ "schema": "fieldmind.precontact-benchmark-brief/v1",
+ "record_ref": "r1q1fio",
+ "arm": "assisted",
+ "researcher_ref": "fmworker-prototype",
+ "research_as_of": "2026-11-14",
+ "policy_version": "fm-research-policy-v0",
+ "synthetic": false,
+ "program_context": {
+  "label": "Duke EnergyWise Business MIMO opportunity research",
+  "official_rule_version": null,
+  "current_eligibility": "not_established"
+ },
+ "q1_current_operator": {
+  "summary": "No accepted source ties a business to this exact address. The listed business appears at other addresses or suites: 305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609 (C01); 305 Church at North Hills Street, Suite 1250, Raleigh, NC, 27609 (C02); 221 Glenwood Ave. Raleigh, NC 27603 (C03).",
+  "subject_and_suite": "305 Church At North Hills St, Ste 900, Raleigh, NC 27609",
+  "state": "unknown",
+  "candidate_identity_refs": [],
+  "accepted_identity_reference": null,
+  "claim_refs": [],
+  "listed_name_historical": "MARSHALL & TAYLOR PLLC",
+  "alternatives_not_merged": [
+   "Marshall & Taylor PLLC at 305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609 (C01): source names a different suite",
+   "Marshall & Taylor PLLC at 305 Church at North Hills Street, Suite 1250, Raleigh, NC, 27609 (C02): source names a different suite",
+   "Marshall & Taylor PLLC at 221 Glenwood Ave. Raleigh, NC 27603 (C03): source address '221 Glenwood Ave. Raleigh, NC 27603' is not 305 Church At North Hills St, Ste 900, Raleigh, NC 27609"
+  ]
+ },
+ "q2_decision_authority": {
+  "business_ownership": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  },
+  "business_operations": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  },
+  "utility_account": {
+   "summary": "Not established. Public sources cannot show who holds or can sign for the utility account.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Account holder and signing authority; needs authorized confirmation"
+  },
+  "property": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  },
+  "hvac_facilities": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  }
+ },
+ "q3_energy_hvac_context": {
+  "historical_participation": {
+   "summary": "None supplied with this request",
+   "claim_refs": []
+  },
+  "historical_equipment": {
+   "summary": "Not sent to the research worker (device fields stay in FieldMind)",
+   "claim_refs": []
+  },
+  "current_account": {
+   "summary": "Unknown. Not researchable from public sources.",
+   "state": "unknown",
+   "claim_refs": []
+  },
+  "current_hvac": {
+   "summary": "In a large Class A office building, HVAC is usually run by building management, not the tenant (I01, inferred)",
+   "state": "inferred",
+   "claim_refs": [
+    "I01"
+   ]
+  },
+  "current_eligibility": {
+   "state": "not_established",
+   "summary": "Not established by MIMO history or this research brief",
+   "official_review_ref": null
+  }
+ },
+ "q4_uncertainty": {
+  "historical": [],
+  "stale": [],
+  "inferred": [
+   "I01: In a large Class A office building, HVAC is usually run by building management, not the tenant (from C04)"
+  ],
+  "unknown": [
+   "business_ownership: not established",
+   "business_operations: not established",
+   "utility_account: not established",
+   "property: not established",
+   "hvac_facilities: not established",
+   "Any source placing a business in Suite 900",
+   "Building owner of record (not reached)"
+  ],
+  "contradicted": []
+ },
+ "q5_verify_first": {
+  "question": "Sources put MARSHALL & TAYLOR PLLC at 305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609, not Ste 900. Is the list's suite out of date, or is a different business in Ste 900?",
+  "reason": "The list suite does not match where public sources place the business",
+  "risk_avoided": "Briefing on the wrong suite or attaching another tenant's history",
+  "evidence_refs": [],
+  "requires_separate_contact_permission": true
+ },
+ "q6_priority_judgment": {
+  "before": null,
+  "after": null,
+  "changed": null,
+  "rationale": null,
+  "evidence_refs": [],
+  "human_judgment_not_eligibility": true,
+  "note": "Left for the rep. The worker does not score or rank."
+ },
+ "findings": [
+  {
+   "claim_id": "C04",
+   "text": "The building is Midtown Plaza, a ~329,000 sq ft Class A multi-tenant office building",
+   "subject": "Midtown Plaza",
+   "scope": "305 Church at North Hills Street, Raleigh, NC 27609",
+   "label": "source_supported",
+   "temporal": "current",
+   "claim_type": "structure",
+   "authority_role": null,
+   "retrieved_at": "2026-11-15T03:41:19+00:00",
+   "published": null,
+   "effective_date": null,
+   "source_id": "V4",
+   "url": "https://www.commercialcafe.com/commercial-property/us/nc/raleigh/midtown-plaza/",
+   "excerpt": "Property Size 329,214 SF",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "C05",
+   "text": "Midtown Plaza is described as 100% leased",
+   "subject": "Midtown Plaza",
+   "scope": "305 Church at N Hills St, Raleigh, NC 27609",
+   "label": "source_supported",
+   "temporal": "current",
+   "claim_type": "occupancy_change",
+   "authority_role": null,
+   "retrieved_at": "2026-11-15T03:41:19+00:00",
+   "published": null,
+   "effective_date": null,
+   "source_id": "V5",
+   "url": "https://platform.reverecre.com/project/3ccc8cb2-e4a0-4dca-9f11-e73822cd814f",
+   "excerpt": "Midtown Plaza is a 100% leased, 329,747 SF, core office building",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "I01",
+   "text": "In a large Class A office building, HVAC is usually run by building management, not the tenant",
+   "subject": "Midtown Plaza",
+   "scope": "entity (name-tied)",
+   "label": "inferred",
+   "temporal": "current",
+   "claim_type": "hvac",
+   "authority_role": null,
+   "retrieved_at": null,
+   "published": null,
+   "effective_date": null,
+   "source_id": null,
+   "url": null,
+   "excerpt": null,
+   "derived_from": [
+    "C04"
+   ],
+   "conflicts_with": []
+  }
+ ],
+ "source_register_refs": [
+  {
+   "id": "S1",
+   "kind": "search",
+   "query": "Marshall & Taylor PLLC 305 Church at North Hills Street Raleigh suite",
+   "url": null,
+   "outcome": "ok",
+   "source_type": "search_results",
+   "retrieved_at": "2026-11-15T03:41:19+00:00",
+   "error": null
+  },
+  {
+   "id": "S2",
+   "kind": "search",
+   "query": "\"305 Church at North Hills\" Raleigh building owner office tower",
+   "url": null,
+   "outcome": "ok",
+   "source_type": "search_results",
+   "retrieved_at": "2026-11-15T03:41:19+00:00",
+   "error": null
+  },
+  {
+   "id": "V1",
+   "kind": "search_result",
+   "query": null,
+   "url": "https://www.einpresswire.com/article/928603582",
+   "outcome": "ok",
+   "source_type": "news",
+   "retrieved_at": "2026-11-15T03:41:19+00:00",
+   "error": null
+  },
+  {
+   "id": "V2",
+   "kind": "search_result",
+   "query": null,
+   "url": "https://www.avvo.com/attorneys/27609-nc-travis-taylor-1733388.html",
+   "outcome": "ok",
+   "source_type": "listing",
+   "retrieved_at": "2026-11-15T03:41:19+00:00",
+   "error": null
+  },
+  {
+   "id": "V3",
+   "kind": "search_result",
+   "query": null,
+   "url": "https://lawyers.findlaw.com/north-carolina/raleigh/marshall--taylor-pllc-NDg1NTM5N18x/",
+   "outcome": "ok",
+   "source_type": "listing",
+   "retrieved_at": "2026-11-15T03:41:19+00:00",
+   "error": null
+  },
+  {
+   "id": "V4",
+   "kind": "search_result",
+   "query": null,
+   "url": "https://www.commercialcafe.com/commercial-property/us/nc/raleigh/midtown-plaza/",
+   "outcome": "ok",
+   "source_type": "listing",
+   "retrieved_at": "2026-11-15T03:41:19+00:00",
+   "error": null
+  },
+  {
+   "id": "V5",
+   "kind": "search_result",
+   "query": null,
+   "url": "https://platform.reverecre.com/project/3ccc8cb2-e4a0-4dca-9f11-e73822cd814f",
+   "outcome": "ok",
+   "source_type": "listing",
+   "retrieved_at": "2026-11-15T03:41:19+00:00",
+   "error": null
+  }
+ ],
+ "research_limitations": [
+  "Searched, not found: Any source placing a business in Suite 900",
+  "Searched, not found: Building owner of record (not reached)",
+  "Captured text is the retrieval tool's extract of each page, not the raw page",
+  "Identity is a candidate until a reviewer accepts it"
+ ]
+}

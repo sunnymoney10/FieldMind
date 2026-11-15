@@ -1,0 +1,88 @@
+[
+ {
+  "id": "C01",
+  "text": "Marshall & Taylor PLLC moved its Raleigh office to 305 Church at North Hills St, Suite 1250 (Aug 1, 2026)",
+  "claim_type": "occupant_identity",
+  "about": "occupant",
+  "subject": "Marshall & Taylor PLLC",
+  "value": "Marshall & Taylor PLLC",
+  "value_key": "occupant_name",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "V1",
+  "excerpt": "will relocate its Raleigh office to 305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609, on August 1, 2026",
+  "address_in_source": "305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609",
+  "effective_date": "2026-07-22",
+  "dimension": "business"
+ },
+ {
+  "id": "C02",
+  "text": "Avvo lists Marshall & Taylor at Suite 1250",
+  "claim_type": "occupant_identity",
+  "about": "occupant",
+  "subject": "Marshall & Taylor PLLC",
+  "value": "Marshall & Taylor PLLC",
+  "value_key": "occupant_name",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "V2",
+  "excerpt": "305 Church at North Hills Street, Suite 1250, Raleigh, NC, 27609",
+  "address_in_source": "305 Church at North Hills Street, Suite 1250, Raleigh, NC, 27609",
+  "dimension": "business"
+ },
+ {
+  "id": "C03",
+  "text": "FindLaw still lists the firm at its former 221 Glenwood Ave office",
+  "claim_type": "occupant_identity",
+  "about": "occupant",
+  "subject": "Marshall & Taylor PLLC",
+  "value": "Marshall & Taylor PLLC",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "V3",
+  "excerpt": "221 Glenwood Ave. Raleigh, NC 27603",
+  "address_in_source": "221 Glenwood Ave. Raleigh, NC 27603",
+  "dimension": "business"
+ },
+ {
+  "id": "C04",
+  "text": "The building is Midtown Plaza, a ~329,000 sq ft Class A multi-tenant office building",
+  "claim_type": "structure",
+  "about": "premises",
+  "subject": "Midtown Plaza",
+  "value": "329,214 SF office building",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "V4",
+  "excerpt": "Property Size 329,214 SF",
+  "address_in_source": "305 Church at North Hills Street, Raleigh, NC 27609",
+  "dimension": "infrastructure"
+ },
+ {
+  "id": "C05",
+  "text": "Midtown Plaza is described as 100% leased",
+  "claim_type": "occupancy_change",
+  "about": "premises",
+  "subject": "Midtown Plaza",
+  "value": "100% leased",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "V5",
+  "excerpt": "Midtown Plaza is a 100% leased, 329,747 SF, core office building",
+  "address_in_source": "305 Church at N Hills St, Raleigh, NC 27609",
+  "dimension": "infrastructure"
+ },
+ {
+  "id": "I01",
+  "text": "In a large Class A office building, HVAC is usually run by building management, not the tenant",
+  "claim_type": "hvac",
+  "about": "premises",
+  "subject": "Midtown Plaza",
+  "basis": "inferred",
+  "proposed_status": "inferred",
+  "derived_from": [
+   "C04"
+  ],
+  "dimension": "energy"
+ }
+]

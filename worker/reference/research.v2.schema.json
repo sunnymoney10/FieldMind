@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fieldmind.local/schema/research.v2.schema.json",
+  "title": "FieldMind research file, version 2",
+  "description": "Research results for premises already on an approved list. A research file can never add, approve or unsuppress a premise.",
+  "type": "object",
+  "required": ["schema", "version", "generated", "premises"],
+  "properties": {
+    "schema": { "const": "fieldmind.research" },
+    "version": { "const": 2 },
+    "generated": { "type": "string", "format": "date-time" },
+    "researcher": { "type": "string", "description": "Model or person that produced the file" },
+    "run": {
+      "type": "object",
+      "description": "Optional cost and effort record for Experiment 001",
+      "properties": { "minutes": { "type": "number" }, "searches": { "type": "integer" }, "pages_read": { "type": "integer" } }
+    },
+    "premises": { "type": "array", "items": { "$ref": "#/$defs/premise" } }
+  },
+  "$defs": {
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}" },
+    "premise": {
+      "type": "object",
+      "required": ["match", "researched_at"],
+      "properties": {
+        "match": {
+          "type": "object",
+          "description": "Copy from the research request. ref is a FieldMind code; it is not a utility or premise ID.",
+          "properties": { "ref": { "type": "string", "pattern": "^r[0-9a-z]{1,8}$" }, "name": { "type": "string" }, "addr": { "type": "string" }, "city": { "type": "string" }, "zip": { "type": "string" } },
+          "anyOf": [ { "required": ["ref"] }, { "required": ["name", "addr"] } ]
+        },
+        "researched_at": { "$ref": "#/$defs/date" },
+        "occupant": {
+          "type": "object",
+          "description": "Who operates at the premises now. Never copy the list name here unless a source shows it operating.",
+          "required": ["status"],
+          "properties": {
+            "name": { "type": ["string", "null"] },
+            "status": { "enum": ["verified", "found", "inferred", "conflicting", "unknown"] },
+            "evidence": { "type": "array", "items": { "type": "string" } }
+          },
+          "if": { "properties": { "status": { "enum": ["verified", "found"] } } },
+          "then": { "required": ["name"], "properties": { "name": { "type": "string", "minLength": 1 } } }
+        },
+        "summary": { "type": "string", "maxLength": 600 },
+        "find_out_first": { "type": "string", "maxLength": 200 },
+        "can_infer": { "type": "array", "items": { "type": "string" } },
+        "cannot_conclude": { "type": "array", "items": { "type": "string" } },
+        "decision_route": {
+          "type": "object",
+          "required": ["route", "status"],
+          "properties": {
+            "route": { "enum": ["owner_operator", "manager_needs_approval", "corporate", "landlord", "unknown"] },
+            "status": { "enum": ["found", "inferred", "unknown"] },
+            "who": { "type": "string" }, "when": { "type": "string" }, "basis": { "type": "string" },
+            "evidence": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "profile": {
+          "type": "object",
+          "propertyNames": { "enum": ["hours", "owner", "structure", "property", "occupancy", "hvac", "electrical"] },
+          "additionalProperties": {
+            "type": "object",
+            "required": ["status"],
+            "properties": {
+              "status": { "enum": ["found", "not_found", "not_checked", "conflict"] },
+              "value": { "type": "string" },
+              "evidence": { "type": "array", "items": { "type": "string" } },
+              "source": { "type": "string" }, "link": { "type": "string" }, "date": { "type": "string" }
+            }
+          }
+        },
+        "salience": { "enum": ["high", "some", "none_found", ""] },
+        "thermostat_estimate": {
+          "type": ["object", "null"],
+          "description": "An inference for the rep's judgment. Never converted to kW.",
+          "required": ["low", "status", "basis"],
+          "properties": { "low": { "type": "integer", "minimum": 0 }, "high": { "type": "integer", "minimum": 0 }, "status": { "const": "inferred" }, "basis": { "type": "string", "minLength": 1 } }
+        },
+        "watchouts": { "type": "array", "items": { "type": "string" } },
+        "coverage": {
+          "type": "array",
+          "items": { "type": "object", "required": ["dimension", "checked", "result"], "properties": { "dimension": { "enum": ["business", "people", "infrastructure", "behavior", "energy"] }, "checked": { "type": "string" }, "result": { "enum": ["found", "not_found", "not_checked"] } } }
+        },
+        "claims": { "type": "array", "items": { "$ref": "#/$defs/claim" } }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": ["id", "claim", "claim_type", "about", "status", "basis", "observed_at"],
+      "properties": {
+        "id": { "type": "string" },
+        "claim": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "claim_type": { "enum": ["operating_status", "occupant_identity", "hours", "ownership", "decision_route", "structure", "property", "occupancy_change", "hvac", "electrical", "energy_experience", "participation", "other"] },
+        "about": { "enum": ["premises", "occupant", "utility_account", "equipment", "landlord", "other"] },
+        "status": { "enum": ["verified", "found", "inferred", "historical", "conflicting"] },
+        "basis": { "enum": ["observed", "inferred"] },
+        "source": {
+          "type": "object",
+          "required": ["name"],
+          "properties": { "name": { "type": "string" }, "type": { "type": "string" }, "url": { "type": "string" } }
+        },
+        "observed_at": { "$ref": "#/$defs/date" },
+        "effective_date": { "type": ["string", "null"] },
+        "excerpt": { "type": "string", "maxLength": 800 },
+        "dimension": { "enum": ["business", "people", "infrastructure", "behavior", "energy"] },
+        "conflicts_with": { "type": "array", "items": { "type": "string" } },
+        "derived_from": { "type": "array", "items": { "type": "string" } }
+      },
+      "allOf": [
+        { "if": { "properties": { "basis": { "const": "observed" } } },
+          "then": { "required": ["source"], "properties": { "source": { "anyOf": [ { "required": ["url"], "properties": { "url": { "pattern": "^https?://" } } }, { "properties": { "type": { "enum": ["field_observation", "authorized_list"] } }, "required": ["type"] } ] } } } },
+        { "if": { "properties": { "status": { "const": "inferred" } } }, "then": { "properties": { "basis": { "const": "inferred" } } } }
+      ]
+    }
+  }
+}

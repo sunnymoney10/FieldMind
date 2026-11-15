@@ -1,0 +1,16 @@
+# Local-only SearXNG for FieldMind (from the automated-002 proof). Bind to 127.0.0.1; never expose publicly.
+use_default_settings:
+  engines:
+    keep_only: [bing, brave, duckduckgo]
+server:
+  bind_address: "127.0.0.1"
+  limiter: false
+  public_instance: false
+  secret_key: "set SEARXNG_SECRET in the environment"
+general:
+  enable_metrics: false
+search:
+  formats: [html, json]
+outgoing:
+  request_timeout: 8.0
+  max_request_timeout: 12.0

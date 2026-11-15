@@ -1,0 +1,16 @@
+{
+  "name": "fieldmind",
+  "private": true,
+  "scripts": {
+    "test": "node --test --test-isolation=none tests/*.test.cjs",
+    "test:domain": "node --test --test-isolation=none tests/domain-b1.test.cjs",
+    "test:policy": "node --test --test-isolation=none tests/policy-b2a.test.cjs tests/repository-b2a.test.cjs",
+    "bench": "node benchmarks/run.mjs"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

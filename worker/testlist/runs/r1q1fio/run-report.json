@@ -1,0 +1,80 @@
+{
+ "ref": "r1q1fio",
+ "policy_version": "fm-research-policy-v0",
+ "synthetic": false,
+ "timing": {
+  "elapsed_seconds": 30,
+  "cap_seconds": 1200,
+  "within_cap": true,
+  "phases": {
+   "prepare": 0,
+   "retrieve": 12,
+   "extract": 18,
+   "check": 0
+  },
+  "started_at": "2026-11-15T03:41:07+00:00",
+  "finished_at": "2026-11-15T03:41:37+00:00"
+ },
+ "retrieval": {
+  "planned_steps": 8,
+  "searches": 2,
+  "fetches": 0,
+  "ok": 7,
+  "failures": []
+ },
+ "claims": {
+  "proposed": 6,
+  "accepted": 3,
+  "accepted_by_label": {
+   "verified": 0,
+   "found": 2,
+   "inferred": 1,
+   "historical": 0,
+   "conflicting": 0
+  },
+  "rejected": [
+   {
+    "id": "C01",
+    "text": "Marshall & Taylor PLLC moved its Raleigh office to 305 Church at North Hills St, Suite 1250 (Aug 1, 2026)",
+    "reason": "identity_merge_rejected",
+    "detail": "source names a different suite",
+    "subject": "Marshall & Taylor PLLC",
+    "about": "occupant",
+    "address_in_source": "305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609",
+    "retrieval": "V1"
+   },
+   {
+    "id": "C02",
+    "text": "Avvo lists Marshall & Taylor at Suite 1250",
+    "reason": "identity_merge_rejected",
+    "detail": "source names a different suite",
+    "subject": "Marshall & Taylor PLLC",
+    "about": "occupant",
+    "address_in_source": "305 Church at North Hills Street, Suite 1250, Raleigh, NC, 27609",
+    "retrieval": "V2"
+   },
+   {
+    "id": "C03",
+    "text": "FindLaw still lists the firm at its former 221 Glenwood Ave office",
+    "reason": "identity_merge_rejected",
+    "detail": "source address '221 Glenwood Ave. Raleigh, NC 27603' is not 305 Church At North Hills St, Ste 900, Raleigh, NC 27609",
+    "subject": "Marshall & Taylor PLLC",
+    "about": "occupant",
+    "address_in_source": "221 Glenwood Ave. Raleigh, NC 27603",
+    "retrieval": "V3"
+   }
+  ],
+  "rejected_by_reason": {
+   "identity_merge_rejected": 3
+  },
+  "contradictions": []
+ },
+ "unresolved_questions": [
+  "Sources put MARSHALL & TAYLOR PLLC at 305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609, not Ste 900. Is the list's suite out of date, or is a different business in Ste 900?",
+  "business ownership: Who holds this authority now",
+  "business operations: Who holds this authority now",
+  "utility account: Account holder and signing authority; needs authorized confirmation",
+  "property: Who holds this authority now",
+  "hvac facilities: Who holds this authority now"
+ ]
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "fieldmind.benchmark-authorization-manifest/v1",
+  "manifest_status": "use_permission_confirmed_operational_environment_details_open",
+  "reported_confirmation_count": 6,
+  "reported_confirmations": {
+    "use": {
+      "status": "reported_confirmed_by_user",
+      "documented_boundaries_verified": false,
+      "approval_evidence_reference": null
+    },
+    "ai_processing": {
+      "status": "reported_confirmed_by_user",
+      "documented_boundaries_verified": false,
+      "approval_evidence_reference": null
+    },
+    "research_sources": {
+      "status": "reported_confirmed_by_user",
+      "documented_boundaries_verified": false,
+      "approval_evidence_reference": null
+    },
+    "storage": {
+      "status": "reported_confirmed_by_user",
+      "documented_boundaries_verified": false,
+      "approval_evidence_reference": null
+    },
+    "participants": {
+      "status": "reported_confirmed_by_user",
+      "documented_boundaries_verified": false,
+      "approval_evidence_reference": null
+    },
+    "cohort_scope": {
+      "status": "reported_confirmed_by_user",
+      "documented_boundaries_verified": false,
+      "approval_evidence_reference": null
+    }
+  },
+  "approving_person_or_organization": {
+    "name": "User confirmation in this conversation",
+    "role_and_authority": "User reports permission to use Brian’s MIMO list for FieldMind, AI-assisted research and benchmarking",
+    "document_reference": "Conversation: finish readiness package, review before real pilot",
+    "legal_name_not_provided": true
+  },
+  "approved_purpose": {
+    "requested": "Synthetic readiness rehearsal and a proposed twenty-prospect Duke EnergyWise Business MIMO intelligence benchmark",
+    "approved_real_execution_scope": "Twenty-prospect MIMO intelligence pilot after readiness review and approved data-handling setup; no real execution in this phase"
+  },
+  "permitted_data_fields": {
+    "approved": null,
+    "proposed_minimum_not_approved": [
+      "opaque_record_reference",
+      "candidate_business_name",
+      "exact_address_and_suite",
+      "city",
+      "historical_participation_label_if_authorized",
+      "historical_device_label_if_authorized"
+    ],
+    "excluded_unless_separately_approved": [
+      "current_or_historical_account_identifiers",
+      "meter_identifiers",
+      "personal_contact_details",
+      "unrelated_list_columns"
+    ]
+  },
+  "permitted_ai_tools": {
+    "provider": null,
+    "workspace_or_account": null,
+    "model_and_version": null,
+    "tools": null,
+    "data_use_logging_training_retention_terms": null
+  },
+  "permitted_research_sources": {
+    "categories": null,
+    "retrieval_tools": null,
+    "capture_permissions": null,
+    "private_account_access": "not_authorized"
+  },
+  "approved_storage_environment": {
+    "service": null,
+    "workspace_or_tenant": null,
+    "locations_for_inputs_outputs_logs_backups": null,
+    "verification_evidence": null
+  },
+  "authorized_participants": {
+    "sponsor": null,
+    "manager": null,
+    "researcher_A": null,
+    "researcher_B": null,
+    "independent_reviewer": null,
+    "adjudicator": null,
+    "role_access_matrix": null
+  },
+  "retention_and_deletion": {
+    "duration_or_trigger": null,
+    "copies_logs_backups_scope": null,
+    "deletion_owner": null,
+    "verification_method": null
+  },
+  "cohort_and_suppression": {
+    "actual_subset_reference": null,
+    "authorized_pool_and_reserves": null,
+    "manager_scope_receipt": null,
+    "suppression_as_of": null,
+    "rule": "No automatic scope expansion; unresolved controls held; releases reference individual restrictions"
+  },
+  "contact_and_canvassing": {
+    "status": "not_authorized_by_this_assignment",
+    "explicit_no_contact_for_rehearsal": true
+  },
+  "working_environment_verified": false,
+  "real_data_processing_started": false,
+  "real_execution_release": {
+    "status": "awaiting_readiness_review_and_environment_configuration",
+    "authorized_by": null,
+    "receipt_reference": null,
+    "expires_at": null
+  },
+  "can_process_real_records": false,
+  "permission_to_use_list_for_ai_research_and_benchmarking": {
+    "status": "confirmed_by_user",
+    "source": "User follow-up in this conversation",
+    "reconfirmation_requested": false
+  }
+}

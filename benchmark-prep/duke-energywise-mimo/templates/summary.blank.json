@@ -1,0 +1,48 @@
+{
+  "status": "not_run",
+  "real_data_used": false,
+  "authorized_cohort_count": null,
+  "completed_paired_cases": null,
+  "excluded_count": null,
+  "exclusion_reasons": [],
+  "accuracy": {
+    "correct_checkable": null,
+    "incorrect_checkable": null,
+    "unverifiable_assertions": null,
+    "denominator_checkable": null,
+    "source_faithfulness_rate": null,
+    "independent_current_fact_correct": null,
+    "independent_current_fact_incorrect": null,
+    "independent_current_fact_unverifiable": null,
+    "independent_current_fact_accuracy_rate": null,
+    "unsupported_inferences": null,
+    "critical_identity_errors": null,
+    "unsupported_verified_authority": null,
+    "history_current_conflations": null
+  },
+  "usefulness": {
+    "useful_verify_steps": null,
+    "denominator_completed_assisted_cases": null,
+    "priority_changes": null,
+    "supported_priority_changes": null,
+    "rating_distribution": null
+  },
+  "timing": {
+    "paired_complete_count": null,
+    "manual_median_elapsed_seconds": null,
+    "assisted_median_elapsed_seconds": null,
+    "median_paired_relative_reduction": null,
+    "range_paired_relative_reduction": null,
+    "timeouts_by_arm": null,
+    "aborts_by_arm": null
+  },
+  "sources": {
+    "unique_sources_by_type": null,
+    "useful_source_rate_by_type": null,
+    "failed_access_by_type": null
+  },
+  "gate_decision": "pending",
+  "limitations": [
+    "No benchmark executed; all result cells intentionally unfilled"
+  ]
+}

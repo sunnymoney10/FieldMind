@@ -1,0 +1,1122 @@
+[
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S15",
+    "blinded_brief_id": "BLIND-026",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 0,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.388603+00:00",
+    "finished_at": "2026-11-15T02:26:17.389119+00:00",
+    "software_elapsed_seconds": 0.0005280740006128326,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 4.125999112147838e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 7.559300138382241e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.9904998882557265e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S20",
+    "blinded_brief_id": "BLIND-008",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 1,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.389134+00:00",
+    "finished_at": "2026-11-15T02:26:17.389514+00:00",
+    "software_elapsed_seconds": 0.00038586099981330335,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.515800042601768e-05
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.277499960560817e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.8623000616789795e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S13",
+    "blinded_brief_id": "BLIND-040",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 2,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.389526+00:00",
+    "finished_at": "2026-11-15T02:26:17.389981+00:00",
+    "software_elapsed_seconds": 0.000461543999335845,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.9439997888403013e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 8.915400030673482e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.8602999009308405e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S17",
+    "blinded_brief_id": "BLIND-029",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 3,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.389993+00:00",
+    "finished_at": "2026-11-15T02:26:17.390410+00:00",
+    "software_elapsed_seconds": 0.0004226950004522223,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.245000698370859e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.9959998907288536e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.6190000426140614e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S07",
+    "blinded_brief_id": "BLIND-017",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 4,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.390421+00:00",
+    "finished_at": "2026-11-15T02:26:17.390769+00:00",
+    "software_elapsed_seconds": 0.000353462000930449,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.99500061373692e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.747700015490409e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.1862999346922152e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S05",
+    "blinded_brief_id": "BLIND-031",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 5,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.390779+00:00",
+    "finished_at": "2026-11-15T02:26:17.391314+00:00",
+    "software_elapsed_seconds": 0.0005420659999799682,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.8139984351582825e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 0.0001476520010328386
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 4.760200135933701e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S09",
+    "blinded_brief_id": "BLIND-003",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 6,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.391326+00:00",
+    "finished_at": "2026-11-15T02:26:17.391827+00:00",
+    "software_elapsed_seconds": 0.0005078340000181925,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.0139999580569565e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.0119999034213834e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.6140000045415945e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S19",
+    "blinded_brief_id": "BLIND-015",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 7,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.391840+00:00",
+    "finished_at": "2026-11-15T02:26:17.392263+00:00",
+    "software_elapsed_seconds": 0.0004290249999030493,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.885999831254594e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.665999899269082e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.1732999812229536e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S02",
+    "blinded_brief_id": "BLIND-011",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 8,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.392273+00:00",
+    "finished_at": "2026-11-15T02:26:17.392645+00:00",
+    "software_elapsed_seconds": 0.00037811900074302685,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.405000825296156e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.8908999562845565e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.456699985486921e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S04",
+    "blinded_brief_id": "BLIND-038",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 9,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.392655+00:00",
+    "finished_at": "2026-11-15T02:26:17.393090+00:00",
+    "software_elapsed_seconds": 0.00044023199916409794,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 4.276000254321843e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.589899930986576e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.417699943180196e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S11",
+    "blinded_brief_id": "BLIND-013",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 10,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.393100+00:00",
+    "finished_at": "2026-11-15T02:26:17.393537+00:00",
+    "software_elapsed_seconds": 0.0004428160009410931,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.435001417528838e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 9.3209999249666e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.203399890277069e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S08",
+    "blinded_brief_id": "BLIND-034",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 11,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.393548+00:00",
+    "finished_at": "2026-11-15T02:26:17.393996+00:00",
+    "software_elapsed_seconds": 0.00045380299889075104,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.914001015597023e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.670500104315579e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.112199945258908e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S14",
+    "blinded_brief_id": "BLIND-009",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 12,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.394007+00:00",
+    "finished_at": "2026-11-15T02:26:17.394555+00:00",
+    "software_elapsed_seconds": 0.0005557360000238987,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.155000740662217e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 7.566400017822161e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.9745000574621372e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S18",
+    "blinded_brief_id": "BLIND-005",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 13,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.394569+00:00",
+    "finished_at": "2026-11-15T02:26:17.395075+00:00",
+    "software_elapsed_seconds": 0.0005131720008648699,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 4.977000571670942e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.627900074818172e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.3385000531561673e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S03",
+    "blinded_brief_id": "BLIND-028",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 14,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.395086+00:00",
+    "finished_at": "2026-11-15T02:26:17.395483+00:00",
+    "software_elapsed_seconds": 0.0004028860003018053,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.3449996408307925e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 0.0001056889996107202
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.5397999706910923e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S12",
+    "blinded_brief_id": "BLIND-023",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 15,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.395494+00:00",
+    "finished_at": "2026-11-15T02:26:17.395904+00:00",
+    "software_elapsed_seconds": 0.0004157150015089428,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.7040005079470575e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.732700083171949e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.1723000827478245e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S06",
+    "blinded_brief_id": "BLIND-007",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 16,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.395914+00:00",
+    "finished_at": "2026-11-15T02:26:17.396302+00:00",
+    "software_elapsed_seconds": 0.00039318100061791483,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.664000930963084e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.671500002790708e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.0961999325663783e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S16",
+    "blinded_brief_id": "BLIND-019",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 17,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.396313+00:00",
+    "finished_at": "2026-11-15T02:26:17.396733+00:00",
+    "software_elapsed_seconds": 0.0004259510005795164,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.05499997921288e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.163299985928461e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.3185000827652402e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S01",
+    "blinded_brief_id": "BLIND-001",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 18,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.396743+00:00",
+    "finished_at": "2026-11-15T02:26:17.397130+00:00",
+    "software_elapsed_seconds": 0.000392529998862301,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.155000740662217e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.524300104298163e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.1272000594763085e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S10",
+    "blinded_brief_id": "BLIND-020",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 19,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.397171+00:00",
+    "finished_at": "2026-11-15T02:26:17.397592+00:00",
+    "software_elapsed_seconds": 0.0004277030002413085,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 4.166000508121215e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.441699952119961e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.2143000023788773e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S16",
+    "blinded_brief_id": "BLIND-036",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 20,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.397604+00:00",
+    "finished_at": "2026-11-15T02:26:17.398054+00:00",
+    "software_elapsed_seconds": 0.00045648600098502357,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.7040005079470575e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.517300087376498e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.21030004468048e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S08",
+    "blinded_brief_id": "BLIND-010",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 21,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.398065+00:00",
+    "finished_at": "2026-11-15T02:26:17.398520+00:00",
+    "software_elapsed_seconds": 0.000460703000499052,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.155000740662217e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.7627001297078095e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 6.492799911939073e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S03",
+    "blinded_brief_id": "BLIND-004",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 22,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.398530+00:00",
+    "finished_at": "2026-11-15T02:26:17.398868+00:00",
+    "software_elapsed_seconds": 0.00034305599911022,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.754000888671726e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.4752999858465046e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.355600008741021e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S12",
+    "blinded_brief_id": "BLIND-006",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 23,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.398878+00:00",
+    "finished_at": "2026-11-15T02:26:17.399318+00:00",
+    "software_elapsed_seconds": 0.00044623100075114053,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.734999725362286e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.2739000238943845e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.0039999071741477e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S19",
+    "blinded_brief_id": "BLIND-039",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 24,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.399330+00:00",
+    "finished_at": "2026-11-15T02:26:17.399741+00:00",
+    "software_elapsed_seconds": 0.00041686699842102826,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.6050005292054266e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.214399945747573e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.081200000247918e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S02",
+    "blinded_brief_id": "BLIND-035",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 25,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.399751+00:00",
+    "finished_at": "2026-11-15T02:26:17.400122+00:00",
+    "software_elapsed_seconds": 0.00037714700010837987,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.7339992811903358e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.515299926628359e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.3135000446927734e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S05",
+    "blinded_brief_id": "BLIND-014",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 26,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.400132+00:00",
+    "finished_at": "2026-11-15T02:26:17.400570+00:00",
+    "software_elapsed_seconds": 0.000444058001448866,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.754000888671726e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 8.784300007391721e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.0770999981323257e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S06",
+    "blinded_brief_id": "BLIND-024",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 27,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.400581+00:00",
+    "finished_at": "2026-11-15T02:26:17.400967+00:00",
+    "software_elapsed_seconds": 0.00039204899985634256,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.744000084931031e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.6905999372247607e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.033099917753134e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S15",
+    "blinded_brief_id": "BLIND-002",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 28,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.400978+00:00",
+    "finished_at": "2026-11-15T02:26:17.401390+00:00",
+    "software_elapsed_seconds": 0.0004173970010015182,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.7940004656556994e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.470299947774038e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.01599996216828e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S18",
+    "blinded_brief_id": "BLIND-022",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 29,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.401401+00:00",
+    "finished_at": "2026-11-15T02:26:17.401941+00:00",
+    "software_elapsed_seconds": 0.0005466820002766326,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.816001481027342e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.876900104340166e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.0510999092948623e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S14",
+    "blinded_brief_id": "BLIND-033",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 30,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.401953+00:00",
+    "finished_at": "2026-11-15T02:26:17.402375+00:00",
+    "software_elapsed_seconds": 0.0004274619986972539,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.6559995351126418e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 7.976999950187746e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.3575999875902198e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S04",
+    "blinded_brief_id": "BLIND-021",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 31,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.402385+00:00",
+    "finished_at": "2026-11-15T02:26:17.402972+00:00",
+    "software_elapsed_seconds": 0.0005937629994150484,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.895998816005886e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.247400051506702e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.3344999135588296e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S09",
+    "blinded_brief_id": "BLIND-027",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 32,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.402984+00:00",
+    "finished_at": "2026-11-15T02:26:17.403485+00:00",
+    "software_elapsed_seconds": 0.0005078329995740205,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 2.844000846380368e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.8337000155006535e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.4527000277885236e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S01",
+    "blinded_brief_id": "BLIND-018",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 33,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.403495+00:00",
+    "finished_at": "2026-11-15T02:26:17.403870+00:00",
+    "software_elapsed_seconds": 0.0003806929998972919,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.3650012483121827e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.86280002607964e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.131200017174706e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S10",
+    "blinded_brief_id": "BLIND-037",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 34,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.403881+00:00",
+    "finished_at": "2026-11-15T02:26:17.404378+00:00",
+    "software_elapsed_seconds": 0.0005041379990871064,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.62599894287996e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 6.313399899227079e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.1472000298672356e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S17",
+    "blinded_brief_id": "BLIND-012",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 35,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.404390+00:00",
+    "finished_at": "2026-11-15T02:26:17.404803+00:00",
+    "software_elapsed_seconds": 0.0004181589993095258,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.2950010790955275e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.881799916096497e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.3766000595060177e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S11",
+    "blinded_brief_id": "BLIND-030",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 36,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.404814+00:00",
+    "finished_at": "2026-11-15T02:26:17.405250+00:00",
+    "software_elapsed_seconds": 0.00044218499897397123,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.074999767704867e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.5193000662256964e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.0940999092999846e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S13",
+    "blinded_brief_id": "BLIND-016",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 37,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.405261+00:00",
+    "finished_at": "2026-11-15T02:26:17.405670+00:00",
+    "software_elapsed_seconds": 0.00041462399894953705,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.516001015668735e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.677599983755499e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.4135999410646036e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S20",
+    "blinded_brief_id": "BLIND-032",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 38,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.405681+00:00",
+    "finished_at": "2026-11-15T02:26:17.406214+00:00",
+    "software_elapsed_seconds": 0.0005390710011852207,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 4.135999915888533e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.535300078918226e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 1.998000152525492e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  },
+  {
+    "synthetic": true,
+    "record_ref": "MIMO-S07",
+    "blinded_brief_id": "BLIND-041",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 39,
+    "timing_kind": "software_protocol_replay_not_research_time",
+    "started_at": "2026-11-15T02:26:17.406225+00:00",
+    "finished_at": "2026-11-15T02:26:17.406683+00:00",
+    "software_elapsed_seconds": 0.00046374700104934163,
+    "phases": [
+      {
+        "phase": "synthetic_control_gate",
+        "software_seconds": 3.1240015232469887e-06
+      },
+      {
+        "phase": "offline_packet_to_brief",
+        "software_seconds": 5.908899947826285e-05
+      },
+      {
+        "phase": "deterministic_fixture_review",
+        "software_seconds": 2.0901999960187823e-05
+      }
+    ],
+    "human_elapsed_seconds": null,
+    "model_endpoint_elapsed_seconds": null,
+    "independent_human_review_seconds": null
+  }
+]

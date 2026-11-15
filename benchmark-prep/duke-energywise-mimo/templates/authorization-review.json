@@ -1,0 +1,86 @@
+{
+  "package_schema": "fieldmind.benchmark-permission-review/v1",
+  "status": "pending_authorization_review",
+  "can_process_real_records": false,
+  "authorized_subset": {
+    "source": "Separately authorized subset of Brian’s approved MIMO list — not supplied",
+    "opaque_subset_reference": null,
+    "record_count": null,
+    "manager_scope_attestation": null,
+    "suppression_as_of": null
+  },
+  "permissions": {
+    "canvassing": {
+      "status": "pending",
+      "approver_role": null,
+      "evidence_reference": null,
+      "scope": null,
+      "approved_at": null,
+      "expires_or_review_at": null
+    },
+    "ai_processing": {
+      "status": "pending",
+      "approver_role": null,
+      "evidence_reference": null,
+      "scope": null,
+      "approved_at": null,
+      "expires_or_review_at": null
+    },
+    "public_source_enrichment": {
+      "status": "pending",
+      "approver_role": null,
+      "evidence_reference": null,
+      "scope": null,
+      "approved_at": null,
+      "expires_or_review_at": null
+    },
+    "storage": {
+      "status": "pending",
+      "approver_role": null,
+      "evidence_reference": null,
+      "scope": null,
+      "approved_at": null,
+      "expires_or_review_at": null
+    },
+    "access": {
+      "status": "pending",
+      "approver_role": null,
+      "evidence_reference": null,
+      "scope": null,
+      "approved_at": null,
+      "expires_or_review_at": null
+    },
+    "retention": {
+      "status": "pending",
+      "approver_role": null,
+      "evidence_reference": null,
+      "scope": null,
+      "approved_at": null,
+      "expires_or_review_at": null
+    }
+  },
+  "working_environment": {
+    "status": "unconfirmed",
+    "location": null,
+    "ai_provider_and_model": null,
+    "data_use_and_retention_terms": null,
+    "authenticated_workspace": null,
+    "role_assignments": null,
+    "external_transfer_allowed": null,
+    "logging_and_backup_locations": null,
+    "deletion_verification_method": null
+  },
+  "program_context": {
+    "official_duke_rule_source": null,
+    "version_or_effective_date": null,
+    "territory_and_program_label_confirmed": false,
+    "eligibility_not_inferred_from_mimo": true
+  },
+  "research_release": {
+    "status": "not_issued",
+    "scope": null,
+    "signed_reference": null
+  },
+  "contact_authorized_by_this_package": false,
+  "migration_authorized_by_this_package": false
+}

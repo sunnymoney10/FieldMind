@@ -1,0 +1,15 @@
+{
+ "prepared": [
+  "r1rfdj5",
+  "r1qleq2",
+  "r1qvebr",
+  "r1q1fio"
+ ],
+ "skipped": [
+  {
+   "ref": "r1qbf4d",
+   "reason": "suppressed or ineligible on the list"
+  }
+ ],
+ "at": "2026-11-15T03:37:45+00:00"
+}

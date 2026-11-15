@@ -1,0 +1,336 @@
+{
+  "kind": "legacy_preview",
+  "writable": false,
+  "rawText": "{\"fieldmind\":1,\"accounts\":{\"legacy-0\":{\"name\":\"Synthetic Business 0\",\"addr\":\"100 Fictional Way\",\"acct\":\"000-0\",\"list\":\"mimo\",\"device\":\"Synthetic historical device\",\"sourceRows\":[{\"Name\":\"Synthetic 0\",\"Account\":\"000-0\",\"Custom\":\"Kept exactly\"}],\"unknown\":{\"nested\":[\"unchanged\",0]}},\"legacy-1\":{\"name\":\"Synthetic Business 1\",\"addr\":\"101 Fictional Way\",\"acct\":\"000-1\",\"list\":\"approved\",\"device\":\"\",\"sourceRows\":[{\"Name\":\"Synthetic 1\",\"Account\":\"000-1\",\"Custom\":\"Kept exactly\"}],\"unknown\":{\"nested\":[\"unchanged\",1]}},\"legacy-2\":{\"name\":\"Synthetic Business 2\",\"addr\":\"102 Fictional Way\",\"acct\":\"000-2\",\"list\":\"approved\",\"device\":\"\",\"sourceRows\":[{\"Name\":\"Synthetic 2\",\"Account\":\"000-2\",\"Custom\":\"Kept exactly\"}],\"unknown\":{\"nested\":[\"unchanged\",2]}}},\"notes\":{\"orphan\":{\"preserved\":true}},\"meta\":{\"synthetic\":true}}",
+  "source": {
+    "fieldmind": 1,
+    "accounts": {
+      "legacy-0": {
+        "name": "Synthetic Business 0",
+        "addr": "100 Fictional Way",
+        "acct": "000-0",
+        "list": "mimo",
+        "device": "Synthetic historical device",
+        "sourceRows": [
+          {
+            "Name": "Synthetic 0",
+            "Account": "000-0",
+            "Custom": "Kept exactly"
+          }
+        ],
+        "unknown": {
+          "nested": [
+            "unchanged",
+            0
+          ]
+        }
+      },
+      "legacy-1": {
+        "name": "Synthetic Business 1",
+        "addr": "101 Fictional Way",
+        "acct": "000-1",
+        "list": "approved",
+        "device": "",
+        "sourceRows": [
+          {
+            "Name": "Synthetic 1",
+            "Account": "000-1",
+            "Custom": "Kept exactly"
+          }
+        ],
+        "unknown": {
+          "nested": [
+            "unchanged",
+            1
+          ]
+        }
+      },
+      "legacy-2": {
+        "name": "Synthetic Business 2",
+        "addr": "102 Fictional Way",
+        "acct": "000-2",
+        "list": "approved",
+        "device": "",
+        "sourceRows": [
+          {
+            "Name": "Synthetic 2",
+            "Account": "000-2",
+            "Custom": "Kept exactly"
+          }
+        ],
+        "unknown": {
+          "nested": [
+            "unchanged",
+            2
+          ]
+        }
+      }
+    },
+    "notes": {
+      "orphan": {
+        "preserved": true
+      }
+    },
+    "meta": {
+      "synthetic": true
+    }
+  },
+  "items": [
+    {
+      "legacyKey": "legacy-0",
+      "raw": {
+        "name": "Synthetic Business 0",
+        "addr": "100 Fictional Way",
+        "acct": "000-0",
+        "list": "mimo",
+        "device": "Synthetic historical device",
+        "sourceRows": [
+          {
+            "Name": "Synthetic 0",
+            "Account": "000-0",
+            "Custom": "Kept exactly"
+          }
+        ],
+        "unknown": {
+          "nested": [
+            "unchanged",
+            0
+          ]
+        }
+      },
+      "notesRaw": null,
+      "acceptedIdentity": null,
+      "proposedDomainRecords": [],
+      "relationships": [
+        {
+          "type": "legacy_review_candidates",
+          "ids": [],
+          "total": 0
+        },
+        {
+          "type": "business_review_candidates",
+          "ids": [
+            "b-0"
+          ],
+          "total": 1
+        },
+        {
+          "type": "premise_review_candidates",
+          "ids": [
+            "p-0"
+          ],
+          "total": 1
+        }
+      ],
+      "diagnostics": [
+        "identity_acceptance_required",
+        "source_history_may_already_be_incomplete",
+        "external_id_unclassified",
+        "candidate_is_not_an_accepted_relationship",
+        "historical_mimo_account_scope_unresolved"
+      ],
+      "fields": [
+        {
+          "field": "name",
+          "disposition": "candidate_only"
+        },
+        {
+          "field": "addr",
+          "disposition": "candidate_only"
+        },
+        {
+          "field": "acct",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "list",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "device",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "sourceRows",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "unknown",
+          "disposition": "raw_unresolved"
+        }
+      ]
+    },
+    {
+      "legacyKey": "legacy-1",
+      "raw": {
+        "name": "Synthetic Business 1",
+        "addr": "101 Fictional Way",
+        "acct": "000-1",
+        "list": "approved",
+        "device": "",
+        "sourceRows": [
+          {
+            "Name": "Synthetic 1",
+            "Account": "000-1",
+            "Custom": "Kept exactly"
+          }
+        ],
+        "unknown": {
+          "nested": [
+            "unchanged",
+            1
+          ]
+        }
+      },
+      "notesRaw": null,
+      "acceptedIdentity": null,
+      "proposedDomainRecords": [],
+      "relationships": [
+        {
+          "type": "legacy_review_candidates",
+          "ids": [],
+          "total": 0
+        },
+        {
+          "type": "business_review_candidates",
+          "ids": [
+            "b-1"
+          ],
+          "total": 1
+        },
+        {
+          "type": "premise_review_candidates",
+          "ids": [
+            "p-1"
+          ],
+          "total": 1
+        }
+      ],
+      "diagnostics": [
+        "identity_acceptance_required",
+        "source_history_may_already_be_incomplete",
+        "external_id_unclassified",
+        "candidate_is_not_an_accepted_relationship"
+      ],
+      "fields": [
+        {
+          "field": "name",
+          "disposition": "candidate_only"
+        },
+        {
+          "field": "addr",
+          "disposition": "candidate_only"
+        },
+        {
+          "field": "acct",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "list",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "device",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "sourceRows",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "unknown",
+          "disposition": "raw_unresolved"
+        }
+      ]
+    },
+    {
+      "legacyKey": "legacy-2",
+      "raw": {
+        "name": "Synthetic Business 2",
+        "addr": "102 Fictional Way",
+        "acct": "000-2",
+        "list": "approved",
+        "device": "",
+        "sourceRows": [
+          {
+            "Name": "Synthetic 2",
+            "Account": "000-2",
+            "Custom": "Kept exactly"
+          }
+        ],
+        "unknown": {
+          "nested": [
+            "unchanged",
+            2
+          ]
+        }
+      },
+      "notesRaw": null,
+      "acceptedIdentity": null,
+      "proposedDomainRecords": [],
+      "relationships": [
+        {
+          "type": "legacy_review_candidates",
+          "ids": [],
+          "total": 0
+        },
+        {
+          "type": "business_review_candidates",
+          "ids": [],
+          "total": 0
+        },
+        {
+          "type": "premise_review_candidates",
+          "ids": [],
+          "total": 0
+        }
+      ],
+      "diagnostics": [
+        "identity_acceptance_required",
+        "source_history_may_already_be_incomplete",
+        "external_id_unclassified"
+      ],
+      "fields": [
+        {
+          "field": "name",
+          "disposition": "candidate_only"
+        },
+        {
+          "field": "addr",
+          "disposition": "candidate_only"
+        },
+        {
+          "field": "acct",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "list",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "device",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "sourceRows",
+          "disposition": "raw_unresolved"
+        },
+        {
+          "field": "unknown",
+          "disposition": "raw_unresolved"
+        }
+      ]
+    }
+  ],
+  "orphanNotes": [
+    {
+      "legacyKey": "orphan",
+      "raw": {
+        "preserved": true
+      },
+      "disposition": "retained_unresolved"
+    }
+  ],
+  "diagnostics": [],
+  "unknownRootFields": []
+}

@@ -1,0 +1,431 @@
+{
+ "schema": "fieldmind.research",
+ "version": 2,
+ "generated": "2026-11-15T03:41:51+00:00",
+ "researcher": "fmworker-prototype",
+ "run": {
+  "minutes": 2.4,
+  "searches": 7,
+  "pages_read": 4
+ },
+ "premises": [
+  {
+   "match": {
+    "ref": "r1kedpv"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "found",
+    "name": "Videri Chocolate Factory",
+    "evidence": [
+     "C01"
+    ]
+   },
+   "summary": "Videri Chocolate Factory: 18 accepted claims from 24 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "The list has no suite. Sources put Videri Chocolate Factory in Suite 100 of a building with suites 100, 102. Is this premises that suite?",
+   "can_infer": [
+    "Owner-operated local business: a current owner is publicly named and active in the business",
+    "The 2028 redevelopment may change Videri's space or building systems; ask before assuming a long-term tenancy"
+   ],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "owner_operator",
+    "status": "inferred",
+    "who": "Sam Ratto",
+    "basis": "A source names this person as owner of the business operating at this address. Account authority is not established.",
+    "evidence": [
+     "C03",
+     "C04"
+    ]
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "found",
+     "value": "Sam Ratto",
+     "evidence": [
+      "C03",
+      "C04"
+     ],
+     "source": "ABC11 (WTVD)",
+     "link": "https://abc11.com/amp/post/nc-made-raleighs-videri-chocolate-factory-serves-sweet-success-bean-bar-treats/16509066/",
+     "date": "2026-11-15"
+    },
+    "structure": {
+     "status": "found",
+     "value": "~4,000 sq ft; factory + coffee shop + retail",
+     "evidence": [
+      "C08",
+      "C16"
+     ],
+     "source": "Podcast episode notes",
+     "link": "https://feeds.buzzsprout.com/1786561/episodes/16587280-interview-with-sam-ratto-of-videri-chocolate-factory-and-golf-golf-golf-in-raleigh-nc",
+     "date": "2026-11-15"
+    },
+    "property": {
+     "status": "found",
+     "value": "North Carolina Railroad Co.",
+     "evidence": [
+      "C11"
+     ],
+     "source": "Connect CRE",
+     "link": "https://www.connectcre.com/?p=449369",
+     "date": "2026-11-15"
+    },
+    "occupancy": {
+     "status": "found",
+     "value": "Redevelopment expected 2028",
+     "evidence": [
+      "C12"
+     ],
+     "source": "Connect CRE",
+     "link": "https://www.connectcre.com/?p=449369",
+     "date": "2026-11-15"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_found"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "claim": "Videri Chocolate Factory is listed at 327 W Davie St #100",
+     "claim_type": "occupant_identity",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Downtown Raleigh Alliance directory",
+      "type": "listing",
+      "url": "https://downtownraleigh.org/go/videri-chocolate-factory"
+     },
+     "excerpt": "327 W Davie St # 100 Raleigh, NC 27601"
+    },
+    {
+     "id": "C02",
+     "claim": "Visit Raleigh lists Videri Chocolate Factory at 327 W. Davie St., Ste. 100",
+     "claim_type": "occupant_identity",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Visit Raleigh listing",
+      "type": "listing",
+      "url": "https://www.visitraleigh.com/listing/videri-chocolate-factory/65276/"
+     },
+     "excerpt": "Address: 327 W. Davie St., Ste. 100, Raleigh, NC 27601"
+    },
+    {
+     "id": "C03",
+     "claim": "Sam Ratto is co-owner (ABC11, May 2025)",
+     "claim_type": "ownership",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2025-05-23",
+     "dimension": "people",
+     "source": {
+      "name": "ABC11 (WTVD)",
+      "type": "news",
+      "url": "https://abc11.com/amp/post/nc-made-raleighs-videri-chocolate-factory-serves-sweet-success-bean-bar-treats/16509066/"
+     },
+     "excerpt": "no one loves it more than Sam Ratto. He's the co-owner of Videri Chocolate Factory right here in downtown Raleigh."
+    },
+    {
+     "id": "C04",
+     "claim": "WRAL names Sam Ratto as owner (article undated)",
+     "claim_type": "ownership",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "people",
+     "source": {
+      "name": "WRAL",
+      "type": "news",
+      "url": "https://www.wral.com/story/21291194/"
+     },
+     "excerpt": "Sam Ratto is the owner of Videri Chocolate Factory in Raleigh, North Carolina."
+    },
+    {
+     "id": "C05",
+     "claim": "At opening, Chris Heavener was a co-owner with Sam Ratto and Starr Sink",
+     "claim_type": "ownership",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2011-12",
+     "dimension": "people",
+     "source": {
+      "name": "WRAL (grand opening)",
+      "type": "news",
+      "url": "https://www.wral.com/story/chocolate-factory-to-hold-grand-opening-in-raleigh/10572006/"
+     },
+     "excerpt": "Ratto said he, Sink and co-owner Chris Heavener"
+    },
+    {
+     "id": "C06",
+     "claim": "INDY Week profile: Chris Heavener manages Videri (undated, launch-era)",
+     "claim_type": "decision_route",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "people",
+     "source": {
+      "name": "INDY Week",
+      "type": "news",
+      "url": "https://indyweek.com/?p=117102"
+     },
+     "excerpt": "Chris Heavener manages Videri and, with the Rattos, helped launch the factory."
+    },
+    {
+     "id": "C07",
+     "claim": "Walter: Starr Sink Ratto described as co-owner (undated, launch-era)",
+     "claim_type": "ownership",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "people",
+     "source": {
+      "name": "Walter Magazine",
+      "type": "news",
+      "url": "https://waltermagazine.com/?p=2169"
+     },
+     "excerpt": "says Starr Sink Ratto, co-owner of Videri Chocolate Factory, on West Davie Street"
+    },
+    {
+     "id": "C08",
+     "claim": "About 4,000 sq ft facility combining factory, coffee shop and retail",
+     "claim_type": "structure",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "Podcast episode notes",
+      "type": "news",
+      "url": "https://feeds.buzzsprout.com/1786561/episodes/16587280-interview-with-sam-ratto-of-videri-chocolate-factory-and-golf-golf-golf-in-raleigh-nc"
+     },
+     "excerpt": "Its 4,000 square-foot facility in Raleigh's Warehouse District is home to a small batch chocolate factory, coffee shop and chocolate shop."
+    },
+    {
+     "id": "C09",
+     "claim": "Production uses roasting, winnowing (blower) and grinding machines on site: process load, not HVAC",
+     "claim_type": "other",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2025-05-23",
+     "dimension": "energy",
+     "source": {
+      "name": "ABC11 (WTVD)",
+      "type": "news",
+      "url": "https://abc11.com/post/nc-made-raleighs-videri-chocolate-factory-serves-sweet-success-bean-bar-treats/16509066/"
+     },
+     "excerpt": "The nibs are then ground in a spinning drum, where heat and pressure expel cocoa butter"
+    },
+    {
+     "id": "C10",
+     "claim": "Building is The Depot, 17,721 SF retail, built 1920 / renovated 2003, anchored by Videri (2020 lease listing)",
+     "claim_type": "property",
+     "about": "premises",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "LoopNet listing (The Depot)",
+      "type": "listing",
+      "url": "https://loopnet.ca/Listing/327-W-Davie-St-Raleigh-NC/21635564"
+     },
+     "excerpt": "\"17,721 SF\" \"Anchored by Videri Chocolate\""
+    },
+    {
+     "id": "C11",
+     "claim": "Trade press reports the site is owned by the North Carolina Railroad Co. (secondhand, undated)",
+     "claim_type": "property",
+     "about": "landlord",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "Connect CRE",
+      "type": "news",
+      "url": "https://www.connectcre.com/?p=449369"
+     },
+     "excerpt": "the 2.37-acre property owned by the North Carolina Railroad Co."
+    },
+    {
+     "id": "C12",
+     "claim": "A $75M mixed-use redevelopment of The Depot (hotel, retail, office) led by Loden Development is expected to complete in 2028",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Connect CRE",
+      "type": "news",
+      "url": "https://www.connectcre.com/?p=449369"
+     },
+     "excerpt": "The $75 million project, at 327 W. Davie St., is expected to be completed in 2028."
+    },
+    {
+     "id": "C13",
+     "claim": "Founded December 2011",
+     "claim_type": "other",
+     "about": "occupant",
+     "status": "conflicting",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "NC Field & Family",
+      "type": "news",
+      "url": "https://ncfieldfamily.org/?p=23068"
+     },
+     "excerpt": "Sam Ratto founded Videri Chocolate Factory in Raleigh in December 2011.",
+     "conflicts_with": [
+      "C14"
+     ]
+    },
+    {
+     "id": "C14",
+     "claim": "Atmosfy's AI summary says established 2013",
+     "claim_type": "other",
+     "about": "occupant",
+     "status": "conflicting",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Atmosfy (AI summary)",
+      "type": "listing",
+      "url": "https://atmosfy.io/location/raleigh/videri-chocolate-factory"
+     },
+     "excerpt": "is a bean-to-bar chocolate factory established in 2013",
+     "conflicts_with": [
+      "C13"
+     ]
+    },
+    {
+     "id": "C15",
+     "claim": "Opening-era hours: Wed-Sat 11am-7pm",
+     "claim_type": "hours",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "behavior",
+     "source": {
+      "name": "WRAL (grand opening)",
+      "type": "news",
+      "url": "https://www.wral.com/story/chocolate-factory-to-hold-grand-opening-in-raleigh/10572006/"
+     },
+     "excerpt": "open to the public Wednesday through Saturday 11 a.m.- 7 p.m."
+    },
+    {
+     "id": "C16",
+     "claim": "Multi-tenant building: The Venue is listed at 327 W Davie St #102",
+     "claim_type": "structure",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "Downtown Raleigh Alliance directory",
+      "type": "listing",
+      "url": "https://downtownraleigh.org/go/the-venue"
+     },
+     "excerpt": "327 W Davie St # 102"
+    },
+    {
+     "id": "I01",
+     "claim": "Owner-operated local business: a current owner is publicly named and active in the business",
+     "claim_type": "decision_route",
+     "about": "occupant",
+     "status": "inferred",
+     "basis": "inferred",
+     "observed_at": "2026-11-14",
+     "effective_date": null,
+     "dimension": "people",
+     "derived_from": [
+      "C01",
+      "C03"
+     ]
+    },
+    {
+     "id": "I02",
+     "claim": "The 2028 redevelopment may change Videri's space or building systems; ask before assuming a long-term tenancy",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "inferred",
+     "basis": "inferred",
+     "observed_at": "2026-11-14",
+     "effective_date": null,
+     "dimension": "business",
+     "derived_from": [
+      "C12"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "runs": [
+  {
+   "ref": "r1q1fio",
+   "seconds": 30,
+   "within_cap": true,
+   "failures": 0,
+   "accepted": 3,
+   "rejected": 3,
+   "unresolved": 6
+  },
+  {
+   "ref": "r1qleq2",
+   "seconds": 57,
+   "within_cap": true,
+   "failures": 0,
+   "accepted": 7,
+   "rejected": 2,
+   "unresolved": 6
+  },
+  {
+   "ref": "r1qvebr",
+   "seconds": 47,
+   "within_cap": true,
+   "failures": 0,
+   "accepted": 5,
+   "rejected": 2,
+   "unresolved": 7
+  },
+  {
+   "ref": "r1rfdj5",
+   "seconds": 37,
+   "within_cap": true,
+   "failures": 0,
+   "accepted": 7,
+   "rejected": 1,
+   "unresolved": 6
+  }
+ ],
+ "count": 4,
+ "median_seconds": 47,
+ "over_cap": 0
+}

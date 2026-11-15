@@ -1,0 +1,134 @@
+{
+  "schema": "fieldmind.synthetic-readiness-brief/v1",
+  "synthetic": true,
+  "record_ref": "MIMO-S11",
+  "record_scope": "1011 Fictional Test Way, Synthetic Unit 11, Exampleton, ZZ 00000",
+  "identity_acceptance": null,
+  "manager_authorization_from_output": null,
+  "current_equipment": null,
+  "eligibility": "not_established",
+  "q1": {
+    "candidate_names": [
+      "Synthetic Current Operator 11"
+    ],
+    "status": "source_reported_not_accepted",
+    "source_ids": [
+      "MIMO-S11-P"
+    ],
+    "limitation": "Fictional listing, not independent current-operator verification"
+  },
+  "q2": {
+    "business_ownership": {
+      "state": "unknown",
+      "candidate": null,
+      "source_refs": []
+    },
+    "business_operations": {
+      "state": "unknown",
+      "candidate": null,
+      "source_refs": []
+    },
+    "utility_account": {
+      "state": "unknown",
+      "candidate": null,
+      "source_refs": []
+    },
+    "property": {
+      "state": "unknown",
+      "candidate": null,
+      "source_refs": []
+    },
+    "hvac_facilities": {
+      "state": "unknown",
+      "candidate": null,
+      "source_refs": []
+    }
+  },
+  "q3": {
+    "historical_participation": {
+      "status": "historical_list_report",
+      "previous_occupant": "Synthetic Former Occupant 11",
+      "program_label": "Duke EnergyWise Business — fictional scenario label only",
+      "historical_account_ref": "SYN-HIST-011",
+      "source_ref": "MIMO-S11-H",
+      "period": {
+        "from": null,
+        "to": null
+      }
+    },
+    "historical_equipment": {
+      "device_raw": "SYNTH-T11",
+      "thermostat_raw": "Historical label SYNTH-STAT-11",
+      "source_ref": "MIMO-S11-H",
+      "remains_installed": "unknown",
+      "current_compatibility": "unknown"
+    },
+    "current_account": "unknown",
+    "current_hvac": "unknown",
+    "eligibility": "not_established"
+  },
+  "q4": [
+    "Current account, installed HVAC/controls and current program eligibility are not established",
+    "No automatic identity acceptance; source report is not verification"
+  ],
+  "q5": {
+    "verification_step": "Establish current HVAC/control equipment; the old device field does not show what remains installed",
+    "why": "Avoid unsupported identity, authority and history-to-current conclusions",
+    "contact_performed": false,
+    "requires_separate_contact_authorization": true
+  },
+  "q6": {
+    "before": null,
+    "after": null,
+    "changed": null,
+    "human_assessment": "not_performed",
+    "qualitative_note": "Use uncertainty and evidence to review priority; no enrollment or route recommendation"
+  },
+  "claims": [
+    {
+      "claim_id": "MIMO-S11-H-CLAIM",
+      "kind": "historical_participation",
+      "source_id": "MIMO-S11-H",
+      "exact_quote": "Synthetic Former Occupant 11; prior participation recorded; Device field SYNTH-T11; Thermostat field Historical label SYNTH-STAT-11; utility reference SYN-HIST-011. Source row date is not proof of occupancy or account start/end.",
+      "source_scope": "historical utility account; current location association unresolved",
+      "epistemic": "historical",
+      "verification": "not_independently_verified"
+    },
+    {
+      "claim_id": "MIMO-S11-P-CLAIM",
+      "kind": "listing_report",
+      "source_id": "MIMO-S11-P",
+      "exact_quote": "Fictional listing names Synthetic Current Operator 11 at the stated address. Listing data is not independent verification, utility-account authority, current HVAC confirmation or eligibility.",
+      "source_scope": "1011 Fictional Test Way, Synthetic Unit 11, Exampleton, ZZ 00000",
+      "epistemic": "source_reported",
+      "verification": "not_independently_verified"
+    },
+    {
+      "claim_id": "MIMO-S11-X-CLAIM",
+      "kind": "qualified_context",
+      "source_id": "MIMO-S11-X",
+      "exact_quote": "Only the old device column is present. There is no evidence that it remains installed, controls the current HVAC, or is compatible today.",
+      "source_scope": "scope requires review",
+      "epistemic": "source_reported",
+      "verification": "not_independently_verified"
+    }
+  ],
+  "source_usefulness": [
+    {
+      "source_id": "MIMO-S11-H",
+      "human_rating": null,
+      "observed_in_replay": true
+    },
+    {
+      "source_id": "MIMO-S11-P",
+      "human_rating": null,
+      "observed_in_replay": true
+    },
+    {
+      "source_id": "MIMO-S11-X",
+      "human_rating": null,
+      "observed_in_replay": true
+    }
+  ],
+  "research_kind": "offline_protocol_replay_not_human_or_model_research"
+}

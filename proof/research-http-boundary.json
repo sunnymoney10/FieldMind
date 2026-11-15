@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": {
+    "no_session_denied": true,
+    "app_loads": true,
+    "local_session_health": true,
+    "foreign_origin_denied": true,
+    "account_fields_rejected": true,
+    "invalid_host_denied": true,
+    "files_not_exposed": true
+  }
+}

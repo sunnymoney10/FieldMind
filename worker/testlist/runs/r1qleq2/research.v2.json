@@ -1,0 +1,230 @@
+{
+ "schema": "fieldmind.research",
+ "version": 2,
+ "generated": "2026-11-15T03:41:51+00:00",
+ "researcher": "fmworker-prototype",
+ "run": {
+  "minutes": 0.9,
+  "searches": 3,
+  "pages_read": 1
+ },
+ "premises": [
+  {
+   "match": {
+    "ref": "r1qleq2"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "conflicting",
+    "name": null,
+    "evidence": [
+     "C01"
+    ]
+   },
+   "summary": "7 accepted claims from 9 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "Who operates at 4325 Glenwood Ave, Raleigh, NC 27612 today?",
+   "can_infer": [],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "unknown",
+    "status": "unknown"
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "not_found"
+    },
+    "structure": {
+     "status": "not_checked"
+    },
+    "property": {
+     "status": "found",
+     "value": "Macerich",
+     "evidence": [
+      "C05"
+     ],
+     "source": "CoStar News (Jun 24, 2025)",
+     "link": "https://www.costar.com/article/677832488/macerich-expands-to-southeast-us-with-290-million-mall-purchase",
+     "date": "2026-11-15"
+    },
+    "occupancy": {
+     "status": "found",
+     "value": "Maggiano's pending",
+     "evidence": [
+      "C04"
+     ],
+     "source": "WhatNow (Oct 29, 2026)",
+     "link": "https://whatnow.com/?p=450537",
+     "date": "2026-11-15"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_checked"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "not_found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "not_found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "claim": "Brio's own location page still lists Crabtree at 4325 Glenwood Ave Ste 5000 with hours (page undated)",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "conflicting",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Brio website (location page, undated)",
+      "type": "business_site",
+      "url": "https://www.brioitalian.com/locations/crabtree/"
+     },
+     "excerpt": "Address\n4325 Glenwood Ave, STE 5000, Raleigh, NC, 27612",
+     "conflicts_with": [
+      "C02",
+      "C03"
+     ]
+    },
+    {
+     "id": "C02",
+     "claim": "Brio closed its Crabtree Valley Mall restaurant in August 2025",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "conflicting",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-10-29",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Oct 29, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=450537"
+     },
+     "excerpt": "\"Brio Italian Grille closed its Crabtree Valley Mall restaurant in August 2025 after more than 15 years\"",
+     "conflicts_with": [
+      "C01",
+      "C03"
+     ]
+    },
+    {
+     "id": "C03",
+     "claim": "Raleigh Magazine (Sep 2025): Brio at Crabtree shuttered after a bankruptcy filing",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "conflicting",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2025-09-29",
+     "dimension": "business",
+     "source": {
+      "name": "Raleigh Magazine (Sep 2025)",
+      "type": "news",
+      "url": "https://raleighmag.com/2025/09/29/raleigh-food-news-october/"
+     },
+     "excerpt": "The Italian spot at Crabtree Valley Mall shuttered post-bankruptcy filing",
+     "conflicts_with": [
+      "C01",
+      "C02"
+     ]
+    },
+    {
+     "id": "C04",
+     "claim": "Maggiano's Little Italy (corporate chain) is preparing to open in the former Brio space; no opening date announced (Oct 2026)",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-10-29",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Oct 29, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=450537"
+     },
+     "excerpt": "\"at Crabtree Valley Mall, located at 4325 Glenwood Avenue.\""
+    },
+    {
+     "id": "C05",
+     "claim": "The address is a 1.3M sq ft mall; Macerich bought it in June 2025",
+     "claim_type": "property",
+     "about": "landlord",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2025-06-24",
+     "dimension": "infrastructure",
+     "source": {
+      "name": "CoStar News (Jun 24, 2025)",
+      "type": "news",
+      "url": "https://www.costar.com/article/677832488/macerich-expands-to-southeast-us-with-290-million-mall-purchase"
+     },
+     "excerpt": "it had purchased the market-dominant, Class A retail center, totaling 1.3 million square feet, at 4325 Glenwood Ave."
+    },
+    {
+     "id": "C06",
+     "claim": "Many tenants share 4325 Glenwood Ave under different suites (e.g. Ste 5004 Fleming's, Ste 2100 Seasons 52)",
+     "claim_type": "structure",
+     "about": "premises",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "Raleigh Magazine (Dec 2021)",
+      "type": "news",
+      "url": "https://raleighmag.com/2021/12/20/crabtree-restaurant-scene/"
+     },
+     "excerpt": "4325 Glenwood Ave., Ste. 5004, 919.571.6200, flemingssteakhouse.com"
+    },
+    {
+     "id": "C07",
+     "claim": "Brio's suite was given as Ste 5005 in 2021",
+     "claim_type": "occupant_identity",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Raleigh Magazine (Dec 2021)",
+      "type": "news",
+      "url": "https://raleighmag.com/2021/12/20/crabtree-restaurant-scene/"
+     },
+     "excerpt": "4325 Glenwood Ave., Ste. 5005, Raleigh, 919.589.1280, brioitalian.com"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,170 @@
+{
+ "schema": "fieldmind.research",
+ "version": 2,
+ "generated": "2026-11-15T03:48:51+00:00",
+ "researcher": "fmworker-prototype",
+ "run": {
+  "minutes": 0.5,
+  "searches": 4,
+  "pages_read": 4
+ },
+ "premises": [
+  {
+   "match": {
+    "ref": "r1kedpv"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "found",
+    "name": "Videri Chocolate Factory",
+    "evidence": [
+     "R01"
+    ]
+   },
+   "summary": "Videri Chocolate Factory: 5 accepted claims from 8 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "The list has no suite. Sources put Videri Chocolate Factory in Suite 100. Is this premises that suite?",
+   "can_infer": [],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "unknown",
+    "status": "unknown"
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "not_found"
+    },
+    "structure": {
+     "status": "not_checked"
+    },
+    "property": {
+     "status": "not_checked"
+    },
+    "occupancy": {
+     "status": "not_checked"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_checked"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "not_found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "R01",
+     "claim": "Videri Chocolate Factory is listed at 327 W Davie St, Sweet 100 Raleigh, NC 27601",
+     "claim_type": "occupant_identity",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "viderichocolatefactory.com",
+      "type": "business_site",
+      "url": "https://viderichocolatefactory.com/contact"
+     },
+     "excerpt": "327 W Davie St, Sweet 100 Raleigh, NC 27601"
+    },
+    {
+     "id": "R02",
+     "claim": "Videri Chocolate Factory is listed at 327 W. Davie St., Ste. 100, Raleigh, NC 27601",
+     "claim_type": "occupant_identity",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "www.visitraleigh.com",
+      "type": "listing",
+      "url": "https://www.visitraleigh.com/listing/videri-chocolate-factory/67511/"
+     },
+     "excerpt": "327 W. Davie St., Ste. 100, Raleigh, NC 27601"
+    },
+    {
+     "id": "R03",
+     "claim": "Production signal on the business's own site: 'roast' (process load, not HVAC)",
+     "claim_type": "other",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "energy",
+     "source": {
+      "name": "viderichocolatefactory.com",
+      "type": "business_site",
+      "url": "https://viderichocolatefactory.com/sourcing"
+     },
+     "excerpt": "nd Oko Caribe in The Dominican Republic , Kokoa Kamili in Tanzania and Tien Giang in Vietnam . From there , we sort and roast beans to bring out their distinct flavors . While our commitment to ethical sustainable chocolate begins with cacao , i"
+    },
+    {
+     "id": "R04",
+     "claim": "Sam Ratto described as owner (mentions 2023)",
+     "claim_type": "ownership",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2023",
+     "dimension": "people",
+     "source": {
+      "name": "viderichocolatefactory.com",
+      "type": "business_site",
+      "url": "https://viderichocolatefactory.com/sourcing"
+     },
+     "excerpt": "In 2023 , Sam Ratto , the owner of Videri Chocolate Factory , visited one of our sources in Guatemala , Lachua , along with our chocolate makers Mordecai , Jazzi , and Carrie . Phot"
+    },
+    {
+     "id": "R05",
+     "claim": "Production signal on the business's own site: 'roast' (process load, not HVAC)",
+     "claim_type": "other",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "energy",
+     "source": {
+      "name": "viderichocolatefactory.com",
+      "type": "business_site",
+      "url": "https://viderichocolatefactory.com/factory-tours"
+     },
+     "excerpt": "Did you know we sort all of our beans by hand ? Did you know we roast every bag of cocoa beans in our roaster ? Did you know a cacao tree produces fruit ? Come see our process and learn mor"
+    }
+   ]
+  }
+ ]
+}

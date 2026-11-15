@@ -1,0 +1,56 @@
+{
+ "ref": "r1kedpv",
+ "policy_version": "fm-research-policy-v0",
+ "synthetic": false,
+ "timing": {
+  "elapsed_seconds": 30,
+  "cap_seconds": 1200,
+  "within_cap": true,
+  "phases": {
+   "prepare": 0,
+   "retrieve": 30,
+   "extract": 0,
+   "check": 0
+  },
+  "started_at": "2026-11-15T03:42:29.614571+00:00",
+  "finished_at": "2026-11-15T03:42:59.559021+00:00"
+ },
+ "retrieval": {
+  "planned_steps": 8,
+  "searches": 4,
+  "fetches": 5,
+  "ok": 8,
+  "failures": [
+   {
+    "id": "S5",
+    "kind": "fetch",
+    "target": "https://viderichocolatefactory.com/sourcing",
+    "outcome": "failed",
+    "error": "HTTP 302 (not usable as evidence)"
+   }
+  ]
+ },
+ "claims": {
+  "proposed": 5,
+  "accepted": 5,
+  "accepted_by_label": {
+   "verified": 0,
+   "found": 4,
+   "inferred": 0,
+   "historical": 1,
+   "conflicting": 0
+  },
+  "rejected": [],
+  "rejected_by_reason": {},
+  "contradictions": []
+ },
+ "unresolved_questions": [
+  "The list has no suite. Sources put Videri Chocolate Factory in Suite 100. Is this premises that suite?",
+  "business ownership: Who holds this authority now",
+  "business operations: Who holds this authority now",
+  "utility account: Account holder and signing authority; needs authorized confirmation",
+  "property: Who holds this authority now",
+  "hvac facilities: Who holds this authority now",
+  "Current HVAC and thermostat setup at this premises"
+ ]
+}

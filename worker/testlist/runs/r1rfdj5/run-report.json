@@ -1,0 +1,60 @@
+{
+ "ref": "r1rfdj5",
+ "policy_version": "fm-research-policy-v0",
+ "synthetic": false,
+ "timing": {
+  "elapsed_seconds": 37,
+  "cap_seconds": 1200,
+  "within_cap": true,
+  "phases": {
+   "prepare": 0,
+   "retrieve": 37,
+   "extract": 0,
+   "check": 0
+  },
+  "started_at": "2026-11-15T03:37:50+00:00",
+  "finished_at": "2026-11-15T03:38:27+00:00"
+ },
+ "retrieval": {
+  "planned_steps": 8,
+  "searches": 2,
+  "fetches": 1,
+  "ok": 7,
+  "failures": []
+ },
+ "claims": {
+  "proposed": 8,
+  "accepted": 7,
+  "accepted_by_label": {
+   "verified": 0,
+   "found": 4,
+   "inferred": 1,
+   "historical": 2,
+   "conflicting": 0
+  },
+  "rejected": [
+   {
+    "id": "N01",
+    "text": "Listed owners Brian and Alex Amra still decide for this location",
+    "reason": "authority_rejected",
+    "detail": "decision authority is never inferred; it needs a source",
+    "subject": "Clouds Brewing",
+    "about": "occupant",
+    "address_in_source": null,
+    "retrieval": null
+   }
+  ],
+  "rejected_by_reason": {
+   "authority_rejected": 1
+  },
+  "contradictions": []
+ },
+ "unresolved_questions": [
+  "Who owns Clouds Brewing, and do they decide on the utility account?",
+  "business ownership: Who holds this authority now",
+  "business operations: Who holds this authority now",
+  "utility account: Account holder and signing authority; needs authorized confirmation",
+  "property: Who holds this authority now",
+  "hvac facilities: Who holds this authority now"
+ ]
+}

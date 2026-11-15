@@ -1,0 +1,217 @@
+{
+ "schema": "fieldmind.research",
+ "version": 2,
+ "generated": "2026-11-15T03:41:51+00:00",
+ "researcher": "fmworker-prototype",
+ "run": {
+  "minutes": 0.6,
+  "searches": 2,
+  "pages_read": 1
+ },
+ "premises": [
+  {
+   "match": {
+    "ref": "r1rfdj5"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "found",
+    "name": "Clouds Brewing",
+    "evidence": [
+     "C01"
+    ]
+   },
+   "summary": "Clouds Brewing: 7 accepted claims from 7 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "Who owns Clouds Brewing, and do they decide on the utility account?",
+   "can_infer": [
+    "Large multi-bar venue in a historic building: likely substantial HVAC load across several zones"
+   ],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "unknown",
+    "status": "unknown"
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "not_found"
+    },
+    "structure": {
+     "status": "found",
+     "value": "Historic powerhouse building; multiple bars and event spaces",
+     "evidence": [
+      "C06"
+     ],
+     "source": "The Triangle Weekender directory",
+     "link": "https://thetriangleweekender.com/directory/drink/tobacco-road-sports-cafe-raleigh/",
+     "date": "2026-11-15"
+    },
+    "property": {
+     "status": "not_checked"
+    },
+    "occupancy": {
+     "status": "found",
+     "value": "acquired June 1, 2026",
+     "evidence": [
+      "C03"
+     ],
+     "source": "WhatNow (Jun 9, 2026)",
+     "link": "https://whatnow.com/?p=406072",
+     "date": "2026-11-15"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_checked"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "claim": "Clouds Brewing took over the 505 W Jones St space formerly occupied by Tobacco Road Sports Cafe (June 2026)",
+     "claim_type": "occupant_identity",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-06-09",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Jun 9, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=406072"
+     },
+     "excerpt": "\"Clouds Brewing plans to open a new location in the space formerly occupied by Tobacco Road Sports Cafe\" \"at 505 W. Jones Street"
+    },
+    {
+     "id": "C02",
+     "claim": "Clouds Brewing is open in its new Jones Street location (Sep 2026)",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-09-01",
+     "dimension": "business",
+     "source": {
+      "name": "Raleigh Magazine (Sep 2026)",
+      "type": "news",
+      "url": "https://raleighmag.com/2026/09/01/raleigh-foodie-news/"
+     },
+     "excerpt": "Clouds Brewing is officially back Downtown in its new Jones Street digs"
+    },
+    {
+     "id": "C03",
+     "claim": "Clouds acquired the assets and operations of the property effective June 1, 2026, keeping current employees",
+     "claim_type": "occupancy_change",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-06-01",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Jun 9, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=406072"
+     },
+     "excerpt": "\"it acquired the assets and operations of the downtown property effective June 1\""
+    },
+    {
+     "id": "C04",
+     "claim": "Tobacco Road Sports Cafe closed permanently around the end of May 2026",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Meetup event page",
+      "type": "listing",
+      "url": "https://www.meetup.com/triangle-libertarian/events/315715112"
+     },
+     "excerpt": "as the iconic sports bar was abruptly and permanently closing four days later"
+    },
+    {
+     "id": "C05",
+     "claim": "Tobacco Road (listed name) operated at 505 W Jones St; owners Brian and Alex Amra (2019)",
+     "claim_type": "ownership",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "people",
+     "source": {
+      "name": "Raleigh Magazine breweries poster (2019)",
+      "type": "news",
+      "url": "https://raleighmag.com/storage/2019/03/Breweries_Poster.pdf"
+     },
+     "excerpt": "Owners:  \n\nBrian and Alex Amra"
+    },
+    {
+     "id": "C06",
+     "claim": "Building is the historic Raleigh Electric Company Powerhouse, with large dining areas, multiple bars and event spaces",
+     "claim_type": "structure",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "The Triangle Weekender directory",
+      "type": "listing",
+      "url": "https://thetriangleweekender.com/directory/drink/tobacco-road-sports-cafe-raleigh/"
+     },
+     "excerpt": "Located in the historic Raleigh Electric Company Powerhouse building"
+    },
+    {
+     "id": "I01",
+     "claim": "Large multi-bar venue in a historic building: likely substantial HVAC load across several zones",
+     "claim_type": "hvac",
+     "about": "premises",
+     "status": "inferred",
+     "basis": "inferred",
+     "observed_at": "2026-11-14",
+     "effective_date": null,
+     "dimension": "energy",
+     "derived_from": [
+      "C06"
+     ]
+    }
+   ]
+  }
+ ]
+}
