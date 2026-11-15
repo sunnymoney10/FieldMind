@@ -1,0 +1,2301 @@
+{
+  "package_schema": "fieldmind.synthetic-mimo-benchmark-prep/v1",
+  "synthetic_only": true,
+  "real_processing_authorized": false,
+  "records": [
+    {
+      "record_id": "MIMO-S01",
+      "synthetic": true,
+      "stratum": "location_identity",
+      "scenario": "exact_suite_source_support",
+      "pair_id": "PAIR-01",
+      "site_cluster_id": "SYN-SITE-01",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 01",
+        "service_address_raw": "1001 Fictional Test Way, Synthetic Unit 01, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-001",
+        "Device": "SYNTH-T01",
+        "Thermostat": "Historical label SYNTH-STAT-01",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 01",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-001",
+        "source_ref": "MIMO-S01-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T01",
+        "thermostat_raw": "Historical label SYNTH-STAT-01",
+        "source_ref": "MIMO-S01-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-001"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 01"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S01-P",
+          "MIMO-S01-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S01-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S01-H",
+        "MIMO-S01-P",
+        "MIMO-S01-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S02",
+      "synthetic": true,
+      "stratum": "location_identity",
+      "scenario": "shared_address_wrong_suite_risk",
+      "pair_id": "PAIR-01",
+      "site_cluster_id": "SYN-SITE-02",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 02",
+        "service_address_raw": "1002 Fictional Test Way, Synthetic Unit 02, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-002",
+        "Device": "SYNTH-T02",
+        "Thermostat": "Historical label SYNTH-STAT-02",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 02",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-002",
+        "source_ref": "MIMO-S02-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T02",
+        "thermostat_raw": "Historical label SYNTH-STAT-02",
+        "source_ref": "MIMO-S02-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-002"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "conflicting",
+        "candidate_names": [
+          "Synthetic Current Operator 02",
+          "Synthetic Former Occupant 02"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "unresolved",
+        "source_refs": [
+          "MIMO-S02-P",
+          "MIMO-S02-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S02-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S02-H",
+        "MIMO-S02-P",
+        "MIMO-S02-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S03",
+      "synthetic": true,
+      "stratum": "location_identity",
+      "scenario": "rebrand_or_new_operator_uncertain",
+      "pair_id": "PAIR-02",
+      "site_cluster_id": "SYN-SITE-03",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 03",
+        "service_address_raw": "1003 Fictional Test Way, Synthetic Unit 03, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-003",
+        "Device": "SYNTH-T03",
+        "Thermostat": "",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 03",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-003",
+        "source_ref": "MIMO-S03-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T03",
+        "thermostat_raw": "",
+        "source_ref": "MIMO-S03-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-003"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "conflicting",
+        "candidate_names": [
+          "Synthetic Current Operator 03",
+          "Synthetic Former Occupant 03"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S03-P",
+          "MIMO-S03-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S03-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S03-H",
+        "MIMO-S03-P",
+        "MIMO-S03-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S04",
+      "synthetic": true,
+      "stratum": "location_identity",
+      "scenario": "vacancy_conflict_and_exact_dnc",
+      "pair_id": "PAIR-02",
+      "site_cluster_id": "SYN-SITE-04",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 04",
+        "service_address_raw": "1004 Fictional Test Way, Synthetic Unit 04, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-004",
+        "Device": "",
+        "Thermostat": "Historical label SYNTH-STAT-04",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 04",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-004",
+        "source_ref": "MIMO-S04-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "",
+        "thermostat_raw": "Historical label SYNTH-STAT-04",
+        "source_ref": "MIMO-S04-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-004"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "conflicting",
+        "candidate_names": [
+          "Synthetic Current Operator 04",
+          "Synthetic Former Occupant 04"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "unresolved",
+        "source_refs": [
+          "MIMO-S04-P",
+          "MIMO-S04-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S04-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [
+          {
+            "id": "MIMO-S04-SUP-A",
+            "scope": "premise",
+            "status": "active",
+            "synthetic": true,
+            "source_ref": "MIMO-S04-X"
+          }
+        ],
+        "releases": [],
+        "post_permission_disposition": "exclude",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S04-H",
+        "MIMO-S04-P",
+        "MIMO-S04-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S05",
+      "synthetic": true,
+      "stratum": "location_identity",
+      "scenario": "single_apparent_match_needs_acceptance",
+      "pair_id": "PAIR-09",
+      "site_cluster_id": "SYN-SITE-02",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 05",
+        "service_address_raw": "1002 Fictional Test Way, Synthetic Unit 05, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-005",
+        "Device": "SYNTH-T05",
+        "Thermostat": "Historical label SYNTH-STAT-05",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 05",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-005",
+        "source_ref": "MIMO-S05-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T05",
+        "thermostat_raw": "Historical label SYNTH-STAT-05",
+        "source_ref": "MIMO-S05-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-005"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 05"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S05-P",
+          "MIMO-S05-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S05-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S05-H",
+        "MIMO-S05-P",
+        "MIMO-S05-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S06",
+      "synthetic": true,
+      "stratum": "account_relationship",
+      "scenario": "two_historical_accounts_sequence_unknown",
+      "pair_id": "PAIR-03",
+      "site_cluster_id": "SYN-SITE-06",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 06",
+        "service_address_raw": "1006 Fictional Test Way, Synthetic Unit 06, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-006",
+        "Device": "SYNTH-T06",
+        "Thermostat": "",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 06",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-006",
+        "source_ref": "MIMO-S06-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T06",
+        "thermostat_raw": "",
+        "source_ref": "MIMO-S06-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-006",
+          "SYN-OTHER-006"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "possible_not_established"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 06"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S06-P",
+          "MIMO-S06-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S06-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S06-H",
+        "MIMO-S06-P",
+        "MIMO-S06-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S07",
+      "synthetic": true,
+      "stratum": "account_relationship",
+      "scenario": "simultaneous_accounts_or_meters",
+      "pair_id": "PAIR-03",
+      "site_cluster_id": "SYN-SITE-07",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 07",
+        "service_address_raw": "1007 Fictional Test Way, Synthetic Unit 07, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-007",
+        "Device": "SYNTH-T07",
+        "Thermostat": "Historical label SYNTH-STAT-07",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 07",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-007",
+        "source_ref": "MIMO-S07-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T07",
+        "thermostat_raw": "Historical label SYNTH-STAT-07",
+        "source_ref": "MIMO-S07-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-007",
+          "SYN-OTHER-007"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "possible_not_established"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 07"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S07-P",
+          "MIMO-S07-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S07-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S07-H",
+        "MIMO-S07-P",
+        "MIMO-S07-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S08",
+      "synthetic": true,
+      "stratum": "account_relationship",
+      "scenario": "premise_id_mislabeled_account",
+      "pair_id": "PAIR-04",
+      "site_cluster_id": "SYN-SITE-08",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 08",
+        "service_address_raw": "1008 Fictional Test Way, Synthetic Unit 08, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-008",
+        "Device": "",
+        "Thermostat": "Historical label SYNTH-STAT-08",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 08",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-008",
+        "source_ref": "MIMO-S08-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "",
+        "thermostat_raw": "Historical label SYNTH-STAT-08",
+        "source_ref": "MIMO-S08-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-008"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 08"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S08-P",
+          "MIMO-S08-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S08-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S08-H",
+        "MIMO-S08-P",
+        "MIMO-S08-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S09",
+      "synthetic": true,
+      "stratum": "account_relationship",
+      "scenario": "account_reference_may_belong_to_neighbor",
+      "pair_id": "PAIR-04",
+      "site_cluster_id": "SYN-SITE-09",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 09",
+        "service_address_raw": "1009 Fictional Test Way, Synthetic Unit 09, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-009",
+        "Device": "SYNTH-T09",
+        "Thermostat": "",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 09",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-009",
+        "source_ref": "MIMO-S09-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T09",
+        "thermostat_raw": "",
+        "source_ref": "MIMO-S09-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-009",
+          "SYN-OTHER-009"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "conflicting",
+        "candidate_names": [
+          "Synthetic Current Operator 09",
+          "Synthetic Former Occupant 09"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "unresolved",
+        "source_refs": [
+          "MIMO-S09-P",
+          "MIMO-S09-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S09-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S09-H",
+        "MIMO-S09-P",
+        "MIMO-S09-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S10",
+      "synthetic": true,
+      "stratum": "account_relationship",
+      "scenario": "account_scoped_hold",
+      "pair_id": "PAIR-09",
+      "site_cluster_id": "SYN-SITE-10",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 10",
+        "service_address_raw": "1010 Fictional Test Way, Synthetic Unit 10, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-010",
+        "Device": "SYNTH-T10",
+        "Thermostat": "Historical label SYNTH-STAT-10",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 10",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-010",
+        "source_ref": "MIMO-S10-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T10",
+        "thermostat_raw": "Historical label SYNTH-STAT-10",
+        "source_ref": "MIMO-S10-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-010"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 10"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S10-P",
+          "MIMO-S10-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S10-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [
+          {
+            "id": "MIMO-S10-SUP-A",
+            "scope": "utility_account_unresolved",
+            "status": "active",
+            "synthetic": true,
+            "source_ref": "MIMO-S10-X"
+          }
+        ],
+        "releases": [],
+        "post_permission_disposition": "exclude",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S10-H",
+        "MIMO-S10-P",
+        "MIMO-S10-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S11",
+      "synthetic": true,
+      "stratum": "hvac_energy",
+      "scenario": "historical_thermostat_only",
+      "pair_id": "PAIR-05",
+      "site_cluster_id": "SYN-SITE-11",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 11",
+        "service_address_raw": "1011 Fictional Test Way, Synthetic Unit 11, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-011",
+        "Device": "SYNTH-T11",
+        "Thermostat": "Historical label SYNTH-STAT-11",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 11",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-011",
+        "source_ref": "MIMO-S11-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T11",
+        "thermostat_raw": "Historical label SYNTH-STAT-11",
+        "source_ref": "MIMO-S11-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-011"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 11"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S11-P",
+          "MIMO-S11-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S11-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S11-H",
+        "MIMO-S11-P",
+        "MIMO-S11-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S12",
+      "synthetic": true,
+      "stratum": "hvac_energy",
+      "scenario": "building_permit_not_suite_equipment",
+      "pair_id": "PAIR-05",
+      "site_cluster_id": "SYN-SITE-12",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 12",
+        "service_address_raw": "1012 Fictional Test Way, Synthetic Unit 12, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-012",
+        "Device": "",
+        "Thermostat": "",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 12",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-012",
+        "source_ref": "MIMO-S12-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "",
+        "thermostat_raw": "",
+        "source_ref": "MIMO-S12-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-012"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 12"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S12-P",
+          "MIMO-S12-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S12-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S12-H",
+        "MIMO-S12-P",
+        "MIMO-S12-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S13",
+      "synthetic": true,
+      "stratum": "hvac_energy",
+      "scenario": "renovation_sources_conflict",
+      "pair_id": "PAIR-06",
+      "site_cluster_id": "SYN-SITE-13",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 13",
+        "service_address_raw": "1013 Fictional Test Way, Synthetic Unit 13, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-013",
+        "Device": "SYNTH-T13",
+        "Thermostat": "Historical label SYNTH-STAT-13",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 13",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-013",
+        "source_ref": "MIMO-S13-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T13",
+        "thermostat_raw": "Historical label SYNTH-STAT-13",
+        "source_ref": "MIMO-S13-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-013"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 13"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S13-P",
+          "MIMO-S13-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S13-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S13-H",
+        "MIMO-S13-P",
+        "MIMO-S13-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S14",
+      "synthetic": true,
+      "stratum": "hvac_energy",
+      "scenario": "shared_hvac_landlord_facilities_hypothesis",
+      "pair_id": "PAIR-06",
+      "site_cluster_id": "SYN-SITE-14",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 14",
+        "service_address_raw": "1014 Fictional Test Way, Synthetic Unit 14, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-014",
+        "Device": "SYNTH-T14",
+        "Thermostat": "Historical label SYNTH-STAT-14",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 14",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-014",
+        "source_ref": "MIMO-S14-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T14",
+        "thermostat_raw": "Historical label SYNTH-STAT-14",
+        "source_ref": "MIMO-S14-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-014"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 14"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S14-P",
+          "MIMO-S14-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S14-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "inferred",
+          "candidate": "Synthetic role hypothesis only",
+          "source_refs": [
+            "MIMO-S14-X"
+          ]
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S14-H",
+        "MIMO-S14-P",
+        "MIMO-S14-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S15",
+      "synthetic": true,
+      "stratum": "hvac_energy",
+      "scenario": "energy_experience_old_review_not_current_fact",
+      "pair_id": "PAIR-10",
+      "site_cluster_id": "SYN-SITE-15",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 15",
+        "service_address_raw": "1015 Fictional Test Way, Synthetic Unit 15, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-015",
+        "Device": "SYNTH-T15",
+        "Thermostat": "",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 15",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-015",
+        "source_ref": "MIMO-S15-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T15",
+        "thermostat_raw": "",
+        "source_ref": "MIMO-S15-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-015"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 15"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S15-P",
+          "MIMO-S15-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S15-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S15-H",
+        "MIMO-S15-P",
+        "MIMO-S15-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S16",
+      "synthetic": true,
+      "stratum": "authority_control",
+      "scenario": "owner_named_not_account_authorized",
+      "pair_id": "PAIR-07",
+      "site_cluster_id": "SYN-SITE-16",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 16",
+        "service_address_raw": "1016 Fictional Test Way, Synthetic Unit 16, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-016",
+        "Device": "",
+        "Thermostat": "Historical label SYNTH-STAT-16",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 16",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-016",
+        "source_ref": "MIMO-S16-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "",
+        "thermostat_raw": "Historical label SYNTH-STAT-16",
+        "source_ref": "MIMO-S16-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-016"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 16"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S16-P",
+          "MIMO-S16-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S16-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "inferred",
+          "candidate": "Synthetic role hypothesis only",
+          "source_refs": [
+            "MIMO-S16-X"
+          ]
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S16-H",
+        "MIMO-S16-P",
+        "MIMO-S16-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S17",
+      "synthetic": true,
+      "stratum": "authority_control",
+      "scenario": "corporate_franchise_operator_distinction",
+      "pair_id": "PAIR-07",
+      "site_cluster_id": "SYN-SITE-17",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 17",
+        "service_address_raw": "1017 Fictional Test Way, Synthetic Unit 17, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-017",
+        "Device": "SYNTH-T17",
+        "Thermostat": "Historical label SYNTH-STAT-17",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 17",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-017",
+        "source_ref": "MIMO-S17-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T17",
+        "thermostat_raw": "Historical label SYNTH-STAT-17",
+        "source_ref": "MIMO-S17-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-017"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 17"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S17-P",
+          "MIMO-S17-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S17-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "inferred",
+          "candidate": "Synthetic role hypothesis only",
+          "source_refs": [
+            "MIMO-S17-X"
+          ]
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [],
+        "releases": [],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S17-H",
+        "MIMO-S17-P",
+        "MIMO-S17-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S18",
+      "synthetic": true,
+      "stratum": "authority_control",
+      "scenario": "building_suppression_scope_ambiguous",
+      "pair_id": "PAIR-08",
+      "site_cluster_id": "SYN-SITE-18",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 18",
+        "service_address_raw": "1018 Fictional Test Way, Synthetic Unit 18, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-018",
+        "Device": "SYNTH-T18",
+        "Thermostat": "",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 18",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-018",
+        "source_ref": "MIMO-S18-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T18",
+        "thermostat_raw": "",
+        "source_ref": "MIMO-S18-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-018"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 18"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S18-P",
+          "MIMO-S18-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S18-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [
+          {
+            "id": "MIMO-S18-SUP-A",
+            "scope": "building_ambiguous",
+            "status": "active",
+            "synthetic": true,
+            "source_ref": "MIMO-S18-X"
+          }
+        ],
+        "releases": [],
+        "post_permission_disposition": "hold",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S18-H",
+        "MIMO-S18-P",
+        "MIMO-S18-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S19",
+      "synthetic": true,
+      "stratum": "authority_control",
+      "scenario": "one_of_two_suppressions_released",
+      "pair_id": "PAIR-08",
+      "site_cluster_id": "SYN-SITE-19",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 19",
+        "service_address_raw": "1019 Fictional Test Way, Synthetic Unit 19, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-019",
+        "Device": "SYNTH-T19",
+        "Thermostat": "Historical label SYNTH-STAT-19",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 19",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-019",
+        "source_ref": "MIMO-S19-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "SYNTH-T19",
+        "thermostat_raw": "Historical label SYNTH-STAT-19",
+        "source_ref": "MIMO-S19-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-019"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 19"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S19-P",
+          "MIMO-S19-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S19-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [
+          {
+            "id": "MIMO-S19-SUP-A",
+            "scope": "premise",
+            "status": "active",
+            "synthetic": true,
+            "source_ref": "MIMO-S19-X"
+          },
+          {
+            "id": "MIMO-S19-SUP-B",
+            "scope": "premise",
+            "status": "active",
+            "synthetic": true,
+            "source_ref": "MIMO-S19-X"
+          }
+        ],
+        "releases": [
+          {
+            "id": "MIMO-S19-REL-A",
+            "suppression_id": "MIMO-S19-SUP-A",
+            "synthetic": true,
+            "source_ref": "MIMO-S19-X"
+          }
+        ],
+        "post_permission_disposition": "exclude",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S19-H",
+        "MIMO-S19-P",
+        "MIMO-S19-X"
+      ]
+    },
+    {
+      "record_id": "MIMO-S20",
+      "synthetic": true,
+      "stratum": "authority_control",
+      "scenario": "explicit_release_history_retained",
+      "pair_id": "PAIR-10",
+      "site_cluster_id": "SYN-SITE-20",
+      "raw_list_stub": {
+        "source_name": "Fictional stand-in; NOT Brian’s actual list",
+        "list_membership": "mimo",
+        "historical_business_name": "Synthetic Former Occupant 20",
+        "service_address_raw": "1020 Fictional Test Way, Synthetic Unit 20, Exampleton, ZZ 00000",
+        "listed_identifier": "SYN-UNCLASSIFIED-020",
+        "Device": "",
+        "Thermostat": "Historical label SYNTH-STAT-20",
+        "unmapped_column": "Preserve exactly; do not infer meaning"
+      },
+      "historical_participation": {
+        "status": "historical_list_report",
+        "previous_occupant": "Synthetic Former Occupant 20",
+        "program_label": "Duke EnergyWise Business — fictional scenario label only",
+        "historical_account_ref": "SYN-HIST-020",
+        "source_ref": "MIMO-S20-H",
+        "period": {
+          "from": null,
+          "to": null
+        }
+      },
+      "historical_equipment": {
+        "device_raw": "",
+        "thermostat_raw": "Historical label SYNTH-STAT-20",
+        "source_ref": "MIMO-S20-H",
+        "remains_installed": "unknown",
+        "current_compatibility": "unknown"
+      },
+      "account_relationship": {
+        "listed_identifier_type": "unclassified",
+        "historical_refs": [
+          "SYN-HIST-020"
+        ],
+        "current_account_ref": null,
+        "current_account_status": "unknown",
+        "succession": "not_inferred",
+        "simultaneous_services": "unknown"
+      },
+      "current_identity": {
+        "status": "source_reported_not_accepted",
+        "candidate_names": [
+          "Synthetic Current Operator 20"
+        ],
+        "accepted_business_id": null,
+        "suite_association": "source_reported_not_accepted",
+        "source_refs": [
+          "MIMO-S20-P",
+          "MIMO-S20-X"
+        ]
+      },
+      "current_hvac": {
+        "status": "unknown",
+        "installed_equipment": null,
+        "thermostat_count": null,
+        "source_refs": [
+          "MIMO-S20-X"
+        ]
+      },
+      "decision_authority": {
+        "business_ownership": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "business_operations": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "utility_account": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "property": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        },
+        "hvac_facilities": {
+          "state": "unknown",
+          "candidate": null,
+          "source_refs": []
+        }
+      },
+      "current_program_eligibility": {
+        "status": "not_established",
+        "official_rule_version": null,
+        "source_refs": []
+      },
+      "control_scenario": {
+        "list_membership": "mimo",
+        "manager_authorization": "fictional_scenario_only",
+        "suppressions": [
+          {
+            "id": "MIMO-S20-SUP-A",
+            "scope": "premise",
+            "status": "active",
+            "synthetic": true,
+            "source_ref": "MIMO-S20-X"
+          }
+        ],
+        "releases": [
+          {
+            "id": "MIMO-S20-REL-A",
+            "suppression_id": "MIMO-S20-SUP-A",
+            "synthetic": true,
+            "source_ref": "MIMO-S20-X"
+          }
+        ],
+        "post_permission_disposition": "candidate",
+        "real_processing_permission": "not_granted"
+      },
+      "source_packet_refs": [
+        "MIMO-S20-H",
+        "MIMO-S20-P",
+        "MIMO-S20-X"
+      ]
+    }
+  ]
+}
