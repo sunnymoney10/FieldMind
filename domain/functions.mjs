@@ -15,11 +15,19 @@ const canonical = (v) =>
 /** All-or-nothing append in memory. No delete, update, merge, identity resolution or persistence. */
 export function appendRecords(workspace, additions, context) {
   assertWorkspace(workspace, context);
-  const caller =
+  const registeredCaller =
     context?.actors && Object.hasOwn(context.actors, context.actorId)
       ? context.actors[context.actorId]
       : null;
-  if (!caller || caller.workspaceId !== workspace.workspaceId)
+  const caller = registeredCaller && {
+    ...registeredCaller,
+    roles: context.callerRoles ?? registeredCaller.roles,
+  };
+  if (
+    !caller ||
+    !Array.isArray(caller.roles) ||
+    caller.workspaceId !== workspace.workspaceId
+  )
     throw new Error("Trusted calling actor required");
   if (!additions || typeof additions !== "object" || Array.isArray(additions))
     throw new TypeError("Expected collection additions");
