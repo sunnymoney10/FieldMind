@@ -2,7 +2,8 @@
   "name": "fieldmind",
   "private": true,
   "scripts": {
-    "test": "node --test --test-isolation=none tests/*.test.cjs"
+    "test": "node --test --test-isolation=none tests/*.test.cjs",
+    "test:domain": "node --test --test-isolation=none tests/domain-b1.test.cjs"
   },
   "engines": {
     "node": ">=22"
