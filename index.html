@@ -341,6 +341,17 @@ const ACCESS_TIMING = new Set(["dm_absent","followup"]);
 /* ============ Utils ============ */
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+// Imported links are untrusted even when HTML-escaped (including restored backups).
+function safeHttpUrl(value){
+  if(typeof value!=="string" || /[\u0000-\u0020\u007f]/.test(value)) return "";
+  try{ const u=new URL(value); return (u.protocol==="https:" || u.protocol==="http:") && !u.username && !u.password ? u.href : ""; }catch(e){ return ""; }
+}
+function csvCell(value){
+  let s=String(value??"");
+  // Quoting alone does not prevent spreadsheet formula evaluation.
+  if(/^[\s\uFEFF]*[=+@-]/.test(s) || /^[\t\r\n]/.test(s)) s="'"+s;
+  return /[",\r\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s;
+}
 const pad = n => String(n).padStart(2,"0");
 const todayStr = (d=new Date()) => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 const monthKey = s => s.slice(0,7);
@@ -512,7 +523,7 @@ function validateResearch(obj){
         if(!CLAIM_STATUS.includes(c.status)) ce.push("status isn't recognised");
         if(c.basis!=="observed" && c.basis!=="inferred") ce.push("basis must be observed or inferred");
         if(!c.observed_at || !ISO_DATE.test(String(c.observed_at))) ce.push("observed_at is missing");
-        const url=c.source&&c.source.url||"", okRef = /^https?:\/\//i.test(url) || (c.source && ["field_observation","authorized_list"].includes(c.source.type));
+        const url=c.source&&c.source.url||"", okRef = !!safeHttpUrl(url) || (c.source && ["field_observation","authorized_list"].includes(c.source.type));
         if(c.basis==="observed" && (!c.source || !c.source.name || !okRef)) ce.push("observed claim has no source link");
         if(c.basis==="inferred" && !okRef && !(Array.isArray(c.derived_from) && c.derived_from.length)) ce.push("inferred claim names no source or derived_from");
         if(c.status==="inferred" && c.basis!=="inferred") ce.push("status inferred needs basis inferred");
@@ -841,7 +852,7 @@ function viewAccounts(){
   <div class="chips" role="group" aria-label="Filter">${F.map(([k,t])=>`<button class="chip" data-filter="${k}" aria-pressed="${UI.filter===k}">${t} <span class="muted">${counts[k]}</span></button>`).join("")}</div>`;
   const li = S.meta.lastImport;
   const researched = ids.filter(id=>S.notes[id]?.brief).length;
-  if(li && !S.demo) html = `<div class="tiles" style="grid-template-columns:repeat(4,1fr);margin-bottom:10px">${[[li.rows,"records"],[li.premises,"premises"],[li.shared,"shared premises"],[researched+"/"+ids.length,"researched"]].map(([n,l])=>`<div class="tile" style="padding:8px 10px"><div class="n" style="font-size:19px">${n}</div><div class="l">${l}</div></div>`).join("")}</div>` + html;
+  if(li && !S.demo) html = `<div class="tiles" style="grid-template-columns:repeat(4,1fr);margin-bottom:10px">${[[li.rows,"records"],[li.premises,"premises"],[li.shared,"shared premises"],[researched+"/"+ids.length,"researched"]].map(([n,l])=>`<div class="tile" style="padding:8px 10px"><div class="n" style="font-size:19px">${esc(n)}</div><div class="l">${l}</div></div>`).join("")}</div>` + html;
   if(!filt.length) return html + `<div class="empty">No accounts match.</div>`;
   let shown=0;
   for(const c of clusters(filt)){
@@ -1045,7 +1056,7 @@ function tabOverview(id){
   h += `</div>`;
   if(s.summary) h += `<div><h3 class="h-sub">The picture so far</h3><div style="font-size:15px;line-height:1.5">${esc(s.summary)}</div><div class="small muted mono" style="margin-top:4px">Researched ${fmtDate(todayStr(new Date(b.researchedAt)))}</div></div>`;
   if(b.watchouts?.length) h += `<div><h3 class="h-sub">Watch for</h3><div class="brief"><ul class="watch">${b.watchouts.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div></div>`;
-  if(n.changes && n.changes.length){ const latest=n.changes.filter(c=>c.at===b.researchedAt); if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${FIELD_LABEL[c.field]||c.field}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates.</div></div>`; }
+  if(n.changes && n.changes.length){ const latest=n.changes.filter(c=>c.at===b.researchedAt); if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${esc(FIELD_LABEL[c.field]||c.field)}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates.</div></div>`; }
   return h;
 }
 function secRows(title, rows){ const r=rows.filter(Boolean); return r.length?`<section><h3 class="h-sub">${title}</h3><div class="brief dossier">${r.join("")}</div></section>`:""; }
@@ -1118,7 +1129,7 @@ function sourcesBody(id){
   for(const it of shown){
     if(it.prog){ h += `<div class="src-card">${IC.clock.replace("<svg","<svg class=\"ic\"")}<div><div class="h">Program history (MIMO) <span class="chip dim">Historical</span></div><div class="b">${a.device?`Previous occupant enrolled with ${esc(a.device)}.`:"Previous occupant enrolled."} New enrollment and system verification required.</div><div class="m">Brian's list</div></div><span></span></div>`; continue; }
     const e=it.e, ec=EV_CLASS[evClass(e)], chip = `<span class="chip ${ec[0]}">${e.disputed?"Disputed in field":ec[1]}</span>`;
-    h += `<div class="src-card ${e.disputed?"disputed":""}">${srcIcon(e).replace("<svg","<svg class=\"ic\"")}<div><div class="h">${esc(sourceName(e))} ${chip}</div><div class="b">${esc(e.claim)}</div>${e.detail?`<div class="b" style="color:#5D6574;text-decoration:none">${esc(e.detail)}</div>`:""}${e.disputed?`<div class="b" style="text-decoration:none"><b>Field correction:</b> ${esc(e.disputed.note)}</div>`:""}<div class="m">${[e.source, e.date?fmtDate(e.date):"", e.basis==="inferred"?"Inferred":"Observed", LEVEL[e.level]||"", e.researchedAt?"researched "+fmtDate(todayStr(new Date(e.researchedAt))):""].filter(Boolean).join(" · ")}</div><div class="acts">${e.disputed?`<button data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo correction</button>`:`${e.verified?"":`<button data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Mark verified</button>`}<button data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong?</button><button data-act="editev" data-id="${esc(id)}" data-ev="${esc(e.id)}">Edit</button>`}</div></div>${e.link?`<a class="ext" href="${esc(e.link)}" target="_blank" rel="noopener" aria-label="Open source">${IC.ext}</a>`:"<span></span>"}</div>`;
+    h += `<div class="src-card ${e.disputed?"disputed":""}">${srcIcon(e).replace("<svg","<svg class=\"ic\"")}<div><div class="h">${esc(sourceName(e))} ${chip}</div><div class="b">${esc(e.claim)}</div>${e.detail?`<div class="b" style="color:#5D6574;text-decoration:none">${esc(e.detail)}</div>`:""}${e.disputed?`<div class="b" style="text-decoration:none"><b>Field correction:</b> ${esc(e.disputed.note)}</div>`:""}<div class="m">${[esc(e.source), e.date?fmtDate(e.date):"", e.basis==="inferred"?"Inferred":"Observed", LEVEL[e.level]||"", e.researchedAt?"researched "+fmtDate(todayStr(new Date(e.researchedAt))):""].filter(Boolean).join(" · ")}</div><div class="acts">${e.disputed?`<button data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo correction</button>`:`${e.verified?"":`<button data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Mark verified</button>`}<button data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong?</button><button data-act="editev" data-id="${esc(id)}" data-ev="${esc(e.id)}">Edit</button>`}</div></div>${safeHttpUrl(e.link)?`<a class="ext" href="${esc(safeHttpUrl(e.link))}" target="_blank" rel="noopener" aria-label="Open source">${IC.ext}</a>`:"<span></span>"}</div>`;
   }
   if(!shown.length) h += `<div class="means">Nothing in this category yet.</div>`;
   h += `</div>`;
@@ -1161,7 +1172,7 @@ function accountBodyOld(id){
   h += briefHtml(n, a);
   if(n.changes && n.changes.length && n.brief){
     const latest = n.changes.filter(c=>c.at===n.brief.researchedAt);
-    if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${FIELD_LABEL[c.field]||c.field}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates. Old equipment and participation records belong to whoever was here then.</div></div>`;
+    if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${esc(FIELD_LABEL[c.field]||c.field)}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates. Old equipment and participation records belong to whoever was here then.</div></div>`;
   }
   if(a.list==="mimo" && !n.brief?.profile) h += `<div class="card"><h3 style="margin-bottom:8px">One address, two histories</h3><div class="mimo"><div class="hist"><b>Previous occupant</b>Was enrolled.${a.device?` Device on file: <b style="display:inline;text-transform:none;letter-spacing:0;font-size:13px">${esc(a.device)}</b>.`:" No device on file."}</div><div class="cur"><b>Current account</b>Needs fresh qualification and opt-in. Whether that device is still there, or still works, is unverified.</div></div></div>`;
   if(n.ret && n.ret.date) h += `<div class="banner ${n.ret.date<todayStr()?"warn":"demo"}"><div><b>Return ${fmtDate(n.ret.date)}${n.ret.time?" at "+esc(n.ret.time):""}</b> · ${n.ret.kind==="confirmed"?"Confirmed":n.ret.kind==="window"?"Specific window":"Vague"}${n.ret.note?`<div>${esc(n.ret.note)}</div>`:""}<div><button class="btn ghost" style="padding-left:0" data-act="clearret" data-id="${esc(id)}">Clear return</button></div></div></div>`;
@@ -1190,7 +1201,7 @@ const ST_LABEL={found:"Found",not_found:"Not found",not_checked:"Not checked",co
 function fieldHtml(f){
   if(!f) return "";
   const st=ST_LABEL[f.status]?f.status:"not_checked";
-  return `<span class="st ${st}">${ST_LABEL[st]}</span>${f.value?esc(f.value):""}${f.source||f.date?`<div class="src">${f.link?`<a href="${esc(f.link)}" target="_blank" rel="noopener">${esc(f.source||"Source")}</a>`:esc(f.source||"")}${f.date?" · "+fmtDate(f.date):""}</div>`:""}`;
+  return `<span class="st ${st}">${ST_LABEL[st]}</span>${f.value?esc(f.value):""}${f.source||f.date?`<div class="src">${safeHttpUrl(f.link)?`<a href="${esc(safeHttpUrl(f.link))}" target="_blank" rel="noopener">${esc(f.source||"Source")}</a>`:esc(f.source||"")}${f.date?" · "+fmtDate(f.date):""}</div>`:""}`;
 }
 function briefHtml(n, a){
   const b=n.brief;
@@ -1223,9 +1234,9 @@ function briefHtml(n, a){
   return h;
 }
 function evidenceCard(id,e){
-  if(e.disputed) return `<div class="ev contradicts" style="opacity:.85"><div class="spread"><span class="claim"><s>${esc(e.claim)}</s></span><span class="pill bad">Disputed</span></div><div class="small" style="margin-top:4px"><b>Field correction ${fmtDate(todayStr(new Date(e.disputed.at)))}:</b> ${esc(e.disputed.note)}</div><div class="meta">Original source: ${esc(e.source)}${e.link?` · <a href="${esc(e.link)}" target="_blank" rel="noopener">open</a>`:""}</div><div class="act"><button class="btn ghost" data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo</button></div></div>`;
+  if(e.disputed) return `<div class="ev contradicts" style="opacity:.85"><div class="spread"><span class="claim"><s>${esc(e.claim)}</s></span><span class="pill bad">Disputed</span></div><div class="small" style="margin-top:4px"><b>Field correction ${fmtDate(todayStr(new Date(e.disputed.at)))}:</b> ${esc(e.disputed.note)}</div><div class="meta">Original source: ${esc(e.source)}${safeHttpUrl(e.link)?` · <a href="${esc(safeHttpUrl(e.link))}" target="_blank" rel="noopener">open</a>`:""}</div><div class="act"><button class="btn ghost" data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo</button></div></div>`;
   const meta = [esc(e.source), e.date?fmtDate(e.date):"", e.researchedAt?"researched "+fmtDate(todayStr(new Date(e.researchedAt))):"", e.time==="current"?"Current":"Historical", e.basis==="inferred"?"Inferred":"Observed", LEVEL[e.level]||"", e.verified?"Verified in field":"Needs field verification"].filter(Boolean).join(" · ");
-  return `<div class="ev ${e.rel}"><div class="spread"><span class="claim">${esc(e.claim)}</span><span class="pill ${e.rel==="supports"?"good":e.rel==="contradicts"?"bad":e.rel==="mixed"?"warn":""}">${RELEVANCE[e.rel]}</span></div>${e.detail?`<div class="small" style="margin-top:4px">${esc(e.detail)}</div>`:""}<div class="meta">Source: ${meta}</div>${e.link?`<div class="small"><a href="${esc(e.link)}" target="_blank" rel="noopener">Open source</a></div>`:""}<div class="act">${e.verified?"":`<button class="btn ghost" data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Mark verified</button>`}<button class="btn ghost" data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong?</button><button class="btn ghost" data-act="editev" data-id="${esc(id)}" data-ev="${esc(e.id)}">Edit</button></div></div>`;
+  return `<div class="ev ${esc(e.rel)}"><div class="spread"><span class="claim">${esc(e.claim)}</span><span class="pill ${e.rel==="supports"?"good":e.rel==="contradicts"?"bad":e.rel==="mixed"?"warn":""}">${esc(RELEVANCE[e.rel]||"")}</span></div>${e.detail?`<div class="small" style="margin-top:4px">${esc(e.detail)}</div>`:""}<div class="meta">Source: ${meta}</div>${safeHttpUrl(e.link)?`<div class="small"><a href="${esc(safeHttpUrl(e.link))}" target="_blank" rel="noopener">Open source</a></div>`:""}<div class="act">${e.verified?"":`<button class="btn ghost" data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Mark verified</button>`}<button class="btn ghost" data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong?</button><button class="btn ghost" data-act="editev" data-id="${esc(id)}" data-ev="${esc(e.id)}">Edit</button></div></div>`;
 }
 function openDispute(id, evId){
   const ev = note(id).evidence.find(x=>x.id===evId); if(!ev) return;
@@ -1234,7 +1245,7 @@ function openDispute(id, evId){
 }
 function visitCard(id,v){
   const o=OUTCOMES[v.result]||OUTCOMES.other, sub = v.sub && SUBS[v.result] ? SUBS[v.result].opts[v.sub] : "";
-  return `<div class="visit"><div class="spread"><b>${o.label}</b><span class="muted small">${fmtWhen(v.at)}</span></div>${sub?`<div>${esc(sub)}</div>`:""}${v.result==="optin"?`<div>${v.level?esc(v.level)+"% participation":""}${v.kw?` · ${esc(v.kw)} kW`:""}${v.install?` · Install ${fmtDate(v.install)}`:""}</div>`:""}${v.notes?`<div class="muted" style="margin-top:4px">${esc(v.notes)}</div>`:""}<div class="small muted" style="margin-top:4px">${v.minutes||0} min on site · ${(v.gates||[]).length} gate${(v.gates||[]).length===1?"":"s"} reached <button class="btn ghost" style="min-height:0;padding:2px 6px" data-act="delvisit" data-id="${esc(id)}" data-v="${esc(v.id)}">Delete</button></div></div>`;
+  return `<div class="visit"><div class="spread"><b>${o.label}</b><span class="muted small">${fmtWhen(v.at)}</span></div>${sub?`<div>${esc(sub)}</div>`:""}${v.result==="optin"?`<div>${v.level?esc(v.level)+"% participation":""}${v.kw?` · ${esc(v.kw)} kW`:""}${v.install?` · Install ${fmtDate(v.install)}`:""}</div>`:""}${v.notes?`<div class="muted" style="margin-top:4px">${esc(v.notes)}</div>`:""}<div class="small muted" style="margin-top:4px">${esc(v.minutes||0)} min on site · ${(v.gates||[]).length} gate${(v.gates||[]).length===1?"":"s"} reached <button class="btn ghost" style="min-height:0;padding:2px 6px" data-act="delvisit" data-id="${esc(id)}" data-v="${esc(v.id)}">Delete</button></div></div>`;
 }
 
 /* ---- Visit form ---- */
@@ -1430,7 +1441,7 @@ function showImportReport(r){
 /* ---- Backup / export ---- */
 function visitsCSV(){
   const cols=["date","time","business","address","city","zip","account","list","outcome","official_disposition","detail","gates_reached","minutes","participation","kw","install_date","notes"];
-  const q = v => { const s=String(v??""); return /[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s; };
+  const q = csvCell;
   const lines=[cols.join(",")];
   for(const v of allVisits()){ const a=S.accounts[v.accountId], d=new Date(v.at);
     lines.push([todayStr(d), `${pad(d.getHours())}:${pad(d.getMinutes())}`, a.name, a.addr, a.city, a.zip, a.acct, a.list, OUTCOMES[v.result]?.label, OUTCOMES[v.result]?.official, v.sub&&SUBS[v.result]?SUBS[v.result].opts[v.sub]:"", (v.gates||[]).join(" "), v.minutes, v.level||"", v.kw||"", v.install||"", v.notes].map(q).join(","));
@@ -1529,3 +1540,4 @@ Store.init();
 </script>
 </body>
 </html>
+
