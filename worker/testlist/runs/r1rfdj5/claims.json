@@ -1,0 +1,119 @@
+[
+ {
+  "id": "C01",
+  "text": "Clouds Brewing took over the 505 W Jones St space formerly occupied by Tobacco Road Sports Cafe (June 2026)",
+  "claim_type": "occupant_identity",
+  "about": "occupant",
+  "subject": "Clouds Brewing",
+  "value": "Clouds Brewing",
+  "value_key": "occupant_name",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "F1",
+  "excerpt": "\"Clouds Brewing plans to open a new location in the space formerly occupied by Tobacco Road Sports Cafe\" \"at 505 W. Jones Street",
+  "address_in_source": "505 W. Jones Street",
+  "effective_date": "2026-06-09",
+  "dimension": "business"
+ },
+ {
+  "id": "C02",
+  "text": "Clouds Brewing is open in its new Jones Street location (Sep 2026)",
+  "claim_type": "operating_status",
+  "about": "occupant",
+  "subject": "Clouds Brewing",
+  "value": "open",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "V1",
+  "excerpt": "Clouds Brewing is officially back Downtown in its new Jones Street digs",
+  "effective_date": "2026-09-01",
+  "dimension": "business"
+ },
+ {
+  "id": "C03",
+  "text": "Clouds acquired the assets and operations of the property effective June 1, 2026, keeping current employees",
+  "claim_type": "occupancy_change",
+  "about": "occupant",
+  "subject": "Clouds Brewing",
+  "value": "acquired June 1, 2026",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "F1",
+  "excerpt": "\"it acquired the assets and operations of the downtown property effective June 1\"",
+  "effective_date": "2026-06-01",
+  "dimension": "business"
+ },
+ {
+  "id": "C04",
+  "text": "Tobacco Road Sports Cafe closed permanently around the end of May 2026",
+  "claim_type": "operating_status",
+  "about": "occupant",
+  "subject": "Tobacco Road Sports Cafe",
+  "value": "closed",
+  "temporal": "historical",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "V2",
+  "excerpt": "as the iconic sports bar was abruptly and permanently closing four days later",
+  "dimension": "business"
+ },
+ {
+  "id": "C05",
+  "text": "Tobacco Road (listed name) operated at 505 W Jones St; owners Brian and Alex Amra (2019)",
+  "claim_type": "ownership",
+  "about": "occupant",
+  "subject": "Tobacco Road Sports Cafe",
+  "person": "Brian and Alex Amra",
+  "value": "Brian and Alex Amra",
+  "authority_role": "business_ownership",
+  "temporal": "historical",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "V4",
+  "excerpt": "Owners:  \n\nBrian and Alex Amra",
+  "address_in_source": "505 W. Jones Street",
+  "dimension": "people"
+ },
+ {
+  "id": "C06",
+  "text": "Building is the historic Raleigh Electric Company Powerhouse, with large dining areas, multiple bars and event spaces",
+  "claim_type": "structure",
+  "about": "premises",
+  "subject": "505 W Jones St",
+  "value": "Historic powerhouse building; multiple bars and event spaces",
+  "basis": "observed",
+  "proposed_status": "found",
+  "retrieval": "V3",
+  "excerpt": "Located in the historic Raleigh Electric Company Powerhouse building",
+  "address_in_source": "505 W. Jones St. Raleigh, NC 27603",
+  "dimension": "infrastructure"
+ },
+ {
+  "id": "I01",
+  "text": "Large multi-bar venue in a historic building: likely substantial HVAC load across several zones",
+  "claim_type": "hvac",
+  "about": "premises",
+  "subject": "505 W Jones St",
+  "basis": "inferred",
+  "proposed_status": "inferred",
+  "derived_from": [
+   "C06"
+  ],
+  "dimension": "energy"
+ },
+ {
+  "id": "N01",
+  "text": "Listed owners Brian and Alex Amra still decide for this location",
+  "claim_type": "ownership",
+  "about": "occupant",
+  "subject": "Clouds Brewing",
+  "person": "Brian and Alex Amra",
+  "authority_role": "business_ownership",
+  "basis": "inferred",
+  "proposed_status": "inferred",
+  "derived_from": [
+   "C05"
+  ],
+  "dimension": "people"
+ }
+]

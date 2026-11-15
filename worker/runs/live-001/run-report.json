@@ -1,0 +1,128 @@
+{
+ "ref": "r1kedpv",
+ "policy_version": "fm-research-policy-v0",
+ "synthetic": false,
+ "timing": {
+  "elapsed_seconds": 141,
+  "cap_seconds": 1200,
+  "within_cap": true,
+  "phases": {
+   "prepare": 0,
+   "retrieve": 105,
+   "extract": 36,
+   "check": 0,
+   "assemble": 0
+  },
+  "started_at": "2026-11-15T03:13:25+00:00",
+  "finished_at": "2026-11-15T03:15:46+00:00"
+ },
+ "retrieval": {
+  "planned_steps": 8,
+  "searches": 7,
+  "fetches": 7,
+  "ok": 24,
+  "failures": [
+   {
+    "id": "F1",
+    "kind": "fetch",
+    "target": "https://www.viderichocolatefactory.com/",
+    "outcome": "blocked",
+    "error": "URL_NOT_ON_ALLOWLIST: fetch tool only opens URLs that appeared as search-result links"
+   },
+   {
+    "id": "F3",
+    "kind": "fetch",
+    "target": "https://www.sosnc.gov/online_services/search/by_title/_Business_Registration?SearchCriteria=Videri",
+    "outcome": "blocked",
+    "error": "URL_NOT_ON_ALLOWLIST: registry search is a form; constructed query URL refused"
+   },
+   {
+    "id": "F4",
+    "kind": "fetch",
+    "target": "https://maps.wake.gov/arcgis/rest/services/Property/Parcels/MapServer/0/query?where=SITE_ADDRESS+LIKE+%27327+W+DAVIE%25%27&outFields=*&f=json",
+    "outcome": "blocked",
+    "error": "URL_NOT_ON_ALLOWLIST: constructed API query refused"
+   }
+  ]
+ },
+ "claims": {
+  "proposed": 22,
+  "accepted": 18,
+  "accepted_by_label": {
+   "verified": 0,
+   "found": 9,
+   "inferred": 2,
+   "historical": 5,
+   "conflicting": 2
+  },
+  "rejected": [
+   {
+    "id": "N03",
+    "text": "Building is a 7,656 SF restaurant building (neighbouring parcel)",
+    "reason": "identity_merge_rejected",
+    "detail": "source address '328 W Davie St Raleigh, NC' is not 327 W Davie St, Raleigh, NC 27601",
+    "subject": "328 W Davie St",
+    "about": "premises",
+    "address_in_source": "328 W Davie St Raleigh, NC",
+    "retrieval": "V12"
+   },
+   {
+    "id": "C04",
+    "text": "WRAL names Sam Ratto as owner (article undated)",
+    "reason": "verified_label_rejected",
+    "detail": "verified needs an official record (registry, property record, permit); source is news; kept as source-supported"
+   },
+   {
+    "id": "C11",
+    "text": "Trade press reports the site is owned by the North Carolina Railroad Co. (secondhand, undated)",
+    "reason": "verified_label_rejected",
+    "detail": "verified needs an official record (registry, property record, permit); source is news; kept as source-supported"
+   },
+   {
+    "id": "N01",
+    "text": "Registered entity Rocky Mountain Chocolate Factory, Inc. is Current-Active (naive name-search hit)",
+    "reason": "identity_merge_rejected",
+    "detail": "no address in source and the name is not tied to this address by another accepted source",
+    "subject": "Rocky Mountain Chocolate Factory, Inc.",
+    "about": "occupant",
+    "address_in_source": null,
+    "retrieval": "V10"
+   },
+   {
+    "id": "N02",
+    "text": "Davie Street, LLC controls the property (naive street-name match)",
+    "reason": "identity_merge_rejected",
+    "detail": "building or property facts need the exact address in the source",
+    "subject": "Davie Street, LLC",
+    "about": "landlord",
+    "address_in_source": null,
+    "retrieval": "V11"
+   },
+   {
+    "id": "N04",
+    "text": "Sam Ratto holds the Duke Energy account (owner, so must be account holder)",
+    "reason": "authority_rejected",
+    "detail": "utility-account authority is not inferred from ownership",
+    "subject": "Videri Chocolate Factory",
+    "about": "utility_account",
+    "address_in_source": null,
+    "retrieval": null
+   }
+  ],
+  "rejected_by_reason": {
+   "identity_merge_rejected": 3,
+   "verified_label_rejected": 2,
+   "authority_rejected": 1
+  },
+  "contradictions": [
+   "Sources disagree on founded_year: C13=2011; C14=2013"
+  ]
+ },
+ "unresolved_questions": [
+  "The list has no suite. Sources put Videri Chocolate Factory in Suite 100 of a building with suites 100, 102. Is this premises that suite?",
+  "business operations: Who holds this authority now",
+  "utility account: Account holder and signing authority; needs authorized confirmation",
+  "hvac facilities: Who holds this authority now",
+  "Current HVAC and thermostat setup at this premises"
+ ]
+}

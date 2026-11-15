@@ -1,0 +1,182 @@
+{
+ "schema": "fieldmind.research",
+ "version": 2,
+ "generated": "2026-11-15T03:41:51+00:00",
+ "researcher": "fmworker-prototype",
+ "run": {
+  "minutes": 0.8,
+  "searches": 2,
+  "pages_read": 1
+ },
+ "premises": [
+  {
+   "match": {
+    "ref": "r1qvebr"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "unknown",
+    "name": null,
+    "evidence": []
+   },
+   "summary": "5 accepted claims from 7 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "Who operates at 8831 Six Forks Rd, Raleigh, NC 27615 today?",
+   "can_infer": [
+    "No operator is in the space now: Zest has closed and Paris Baguette has not opened"
+   ],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "unknown",
+    "status": "unknown"
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "not_found"
+    },
+    "structure": {
+     "status": "not_checked"
+    },
+    "property": {
+     "status": "found",
+     "value": "Available; 4,500 SF; former restaurant",
+     "evidence": [
+      "C04"
+     ],
+     "source": "Kimco Realty leasing page",
+     "link": "https://www.kimcorealty.com/properties/six-forks-station-sc/118970/space/00016/view",
+     "date": "2026-11-15"
+    },
+    "occupancy": {
+     "status": "found",
+     "value": "Paris Baguette pending (summer 2027)",
+     "evidence": [
+      "C02"
+     ],
+     "source": "WhatNow (Oct 30, 2026)",
+     "link": "https://whatnow.com/?p=450905",
+     "date": "2026-11-15"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_checked"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "not_found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "claim": "Zest Cafe & Home Art closed at the end of 2025 after about 30 years",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-10-30",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Oct 30, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=450905"
+     },
+     "excerpt": "\"before closing at the end of 2025.\""
+    },
+    {
+     "id": "C02",
+     "claim": "Paris Baguette franchisee Devang Shah signed a lease for the 4,500 sq ft former Zest space at 8831 Six Forks Rd; opening targeted summer 2027",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-10-30",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Oct 30, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=450905"
+     },
+     "excerpt": "\"Paris Baguette is taking over the former Zest Caf\u00e9 and Home Art space at 8831 Six Forks Road, Raleigh\""
+    },
+    {
+     "id": "C04",
+     "claim": "Landlord's leasing page lists Space 16 at 8831 Six Forks Rd as available, 4,500 SF, former restaurant",
+     "claim_type": "property",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "Kimco Realty leasing page",
+      "type": "listing",
+      "url": "https://www.kimcorealty.com/properties/six-forks-station-sc/118970/space/00016/view"
+     },
+     "excerpt": "8831 Six Forks Road, Raleigh, NC 27615"
+    },
+    {
+     "id": "C05",
+     "claim": "Zest was run by co-owners Ben and Amanda Swirsky (profile, undated)",
+     "claim_type": "ownership",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "people",
+     "source": {
+      "name": "Walter Magazine",
+      "type": "news",
+      "url": "https://waltermagazine.com/current-issue/zest-cafe-home-art/"
+     },
+     "excerpt": "\u2014Amanda Swirsky, co-owner, Zest Cafe & Home Art"
+    },
+    {
+     "id": "I01",
+     "claim": "No operator is in the space now: Zest has closed and Paris Baguette has not opened",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "inferred",
+     "basis": "inferred",
+     "observed_at": "2026-11-14",
+     "effective_date": null,
+     "dimension": "business",
+     "derived_from": [
+      "C02",
+      "C04"
+     ]
+    }
+   ]
+  }
+ ]
+}

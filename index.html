@@ -6,7 +6,7 @@
 <title>FieldMind</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=IBM+Plex+Mono:wght@500&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
 /* Layout: one phone-width column, bottom tab bar, accounts open as full-screen sheets. */
 /* Dark field shell (Deep Ink) with porcelain "paper" panels for briefs. Signal Pink = brand + primary action. Citron = found/ready, pink chip = conflict, outline = unknown. */
@@ -15,9 +15,9 @@
   --accent:#FF3D8C; --accent-ink:#171923; --accent-soft:#3A1E2C; --accent-text:#FF85B6;
   --signal:#DCEF55; --amber:#F2C14E;
   --good:#6DD3BA; --good-soft:#15302A; --warn:#EDBE6A; --warn-soft:#352A12; --bad:#F29482; --bad-soft:#3A1F1B; --info:#BFC5D0; --info-soft:#2A2E3A;
-  --display:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --display:"Inter Display", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"Manrope", system-ui, sans-serif;
   --r:12px;
   color-scheme:dark;
 }
@@ -41,15 +41,15 @@ a{color:var(--accent-text)}
 .app{display:flex;flex-direction:column;height:100%;max-width:640px;margin:0 auto}
 header.top{display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top) + 12px) 16px 10px;}
 header.top h1{font-size:22px;font-weight:800}
-header.top .sync{margin-left:auto;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+header.top .sync{margin-left:auto;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
 .dot.ok{background:var(--good)} .dot.warn{background:var(--warn)}
 main{flex:1;overflow-y:auto;padding:0 16px 24px;-webkit-overflow-scrolling:touch}
 nav.tabs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);background:var(--surface);padding-bottom:env(safe-area-inset-bottom)}
-nav.tabs button{background:none;border:0;padding:9px 4px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11.5px;color:var(--muted);cursor:pointer;position:relative}
+nav.tabs button{background:none;border:0;padding:9px 4px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:13px;color:var(--muted);cursor:pointer;position:relative}
 nav.tabs button svg{width:22px;height:22px}
 nav.tabs button[aria-current="page"]{color:var(--accent-text);font-weight:600}
-nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--accent);color:var(--accent-ink);font-size:10px;border-radius:9px;padding:0 5px;min-width:16px;line-height:16px;font-weight:600}
+nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--accent);color:var(--accent-ink);font-size:13px;border-radius:9px;padding:0 5px;min-width:16px;line-height:16px;font-weight:600}
 
 .stack{display:flex;flex-direction:column;gap:12px}
 .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -57,7 +57,7 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
 .muted{color:var(--muted)}
 .small{font-size:13px}
-.mono{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
 .section-h{display:flex;justify-content:space-between;align-items:baseline;margin:18px 0 8px}
 .section-h h2{font-size:17px}
 .section-h .muted{font-size:13px}
@@ -76,7 +76,7 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--
 .iconbtn svg{width:22px;height:22px}
 .iconbtn.on{color:var(--accent)}
 
-.pill{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:20px;background:var(--line);color:var(--ink);white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;padding:2px 8px;border-radius:20px;background:var(--line);color:var(--ink);white-space:nowrap}
 .pill.accent{background:var(--accent-soft);color:var(--accent-text)}
 .pill.good{background:var(--good-soft);color:var(--good)}
 .pill.warn{background:var(--warn-soft);color:var(--warn)}
@@ -86,7 +86,7 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--
 .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px}
 .tile .n{font-family:var(--display);font-weight:800;font-size:26px;font-variant-numeric:tabular-nums;line-height:1.1}
-.tile .l{font-size:12px;color:var(--muted)}
+.tile .l{font-size:13px;color:var(--muted)}
 .meter{height:8px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:8px}
 .meter > i{display:block;height:100%;background:var(--accent);border-radius:6px}
 
@@ -99,7 +99,7 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--
 .item .pills{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
 .stripe{width:4px;align-self:stretch;border-radius:3px;background:var(--line);flex:none}
 .stripe.bad{background:var(--bad)} .stripe.warn{background:var(--warn)} .stripe.good{background:var(--good)} .stripe.accent{background:var(--accent)}
-.group-h{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:14px 2px 6px;display:flex;justify-content:space-between}
+.group-h{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:14px 2px 6px;display:flex;justify-content:space-between}
 
 .search{width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
 .chips{display:flex;gap:6px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
@@ -118,7 +118,7 @@ nav.tabs .badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--
 
 .field{display:flex;flex-direction:column;gap:5px}
 .field > label,.field > .lab{font-size:13px;font-weight:600}
-.field .hint{font-size:12px;color:var(--muted)}
+.field .hint{font-size:13px;color:var(--muted)}
 input[type=text],input[type=number],input[type=date],input[type=time],input[type=url],select,textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);min-height:42px}
 textarea{min-height:80px;resize:vertical}
 .opts{display:flex;flex-wrap:wrap;gap:6px}
@@ -133,21 +133,21 @@ textarea{min-height:80px;resize:vertical}
 .ev{border:1px solid var(--line);border-radius:var(--r);padding:12px;background:var(--surface);border-left-width:4px}
 .ev.supports{border-left-color:var(--good)} .ev.contradicts{border-left-color:var(--bad)} .ev.mixed{border-left-color:var(--warn)} .ev.neutral,.ev.unknown{border-left-color:var(--line)}
 .ev .claim{font-weight:600}
-.ev .meta{font-size:12.5px;color:var(--muted);margin-top:6px}
+.ev .meta{font-size:13px;color:var(--muted);margin-top:6px}
 .ev .act{display:flex;gap:4px;margin-top:6px}
 
 .mimo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .mimo > div{border-radius:10px;padding:10px;font-size:13px}
 .mimo .hist{background:var(--line)}
 .mimo .cur{background:var(--accent-soft)}
-.mimo b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.mimo b{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 
 .gates{display:flex;flex-direction:column}
 .gate{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
 .gate:first-child{border-top:0}
-.gate .g{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:12px;font-weight:700}
+.gate .g{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:13px;font-weight:700}
 .gate.done .g{background:var(--good);border-color:var(--good);color:var(--surface)}
-.gate .when{margin-left:auto;font-size:12px;color:var(--muted)}
+.gate .when{margin-left:auto;font-size:13px;color:var(--muted)}
 
 .timeline{display:flex;flex-direction:column;gap:8px}
 .visit{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface);font-size:13.5px}
@@ -156,14 +156,14 @@ textarea{min-height:80px;resize:vertical}
 .bar .lbl{display:flex;justify-content:space-between;font-size:13.5px;gap:8px}
 .bar .track{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:4px}
 .bar .track i{display:block;height:100%;background:var(--accent)}
-.bar .sub{font-size:12.5px;color:var(--muted);margin-top:4px}
+.bar .sub{font-size:13px;color:var(--muted);margin-top:4px}
 
 .funnel .step{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;font-size:13.5px;padding:6px 0}
 .funnel .track{grid-column:1/-1;height:8px;background:var(--line);border-radius:6px;overflow:hidden}
 .funnel .track i{display:block;height:100%;background:var(--info)}
 
 .mapgrid{display:grid;grid-template-columns:auto 1fr;gap:8px 10px;align-items:center;font-size:13.5px}
-.mapgrid .col{font-family:var(--mono);font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.mapgrid .col{font-family:var(--mono);font-size:13px;color:var(--muted);overflow-wrap:anywhere}
 
 .modal{position:fixed;inset:0;background:rgba(20,10,15,.45);z-index:40;display:grid;place-items:center;padding:20px}
 .modal[hidden]{display:none}
@@ -173,23 +173,23 @@ textarea{min-height:80px;resize:vertical}
 .logo{width:30px;height:30px;flex:none}
 .brief{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .brief .story{padding:14px;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5}
-.brief .story .when{font-size:12px;color:var(--muted);margin-top:6px}
+.brief .story .when{font-size:13px;color:var(--muted);margin-top:6px}
 .brief dl{margin:0;display:grid;grid-template-columns:1fr}
 .brief .kv{padding:10px 14px;border-top:1px solid var(--line);display:grid;grid-template-columns:104px 1fr;gap:10px;font-size:14px}
 .brief .kv:first-child{border-top:0}
-.brief dt{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.brief dt{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
 .brief dd{margin:0}
 .brief ul{margin:0;padding-left:18px}
 .brief .ask{background:var(--surface);padding:12px 14px;font-size:15px;font-weight:600;border-top:2px solid var(--accent)}
-.brief .ask b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-text);margin-bottom:2px}
+.brief .ask b{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-text);margin-bottom:2px}
 .dossier .row2{padding:10px 14px;border-top:1px solid var(--line);display:grid;grid-template-columns:104px 1fr;gap:10px;font-size:14px}
 .dossier .row2:first-child{border-top:0}
-.dossier .k{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
-.dossier .src{font-size:12px;color:var(--muted);margin-top:2px}
-.dossier .st{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:10px;margin-right:6px;vertical-align:1px}
+.dossier .k{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.dossier .src{font-size:13px;color:var(--muted);margin-top:2px}
+.dossier .st{display:inline-block;font-size:13px;font-weight:600;padding:1px 7px;border-radius:10px;margin-right:6px;vertical-align:1px}
 .st.found{background:var(--good-soft);color:var(--good)} .st.not_found{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)} .st.not_checked{background:var(--line);color:var(--muted)} .st.conflict{background:var(--warn-soft);color:var(--warn)}
-.h-sub{font-family:var(--body);font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin:6px 2px 6px}
-.dossier .src{font-family:var(--mono);font-size:11.5px}
+.h-sub{font-family:var(--body);font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin:6px 2px 6px}
+.dossier .src{font-family:var(--mono);font-size:13px}
 .watch{margin:0;padding:12px 14px 12px 30px;font-size:14px;display:flex;flex-direction:column;gap:6px}
 details.sources{border-top:1px solid var(--line);padding-top:12px}
 details.sources>summary{display:flex;justify-content:space-between;font-weight:700;font-size:16px;cursor:pointer;list-style:none;padding:6px 2px}
@@ -197,7 +197,7 @@ details.sources>summary::-webkit-details-marker{display:none}
 details.sources>summary::after{content:"Show";font-size:13px;color:var(--accent-text);font-weight:600}
 details.sources[open]>summary::after{content:"Hide"}
 details.card>summary{cursor:pointer;font-weight:600}
-.cov{font-size:12.5px;color:var(--muted);padding:0 2px 4px}
+.cov{font-size:13px;color:var(--muted);padding:0 2px 4px}
 .cov .nf{color:var(--warn)}
 
 .route-h{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin:6px 0 14px}
@@ -206,7 +206,7 @@ details.card>summary{cursor:pointer;font-weight:600}
 .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--surface);border-radius:12px;padding:4px;gap:4px;margin-bottom:14px}
 .seg button{border:0;background:none;padding:8px 6px;border-radius:9px;font-weight:600;color:var(--muted);cursor:pointer;min-height:40px}
 .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
-.chip{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap;line-height:1.3}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap;line-height:1.3}
 .chip.ok{background:var(--signal);color:#171923}
 .chip.attn{background:var(--accent);color:#171923}
 .chip.warn{background:var(--amber);color:#171923}
@@ -231,12 +231,12 @@ nav.tabs{grid-template-columns:repeat(5,1fr)!important;align-items:end}
 nav.tabs .center{display:flex;justify-content:center}
 nav.tabs .center button{width:62px;height:62px;border-radius:50%;background:var(--accent);margin-top:-22px;display:grid;place-items:center;padding:0;color:#171923;box-shadow:0 4px 14px rgba(0,0,0,.35)}
 nav.tabs .center button svg{width:34px;height:34px}
-.hero .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.hero .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
 .hero h1{font-size:30px;font-weight:800;line-height:1.08;letter-spacing:-.02em;margin:6px 0 8px}
 .hero .addr{color:var(--muted);font-size:14.5px}
 .panel{margin:16px -16px -24px;padding:16px 16px 28px;border-radius:22px 22px 0 0;min-height:65vh;display:flex;flex-direction:column;gap:14px}
 .fof{background:var(--surface);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;box-shadow:0 5px 0 var(--accent)}
-.fof .k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent-text);text-transform:uppercase}
+.fof .k{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--accent-text);text-transform:uppercase}
 .fof .q{font-size:17px;font-weight:700;line-height:1.3;margin-top:2px}
 .orows{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:2px 12px}
 .orow{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid var(--line)}
@@ -246,14 +246,14 @@ nav.tabs .center button svg{width:34px;height:34px}
 .orow .d{font-size:14px;color:var(--muted);margin-top:2px}
 .dims{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .dims>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
-.dims .dk{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dims .dk{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .dims .dv{font-size:13.5px;font-weight:700;line-height:1.3;margin-top:3px}
 .srcs{display:flex;flex-direction:column;gap:10px}
 .src-card{background:#F6F5F1;color:#171923;border-radius:14px;padding:14px;display:grid;grid-template-columns:28px minmax(0,1fr) 28px;gap:10px}
 .src-card svg.ic{width:24px;height:24px;color:#171923}
 .src-card .h{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:700;font-size:15.5px}
 .src-card .b{font-size:14px;margin-top:3px;color:#2B303A}
-.src-card .m{font-family:var(--mono);font-size:11.5px;color:#5D6574;margin-top:5px}
+.src-card .m{font-family:var(--mono);font-size:13px;color:#5D6574;margin-top:5px}
 .src-card .ext{color:#171923;display:inline-flex}
 .src-card .acts{display:flex;gap:6px;margin-top:6px}
 .src-card .acts button{background:none;border:0;color:#B3195C;font:600 13px var(--body);padding:4px 0;cursor:pointer;min-height:32px}
@@ -262,12 +262,164 @@ nav.tabs .center button svg{width:34px;height:34px}
 .src-card.disputed .b{text-decoration:line-through}
 .means{background:#F6F5F1;color:#171923;border-radius:14px;padding:14px;font-size:14.5px}
 .means b{display:flex;gap:8px;align-items:center;font-size:16px;margin-bottom:4px}
+
+/* ---- Legibility and decluttering (Nov 15) ---- */
+:root{--muted:#BAC0CB}
+.paper{--muted:#4A5160}
+.small{font-size:14px}
+.hero .eyebrow,.fof .k,.dims .dk,.h-sub{font-family:var(--body);font-size:14px;font-weight:700;letter-spacing:.01em;text-transform:none}
+.fof .k{color:var(--accent-text)}
+.dossier .src,.src-card .m,.mapgrid .col,.mono{font-family:var(--body);font-size:14px}
+.src-card .m{color:#4A5160}
+.group-h{text-transform:none !important;letter-spacing:0 !important;font-size:14.5px;font-weight:700;color:var(--ink)}
+.item .s{font-size:14.5px}
+.pill,.chip{font-size:13.5px}
+.qa{display:grid;gap:10px;margin-top:12px}
+.qa .q1{font-weight:700;font-size:14px;color:var(--muted);margin-bottom:2px}
+.qa .a1{font-size:15.5px;line-height:1.45}
+.qa > div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.inbox-banner{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;background:var(--accent);color:#13151D;border:0;border-radius:14px;padding:14px 16px;font:inherit;font-weight:800;font-size:16px;margin-bottom:12px;text-align:left}
+.searchbar{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+
+/* ---- Calm pass (Nov 15): bigger type, more space, fewer boxes ---- */
+body{font-size:16px;line-height:1.5}
+#view{padding-left:18px;padding-right:18px}
+.item{padding:16px 12px 16px 16px;gap:12px}
+.item .t{font-size:17px;font-weight:700}
+.item .s{font-size:15px;margin-top:2px}
+.item .pills{margin-top:8px}
+.pill,.chip{font-size:14px;padding:4px 10px}
+.list{border-radius:16px}
+.section-h{margin:28px 2px 10px}
+.section-h h2{font-size:19px}
+.route-h{margin-bottom:16px}
+.route-h h1{font-size:30px}
+.group-h{margin:22px 2px 8px;font-size:15px}
+.hero{padding-bottom:20px}
+.hero h1{font-size:30px;line-height:1.15}
+.hero .addr{font-size:16px;margin-top:6px}
+.fof{padding:18px 18px 20px}
+.fof .q{font-size:19px;line-height:1.35}
+.qa{gap:14px;margin-top:18px}
+.qa > div{padding:16px 16px 18px;border-radius:16px}
+.qa .q1{font-size:14.5px;margin-bottom:4px}
+.qa .a1{font-size:16.5px;line-height:1.5}
+.dossier .row2 .k{text-transform:none !important;letter-spacing:0 !important;font-size:14.5px;font-weight:700;font-family:var(--body)}
+.src-card{padding:16px}
+.src-card .b{font-size:16px;line-height:1.45}
+.tile{padding:16px}
+.tile .l{font-size:14.5px}
+details.fold{margin-top:14px}
+details.fold > summary{cursor:pointer;font-weight:700;font-size:16px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;list-style:none}
+details.fold[open] > summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+details.fold > .inner{border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px;padding:14px 16px;background:var(--surface)}
+.sync.ok-quiet{visibility:hidden}
+
+/* ---- Tap targets (44px) ---- */
+.iconbtn{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+#sheetBack{min-width:44px;min-height:44px}
+.chips .chip{min-height:40px;display:inline-flex;align-items:center}
+.src-card .acts button{min-height:44px;padding:10px 12px 10px 0;margin-right:10px;font-size:15px}
+.src-card a.ext{min-width:44px;min-height:44px;display:flex;align-items:flex-start;justify-content:center}
+.filebtn{position:relative;overflow:hidden}
+.filebtn input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+
+/* ---- Brand: Signal pink marks the one thing to do ---- */
+:root{--sel:#F6F5F1;--sel-ink:#13151D}
+/* ---- Daylight: light by default (readable in sun), dark at night ---- */
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference){
+  :root{--bg:#F6F5F1; --surface:#FFFFFF; --surface-2:#EEECE6; --ink:#171923; --muted:#4A5160; --line:#E2DFD8; --line-strong:#9AA0AB;
+    --accent-text:#B3195C; --accent-soft:#FBE3EE; --signal:#8FA313;
+    --good:#1B6B5A; --good-soft:#DDEFEA; --warn:#7A5410; --warn-soft:#F7E9CF; --bad:#9A3324; --bad-soft:#F6E1DC; --info:#454D5C; --info-soft:#E8EAEE;
+    --sel:#171923; --sel-ink:#F6F5F1; color-scheme:light}
+  .check input{accent-color:#171923}
+  .banner.demo{background:#FFFFFF}
+  nav.tabs{background:rgba(255,255,255,.96);border-top:1px solid var(--line)}
+  .item,.card{box-shadow:0 1px 0 rgba(23,25,35,.04)}
+  .seg{background:#E9E7E1}
+}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px}
+nav.tabs button[aria-current="page"]{color:var(--ink);font-weight:700}
+nav.tabs button[aria-current="page"] svg{color:var(--ink)}
+.seg{background:#E9E7E1}
+.seg button[aria-pressed="true"]{background:#13151D;color:#F6F5F1}
+.opt input:checked + span{background:var(--sel);border-color:var(--sel);color:var(--sel-ink);font-weight:700}
+.check input{accent-color:#F6F5F1}
+.paper .check input{accent-color:#13151D}
+.iconbtn.on{color:var(--ink)}
+.chip.attn{background:var(--amber);color:#171923}
+.meter > i,.bar .track i{background:var(--signal)}
+.banner.demo{background:var(--surface);border:1px solid var(--line)}
+.cl.open{border-color:var(--line-strong)}
+.cl-top svg{color:var(--muted)}
+.btn.ghost{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px}
+.src-card .acts button{color:#13151D;text-decoration:underline;text-decoration-color:#9AA0AB;text-underline-offset:3px}
+details.sources>summary::after{color:var(--muted)}
+.fof .k,.hero .eyebrow,.dims .dk{font-family:var(--body);letter-spacing:0;text-transform:none;font-weight:700;font-size:14px}
+.fof .k{color:#B3195C}
+.brief .ask b{text-transform:none;letter-spacing:0;font-size:14px}
+.rhero{display:flex;gap:14px;align-items:center;padding:6px 0 10px}.rhero svg{color:var(--accent)}.rh-t{font-size:19px;font-weight:800;line-height:1.25;margin-bottom:2px}
+
+.sure{display:inline-block;font-size:13px;font-weight:700;line-height:1;padding:4px 8px;border-radius:999px;margin-left:6px;vertical-align:1px;letter-spacing:0;text-transform:none}
+.sure.yes{background:#171923;color:#F6F5F1;border:1.5px solid #171923}
+.sure.maybe{background:transparent;color:#171923;border:1.5px solid #171923}
+.sure.no{background:transparent;color:#4A5160;border:1.5px dashed #9AA0AB}
+
+/* ==== FieldMind design system v1 (Nov 15, 2026): the single source for color, type and status ==== */
+:root, .paper{
+  --bg:#F1EBDF; --surface:#FFFFFF; --surface-2:#E4DDCF; --ink:#1C2022; --muted:#4A5160; --line:#E2DFD8; --line-strong:#8A9396;
+  --accent:#FF3D8C; --accent-ink:#1C2022; --accent-soft:#E4DDCF; --accent-text:#B3195C;
+  --signal:#1C2022; --amber:#DCEF55; --citron:#DCEF55; --carbon:#1C2022; --raw-paper:#F1EBDF; --oxide:#B94F3D; --aluminum:#BAC3C5;
+  --good:#1C2022; --good-soft:#1C2022; --warn:#8A9396; --warn-soft:#DCEF55; --bad:#8E3A2C; --bad-soft:#B94F3D; --info:#1C2022; --info-soft:#BAC3C5;
+  --sel:#1C2022; --sel-ink:#F1EBDF;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace; --hand:Caveat, "Bradley Hand", cursive;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root, .paper{
+    --bg:#1C2022; --surface:#262B2E; --surface-2:#14171A; --ink:#F1EBDF; --muted:#BAC3C5; --line:#3A4045; --line-strong:#8A9396;
+    --accent-text:#FF85B6; --accent-soft:#14171A; --signal:#DCEF55;
+    --good:#F1EBDF; --bad:#F29482; --info:#F1EBDF;
+    --sel:#F1EBDF; --sel-ink:#1C2022; color-scheme:dark;
+  }
+}
+nav.tabs{background:var(--surface)!important;border-top:1px solid var(--line)}
+.seg{background:var(--surface-2)!important}
+.seg button[aria-pressed="true"]{background:var(--ink)!important;color:var(--bg)!important}
+.check input,.paper .check input{accent-color:var(--ink)!important}
+.src-card{background:var(--surface)!important;color:var(--ink)!important}
+.src-card .acts button{color:var(--ink)!important;text-decoration-color:var(--line-strong)!important}
+.src-card .m{color:var(--muted)!important}
+.fof .k{color:var(--accent-text)!important}
+.meter > i,.bar .track i{background:var(--signal)!important}
+/* Tags: question (citron) · conflict (iron oxide) · info (aluminum) · done (carbon). Never pink. */
+.chip.warn,.chip.attn.q,.pill.warn{background:#DCEF55!important;color:#1C2022!important;box-shadow:none!important}
+.chip.attn,.pill.bad{background:#B94F3D!important;color:#FFFFFF!important}
+.chip.ok,.chip.dim,.chip.line.mimo,.pill.info,.pill{background:#BAC3C5;color:#1C2022}
+.chip.line{background:transparent;color:var(--ink)}
+.pill.good{background:#1C2022!important;color:#F1EBDF!important}
+.st.found{background:#BAC3C5!important;color:#1C2022!important}
+@media (prefers-color-scheme: dark){ .pill.good{background:#F1EBDF!important;color:#1C2022!important} }
+.chips .chip .muted{color:inherit;font-weight:500}
+/* Type: Inter for reading (ss04: clear I/l/1, plain zero), Inter's display cut for titles and the wordmark */
+body{font-family:var(--body);font-optical-sizing:auto;font-feature-settings:"ss04" 1}
+h1,h2,.route-h h1,header.top h1,.title,.rh-t,.fof .q,.item .t{font-family:var(--display);font-feature-settings:normal;letter-spacing:-.015em}
+header.top h1{letter-spacing:-.035em}
+/* Certainty */
+.sure.yes{background:var(--ink)!important;color:var(--bg)!important;border-color:var(--ink)!important}
+.sure.maybe{color:var(--ink)!important;border-color:var(--ink)!important}
+.sure.no{color:var(--muted)!important;border-color:var(--line-strong)!important}
+/* Three voices: the source speaks in Plex Mono, the rep writes by hand */
+.src-card .h .site,.src-card .m,.fm-source{font-family:var(--mono)!important;font-size:14px!important;letter-spacing:0;text-transform:none}
+.rep-note{font-family:var(--hand);font-size:24px;line-height:1.15;color:var(--accent-text);font-weight:600}
+/* Type scale: 13 · 14 · 16 · 17 · 18 · 30 */
+.small,.muted.small{font-size:13px}
 </style>
 </head>
 <body>
 <div class="app">
   <header class="top">
-    <svg class="logo" viewBox="0 0 120 120" aria-hidden="true"><path d="M40 100 C 22 99 11 86 14 71 C 5 63 7 45 21 41 C 21 25 37 15 51 21 C 59 10 79 11 85 23 C 101 21 111 37 105 51 C 115 62 109 81 94 83 C 92 96 75 101 65 93 C 57 87 59 75 69 72 C 79 69 83 59 75 53 C 67 47 56 52 55 61 C 54 49 41 44 35 53" fill="none" stroke="var(--accent)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="53" r="8.5" fill="var(--ink)"/></svg>
+    <svg class="logo" viewBox="0 0 120 120" aria-hidden="true"><g transform="translate(4.8 4.8) scale(.92)"><path d="M36 100 C 30 92 18 92 13 80 C 4 70 8 54 19 50 C 16 34 32 24 46 29 C 52 16 76 15 82 28 C 98 24 113 38 106 54 C 117 62 112 82 96 84 C 92 96 72 98 66 88 C 60 79 74 74 76 66 C 78 57 68 52 61 57 C 55 61 46 58 47 50" fill="none" stroke="var(--accent)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="48" r="13.5" fill="#1C2022"/><circle cx="48" cy="48" r="10" fill="#DCEF55"/></g></svg>
     <h1>FieldMind</h1>
     <div class="sync" id="sync"><span class="dot" id="syncDot"></span><span id="syncText">Loading</span></div>
   </header>
@@ -275,7 +427,7 @@ nav.tabs .center button svg{width:34px;height:34px}
   <nav class="tabs" aria-label="Sections">
     <button data-tab="route" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>Route</button>
     <button data-tab="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Search</button>
-    <div class="center"><button data-act="briefme" aria-label="Research and import"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M40 100 C 22 99 11 86 14 71 C 5 63 7 45 21 41 C 21 25 37 15 51 21 C 59 10 79 11 85 23 C 101 21 111 37 105 51 C 115 62 109 81 94 83 C 92 96 75 101 65 93 C 57 87 59 75 69 72 C 79 69 83 59 75 53 C 67 47 56 52 55 61 C 54 49 41 44 35 53" fill="none" stroke="#171923" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="53" r="8.5" fill="#171923"/></svg></button></div>
+    <div class="center"><button data-act="briefme" aria-label="Research and import"><svg viewBox="0 0 120 120" aria-hidden="true"><g transform="translate(4.8 4.8) scale(.92)"><path d="M36 100 C 30 92 18 92 13 80 C 4 70 8 54 19 50 C 16 34 32 24 46 29 C 52 16 76 15 82 28 C 98 24 113 38 106 54 C 117 62 112 82 96 84 C 92 96 72 98 66 88 C 60 79 74 74 76 66 C 78 57 68 52 61 57 C 55 61 46 58 47 50" fill="none" stroke="#171923" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="48" r="13.5" fill="#1C2022"/><circle cx="48" cy="48" r="10" fill="#DCEF55"/></g></svg></button></div>
     <button data-tab="saves"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Saves<span class="badge" id="retBadge" hidden></span></button>
     <button data-tab="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>More</button>
   </nav>
@@ -341,6 +493,17 @@ const ACCESS_TIMING = new Set(["dm_absent","followup"]);
 /* ============ Utils ============ */
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+// Imported links are untrusted even when HTML-escaped (including restored backups).
+function safeHttpUrl(value){
+  if(typeof value!=="string" || /[\u0000-\u0020\u007f]/.test(value)) return "";
+  try{ const u=new URL(value); return (u.protocol==="https:" || u.protocol==="http:") && !u.username && !u.password ? u.href : ""; }catch(e){ return ""; }
+}
+function csvCell(value){
+  let s=String(value??"");
+  // Quoting alone does not prevent spreadsheet formula evaluation.
+  if(/^[\s\uFEFF]*[=+@-]/.test(s) || /^[\t\r\n]/.test(s)) s="'"+s;
+  return /[",\r\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s;
+}
 const pad = n => String(n).padStart(2,"0");
 const todayStr = (d=new Date()) => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 const monthKey = s => s.slice(0,7);
@@ -485,11 +648,11 @@ function convertV1(obj){
 }
 function validateResearch(obj){
   const errors=[], warnings=[], premises=[];
-  if(!obj || typeof obj!=="object" || Array.isArray(obj)) return {ok:false, errors:["The file isn't a JSON object."], warnings, premises};
+  if(!obj || typeof obj!=="object" || Array.isArray(obj)) return {ok:false, errors:["This isn't a FieldMind research file."], warnings, premises};
   let src=obj;
-  if(obj.fieldmind_research===1){ if(!Array.isArray(obj.accounts)) return {ok:false, errors:["Older research file has no accounts list."], warnings, premises}; src=convertV1(obj); warnings.push("Older research format (v1) was converted. Claim types and occupant were not in that format, so the current occupant shows as not established."); }
-  else if(obj.schema!=="fieldmind.research" || obj.version!==2) return {ok:false, errors:["Not a FieldMind research file. Expected schema \"fieldmind.research\", version 2."], warnings, premises};
-  if(!Array.isArray(src.premises)) return {ok:false, errors:["The file has no premises list."], warnings, premises};
+  if(obj.fieldmind_research===1){ if(!Array.isArray(obj.accounts)) return {ok:false, errors:["This older research file has no businesses in it."], warnings, premises}; src=convertV1(obj); warnings.push("This research file uses an older format. It was imported, but it doesn't say who operates each business."); }
+  else if(obj.schema!=="fieldmind.research" || obj.version!==2) return {ok:false, errors:["This isn't a FieldMind research file."], warnings, premises};
+  if(!Array.isArray(src.premises)) return {ok:false, errors:["This research file has no businesses in it."], warnings, premises};
   src.premises.forEach((p,i)=>{
     const where=`Premise ${i+1}${p&&p.match&&p.match.name?` (${p.match.name})`:""}`;
     if(!p || typeof p!=="object"){ errors.push(where+": not an object. Skipped."); return; }
@@ -512,7 +675,7 @@ function validateResearch(obj){
         if(!CLAIM_STATUS.includes(c.status)) ce.push("status isn't recognised");
         if(c.basis!=="observed" && c.basis!=="inferred") ce.push("basis must be observed or inferred");
         if(!c.observed_at || !ISO_DATE.test(String(c.observed_at))) ce.push("observed_at is missing");
-        const url=c.source&&c.source.url||"", okRef = /^https?:\/\//i.test(url) || (c.source && ["field_observation","authorized_list"].includes(c.source.type));
+        const url=c.source&&c.source.url||"", okRef = !!safeHttpUrl(url) || (c.source && ["field_observation","authorized_list"].includes(c.source.type));
         if(c.basis==="observed" && (!c.source || !c.source.name || !okRef)) ce.push("observed claim has no source link");
         if(c.basis==="inferred" && !okRef && !(Array.isArray(c.derived_from) && c.derived_from.length)) ce.push("inferred claim names no source or derived_from");
         if(c.status==="inferred" && c.basis!=="inferred") ce.push("status inferred needs basis inferred");
@@ -567,16 +730,16 @@ function applyResearch(v, accounts, notes){
       if(ch.length){ n.changes=(n.changes||[]).concat(ch.map(c=>({...c, at, since:n.brief.researchedAt}))).slice(-30); res.changed++; }
       n.briefHistory=(n.briefHistory||[]).concat([{researchedAt:n.brief.researchedAt, occupant:n.brief.occupant||null, profile:n.brief.profile, decision:n.brief.decision, summary:n.brief.story?.summary||""}]).slice(-5);
     }
-    n.brief = {schemaVersion:2, convertedFrom:v.convertedFrom||null, occupant:p.occupant||{name:null,status:"unknown"}, profile, story:{summary:p.summary||"", canInfer:p.can_infer||[], cannotConclude:p.cannot_conclude||[]}, salience:p.salience||"", decision:p.decision_route||null, thermostats:p.thermostat_estimate||null, watchouts:p.watchouts||[], askFirst:p.find_out_first||"", coverage:(p.coverage||[]).map(c=>({dim:c.dimension, checked:c.checked, result:c.result})), researchedAt:at};
+    n.brief = {schemaVersion:2, convertedFrom:v.convertedFrom||null, occupant:p.occupant||{name:null,status:"unknown"}, profile, story:{summary:p.summary||"", canInfer:p.can_infer||[], cannotConclude:p.cannot_conclude||[]}, salience:p.salience||"", decision:p.decision_route||null, thermostats:p.thermostat_estimate||null, watchouts:p.watchouts||[], askFirst:p.find_out_first||"", coverage:(p.coverage||[]).map(c=>({dim:c.dimension, checked:c.checked, result:c.result})), researchedAt:at, questions:p.research_questions||[], researchMethod:p.research_method||null, researchMetrics:p.research_metrics||null};
     const keyOf = e => norm(e.claim)+"|"+norm(e.link||e.source);
     const have = new Set(n.evidence.map(keyOf));
     const idMap={};
     for(const c of (p.claims||[])){
       const ev = {id:uid(), claim:String(c.claim).slice(0,300), claimType:c.claim_type, about:c.about, status:c.status, basis:c.basis,
         source:(c.source&&c.source.name)||"", sourceType:(c.source&&c.source.type)||"", link:(c.source&&c.source.url)||"",
-        observedAt:c.observed_at, date:c.effective_date||"", detail:String(c.excerpt||"").slice(0,800),
+        observedAt:c.observed_at, date:c.effective_date||"", detail:String(c.excerpt||"").slice(0,800), sourceExcerpt:c.retrieved_at?String(c.excerpt||""):null, retrievedAt:c.retrieved_at||null, sourceHash:c.normalized_sha256||null, sourceLine:c.normalized_line||null,
         dim: c.dimension && DIMS[c.dimension] ? c.dimension : (DIM_FROM_TYPE[c.claim_type]||"business"),
-        level: ({premises:"premises", equipment:"equipment"})[c.about]||"business", time: c.status==="historical"?"historical":"current",
+        level: ({premises:"premises", equipment:"equipment"})[c.about]||"business", time: c.time_state==="unknown"?"unknown":c.status==="historical"?"historical":"current",
         rel: c.status==="conflicting"?"mixed":"neutral", conflictsWith:c.conflicts_with||[], derivedFrom:c.derived_from||[], srcClaimId:c.id||"",
         verified:c.status==="verified", fromResearch:true, researchedAt:at, addedAt:new Date().toISOString()};
       if(have.has(keyOf(ev))) continue; have.add(keyOf(ev)); n.evidence.push(ev); idMap[c.id]=ev.id; res.evidence++;
@@ -587,7 +750,7 @@ function applyResearch(v, accounts, notes){
 }
 function researchRequest(ids){
   ids = ids.filter(id=>S.accounts[id] && !S.accounts[id].suppressed);
-  const lines = ids.map(id=>{ const a=S.accounts[id]; return "- "+[a.name, [a.addr,a.city,a.zip].filter(Boolean).join(", "), "ref "+refOf(id), a.list==="mimo"?"MIMO"+(devicesOf(a).length?" (prev device "+devicesOf(a).join(" + ")+")":""):"", a.bizType||""].filter(Boolean).join(" | "); });
+  const lines = ids.map(id=>{ const a=S.accounts[id]; return "- "+[a.name, [a.addr,a.city,a.zip].filter(Boolean).join(", "), "ref "+refOf(id), a.bizType||""].filter(Boolean).join(" | "); });
   return "Run FieldMind research (schema v2) on these premises and give me the import file. Copy each ref into match.ref exactly.\n\n"+lines.join("\n");
 }
 
@@ -622,16 +785,16 @@ function clusters(ids){
 }
 const READY = {
   ready:{t:"Local owner likely", tone:"good"},
-  route:{t:"Landlord or corporate route", tone:"info"},
-  check:{t:"Occupant unconfirmed", tone:"warn"},
-  unknown:{t:"Decision route unknown", tone:""},
+  route:{t:"Landlord or corporate", tone:"info"},
+  check:{t:"Verify occupant", tone:"warn"},
+  unknown:{t:"Decision-maker unknown", tone:""},
   none:{t:"Not researched", tone:""},
   suppressed:{t:"Suppressed on list", tone:"bad"}
 };
 // Labels describe evidence, not enrollment readiness. "Local owner likely" needs a found/verified occupant
 // AND an owner-operator route with a stated basis.
 function readiness(id){
-  const a=S.accounts[id]; if(a && a.suppressed) return {k:"suppressed", ...READY.suppressed, reason:"Marked "+(a.listStatus||"suppressed")+" on Brian's list. Don't contact."};
+  const a=S.accounts[id]; if(a && a.suppressed) return {k:"suppressed", ...READY.suppressed, reason:"Marked "+(a.listStatus||"suppressed")+" on your list. Don't contact."};
   const b=S.notes[id]?.brief;
   if(!b) return {k:"none", ...READY.none, reason:""};
   const p=b.profile||{}, d=b.decision||{}, occ=p.occupancy?.status, who=b.occupant;
@@ -669,7 +832,7 @@ function stats(month){
 /* ============ Persistence ============ */
 const Store = {
   mode:"demo", db:null, uid:null, queues:{},
-  setSync(state, text){ $("#syncDot").className = "dot "+(state||""); $("#syncText").textContent = text; },
+  setSync(state, text){ $("#syncDot").className = "dot "+(state||""); $("#syncText").textContent = text; $("#sync").classList.toggle("ok-quiet", state==="ok"); },
   async init(){
     let timer = setTimeout(()=>{ if(this.mode==="demo"&&!this.ready) this.useLocal("Couldn't reach cloud storage. Saving on this device."); }, 10000);
     try{
@@ -682,6 +845,7 @@ const Store = {
         clearTimeout(timer); this.ready=true; this.mode="cloud";
         this.setSync("ok","Synced");
         applyLoaded(loaded);
+        Inbox.start();
         return;
       }
     }catch(e){ console.warn(e); }
@@ -709,7 +873,7 @@ const Store = {
     try{ await this.q(key, fn); }
     catch(e){ console.warn(e); this.setSync("warn","Not saved"); toast(e && e.code==="quota_exceeded" ? "Storage is full. Delete old accounts and try again." : "Couldn't save that change. Check your connection and try again."); throw e; }
   },
-  saveLocal(){ try{ localStorage.setItem("fieldmind.v1", JSON.stringify({accounts:S.accounts, notes:S.notes, meta:S.meta})); }catch(e){ toast("This browser won't keep data. Use the Copy backup button in Insights."); } },
+  saveLocal(){ try{ localStorage.setItem("fieldmind.v1", JSON.stringify({accounts:S.accounts, notes:S.notes, meta:S.meta})); }catch(e){ toast("This browser won't keep data. Use Copy backup in More."); } },
   async saveAccounts(){
     if(S.demo) return;
     if(this.mode!=="cloud") return this.saveLocal();
@@ -747,11 +911,11 @@ function loadDemo(){
   const now = new Date(), iso = (dDays,h) => { const d=new Date(now); d.setDate(d.getDate()+dDays); d.setHours(h,15,0,0); return d.toISOString(); };
   const t = (dDays) => { const d=new Date(now); d.setDate(d.getDate()+dDays); return todayStr(d); };
   const A = [
-    {name:"Example · Brightline Dental Studio", addr:"412 Example Pkwy, Ste 3", city:"Raleigh", zip:"27606", acct:"EX-10021", bizType:"Dental office", list:"approved"},
-    {name:"Example · Copper Kettle Bakery", addr:"88 Sample St", city:"Raleigh", zip:"27606", acct:"EX-10022", bizType:"Bakery", list:"approved"},
-    {name:"Example · Northside Auto Glass", addr:"1500 Demo Rd", city:"Raleigh", zip:"27609", acct:"EX-10023", bizType:"Auto service", list:"mimo", device:"IntelliTemp"},
-    {name:"Example · Lotus Nail Lounge", addr:"220 Placeholder Ave, Ste 110", city:"Cary", zip:"27511", acct:"EX-10024", bizType:"Salon", list:"approved"},
-    {name:"Example · Harbor Insurance Group", addr:"7 Fictional Ct", city:"Cary", zip:"27511", acct:"EX-10025", bizType:"Office", list:"mimo", device:"Emerson"}
+    {name:"Brightline Dental Studio", addr:"412 Example Pkwy, Ste 3", city:"Raleigh", zip:"27606", acct:"EX-10021", bizType:"Dental office", list:"approved"},
+    {name:"Copper Kettle Bakery", addr:"88 Sample St", city:"Raleigh", zip:"27606", acct:"EX-10022", bizType:"Bakery", list:"approved"},
+    {name:"Northside Auto Glass", addr:"1500 Demo Rd", city:"Raleigh", zip:"27609", acct:"EX-10023", bizType:"Auto service", list:"mimo", device:"IntelliTemp"},
+    {name:"Lotus Nail Lounge", addr:"220 Placeholder Ave, Ste 110", city:"Cary", zip:"27511", acct:"EX-10024", bizType:"Salon", list:"approved"},
+    {name:"Harbor Insurance Group", addr:"7 Fictional Ct", city:"Cary", zip:"27511", acct:"EX-10025", bizType:"Office", list:"mimo", device:"Emerson"}
   ];
   const accounts={}; A.forEach(a=>{ a.id=accountId(a); accounts[a.id]=a; });
   const id = i => A[i].id;
@@ -781,6 +945,7 @@ function setTab(t){ UI.tab=t; document.querySelectorAll("nav.tabs button[data-ta
 document.querySelectorAll("nav.tabs button[data-tab]").forEach(b=>b.addEventListener("click",()=>setTab(b.dataset.tab)));
 
 function render(){
+  { const v=Object.values(S.accounts); S._allMimo = v.length>0 && v.every(a=>a.list==="mimo"); }
   const v = $("#view");
   const r = returnsList().filter(x=>x.overdue||x.due).length;
   const badge=$("#retBadge"); badge.hidden=!r; badge.textContent=r;
@@ -788,16 +953,21 @@ function render(){
   if(UI.sheet) UI.sheet.refresh && UI.sheet.refresh();
 }
 function topBanner(){
-  if(S.demo) return `<div class="banner demo" style="margin-bottom:12px"><div><b>You're looking at example accounts.</b> Nothing here is saved. Import your approved list to start your own workspace.<div style="margin-top:8px"><button class="btn primary" data-act="import">Import a list</button></div></div></div>`;
-  if(Store.mode==="local" && Store.localMsg) return `<div class="banner warn" style="margin-bottom:12px">${esc(Store.localMsg)} Use Copy backup in Insights now and then.</div>`;
+  if(S.demo) return `<div class="banner demo" style="margin-bottom:12px"><div><b>Example accounts.</b> Nothing here is saved.<div style="margin-top:10px"><button class="btn primary" data-act="import">Import your list</button></div></div></div>`;
+  if(Store.mode==="local" && Store.localMsg) return `<div class="banner warn" style="margin-bottom:12px">${esc(Store.localMsg)} Copy a backup in More now and then.</div>`;
   return "";
 }
+const KEEP_UP=new Set(["LLC","PLLC","INC","NC","DBA","HVAC","II","III","IV","USA","PC","PA","LP","LLP","BBQ","YMCA","CPA","DDS","MD","NE","NW","SE","SW","DNC"]);
+function nice(v){ const t=String(v??""); if(!/[A-Z]/.test(t) || t!==t.toUpperCase() || t.length<4) return t;
+  return t.toLowerCase().replace(/[a-z0-9'&]+/g, w=>{ const u=w.toUpperCase(); if(KEEP_UP.has(u) || /\d/.test(w) && /[a-z]/.test(w)&&w.length<=4 && !/^\d+[a-z]{2}$/.test(w)) return u; return w.charAt(0).toUpperCase()+w.slice(1); }); }
 function accountRow(id, extra=""){
   const a=S.accounts[id], n=S.notes[id], st=accountStatus(id);
   const ev=(n?.evidence||[]).length;
   const stripe = st.k==="returning" && n.ret.date<=todayStr() ? "bad" : (st.tone==="good"?"good":st.k==="returning"?"info":st.k==="closed"?"":"");
   const rd = readiness(id), alts = a.altNames||[];
-  return `<button class="item" data-open="${esc(id)}"><span class="stripe ${stripe}"></span><span class="main"><span class="t">${esc(a.name||"(no name)")}</span><span class="s" style="display:block">${esc([a.addr,a.city].filter(Boolean).join(", "))}${alts.length?` · also listed: ${esc(alts.join(", "))}`:""}</span>${rd.k!=="none" && st.k==="new"?`<span class="s" style="display:block;color:var(--ink);margin-top:3px"><span class="pill ${rd.tone}">${rd.t}</span> ${esc(clip(rd.reason,130))}</span>`:""}<span class="pills">${a.list==="mimo"?'<span class="pill">MIMO</span>':""}${st.k!=="new" && !(extra && st.k==="returning")?`<span class="pill ${st.tone}">${esc(st.t)}</span>`:""}${n?.brief?.thermostats?`<span class="pill">~${esc(n.brief.thermostats.low)}${n.brief.thermostats.high&&n.brief.thermostats.high!=n.brief.thermostats.low?"–"+esc(n.brief.thermostats.high):""} tstat</span>`:""}${ev&&!n?.brief?`<span class="pill">${ev} evidence</span>`:""}${extra}</span></span><span class="iconbtn ${n?.today?"on":""}" data-star="${esc(id)}" role="button" aria-label="${n?.today?"Remove from saves":"Save for today"}" tabindex="0">${starSvg(n?.today)}</span></button>`;
+  const allMimo = S._allMimo;
+  const tag = rd.k==="suppressed" ? `<span class="pill bad">Don't contact</span>` : extra ? "" : st.k!=="new" ? `<span class="pill ${st.tone}">${esc(st.t)}</span>` : n?.brief ? `<span class="pill ${rd.tone}">${esc(rd.t)}</span>` : "";
+  return `<button class="item" data-open="${esc(id)}"><span class="stripe ${stripe}"></span><span class="main"><span class="t">${esc(nice(a.name)||"(no name)")}</span><span class="s" style="display:block">${esc([nice(a.addr),nice(a.city)].filter(Boolean).join(", "))}</span><span class="pills">${a.list==="mimo"&&!allMimo?'<span class="pill">MIMO</span>':""}${tag}${extra}</span></span><span class="iconbtn ${n?.today?"on":""}" data-star="${esc(id)}" role="button" aria-label="${n?.today?"Remove from saves":"Save for today"}" tabindex="0">${starSvg(n?.today)}</span></button>`;
 }
 const starSvg = on => `<svg viewBox="0 0 24 24" fill="${on?"currentColor":"none"}" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>`;
 
@@ -816,7 +986,7 @@ function viewToday(){
   html += due.length ? `<div class="list">${due.map(r=>accountRow(r.id, `<span class="pill ${r.overdue?"bad":"warn"}">${r.overdue?"Overdue "+fmtDate(r.date):"Today"}${r.time?" "+esc(r.time):""}</span>${r.kind==="confirmed"?'<span class="pill good">Confirmed</span>':r.kind==="vague"?'<span class="pill">Vague</span>':""}`)).join("")}</div>` : `<div class="card muted small">No returns due today.</div>`;
   html += `<div class="section-h"><h2>Planned stops</h2><span class="muted">${planned.length}</span></div>`;
   if(planned.length){ const unb = planned.filter(id=>!S.notes[id]?.brief).length; if(unb) html += `<div class="card small spread" style="margin-bottom:4px"><span>${unb} planned stop${unb===1?" has":"s have"} no brief yet.</span><button class="btn" data-act="reqtoday">Copy research request</button></div>`; for(const c of clusters(planned)) html += `<div class="group-h"><span>${esc(c.street)}${c.range?" · "+esc(c.range):""}</span><span>${c.ids.length}</span></div><div class="list">${c.ids.map(id=>accountRow(id)).join("")}</div>`; }
-  else html += `<div class="card small muted">Star the stops from Brian's list you're working today. They group here by street, in his order.</div>`;
+  else html += `<div class="card small muted">Star the stops you're working today. They group here by street, in list order.</div>`;
   html += `<div class="section-h"><h2>Logged today</h2><span class="muted">${todayVisits.length} visit${todayVisits.length===1?"":"s"}</span></div>`;
   html += todayVisits.length ? `<div class="list">${todayVisits.slice().reverse().map(v=>accountRow(v.accountId)).join("")}</div>` : `<div class="card small muted">Visits you log today show up here.</div>`;
   return html;
@@ -835,25 +1005,18 @@ function viewAccounts(){
     if(q && !norm([a.name,a.addr,a.city,a.zip,a.acct,a.bizType].join(" ")).includes(q)) return false;
     return true;
   });
-  const F = [["all","All"],["new","Not visited"],["returning","Returning"],["researched","Briefed"],["mimo","MIMO"],["enrolled","Enrolled"],["closed","Closed out"]];
-  let html = `<div class="row" style="margin-bottom:10px"><input class="search" id="q" type="text" placeholder="Search name, address, ZIP, account #" value="${esc(UI.q)}" aria-label="Search accounts" style="flex:1"></div>
-  <div class="row"><button class="btn" data-act="import">Import list</button><button class="btn" data-act="add">Add account</button><button class="btn" data-act="reqfilter">Copy research request</button></div>
-  <div class="chips" role="group" aria-label="Filter">${F.map(([k,t])=>`<button class="chip" data-filter="${k}" aria-pressed="${UI.filter===k}">${t} <span class="muted">${counts[k]}</span></button>`).join("")}</div>`;
-  const li = S.meta.lastImport;
-  const researched = ids.filter(id=>S.notes[id]?.brief).length;
-  if(li && !S.demo) html = `<div class="tiles" style="grid-template-columns:repeat(4,1fr);margin-bottom:10px">${[[li.rows,"records"],[li.premises,"premises"],[li.shared,"shared premises"],[researched+"/"+ids.length,"researched"]].map(([n,l])=>`<div class="tile" style="padding:8px 10px"><div class="n" style="font-size:19px">${n}</div><div class="l">${l}</div></div>`).join("")}</div>` + html;
+  const F = [["all","All"],["new","Not visited"],["returning","Returning"],["researched","Briefed"],["enrolled","Enrolled"],["closed","Closed out"]];
+  if(counts.mimo && counts.mimo<ids.length) F.push(["mimo","MIMO"]);
+  const shownF = F.filter(([k])=>k==="all"||counts[k]>0||UI.filter===k);
+  let html = `<div class="searchbar"><input class="search" id="q" type="search" placeholder="Search name or address" value="${esc(UI.q)}" aria-label="Search accounts" style="flex:1"></div>`;
+  if(!ids.length) return html + `<div class="empty">No accounts yet. Import your list from More.</div>`;
+  if(shownF.length>1) html += `<div class="chips" role="group" aria-label="Filter">${shownF.map(([k,t])=>`<button class="chip" data-filter="${k}" aria-pressed="${UI.filter===k}">${t} <span class="muted">${counts[k]}</span></button>`).join("")}</div>`;
   if(!filt.length) return html + `<div class="empty">No accounts match.</div>`;
-  let shown=0;
-  for(const c of clusters(filt)){
-    if(shown>400){ html+=`<div class="empty small">Showing the first 400. Search or filter to narrow down.</div>`; break; }
-    const tally={}; c.ids.forEach(id=>{ const k=readiness(id).k; tally[k]=(tally[k]||0)+1; });
-    const sum = ["ready","route","check","unknown","none"].filter(k=>tally[k]).map(k=>`<span class="pill ${READY[k].tone}">${tally[k]} ${READY[k].t.toLowerCase()}</span>`).join(" ");
-    html += `<div class="group-h" style="flex-direction:column;align-items:flex-start;gap:6px;text-transform:none;letter-spacing:0"><span style="display:flex;justify-content:space-between;width:100%;text-transform:uppercase;letter-spacing:.06em"><span>${esc(c.street)}${c.range?" · "+esc(c.range):""}</span><span>${c.ids.length}</span></span><span class="pills" style="display:flex;gap:4px;flex-wrap:wrap">${sum}</span></div><div class="list">${c.ids.slice(0,400-shown).map(id=>accountRow(id)).join("")}</div>`;
-    shown+=c.ids.length;
-  }
+  const ordered = clusters(filt).flatMap(c=>c.ids);
+  html += `<div class="list">${ordered.slice(0,400).map(id=>accountRow(id)).join("")}</div>`;
+  if(ordered.length>400) html += `<div class="empty small">Showing the first 400. Search to narrow down.</div>`;
   return html;
 }
-
 function viewReturns(){
   const list = returnsList();
   if(!list.length) return `<div class="empty">No returns scheduled. When you log a follow-up or an absent decision-maker, set a return date and it lands here.</div>`;
@@ -882,34 +1045,27 @@ function benchmarkHtml(){
   const grp=k=>{ const g=fc.filter(x=>x.briefUsed===k), mins=g.reduce((s,x)=>s+(x.minutes||0),0), opt=g.filter(x=>x.result==="optin").length; return {n:g.length, rate: mins? (opt/(mins/60)).toFixed(2) : "–"}; };
   const gy=grp("yes"), gn=grp("no");
   const row=(l,v,sub)=>`<div class="bar"><div class="lbl"><span>${l}</span><span class="mono">${v}</span></div>${sub?`<div class="sub">${sub}</div>`:""}</div>`;
-  return `<div class="section-h"><h2>Experiment 001 · MIMO benchmark</h2></div><div class="card"><div class="bars">
-    ${row("Premises researched", `${N} of ${ids.length}`)}
-    ${row("Current occupant identified", pct(occ), `${occ} premises where a source shows who's operating now`)}
-    ${row("Decision route supported by evidence", pct(dec), `${dec} with a route and a stated basis`)}
-    ${row("Unresolved contradictions", pct(con), `${con} premises with a conflicting profile field`)}
-    ${row("Findings without a source link", ev.length? Math.round(nolink/ev.length*100)+"%" : "–", `${nolink} of ${ev.length}. Target: 0`)}
-    ${row("Occupant correct (field check)", om.length? Math.round(om.filter(x=>x.occMatch==="yes").length/om.length*100)+"%":"No checks yet", om.length?`${om.filter(x=>x.occMatch==="yes").length} of ${om.length} visits`:"Answer the field check when you log a visit")}
-    ${row("Decision route correct (field check)", rm.length? Math.round(rm.filter(x=>x.routeSeen===x.briefRoute).length/rm.length*100)+"%":"No checks yet", rm.length?`${rm.filter(x=>x.routeSeen===x.briefRoute).length} of ${rm.length} visits`:"")}
-    ${row("Opt-ins per on-site hour: with brief vs without", `${gy.rate} vs ${gn.rate}`, `${gy.n} visits with the brief, ${gn.n} without. Too few to conclude anything until both reach about 30.`)}
-    ${row("Findings checked in Source Evidence", ver+dis? `${ver} confirmed · ${dis} wrong` : "None yet", ver+dis? `${Math.round(ver/(ver+dis)*100)}% confirmed` : "Mark findings verified or wrong from Source Evidence after visits")}
-  </div><p class="small muted" style="margin:10px 0 0">Measures research quality first. FieldMind makes no claim about conversion or productivity until the with-brief and without-brief groups are large enough to compare.</p></div>`;
+  return `<details class="fold"><summary>Research quality</summary><div class="inner"><div class="bars">
+    ${row("Researched", `${N} of ${ids.length}`)}
+    ${row("Occupant right in the field", om.length? Math.round(om.filter(x=>x.occMatch==="yes").length/om.length*100)+"%":"–", om.length?`${om.filter(x=>x.occMatch==="yes").length} of ${om.length} visits`:"")}
+    ${row("Decision-maker right in the field", rm.length? Math.round(rm.filter(x=>x.routeSeen===x.briefRoute).length/rm.length*100)+"%":"–", rm.length?`${rm.filter(x=>x.routeSeen===x.briefRoute).length} of ${rm.length} visits`:"")}
+    ${row("Opt-ins per hour, with vs without brief", `${gy.rate} vs ${gn.rate}`, gy.n+gn.n<60?"Needs about 30 visits each":"")}
+  </div></div></details>`;
 }
-function viewInsights(){ return benchmarkHtml() + viewInsightsBase(); }
-function viewInsightsBase(){
+function viewInsights(){ const q=benchmarkHtml(); return viewInsightsBase(q); }
+function viewInsightsBase(quality=""){
   const months = [...new Set(allVisits().map(v=>todayStr(new Date(v.at)).slice(0,7)))].sort().reverse();
   const cur = todayStr().slice(0,7); if(!months.includes(cur)) months.unshift(cur);
   UI.month = UI.month && months.includes(UI.month) ? UI.month : cur;
   const st = stats(UI.month), tgt=Number(S.meta.target)||200;
   const mLabel = m => { const [y,mm]=m.split("-").map(Number); return new Date(y,mm-1,1).toLocaleDateString(undefined,{month:"long",year:"numeric"}); };
-  let html = `<div class="row" style="margin-bottom:12px"><select id="monthSel" aria-label="Month" style="width:auto">${months.map(m=>`<option value="${m}" ${m===UI.month?"selected":""}>${mLabel(m)}</option>`).join("")}</select></div>
+  let html = `<div class="route-h"><h1>More</h1></div><div class="row" style="margin-bottom:12px"><select id="monthSel" aria-label="Month" style="width:auto">${months.map(m=>`<option value="${m}" ${m===UI.month?"selected":""}>${mLabel(m)}</option>`).join("")}</select></div>
   <div class="tiles">
     <div class="tile"><div class="n">${st.perHour?st.perHour.toFixed(2):"–"}</div><div class="l">Opt-ins per field hour</div></div>
     <div class="tile"><div class="n">${st.kw.toFixed(1)}</div><div class="l">kW enrolled of ${tgt} target</div><div class="meter"><i style="width:${Math.min(100,st.kw/tgt*100).toFixed(1)}%"></i></div></div>
-    <div class="tile"><div class="n">${st.visits}</div><div class="l">Visits over ${st.days} field day${st.days===1?"":"s"}</div></div>
-    <div class="tile"><div class="n">${st.visits?Math.round(st.access/st.visits*100)+"%":"–"}</div><div class="l">Access or timing outcomes</div></div>
-  </div>
-  <p class="small muted" style="margin:8px 2px 0">Field hours count the on-site minutes you log per visit, not drive time. kW comes from what you enter on each opt-in; official credited production may differ.</p>`;
-  html += `<div class="section-h"><h2>What the labels hide</h2></div><div class="card"><div class="bars">`;
+    <div class="tile"><div class="n">${st.visits}</div><div class="l">Visits</div></div>
+  </div>`;
+  html += `<div class="section-h"><h2>Outcomes</h2></div><div class="card"><div class="bars">`;
   const order = Object.keys(OUTCOMES).filter(k=>st.by[k]).sort((a,b)=>st.by[b].n-st.by[a].n);
   if(!order.length) html += `<div class="muted small">Log visits to see your outcome breakdown.</div>`;
   for(const k of order){
@@ -918,64 +1074,122 @@ function viewInsightsBase(){
     html += `<div class="bar"><div class="lbl"><span>${OUTCOMES[k].label}</span><span class="mono">${b.n} · ${pct.toFixed(0)}%</span></div><div class="track"><i style="width:${pct.toFixed(1)}%"></i></div>${subs?`<div class="sub">${subs}</div>`:""}</div>`;
   }
   html += `</div></div>`;
-  html += `<div class="section-h"><h2>How far visits got</h2></div><div class="card funnel">`;
-  for(const g of GATES){ const n=st.gateCounts[g.k], p=st.visits?n/st.visits*100:0; html+=`<div class="step"><span>${g.t}</span><span class="mono">${n}</span><div class="track"><i style="width:${p.toFixed(1)}%"></i></div></div>`; }
-  html += `</div>`;
-  html += `<div class="section-h"><h2>Data</h2></div><div class="card stack">
+
+  html += `<div class="section-h"><h2>Your list</h2></div><div class="row"><button class="btn" data-act="import">Import list</button><button class="btn" data-act="add">Add account</button></div>`;
+  html += quality;
+  html += `<details class="fold"><summary>Settings and backup</summary><div class="inner stack">
     <div class="field"><label for="tgt">Monthly kW target</label><input id="tgt" type="number" inputmode="decimal" value="${esc(tgt)}" min="1"></div>
-    <div class="row"><button class="btn" data-act="exportcsv">Export visits (CSV)</button><button class="btn" data-act="backup">Copy backup</button><button class="btn" data-act="restore">Restore backup</button></div>
-    <div class="small muted">${S.demo?"Examples aren't saved.":Store.mode==="cloud"?"Saved to your private FieldMind storage. Only you can read it, even if you share this page.":"Saved in this browser only."} ${Object.keys(S.accounts).length} accounts.</div>
-    ${S.demo?"":`<button class="btn danger" data-act="wipe">Delete all accounts and visits</button>`}
-  </div>`;
+    <div class="row"><button class="btn" data-act="exportcsv">Export visits</button><button class="btn" data-act="backup">Copy backup</button><button class="btn" data-act="restore">Restore</button></div>
+    ${S.demo?"":`<button class="btn danger" data-act="wipe">Delete all data</button>`}
+  </div></details>`;
   return html;
 }
 
 /* ============ Route ============ */
-const MARK = `<svg viewBox="0 0 120 120" aria-hidden="true" style="width:28px;height:28px;flex:none"><path d="M40 100 C 22 99 11 86 14 71 C 5 63 7 45 21 41 C 21 25 37 15 51 21 C 59 10 79 11 85 23 C 101 21 111 37 105 51 C 115 62 109 81 94 83 C 92 96 75 101 65 93 C 57 87 59 75 69 72 C 79 69 83 59 75 53 C 67 47 56 52 55 61 C 54 49 41 44 35 53" fill="none" stroke="var(--accent)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="53" r="8.5" fill="currentColor"/></svg>`;
+const MARK = `<svg viewBox="0 0 120 120" aria-hidden="true" style="width:28px;height:28px;flex:none"><g transform="translate(4.8 4.8) scale(.92)"><path d="M36 100 C 30 92 18 92 13 80 C 4 70 8 54 19 50 C 16 34 32 24 46 29 C 52 16 76 15 82 28 C 98 24 113 38 106 54 C 117 62 112 82 96 84 C 92 96 72 98 66 88 C 60 79 74 74 76 66 C 78 57 68 52 61 57 C 55 61 46 58 47 50" fill="none" stroke="var(--accent)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="48" r="13.5" fill="#1C2022"/><circle cx="48" cy="48" r="10" fill="#DCEF55"/></g></svg>`;
 const PIN = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12zm0-9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>`;
 function routeLabel(ids){
   if(S.demo) return "Example accounts";
   const zips={}; ids.forEach(id=>{ const z=(S.accounts[id].zip||"").slice(0,5); if(z) zips[z]=(zips[z]||0)+1; });
   const top=Object.entries(zips).sort((a,b)=>b[1]-a[1]).slice(0,2).map(x=>x[0]).join(", ");
   const mimo = ids.some(id=>S.accounts[id].list==="mimo");
-  return ["Brian", mimo?"MIMO":"Approved", top].filter(Boolean).join(" · ");
+  return [mimo?"MIMO list":"Approved list", top].filter(Boolean).join(" · ");
 }
 function likelyActive(id){ const p=S.notes[id]?.brief?.profile; return !!p && (p.occupancy?.status==="found" || p.hours?.status==="found"); }
 function viewRoute(){
   const ids=Object.keys(S.accounts), cls=clusters(ids);
-  let h = `<div class="route-h"><div><h1>Today's Route</h1><div class="sub">${esc(routeLabel(ids))}</div></div><span class="chip line">${ids.length} stops · ${cls.length} cluster${cls.length===1?"":"s"}</span></div>
-  <div class="seg" role="group" aria-label="View"><button data-mode="clusters" aria-pressed="${UI.routeMode==="clusters"}">Clusters</button><button data-mode="list" aria-pressed="${UI.routeMode==="list"}">List</button></div>`;
-  if(!ids.length) return h + `<div class="empty">Import Brian's list to see your route.</div>`;
-  if(UI.routeMode==="list"){
-    h += `<div class="list">${cls.flatMap(c=>c.ids).map(id=>accountRow(id)).join("")}</div>`;
-  } else {
-    h += `<div class="stack">`;
-    for(const c of cls){
-      const t={}; c.ids.forEach(id=>{ const k=readiness(id).k; t[k]=(t[k]||0)+1; });
-      const researched = c.ids.length-(t.none||0), open = UI.openCluster===c.key;
-      const chips = researched ? [
-        t.ready?`<span class="chip dim">${t.ready} local owner likely</span>`:"",
-        t.suppressed?`<span class="chip dim">${t.suppressed} suppressed</span>`:"",
-        t.check?`<span class="chip dim">${t.check} occupant unconfirmed</span>`:"",
-        t.route?`<span class="chip dim">${t.route} landlord/corp</span>`:"",
-        (t.unknown||0)+(t.none||0)?`<span class="chip dim">? ${(t.unknown||0)+(t.none||0)} unclear</span>`:""
-      ].join("") : `<span class="chip dim">Not researched</span>`;
-      h += `<div><button class="cl ${open?"open":""}" data-cluster="${esc(c.key)}" aria-expanded="${open}"><div class="cl-top">${PIN}<div style="flex:1;min-width:0"><div class="cl-name">${esc(c.street)}</div><div class="cl-sub">${c.ids.length} stop${c.ids.length===1?"":"s"}${c.range?" · "+esc(c.range):""}</div></div>${t.ready?`<span class="chip ok">${t.ready} local</span>`:`<span class="chip line">—</span>`}</div><div class="chips" style="margin:10px 0 0 36px">${chips}</div></button>${open?`<div class="list cl-list">${c.ids.map(id=>accountRow(id)).join("")}</div>`:""}</div>`;
-    }
-    h += `</div>`;
+  let h = inboxBanner() + `<div class="route-h"><h1>Route</h1><span class="muted">${ids.length} stop${ids.length===1?"":"s"}</span></div>`;
+  if(!ids.length) return h + `<div class="empty">Import your list from More to see your route.</div>`;
+  let singles=[];
+  const flush=()=>{ if(singles.length){ h+=`<div class="list" style="margin-top:12px">${singles.map(id=>accountRow(id)).join("")}</div>`; singles=[]; } };
+  for(const c of cls){
+    if(c.ids.length===1){ singles.push(c.ids[0]); continue; }
+    flush();
+    h += `<div class="group-h"><span>${esc(c.street)}${c.range?" · "+esc(c.range):""}</span><span class="muted">${c.ids.length} stops</span></div><div class="list">${c.ids.map(id=>accountRow(id)).join("")}</div>`;
   }
-  const verify = ids.filter(id=>readiness(id).k==="check").length, researched = ids.filter(id=>S.notes[id]?.brief).length;
-  h += `<div class="insight" style="margin-top:16px"><h2><svg viewBox="0 0 24 24" width="22" height="22" fill="var(--accent)" aria-hidden="true"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>Route insights</h2><div class="nums"><div><div class="n">${ids.length}</div><div class="l">Unique premises</div></div><div><div class="n">${ids.filter(likelyActive).length}</div><div class="l">Likely active</div></div><div><div class="n">${verify}</div><div class="l">Need verification</div></div></div><div class="l" style="margin-top:10px">${researched} of ${ids.length} researched${researched<ids.length?" · tap the center button to research the rest":""}</div></div>`;
+  flush();
   return h;
 }
-function viewSaves(){ return viewToday() + `<div class="section-h"><h2>All returns</h2></div>` + viewReturns(); }
+function viewSaves(){
+  const list=returnsList(), due=list.filter(r=>r.overdue||r.due), later=list.filter(r=>!r.overdue&&!r.due), dueIds=new Set(due.map(r=>r.id));
+  const saved=Object.keys(S.accounts).filter(id=>S.notes[id]?.today && !dueIds.has(id));
+  const tag=r=>`<span class="pill ${r.overdue?"bad":r.due?"warn":""}">${r.overdue?"Overdue · ":""}${fmtDate(r.date)}${r.time?" "+esc(r.time):""}</span>`;
+  let h=`<div class="route-h"><h1>Saves</h1></div>`;
+  if(due.length) h+=`<div class="section-h" style="margin-top:0"><h2>Due</h2></div><div class="list">${due.map(r=>accountRow(r.id,tag(r))).join("")}</div>`;
+  if(saved.length) h+=`<div class="section-h"><h2>Saved</h2></div><div class="list">${saved.map(id=>accountRow(id)).join("")}</div>`;
+  if(later.length) h+=`<div class="section-h"><h2>Coming up</h2></div><div class="list">${later.map(r=>accountRow(r.id,tag(r))).join("")}</div>`;
+  if(!due.length&&!saved.length&&!later.length) h+=`<div class="empty">Tap the bookmark on a stop to save it here.</div>`;
+  return h;
+}
 function openBriefMe(){
-  const ids=clusters(Object.keys(S.accounts)).flatMap(c=>c.ids), todo=ids.filter(id=>!S.notes[id]?.brief && !S.accounts[id].suppressed), saved=ids.filter(id=>S.notes[id]?.today && !S.notes[id]?.brief);
-  openSheet("Research", ()=>`<div class="stack"><p style="margin:0">${ids.length-todo.length} of ${ids.length} premises researched.</p>
-    <button class="btn primary block" data-act="reqnext" ${todo.length?"":"disabled"}>Copy request for the next ${Math.min(15,todo.length)||""} in Brian's order</button>
-    <button class="btn block" data-act="reqtoday" ${saved.length?"":"disabled"}>Copy request for saved stops (${saved.length})</button>
-    <button class="btn block" data-act="import">Import a research file or list</button>
-    <p class="small muted" style="margin:0">Paste the request to Claude. It researches each business and sends back a file to import here.</p></div>`, "");
+  const ids=clusters(Object.keys(S.accounts)).flatMap(c=>c.ids), todo=ids.filter(id=>!S.notes[id]?.brief && !S.accounts[id].suppressed), saved=ids.filter(id=>S.notes[id]?.today && !S.notes[id]?.brief && !S.accounts[id].suppressed);
+  if(Inbox.on()){
+    openSheet("Research", ()=>{
+      const qset=new Set(Inbox.queued.map(x=>x.ref)), next=todo.filter(id=>!qset.has(refOf(id))).slice(0,15), sv=saved.filter(id=>!qset.has(refOf(id)));
+      let h=`<div class="stack"><div class="rhero">${MARK.replace("width:28px;height:28px","width:44px;height:44px")}<div><div class="rh-t">Know the brains of the operation.</div><div class="muted">${ids.length-todo.length} of ${ids.length} stops researched</div></div></div>`;
+      if(Inbox.items.length) h+=`<button class="btn primary block" data-act="reviewinbox">Review ${Inbox.items.length} new brief${Inbox.items.length===1?"":"s"}</button>`;
+      h+=`<button class="btn ${Inbox.items.length?"":"primary"} block" data-act="queuenext" ${next.length?"":"disabled"}>Research the next ${next.length||""} stop${next.length===1?"":"s"}</button>`;
+      if(sv.length) h+=`<button class="btn block" data-act="queuesaved">Research saved stops (${sv.length})</button>`;
+      if(Inbox.queued.length) h+=`<p class="small" style="margin:0">${Inbox.queued.length} waiting. Open Claude and send the message it starts with.</p><a class="btn block" href="${CLAUDE_RUN_URL}" target="_blank" rel="noopener noreferrer">Open Claude</a>`;
+      return h+`</div>`;
+    }, "", {inbox:true});
+    return;
+  }
+  openSheet("Research", ()=>`<div class="stack"><div class="rhero">${MARK.replace("width:28px;height:28px","width:44px;height:44px")}<div><div class="rh-t">Know the brains of the operation.</div><div class="muted">${ids.length-todo.length} of ${ids.length} stops researched</div></div></div>
+    <button class="btn primary block" data-act="reqnext" ${todo.length?"":"disabled"}>Copy request for the next ${Math.min(15,todo.length)||""}</button>
+    ${saved.length?`<button class="btn block" data-act="reqtoday">Copy request for saved stops (${saved.length})</button>`:""}
+    <button class="btn block" data-act="import">Import results</button>
+    <p class="small muted" style="margin:0">Paste the request to Claude. It researches each business and gives you a file to import here.</p></div>`, "");
+}
+
+/* ============ Phone research: queue -> Claude -> review ============ */
+const CLAUDE_RUN_URL = "https://claude.ai/new?q=" + encodeURIComponent("Run my FieldMind research");
+const Inbox = {
+  items:[], queued:[], sub:null, timer:null,
+  on(){ return Store.mode==="cloud" && !!Store.db; },
+  col(){ return Store.db.collection("research"); },
+  take(docs){
+    const items=[], queued=[];
+    docs.forEach(d=>{ const x=d.data()||{}; if(d.id==="queue") queued.push(...(Array.isArray(x.items)?x.items:[])); else if(/^result_[a-z0-9]{2,12}$/.test(d.id) && x.research && typeof x.research==="object"){ let r=x.research; try{ if(r.fieldmind_research===1 && Array.isArray(r.accounts)) r=convertV1(r); }catch(e){ return; } if(Array.isArray(r.premises)) items.push({id:d.id, ref:String(x.ref||""), at:x.at, research:r}); } });
+    this.items=items.slice(0,200); this.queued=queued.slice(0,500); render(); if(UI.sheet && UI.sheet.inbox) UI.sheet.refresh();
+  },
+  start(){
+    if(!this.on() || this.sub || this.timer) return;
+    try{ const c=this.col(); if(typeof c.onSnapshot==="function"){ this.sub=c.onSnapshot(snap=>this.take(snap.docs||[]), e=>console.warn(e)); return; } }catch(e){ console.warn(e); }
+    const poll=async()=>{ try{ const snap=await this.col().get(); this.take(snap.docs||[]); }catch(e){ console.warn(e); } };
+    poll(); this.timer=setInterval(()=>{ if(document.visibilityState==="visible") poll(); }, 30000);
+  },
+  async queue(ids){
+    const add = ids.filter(id=>S.accounts[id] && !S.accounts[id].suppressed).map(id=>{ const a=S.accounts[id]; return {ref:refOf(id), name:a.name||"", addr:a.addr||"", city:a.city||"", zip:a.zip||""}; });
+    const byRef = new Map(this.queued.map(x=>[x.ref,x])); add.forEach(x=>byRef.set(x.ref,x));
+    const items=[...byRef.values()].slice(0,200);
+    await Store.write("rq", ()=>this.col().doc("queue").set({items, updatedAt:new Date().toISOString()}));
+    this.queued=items; return add.length;
+  },
+  async clear(done, refs){
+    for(const it of done) await Store.write("rr:"+it.id, ()=>this.col().doc(it.id).delete());
+    const left=this.queued.filter(x=>!refs.has(x.ref));
+    await Store.write("rq", ()=>this.col().doc("queue").set({items:left, updatedAt:new Date().toISOString()}));
+    this.items=this.items.filter(x=>!done.includes(x)); this.queued=left; render();
+  },
+  async accept(){
+    const done=this.items.slice(); if(!done.length) return;
+    const premises=[]; done.forEach(it=>{ const r=it.research; if(r && Array.isArray(r.premises)) premises.push(...r.premises.slice(0,5)); });
+    const obj={schema:"fieldmind.research", version:2, generated:new Date().toISOString(), premises};
+    const refs=new Set(premises.map(p=>p?.match?.ref).filter(Boolean));
+    await importResearch(obj);
+    try{ await this.clear(done, refs); }catch(e){}
+  }
+};
+function inboxBanner(){ const n=Inbox.items.length; return n ? `<button class="inbox-banner" data-act="reviewinbox"><span>${n} new brief${n===1?"":"s"} ready</span><span>Review ›</span></button>` : ""; }
+function openInbox(){
+  openSheet("New briefs", ()=>{
+    const its=Inbox.items;
+    if(!its.length) return `<div class="empty">Nothing new right now.</div>`;
+    const rows=its.map(it=>{ const p=(it.research?.premises||[])[0]||{}, id=matchAccount(p.match, S.accounts), a=id?S.accounts[id]:null;
+      return `<div class="card small"><b>${esc(nice(a?.name||p.match?.name||"Not on your list"))}</b>${a?"":` <span class="pill bad">won't be added</span>`}<div>${esc(clip(p.find_out_first||p.summary||"",220))}</div></div>`; }).join("");
+    return `<div class="stack">${rows}</div>`;
+  }, (()=>{ const k=Inbox.items.filter(it=>matchAccount(((it.research?.premises||[])[0]||{}).match, S.accounts)).length; return k?`<button class="btn primary block" data-act="acceptinbox">Add ${k} brief${k===1?"":"s"}</button>`:`<button class="btn primary block" data-act="acceptinbox">Clear</button>`; })(), {inbox:true});
 }
 
 /* ============ Brief ============ */
@@ -1003,24 +1217,24 @@ function headerChips(id){
   else if(rd.k==="route") out.push(`<span class="chip warn">${esc(rd.t)}</span>`);
   else if(rd.k==="unknown") out.push(`<span class="chip warn">Decision-maker unknown</span>`);
   for(const [k,f] of Object.entries(p)) if(f && f.status==="conflict") out.push(`<span class="chip attn">${esc((FIELD_LABEL[k]||k))} conflict</span>`);
-  if(a.list==="mimo") out.push(`<span class="chip line">MIMO</span>`);
+  if(a.list==="mimo" && !S._allMimo) out.push(`<span class="chip dim">MIMO</span>`);
   const st=accountStatus(id); if(st.k!=="new") out.push(`<span class="chip dim">${esc(st.t)}</span>`);
   return out.join("");
 }
 function openAccount(id){
   const a=S.accounts[id]; if(!a) return;
   const n=note(id), srcN = n.evidence.length + (a.device||a.list==="mimo"?1:0);
-  openSheet("", ()=>accountBody(id), `<button class="btn" data-act="sources" data-id="${esc(id)}">Sources (${srcN})</button><button class="btn primary" data-act="visit" data-id="${esc(id)}">Log visit</button>`,
+  openSheet("", ()=>accountBody(id), `<button class="btn" data-act="liveresearch" data-id="${esc(id)}" ${a.suppressed?"disabled":""}>Research</button><button class="btn" data-act="sources" data-id="${esc(id)}">Sources</button><button class="btn primary" data-act="visit" data-id="${esc(id)}">Log visit</button>`,
     {account:id, brand:true, head:`<button class="iconbtn ${n.today?"on":""}" id="sheetStar" data-star="${esc(id)}" aria-label="Save for today">${starSvg(n.today)}</button><button class="iconbtn" data-act="editacct" data-id="${esc(id)}" aria-label="Edit account"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>`});
 }
 function accountBody(id){
   const a=S.accounts[id], n=note(id), b=n.brief, pos=clusterPos(id);
   const addr=[a.addr,a.city].filter(Boolean).join(" · ");
   const m=entityModel(id), cur=m.currentOccupant, other=m.names.filter(x=>!cur||x!==cur.name);
-  let h = `<div class="hero">${pos?`<div class="eyebrow">${esc(pos.c.street)} · ${pos.i} of ${pos.n} on ${a.origin==="rep"?"your added stops":"Brian's list"}</div>`:""}<h1>${esc(cur?cur.name:(m.listedName||"(no name)"))}</h1>${cur?`<div class="addr">Operating here (${esc(cur.status)}). Listed as: ${esc(m.names.join(", "))}</div>`:`<div class="addr">Name from Brian's list. Current occupant not established.${other.length>1?` Also listed: ${esc(other.slice(1).join(", "))}`:""}</div>`}<div class="addr">${esc(addr)}${a.city?", NC":""}</div><div class="chips" style="margin-top:10px">${headerChips(id)}</div></div>`;
+  let h = `<div class="hero"><h1>${esc(nice(cur?cur.name:(m.listedName||"(no name)")))}</h1>${cur&&cur.name!==m.listedName?`<div class="addr">Listed as ${esc(nice(m.listedName))}</div>`:""}<div class="addr">${esc([nice(a.addr),nice(a.city)].filter(Boolean).join(", "))}</div><div class="chips" style="margin-top:10px">${headerChips(id)}</div></div>`;
   h += `<div class="panel paper">`;
   if(b && b.askFirst) h += `<div class="fof"><div class="k">Find out first</div><div class="q">${esc(b.askFirst)}</div></div>`;
-  if(!b) h += `<div class="fof"><div class="k">Not researched yet</div><div class="q">Tap the pink button below the list to send this business for research.</div></div>`;
+  if(!b) h += `<div class="fof"><div class="k">Not researched yet</div><div class="q">Tap Research below.</div></div>`;
   const tabs=[["overview","Overview"],["business","Business"],["energy","Energy"],["notes","Notes"]];
   h += `<div class="seg" role="tablist" style="margin:0;background:var(--surface-2)">${tabs.map(([k,t])=>`<button role="tab" data-btab="${k}" aria-pressed="${UI.briefTab===k}" aria-selected="${UI.briefTab===k}">${t}</button>`).join("")}</div>`;
   h += ({overview:tabOverview, business:tabBusiness, energy:tabEnergy, notes:tabNotes}[UI.briefTab]||tabOverview)(id);
@@ -1035,6 +1249,13 @@ function tabOverview(id){
   const sig=[]; if(a.device||a.list==="mimo") sig.push("prior participation"); if(t) sig.push(`est. ${t.low}${t.high&&t.high!=t.low?"–"+t.high:""} thermostat${(t.high||t.low)==1?"":"s"} (inferred)`); if(b.salience==="high"||b.salience==="some") sig.push("energy signals");
   const acc = {owner_operator:"Local owner (inferred)", manager_needs_approval:"Manager; approval likely", corporate:"Corporate route", landlord:"Landlord route", unknown:"Not established"}[d.route||"unknown"]||"Not established";
   const est = ["hours","owner","structure","property","occupancy","hvac","electrical"].filter(k=>p[k]?.status==="found").length;
+  if(b.questions?.length){
+    const QL=[[/operate/i,"Who's here"],[/decision/i,"Who decides"],[/energy|hvac/i,"Energy"],[/old|uncertain|historical/i,"Not sure yet"]];
+    const qs=b.questions.filter(x=>!/check first|verify first|priorit/i.test(x.question) && !/^nothing flagged\.?$/i.test(String(x.answer).trim())).map(x=>({l:(QL.find(([r])=>r.test(x.question))||[0,x.question])[1], a:x.answer}));
+    let q = `<div class="qa">${qs.map(x=>{ const c=certainty(x.a); return `<div><div class="q1">${esc(x.l)}${c?` <span class="sure ${c.k}">${c.t}</span>`:""}</div><div class="a1">${esc(c&&c.k==="maybe"?String(x.a).replace(/^Likely\s+(\w)/,(m,ch)=>ch.toUpperCase()):x.a)}</div></div>`; }).join("")}</div>`;
+    if(b.watchouts?.length) q += `<div><h3 class="h-sub">Watch for</h3><div class="brief"><ul class="watch">${b.watchouts.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div></div>`;
+    return q + `<div class="small muted" style="margin-top:12px">Researched ${fmtDate(todayStr(new Date(b.researchedAt)))}</div>`;
+  }
   let h = `<div class="dims"><div><div class="dk">Opportunity</div><div class="dv">${sig.length?esc(sig.join(" · ")):"No signals found"}</div></div><div><div class="dk">Decision access</div><div class="dv">${esc(acc)}</div></div><div><div class="dk">Research</div><div class="dv">${est} of 7 established</div></div></div>`;
   h += `<div class="orows">`;
   h += orow(IC.store,"Business status", fchip(occ,"Likely active"), esc(occ?.value||""));
@@ -1043,25 +1264,38 @@ function tabOverview(id){
   h += orow(IC.clock,"Operating hours", fchip(p.hours), esc(p.hours?.value||""));
   if(devicesOf(a).length||a.list==="mimo") h += orow(IC.device,"Prior program equipment", devicesOf(a).map(d=>`<span class="chip dim">${esc(d)}</span>`).join(" ")+` <span class="chip dim">Historical</span>`, "Recorded for a previous account. Not evidence of current equipment or eligibility.");
   h += `</div>`;
+  if(b.questions?.length) h += `<div class="stack" style="margin-top:12px">${b.questions.map(q=>`<div class="card small"><b>${esc(q.question)}</b><div>${esc(q.answer)}</div></div>`).join("")}</div>`;
   if(s.summary) h += `<div><h3 class="h-sub">The picture so far</h3><div style="font-size:15px;line-height:1.5">${esc(s.summary)}</div><div class="small muted mono" style="margin-top:4px">Researched ${fmtDate(todayStr(new Date(b.researchedAt)))}</div></div>`;
   if(b.watchouts?.length) h += `<div><h3 class="h-sub">Watch for</h3><div class="brief"><ul class="watch">${b.watchouts.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div></div>`;
-  if(n.changes && n.changes.length){ const latest=n.changes.filter(c=>c.at===b.researchedAt); if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${FIELD_LABEL[c.field]||c.field}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates.</div></div>`; }
+  if(n.changes && n.changes.length){ const latest=n.changes.filter(c=>c.at===b.researchedAt); if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${esc(FIELD_LABEL[c.field]||c.field)}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates.</div></div>`; }
   return h;
 }
 function secRows(title, rows){ const r=rows.filter(Boolean); return r.length?`<section><h3 class="h-sub">${title}</h3><div class="brief dossier">${r.join("")}</div></section>`:""; }
 const drow=(k,v)=> v ? `<div class="row2"><div class="k">${k}</div><div>${v}</div></div>` : "";
+// Three certainty levels, used the same way everywhere: Confirmed (solid), Likely (outline), Unknown (dashed).
+function certainty(text){
+  const t=String(text||"");
+  if(/confirmed in person|verified on site/i.test(t) && !/not confirmed/i.test(t)) return {k:"yes",t:"Confirmed"};
+  if(/^(no |nothing |not found)|unknown|no owner|isn't established/i.test(t)) return {k:"no",t:"Unknown"};
+  if(/likely|may be|not confirmed|older|out of date|disagree|isn't confirmed/i.test(t)) return {k:"maybe",t:"Likely"};
+  return null;
+}
 function tabBusiness(id){
-  const a=S.accounts[id], b=note(id).brief; if(!b) return `<div class="card small">No research yet.</div>`;
+  const a=S.accounts[id], b=note(id).brief; if(!b) return `<div class="empty">Not researched yet.</div>`;
   const p=b.profile||{}, d=b.decision, s=b.story||{};
-  let h = secRows("The people", [ d?drow("Who decides", `<b>${esc(ROUTES[d.route]||d.route||"Unknown")}</b>${d.who?`<div>${esc(d.who)}</div>`:""}${d.when?`<div>Best time: ${esc(d.when)}</div>`:""}${d.basis?`<div class="src">${esc(d.basis)}</div>`:""}`):"", drow("Owner", fieldHtml(p.owner)), drow("Structure", fieldHtml(p.structure)) ]);
-  h += secRows("The place", [ drow("Hours", fieldHtml(p.hours)), drow("Occupancy", fieldHtml(p.occupancy)+((a.altNames||[]).length?`<div class="src">Also on the list here: ${esc(a.altNames.join(", "))}</div>`:"")), drow("Property", fieldHtml(p.property)) ]);
-  if((s.canInfer||[]).length||(s.cannotConclude||[]).length) h += `<section><h3 class="h-sub">How sure we are</h3><div class="card small">${(s.canInfer||[]).length?`<b>Reasonable to infer</b><ul>${s.canInfer.map(w=>`<li>${esc(w)}</li>`).join("")}</ul>`:""}${(s.cannotConclude||[]).length?`<b>Not established</b><ul>${s.cannotConclude.map(w=>`<li>${esc(w)}</li>`).join("")}</ul>`:""}</div></section>`;
-  return h;
+  const got=f=>f && (f.status==="found"||f.status==="conflict");
+  const qa=q=>(b.questions||[]).find(x=>q.test(x.question));
+  const qWho=qa(/operate here/i), qDec=qa(/makes the decisions/i);
+  let h = secRows("People", [ qWho?drow("Who's here", esc(qWho.answer)):"", qDec&&!(d&&d.route&&d.route!=="unknown")?drow("Who decides", esc(qDec.answer)):"", d&&d.route&&d.route!=="unknown"?drow("Who decides", `<b>${esc(ROUTES[d.route]||d.route)}</b>${d.who?`<div>${esc(d.who)}</div>`:""}${d.when?`<div>Best time: ${esc(d.when)}</div>`:""}${d.basis?`<div class="src">${esc(d.basis)}</div>`:""}`):"", got(p.owner)?drow("Owner", fieldHtml(p.owner)):"", got(p.structure)?drow("Structure", fieldHtml(p.structure)):"" ]);
+  h += secRows("The place", [ got(p.hours)?drow("Hours", fieldHtml(p.hours)):"", got(p.occupancy)||(a.altNames||[]).length?drow("Occupancy", (got(p.occupancy)?fieldHtml(p.occupancy):"")+((a.altNames||[]).length?`<div class="src">Also on the list here: ${esc(a.altNames.map(nice).join(", "))}</div>`:"")):"", got(p.property)?drow("Property", fieldHtml(p.property)):"" ]);
+  if((s.canInfer||[]).length) h += `<section><h3 class="h-sub">Likely</h3><div class="card small"><ul>${s.canInfer.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div></section>`;
+  if((s.cannotConclude||[]).length) h += `<section><h3 class="h-sub">Still to confirm</h3><div class="card small"><ul>${s.cannotConclude.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div></section>`;
+  return h || `<div class="empty">Nothing found yet.</div>`;
 }
 function tabEnergy(id){
   const a=S.accounts[id], b=note(id).brief, g=gatesFor(id), p=b?.profile||{}, t=b?.thermostats, sal=SALIENCE[b?.salience];
-  let h = secRows("The energy story", [ sal?drow("Relevance", esc(sal.t)+` <span class="chip line">Inferred</span>`):"", t?drow("Thermostat estimate", `<b>${esc(t.low)}${t.high&&t.high!=t.low?"–"+esc(t.high):""}</b> <span class="chip line">Inferred</span>${t.basis?`<div class="src">${esc(t.basis)}</div>`:""}<div class="src">Not a count. Confirm on site.</div>`):"", drow("Last HVAC work", fieldHtml(p.hvac)), drow("Last electrical", fieldHtml(p.electrical)), (devicesOf(a).length||a.list==="mimo")?drow("Program history", `${devicesOf(a).length?`Earlier participation recorded with <b>${esc(devicesOf(a).join(" and "))}</b>. `:""}Belongs to a previous account; says nothing about current equipment or eligibility.<div class="src">Brian's list</div>`):"" ]);
-  h += `<section><h3 class="h-sub">Enrollment gates · ${Object.keys(g).length}/${GATES.length}</h3><div class="card gates">${GATES.map(x=>`<div class="gate ${g[x.k]?"done":""}"><span class="g">${g[x.k]?"✓":""}</span><span>${x.t}</span>${g[x.k]?`<span class="when">${fmtDate(todayStr(new Date(g[x.k])))}</span>`:""}</div>`).join("")}</div></section>`;
+  let h = secRows("Energy", [ sal?drow("Relevance", esc(sal.t)+` <span class="chip line">Inferred</span>`):"", t?drow("Thermostat estimate", `<b>${esc(t.low)}${t.high&&t.high!=t.low?"–"+esc(t.high):""}</b> <span class="chip line">Inferred</span>${t.basis?`<div class="src">${esc(t.basis)}</div>`:""}<div class="src">Not a count. Confirm on site.</div>`):"", (p.hvac&&p.hvac.status==="found")?drow("Last HVAC work", fieldHtml(p.hvac)):"", (p.electrical&&p.electrical.status==="found")?drow("Last electrical", fieldHtml(p.electrical)):"", (devicesOf(a).length||a.list==="mimo")?drow("Program history", `${devicesOf(a).length?`Previous occupant had <b>${esc(devicesOf(a).join(" and "))}</b>. `:"Previous occupant took part. "}Not current equipment.`):"" ]);
+  h += `<section><h3 class="h-sub">Progress · ${Object.keys(g).length} of ${GATES.length}</h3><div class="card gates">${GATES.map(x=>`<div class="gate ${g[x.k]?"done":""}"><span class="g">${g[x.k]?"✓":""}</span><span>${x.t}</span>${g[x.k]?`<span class="when">${fmtDate(todayStr(new Date(g[x.k])))}</span>`:""}</div>`).join("")}</div></section>`;
   return h;
 }
 const mask = v => { v=String(v||""); return v.length>4 ? "•••• "+v.slice(-4) : v; };
@@ -1077,16 +1311,16 @@ function tabNotes(id){
   const m = entityModel(id), fmtD = d => d? d.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}) : "date unknown";
   h += `<section><h3 class="h-sub">The record</h3><div class="brief dossier">
     ${drow("Premises", esc(m.premise.address)+`<div class="src">Premise ${esc(show?m.premise.id:mask(m.premise.id))}</div>`)}
-    ${drow("On the list", m.origin==="rep"?"Added by you. Not on an approved list.":`${m.records.length} record${m.records.length===1?"":"s"} · ${esc(m.batches.map(b=>(b.file||"import")+(b.at?" ("+fmtDate(String(b.at).slice(0,10))+")":"")).join(", ")||"import")}${m.listStatus?`<div class="src">Status: ${esc(m.listStatus)}${m.suppressed?" · suppressed":""}</div>`:""}`)}
-    ${drow("Listed names", m.names.map(x=>esc(x)).join("<br>")+`<div class="src">From the list, newest first. A listed name isn't proof of who operates here now.</div>`)}
+    ${drow("On the list", m.origin==="rep"?"Added by you. Not on an approved list.":`${m.records.length} list record${m.records.length===1?"":"s"}${m.batches.some(b=>b.file||b.at)?" · "+esc(m.batches.map(b=>(b.file||"imported")+(b.at?" "+fmtDate(String(b.at).slice(0,10)):"")).join(", ")):""}${m.listStatus?`<div class="src">Status: ${esc(m.listStatus)}${m.suppressed?" · suppressed":""}</div>`:""}`)}
+    ${drow("Listed names", m.names.map(x=>esc(x)).join("<br>")+``)}
     ${m.accounts.length?drow("Utility accounts", m.accounts.map(x=>`<span class="mono">${esc(show?x.ref:mask(x.ref))}</span> · ${esc(x.names.join(", "))}<div class="src">Seen ${fmtD(x.first)}${x.last&&x.first&&+x.last!==+x.first?" to "+fmtD(x.last):""}</div>`).join("")+(m.succession?`<div class="src">More than one account at this premise: the account changed over time.</div>`:"")):""}
-    ${m.devices.length?drow("Historical devices", m.devices.map(x=>`${esc(x.device)}${x.accounts.length?` · account <span class="mono">${esc(show?x.accounts.join(", "):x.accounts.map(mask).join(", "))}</span>`:""}`).join("<br>")+`<div class="src">Previous participation only. Not current equipment.</div>`):""}
+    ${m.devices.length?drow("Historical devices", m.devices.map(x=>`${esc(x.device)}${x.accounts.length?` · account <span class="mono">${esc(show?x.accounts.join(", "):x.accounts.map(mask).join(", "))}</span>`:""}`).join("<br>")+`<div class="src">Previous occupant. Not current equipment.</div>`):""}
     ${drow("Current occupant", m.currentOccupant?`${esc(m.currentOccupant.name)} <span class="chip ok">${esc(m.currentOccupant.status)}</span>`:(m.occupant&&m.occupant.name?`${esc(m.occupant.name)} <span class="chip line">${esc(m.occupant.status)}</span>`:"Not established"))}
   </div></section>`;
   if(a.acct) h += `<div class="small muted">Premise <span class="mono">${esc(show?a.acct:mask(a.acct))}</span> <button class="btn ghost" style="min-height:28px;padding:2px 6px" data-act="reveal" data-id="${esc(id)}">${show?"Hide":"Show"} IDs</button></div>`;
   const rows = a.sourceRows||[];
-  if(rows.length) h += `<details class="card small"><summary>Source records from Brian's list (${rows.length})</summary>${rows.map((r,i)=>`<div class="mapgrid" style="margin-top:10px;padding-top:8px;${i?"border-top:1px solid var(--line)":""}">${Object.entries(r).filter(([k])=>k!=="_batch").map(([k,v])=>`<span class="col">${esc(k)}</span><span class="${SENSITIVE.test(k)?"mono":""}">${esc(SENSITIVE.test(k)&&!show?mask(v):v)||'<span class="muted">—</span>'}</span>`).join("")}</div>`).join("")}<div class="muted" style="margin-top:8px">Original rows, unchanged. Repeated rows for this premise are kept, not merged away.</div></details>`;
-  else if(a.extra) h += `<details class="card small"><summary>Other columns from Brian's list</summary><div class="mapgrid" style="margin-top:8px">${Object.entries(a.extra).map(([k,v])=>`<span class="col">${esc(k)}</span><span>${esc(SENSITIVE.test(k)&&!show?mask(v):v)}</span>`).join("")}</div></details>`;
+  if(rows.length) h += `<details class="card small"><summary>List records (${rows.length})</summary>${rows.map((r,i)=>`<div class="mapgrid" style="margin-top:10px;padding-top:8px;${i?"border-top:1px solid var(--line)":""}">${Object.entries(r).filter(([k])=>k!=="_batch").map(([k,v])=>`<span class="col">${esc(k)}</span><span class="${SENSITIVE.test(k)?"mono":""}">${esc(SENSITIVE.test(k)&&!show?mask(v):v)||'<span class="muted">—</span>'}</span>`).join("")}</div>`).join("")}<div class="muted" style="margin-top:8px">Original rows, unchanged. Repeated rows for this premise are kept, not merged away.</div></details>`;
+  else if(a.extra) h += `<details class="card small"><summary>Other list columns</summary><div class="mapgrid" style="margin-top:8px">${Object.entries(a.extra).map(([k,v])=>`<span class="col">${esc(k)}</span><span>${esc(SENSITIVE.test(k)&&!show?mask(v):v)}</span>`).join("")}</div></details>`;
   return h;
 }
 
@@ -1112,20 +1346,17 @@ function openSources(id){
 function sourcesBody(id){
   const a=S.accounts[id], n=note(id), b=n.brief, items=sourceItems(id);
   const cats=["Business","Property","People","Energy","Other"].map(c=>[c, items.filter(i=>i.cat===c).length]).filter(x=>x[1]);
-  const shown = UI.srcFilter==="all" ? items : items.filter(i=>i.cat===UI.srcFilter);
-  let h = `<div class="hero"><h1 style="margin-top:0">Source Evidence</h1><div class="addr">${esc(a.name)}</div></div>
-  <div class="chips" style="margin:14px 0">${[["all","All",items.length],...cats.map(([c,k])=>[c,c,k])].map(([k,t,c])=>`<button class="chip ${UI.srcFilter===k?"attn":"line"}" data-srcf="${esc(k)}" style="border:0;cursor:pointer;font-size:14px;padding:7px 14px">${t} (${c})</button>`).join("")}</div><div class="srcs">`;
+  const shown = items;
+  let h = `<div class="hero"><h1 style="margin-top:0">Sources</h1><div class="addr">${esc(nice(a.name))}</div></div><div class="srcs" style="margin-top:14px">`;
   for(const it of shown){
-    if(it.prog){ h += `<div class="src-card">${IC.clock.replace("<svg","<svg class=\"ic\"")}<div><div class="h">Program history (MIMO) <span class="chip dim">Historical</span></div><div class="b">${a.device?`Previous occupant enrolled with ${esc(a.device)}.`:"Previous occupant enrolled."} New enrollment and system verification required.</div><div class="m">Brian's list</div></div><span></span></div>`; continue; }
-    const e=it.e, ec=EV_CLASS[evClass(e)], chip = `<span class="chip ${ec[0]}">${e.disputed?"Disputed in field":ec[1]}</span>`;
-    h += `<div class="src-card ${e.disputed?"disputed":""}">${srcIcon(e).replace("<svg","<svg class=\"ic\"")}<div><div class="h">${esc(sourceName(e))} ${chip}</div><div class="b">${esc(e.claim)}</div>${e.detail?`<div class="b" style="color:#5D6574;text-decoration:none">${esc(e.detail)}</div>`:""}${e.disputed?`<div class="b" style="text-decoration:none"><b>Field correction:</b> ${esc(e.disputed.note)}</div>`:""}<div class="m">${[e.source, e.date?fmtDate(e.date):"", e.basis==="inferred"?"Inferred":"Observed", LEVEL[e.level]||"", e.researchedAt?"researched "+fmtDate(todayStr(new Date(e.researchedAt))):""].filter(Boolean).join(" · ")}</div><div class="acts">${e.disputed?`<button data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo correction</button>`:`${e.verified?"":`<button data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Mark verified</button>`}<button data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong?</button><button data-act="editev" data-id="${esc(id)}" data-ev="${esc(e.id)}">Edit</button>`}</div></div>${e.link?`<a class="ext" href="${esc(e.link)}" target="_blank" rel="noopener" aria-label="Open source">${IC.ext}</a>`:"<span></span>"}</div>`;
+    if(it.prog){ h += `<div class="src-card">${IC.clock.replace("<svg","<svg class=\"ic\"")}<div><div class="h">Program history (MIMO) <span class="chip dim">Historical</span></div><div class="b">${a.device?`Previous occupant enrolled with ${esc(a.device)}.`:"Previous occupant enrolled."} New enrollment and system verification required.</div><div class="m">Your list</div></div><span></span></div>`; continue; }
+    const e=it.e, ec=EV_CLASS[evClass(e)], chip = (e.disputed||ec[1]!=="Found") ? `<span class="chip ${ec[0]}">${e.disputed?"Disputed in field":ec[1]}</span>` : "";
+    h += `<div class="src-card ${e.disputed?"disputed":""}">${srcIcon(e).replace("<svg","<svg class=\"ic\"")}<div><div class="h"><span class="site">${esc(sourceName(e))}</span> ${chip}</div><div class="b">${esc(e.claim)}</div>${(e.sourceExcerpt||e.detail) && !String(e.claim||"").includes(String(e.sourceExcerpt||e.detail).trim())?`<div class="b" style="color:#4A5160;text-decoration:none">“${esc(clip(String(e.sourceExcerpt||e.detail).trim().replace(/^[a-z][^\s]*\s+/,"…"),160))}”</div>`:""}${e.disputed?`<div class="b" style="text-decoration:none"><b>Field correction:</b> ${esc(e.disputed.note)}</div>`:""}<div class="m">${[e.basis==="inferred"?"Inferred":"", e.date?fmtDate(e.date):e.retrievedAt?"Checked "+fmtDate(todayStr(new Date(e.retrievedAt))):e.researchedAt?"Researched "+fmtDate(todayStr(new Date(e.researchedAt))):""].filter(Boolean).join(" · ")}</div><div class="acts">${e.disputed?`<button data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo correction</button>`:`${e.verified?"":`<button data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Confirmed</button>`}<button data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong</button>`}</div></div>${safeHttpUrl(e.link)?`<a class="ext" href="${esc(safeHttpUrl(e.link))}" target="_blank" rel="noopener" aria-label="Open source">${IC.ext}</a>`:"<span></span>"}</div>`;
   }
   if(!shown.length) h += `<div class="means">Nothing in this category yet.</div>`;
   h += `</div>`;
   const nf=(b?.coverage||[]).filter(c=>c.result!=="found");
-  if(nf.length && UI.srcFilter==="all") h += `<div class="means" style="margin-top:10px"><b>Checked, nothing found</b>${nf.map(c=>`<div class="small">${esc(c.checked)}: ${c.result==="not_found"?"not found (not proof it doesn't exist)":"not checked"}</div>`).join("")}</div>`;
-  h += `<details class="means" style="margin-top:10px"><summary style="cursor:pointer;font-weight:700">How findings are labeled</summary><div class="small" style="margin-top:6px;display:flex;flex-direction:column;gap:4px"><div><b>Verified:</b> confirmed by you in the field or an authoritative record.</div><div><b>Found:</b> a retrieved source says it; not independently confirmed.</div><div><b>Inferred:</b> reasoning from the evidence, not stated by a source.</div><div><b>Historical:</b> true of an earlier occupant or time.</div><div><b>Conflicting:</b> sources disagree, or you marked it wrong.</div><div><b>Unknown:</b> searched, nothing established.</div><div>There's no single confidence score on purpose.</div></div></details>`;
-  if(b){ const rd=readiness(id), cc=b.story?.cannotConclude||[]; h += `<div class="means" style="margin-top:10px"><b>${IC.info}What this means</b>${esc(rd.reason||b.story?.summary||"")}${cc.length?` Confirm in person: ${esc(cc.join("; ").replace(/^./,c=>c.toLowerCase()))}.`:""}</div>`; }
+  if(nf.length) h += `<div class="means" style="margin-top:10px"><b>Checked, nothing found</b>${nf.map(c=>`<div class="small">${esc(c.checked)}: ${c.result==="not_found"?"not found (not proof it doesn't exist)":"not checked"}</div>`).join("")}</div>`;
   return h;
 }
 
@@ -1161,7 +1392,7 @@ function accountBodyOld(id){
   h += briefHtml(n, a);
   if(n.changes && n.changes.length && n.brief){
     const latest = n.changes.filter(c=>c.at===n.brief.researchedAt);
-    if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${FIELD_LABEL[c.field]||c.field}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates. Old equipment and participation records belong to whoever was here then.</div></div>`;
+    if(latest.length) h += `<div class="card small"><h3 style="margin-bottom:6px">Changed since ${fmtDate(todayStr(new Date(latest[0].since)))}</h3>${latest.map(c=>`<div style="padding:4px 0;border-top:1px solid var(--line)"><b>${esc(FIELD_LABEL[c.field]||c.field)}</b><div class="muted"><s>${esc(c.from)}</s></div><div>${esc(c.to)}</div></div>`).join("")}<div class="muted" style="margin-top:6px">Earlier findings stay attached to this premise with their original dates. Old equipment and participation records belong to whoever was here then.</div></div>`;
   }
   if(a.list==="mimo" && !n.brief?.profile) h += `<div class="card"><h3 style="margin-bottom:8px">One address, two histories</h3><div class="mimo"><div class="hist"><b>Previous occupant</b>Was enrolled.${a.device?` Device on file: <b style="display:inline;text-transform:none;letter-spacing:0;font-size:13px">${esc(a.device)}</b>.`:" No device on file."}</div><div class="cur"><b>Current account</b>Needs fresh qualification and opt-in. Whether that device is still there, or still works, is unverified.</div></div></div>`;
   if(n.ret && n.ret.date) h += `<div class="banner ${n.ret.date<todayStr()?"warn":"demo"}"><div><b>Return ${fmtDate(n.ret.date)}${n.ret.time?" at "+esc(n.ret.time):""}</b> · ${n.ret.kind==="confirmed"?"Confirmed":n.ret.kind==="window"?"Specific window":"Vague"}${n.ret.note?`<div>${esc(n.ret.note)}</div>`:""}<div><button class="btn ghost" style="padding-left:0" data-act="clearret" data-id="${esc(id)}">Clear return</button></div></div></div>`;
@@ -1190,7 +1421,7 @@ const ST_LABEL={found:"Found",not_found:"Not found",not_checked:"Not checked",co
 function fieldHtml(f){
   if(!f) return "";
   const st=ST_LABEL[f.status]?f.status:"not_checked";
-  return `<span class="st ${st}">${ST_LABEL[st]}</span>${f.value?esc(f.value):""}${f.source||f.date?`<div class="src">${f.link?`<a href="${esc(f.link)}" target="_blank" rel="noopener">${esc(f.source||"Source")}</a>`:esc(f.source||"")}${f.date?" · "+fmtDate(f.date):""}</div>`:""}`;
+  return `<span class="st ${st}">${ST_LABEL[st]}</span>${f.value?esc(f.value):""}${f.source||f.date?`<div class="src">${safeHttpUrl(f.link)?`<a href="${esc(safeHttpUrl(f.link))}" target="_blank" rel="noopener">${esc(f.source||"Source")}</a>`:esc(f.source||"")}${f.date?" · "+fmtDate(f.date):""}</div>`:""}`;
 }
 function briefHtml(n, a){
   const b=n.brief;
@@ -1199,7 +1430,7 @@ function briefHtml(n, a){
   const row=(k,v)=> v ? `<div class="row2"><div class="k">${k}</div><div>${v}</div></div>` : "";
   const sec=(title,rows)=>{ const r=rows.filter(Boolean); return r.length?`<section><h3 class="h-sub">${title}</h3><div class="brief dossier">${r.join("")}</div></section>`:""; };
   const kw = t && t.low!=null ? (t.high && t.high!=t.low ? `${(t.low*1.8).toFixed(1)}–${(t.high*1.8).toFixed(1)} kW` : `${(t.low*1.8).toFixed(1)} kW`) : "";
-  const prog = a.list==="mimo" || a.device ? `${a.device?`Previous occupant had <b>${esc(a.device)}</b>. `:""}Fresh opt-in needed; current device unverified.<div class="src">Brian's list</div>` : "";
+  const prog = a.list==="mimo" || a.device ? `${a.device?`Previous occupant had <b>${esc(a.device)}</b>. `:""}Fresh opt-in needed; current device unverified.<div class="src">Your list</div>` : "";
   let h = `<section class="picture"><h3 class="h-sub">The picture so far</h3><div class="brief">${s.summary?`<div class="story">${esc(s.summary)}<div class="when">Researched ${fmtDate(todayStr(new Date(b.researchedAt)))}</div></div>`:""}${b.askFirst?`<div class="ask"><b>Find out first</b>${esc(b.askFirst)}</div>`:""}</div></section>`;
   h += sec("The people", [
     d ? row("Who decides", `<b>${esc(ROUTES[d.route]||d.route||"Unknown")}</b>${d.who?`<div>${esc(d.who)}</div>`:""}${d.when?`<div>Best time: ${esc(d.when)}</div>`:""}${d.basis?`<div class="src">${esc(d.basis)}</div>`:""}`) : "",
@@ -1223,18 +1454,18 @@ function briefHtml(n, a){
   return h;
 }
 function evidenceCard(id,e){
-  if(e.disputed) return `<div class="ev contradicts" style="opacity:.85"><div class="spread"><span class="claim"><s>${esc(e.claim)}</s></span><span class="pill bad">Disputed</span></div><div class="small" style="margin-top:4px"><b>Field correction ${fmtDate(todayStr(new Date(e.disputed.at)))}:</b> ${esc(e.disputed.note)}</div><div class="meta">Original source: ${esc(e.source)}${e.link?` · <a href="${esc(e.link)}" target="_blank" rel="noopener">open</a>`:""}</div><div class="act"><button class="btn ghost" data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo</button></div></div>`;
-  const meta = [esc(e.source), e.date?fmtDate(e.date):"", e.researchedAt?"researched "+fmtDate(todayStr(new Date(e.researchedAt))):"", e.time==="current"?"Current":"Historical", e.basis==="inferred"?"Inferred":"Observed", LEVEL[e.level]||"", e.verified?"Verified in field":"Needs field verification"].filter(Boolean).join(" · ");
-  return `<div class="ev ${e.rel}"><div class="spread"><span class="claim">${esc(e.claim)}</span><span class="pill ${e.rel==="supports"?"good":e.rel==="contradicts"?"bad":e.rel==="mixed"?"warn":""}">${RELEVANCE[e.rel]}</span></div>${e.detail?`<div class="small" style="margin-top:4px">${esc(e.detail)}</div>`:""}<div class="meta">Source: ${meta}</div>${e.link?`<div class="small"><a href="${esc(e.link)}" target="_blank" rel="noopener">Open source</a></div>`:""}<div class="act">${e.verified?"":`<button class="btn ghost" data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Mark verified</button>`}<button class="btn ghost" data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong?</button><button class="btn ghost" data-act="editev" data-id="${esc(id)}" data-ev="${esc(e.id)}">Edit</button></div></div>`;
+  if(e.disputed) return `<div class="ev contradicts" style="opacity:.85"><div class="spread"><span class="claim"><s>${esc(e.claim)}</s></span><span class="pill bad">Disputed</span></div><div class="small" style="margin-top:4px"><b>Field correction ${fmtDate(todayStr(new Date(e.disputed.at)))}:</b> ${esc(e.disputed.note)}</div><div class="meta">Original source: ${esc(e.source)}${safeHttpUrl(e.link)?` · <a href="${esc(safeHttpUrl(e.link))}" target="_blank" rel="noopener">open</a>`:""}</div><div class="act"><button class="btn ghost" data-act="undispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Undo</button></div></div>`;
+  const meta = [esc(e.source), e.date?fmtDate(e.date):"", e.retrievedAt?"checked "+fmtDate(todayStr(new Date(e.retrievedAt))):e.researchedAt?"researched "+fmtDate(todayStr(new Date(e.researchedAt))):"", e.time==="unknown"?"Current applicability unknown":e.time==="current"?"Current":"Historical", e.basis==="inferred"?"Inferred":"From a source", LEVEL[e.level]||"", e.verified?"Verified in field":"Needs field verification"].filter(Boolean).join(" · ");
+  return `<div class="ev ${esc(e.rel)}"><div class="spread"><span class="claim">${esc(e.claim)}</span><span class="pill ${e.rel==="supports"?"good":e.rel==="contradicts"?"bad":e.rel==="mixed"?"warn":""}">${esc(RELEVANCE[e.rel]||"")}</span></div>${e.detail?`<div class="small" style="margin-top:4px">${esc(e.sourceExcerpt||e.detail)}</div>`:""}<div class="meta">Source: ${meta}</div>${safeHttpUrl(e.link)?`<div class="small"><a href="${esc(safeHttpUrl(e.link))}" target="_blank" rel="noopener">Open source</a></div>`:""}<div class="act">${e.verified?"":`<button class="btn ghost" data-act="verify" data-id="${esc(id)}" data-ev="${esc(e.id)}">Mark verified</button>`}<button class="btn ghost" data-act="dispute" data-id="${esc(id)}" data-ev="${esc(e.id)}">Wrong?</button><button class="btn ghost" data-act="editev" data-id="${esc(id)}" data-ev="${esc(e.id)}">Edit</button></div></div>`;
 }
 function openDispute(id, evId){
   const ev = note(id).evidence.find(x=>x.id===evId); if(!ev) return;
-  openSheet("What's actually true?", ()=>`<div class="stack"><div class="card small"><b>Finding:</b> ${esc(ev.claim)}<div class="muted">Source: ${esc(ev.source)}</div></div><div class="field"><label for="dnote">What you saw or were told</label><textarea id="dnote" placeholder="Barbershop moved to Ste 141; Ste 139 is empty"></textarea><span class="hint">The original finding stays on record, marked as disputed, so you can see what changed and why.</span></div></div>`,
+  openSheet("What did you find?", ()=>`<div class="stack"><div class="card small"><b>Finding:</b> ${esc(ev.claim)}<div class="muted">Source: ${esc(ev.source)}</div></div><div class="field"><label for="dnote">What you saw or were told</label><textarea id="dnote" placeholder="Barbershop moved to Ste 141; Ste 139 is empty"></textarea><span class="hint">The original stays on record, marked wrong.</span></div></div>`,
     `<button class="btn primary block" data-act="savedispute" data-id="${esc(id)}" data-ev="${esc(evId)}">Save correction</button>`, {back:()=>openSources(id)});
 }
 function visitCard(id,v){
   const o=OUTCOMES[v.result]||OUTCOMES.other, sub = v.sub && SUBS[v.result] ? SUBS[v.result].opts[v.sub] : "";
-  return `<div class="visit"><div class="spread"><b>${o.label}</b><span class="muted small">${fmtWhen(v.at)}</span></div>${sub?`<div>${esc(sub)}</div>`:""}${v.result==="optin"?`<div>${v.level?esc(v.level)+"% participation":""}${v.kw?` · ${esc(v.kw)} kW`:""}${v.install?` · Install ${fmtDate(v.install)}`:""}</div>`:""}${v.notes?`<div class="muted" style="margin-top:4px">${esc(v.notes)}</div>`:""}<div class="small muted" style="margin-top:4px">${v.minutes||0} min on site · ${(v.gates||[]).length} gate${(v.gates||[]).length===1?"":"s"} reached <button class="btn ghost" style="min-height:0;padding:2px 6px" data-act="delvisit" data-id="${esc(id)}" data-v="${esc(v.id)}">Delete</button></div></div>`;
+  return `<div class="visit"><div class="spread"><b>${o.label}</b><span class="muted small">${fmtWhen(v.at)}</span></div>${sub?`<div>${esc(sub)}</div>`:""}${v.result==="optin"?`<div>${v.level?esc(v.level)+"% participation":""}${v.kw?` · ${esc(v.kw)} kW`:""}${v.install?` · Install ${fmtDate(v.install)}`:""}</div>`:""}${v.notes?`<div class="rep-note" style="margin-top:6px">${esc(v.notes)}</div>`:""}<div class="small muted" style="margin-top:4px">${esc(v.minutes||0)} min on site · ${(v.gates||[]).length} gate${(v.gates||[]).length===1?"":"s"} reached <button class="btn ghost" style="min-height:0;padding:2px 6px" data-act="delvisit" data-id="${esc(id)}" data-v="${esc(v.id)}">Delete</button></div></div>`;
 }
 
 /* ---- Visit form ---- */
@@ -1244,27 +1475,30 @@ function openVisit(id, opts={}){
   const radios = (name, obj, val) => `<div class="opts" role="radiogroup">${Object.entries(obj).map(([k,t])=>`<label class="opt"><input type="radio" name="${name}" value="${k}" ${val===k?"checked":""}><span>${esc(t)}</span></label>`).join("")}</div>`;
   const body = () => {
     let h = `<form id="vform" class="stack" onsubmit="return false">
-      <div class="field"><span class="lab">What happened?</span>${radios("result", Object.fromEntries(Object.entries(OUTCOMES).map(([k,o])=>[k,o.label])), V.result)}${V.result?`<span class="hint">Official disposition: ${OUTCOMES[V.result].official}</span>`:""}</div>`;
+      <div class="field"><span class="lab">What happened?</span>${radios("result", Object.fromEntries(Object.entries(OUTCOMES).map(([k,o])=>[k,o.label])), V.result)}</div>`;
     if(SUBS[V.result]) h += `<div class="field"><span class="lab">${SUBS[V.result].q}</span>${radios("sub", SUBS[V.result].opts, V.sub)}</div>`;
     if(V.result==="optin") h += `<div class="field"><span class="lab">Participation level</span>${radios("level",{"50":"50%","75":"75%"},V.level)}</div>
       <div class="row" style="flex-wrap:nowrap"><div class="field" style="flex:1"><label for="kw">kW (if known)</label><input id="kw" name="kw" type="number" step="0.1" inputmode="decimal" value="${esc(V.kw)}"></div><div class="field" style="flex:1"><label for="install">Install date</label><input id="install" name="install" type="date" value="${esc(V.install)}"></div></div>`;
     if(V.result){
-      h += `<div class="field"><span class="lab">Gates reached on this visit</span>${GATES.map(g=>`<label class="check"><input type="checkbox" name="gates" value="${g.k}" ${V.gates.includes(g.k)?"checked":""}><span>${g.t}</span></label>`).join("")}</div>`;
       const wantsReturn = RETURNABLE.has(V.result) || RETURNABLE.has(V.sub);
-      h += `<div class="card stack"><h3>${wantsReturn?"When to come back":"Come back? (optional)"}</h3>
-        <div class="row" style="flex-wrap:nowrap"><div class="field" style="flex:1"><label for="retDate">Date</label><input id="retDate" name="retDate" type="date" value="${esc(V.retDate)}"></div><div class="field" style="flex:1"><label for="retTime">Time</label><input id="retTime" name="retTime" type="time" value="${esc(V.retTime)}"></div></div>
-        <div class="field"><span class="lab">How firm is it?</span>${radios("retKind",{confirmed:"Confirmed",window:"Specific window",vague:"Vague"},V.retKind)}</div>
-        <div class="field"><label for="retNote">Reason to return</label><input id="retNote" name="retNote" type="text" value="${esc(V.retNote)}" placeholder="Owner in before 9am"></div></div>`;
+      const retHtml = `<div class="row" style="flex-wrap:nowrap"><div class="field" style="flex:1"><label for="retDate">Come back</label><input id="retDate" name="retDate" type="date" value="${esc(V.retDate)}"></div><div class="field" style="flex:1"><label for="retTime">Time</label><input id="retTime" name="retTime" type="time" value="${esc(V.retTime)}"></div></div>`;
+      if(wantsReturn) h += retHtml;
+      h += `<div class="field"><label for="vnotes">Notes</label><textarea id="vnotes" name="notes" placeholder="Who you spoke with, what to check next time">${esc(V.notes)}</textarea></div>`;
+      h += `<details class="fold"><summary>More details</summary><div class="inner stack">`;
+      if(!wantsReturn) h += retHtml;
+      h += `<div class="field"><span class="lab">Progress on this visit</span>${GATES.map(g=>`<label class="check"><input type="checkbox" name="gates" value="${g.k}" ${V.gates.includes(g.k)?"checked":""}><span>${g.t}</span></label>`).join("")}</div>`;
+      h += `<div class="stack">
+        <div class="field"><span class="lab">How firm?</span>${radios("retKind",{confirmed:"Confirmed",window:"Specific window",vague:"Vague"},V.retKind)}</div>
+        <div class="field"><label for="retNote">Why come back</label><input id="retNote" name="retNote" type="text" value="${esc(V.retNote)}" placeholder="Owner in before 9am"></div></div>`;
       if(V.result!=="optin") h += `<div class="card stack"><h3>Decision-maker</h3>
-        <div class="field"><label for="dmName">Name, if you learned it</label><input id="dmName" name="dmName" type="text" value="${esc(V.dmName)}"></div>
+        <div class="field"><label for="dmName">Name</label><input id="dmName" name="dmName" type="text" value="${esc(V.dmName)}"></div>
         <div class="field"><label for="dmRole">Role</label><input id="dmRole" name="dmRole" type="text" value="${esc(V.dmRole)}" placeholder="Owner, regional manager, landlord"></div>
-        <div class="field"><label for="dmBest">Best time to catch them</label><input id="dmBest" name="dmBest" type="text" value="${esc(V.dmBest)}"></div></div>`;
-      h += `<div class="card stack"><h3>Field check <span class="muted small">(measures research accuracy)</span></h3>
-        <div class="field"><span class="lab">Did you read the FieldMind brief before this visit?</span>${radios("briefUsed",{yes:"Yes",no:"No"},V.briefUsed)}</div>
-        <div class="field"><span class="lab">Business operating here matches the brief?</span>${radios("occMatch",{yes:"Yes",no:"No",unsure:"Couldn't tell",none:"No brief"},V.occMatch)}</div>
-        <div class="field"><span class="lab">Who decides, as you found it</span>${radios("routeSeen",{owner_operator:"Owner on site",manager_needs_approval:"Manager, needs approval",corporate:"Corporate",landlord:"Landlord",unknown:"Couldn't tell"},V.routeSeen)}</div></div>`;
-      h += `<div class="field"><label for="minutes">Minutes on site</label><input id="minutes" name="minutes" type="number" inputmode="numeric" min="0" value="${esc(V.minutes)}"></div>
-        <div class="field"><label for="vnotes">Notes</label><textarea id="vnotes" name="notes" placeholder="What you saw, who you spoke with, what to check next time">${esc(V.notes)}</textarea></div>`;
+        <div class="field"><label for="dmBest">Best time</label><input id="dmBest" name="dmBest" type="text" value="${esc(V.dmBest)}"></div></div>`;
+      h += `<div class="card stack"><h3>Did the brief hold up?</h3>
+        <div class="field"><span class="lab">Read the brief first?</span>${radios("briefUsed",{yes:"Yes",no:"No"},V.briefUsed)}</div>
+        <div class="field"><span class="lab">Right business?</span>${radios("occMatch",{yes:"Yes",no:"No",unsure:"Couldn't tell",none:"No brief"},V.occMatch)}</div>
+        <div class="field"><span class="lab">Who decides</span>${radios("routeSeen",{owner_operator:"Owner on site",manager_needs_approval:"Manager, needs approval",corporate:"Corporate",landlord:"Landlord",unknown:"Couldn't tell"},V.routeSeen)}</div></div>`;
+      h += `<div class="field"><label for="minutes">Minutes on site</label><input id="minutes" name="minutes" type="number" inputmode="numeric" min="0" value="${esc(V.minutes)}"></div></div></details>`;
     }
     return h + `</form>`;
   };
@@ -1301,21 +1535,23 @@ function openVisit(id, opts={}){
 /* ---- Evidence form ---- */
 function openEvidence(id, evId){
   const n=note(id), existing = evId ? n.evidence.find(e=>e.id===evId) : null;
-  const E = existing ? {dim:"business", ...existing} : {claim:"", detail:"", dim:"infrastructure", source:"Public permit", date:"", link:"", rel:"unknown", level:"premises", basis:"observed", time:"historical", verified:false};
+  const E = existing ? {dim:"business", ...existing} : {claim:"", detail:"", dim:"business", source:"Observed on site", date:new Date().toISOString().slice(0,10), link:"", rel:"unknown", level:"premises", basis:"observed", time:"current", verified:false};
   const radios = (name, obj, val) => `<div class="opts">${Object.entries(obj).map(([k,t])=>`<label class="opt"><input type="radio" name="${name}" value="${k}" ${val===k?"checked":""}><span>${esc(t)}</span></label>`).join("")}</div>`;
   const body = () => `<form id="eform" class="stack" onsubmit="return false">
-    <div class="field"><label for="claim">Finding</label><input id="claim" name="claim" type="text" value="${esc(E.claim)}" placeholder="Rooftop cooling unit replaced"><span class="hint">State only what the source shows. Keep guesses for Detail.</span></div>
-    <div class="field"><span class="lab">Dimension</span>${radios("dim",Object.fromEntries(Object.entries(DIMS).map(([k,v])=>[k,v.t])),E.dim)}<span class="hint">For people, keep to professional roles and documented decisions. Leave out personal beliefs and private circumstances.</span></div>
-    <div class="field"><label for="detail">Detail</label><textarea id="detail" name="detail" placeholder="Suite assignment unclear. Thermostat type unknown.">${esc(E.detail||"")}</textarea></div>
+    <div class="field"><label for="claim">Finding</label><input id="claim" name="claim" type="text" value="${esc(E.claim)}" placeholder="New rooftop unit on the back side"><span class="hint">Only what the source shows.</span></div>
     <div class="row" style="flex-wrap:nowrap"><div class="field" style="flex:1"><label for="source">Source</label><select id="source" name="source">${SOURCES.map(s=>`<option ${s===E.source?"selected":""}>${s}</option>`).join("")}</select></div><div class="field" style="flex:1"><label for="edate">Date of record</label><input id="edate" name="date" type="date" value="${esc(E.date)}"></div></div>
     <div class="field"><label for="link">Link</label><input id="link" name="link" type="url" value="${esc(E.link)}" placeholder="https://"></div>
-    <div class="field"><span class="lab">Does it help the case for this account?</span>${radios("rel",RELEVANCE,E.rel)}</div>
-    <div class="field"><span class="lab">It describes the</span>${radios("level",LEVEL,E.level)}</div>
-    <div class="field"><span class="lab">Seen or inferred?</span>${radios("basis",{observed:"Observed in the source",inferred:"My inference"},E.basis)}</div>
     <div class="field"><span class="lab">Still true today?</span>${radios("time",{current:"Current",historical:"Historical"},E.time)}</div>
-    <label class="check"><input type="checkbox" name="verified" ${E.verified?"checked":""}><span>I've verified this in the field</span></label>
+    <label class="check"><input type="checkbox" name="verified" ${E.verified?"checked":""}><span>I confirmed this in person</span></label>
+    <details class="fold"><summary>More details</summary><div class="inner stack">
+      <div class="field"><label for="detail">Detail</label><textarea id="detail" name="detail" placeholder="Suite unclear. Thermostat type unknown.">${esc(E.detail||"")}</textarea></div>
+      <div class="field"><span class="lab">Topic</span>${radios("dim",Object.fromEntries(Object.entries(DIMS).map(([k,v])=>[k,v.t])),E.dim)}<span class="hint">For people: professional roles and decisions only.</span></div>
+      <div class="field"><span class="lab">About the</span>${radios("level",LEVEL,E.level)}</div>
+      <div class="field"><span class="lab">Seen or inferred?</span>${radios("basis",{observed:"Seen in the source",inferred:"My inference"},E.basis)}</div>
+      <div class="field"><span class="lab">Helps the case?</span>${radios("rel",RELEVANCE,E.rel)}</div>
+    </div></details>
   </form>`;
-  openSheet(existing?"Edit evidence":"Add evidence", body, `${existing?`<button class="btn danger" data-act="delev">Delete</button>`:""}<button class="btn primary" data-act="saveev">Save</button>`, {back:()=>openAccount(id)});
+  openSheet(existing?"Edit finding":"Add a finding", body, `${existing?`<button class="btn danger" data-act="delev">Delete</button>`:""}<button class="btn primary" data-act="saveev">Save</button>`, {back:()=>openAccount(id)});
   const read = () => { const fd=new FormData($("#eform")); for(const k of ["claim","detail","dim","source","date","link","rel","level","basis","time"]) E[k]=(fd.get(k)||"").toString(); E.verified=fd.has("verified"); };
   UI.saveEv = async () => {
     read(); if(!E.claim.trim()){ toast("Write the finding first."); return; }
@@ -1325,15 +1561,16 @@ function openEvidence(id, evId){
     try{ await Store.saveNote(id); }catch(e){ return; }
     openAccount(id);
   };
-  UI.delEv = async () => { if(!(await ask("Delete this evidence?","It will be removed from this account."))) return; n.evidence = n.evidence.filter(e=>e.id!==evId); try{ await Store.saveNote(id); }catch(e){ return; } openAccount(id); };
+  UI.delEv = async () => { if(!(await ask("Delete this finding?",""))) return; n.evidence = n.evidence.filter(e=>e.id!==evId); try{ await Store.saveNote(id); }catch(e){ return; } openAccount(id); };
 }
 
 /* ---- Account add/edit ---- */
 function openAccountForm(id){
   const a = id ? {...S.accounts[id]} : {name:"",addr:"",city:"",zip:"",acct:"",phone:"",contact:"",bizType:"",device:"",list:"approved"};
   const body = () => `<form id="aform" class="stack" onsubmit="return false">
-    ${FIELDS.map(f=>`<div class="field"><label for="f_${f.k}">${f.t}</label><input id="f_${f.k}" name="${f.k}" type="text" value="${esc(a[f.k]||"")}"></div>`).join("")}
-    <div class="card small">${id&&a.origin!=="rep"?"This premise came from Brian's list. Its list status, approval and suppression can't be changed here.":"Stops you add yourself are marked as not on an approved list. Check eligibility through the official process before enrolling."}</div>
+    ${FIELDS.slice(0,4).map(f=>`<div class="field"><label for="f_${f.k}">${f.t}</label><input id="f_${f.k}" name="${f.k}" type="text" value="${esc(a[f.k]||"")}"></div>`).join("")}
+    <details class="fold" ${FIELDS.slice(4).some(f=>a[f.k])?"open":""}><summary>More details</summary><div class="inner stack">${FIELDS.slice(4).map(f=>`<div class="field"><label for="f_${f.k}">${f.t}</label><input id="f_${f.k}" name="${f.k}" type="text" value="${esc(a[f.k]||"")}"></div>`).join("")}</div></details>
+    <p class="small muted" style="margin:0">${id&&a.origin!=="rep"?"From your approved list. Its list status can't be changed here.":"Not on your approved list. Check eligibility before enrolling."}</p>
   </form>`;
   openSheet(id?"Edit account":"Add account", body, `${id?`<button class="btn danger" data-act="delacct">Delete</button>`:""}<button class="btn primary" data-act="saveacct">Save</button>`, {back: id?()=>openAccount(id):null});
   UI.saveAcct = async () => {
@@ -1360,9 +1597,9 @@ function startReal(){ S = {accounts:{}, notes:{}, meta:{target:Number(S.meta.tar
 function openImport(){
   const I = {rows:null, map:{}, list:"approved", fileName:""};
   const body = () => {
-    let h = `<div class="stack"><p class="small muted" style="margin:0">Use the CSV export of the list Brian sends. FieldMind matches accounts by account number, or by name and address when there's no number, so re-importing an updated list keeps your notes.</p>
-      <div class="field"><label for="file">Choose a CSV list or a research file</label><input id="file" type="file" accept=".csv,.tsv,.txt,.json,text/csv,application/json"></div>
-      <div class="field"><label for="paste">Or paste the rows, header included</label><textarea id="paste" placeholder="Business Name,Service Address,City,Zip,Account Number">${""}</textarea><button class="btn" data-act="parsepaste">Read pasted rows</button></div>`;
+    let h = `<div class="stack"><p style="margin:0">Choose your list's CSV file. Re-importing an updated list keeps your notes.</p>
+      <label class="btn primary block filebtn">Choose file<input id="file" type="file" accept=".csv,.tsv,.txt,.json,text/csv,application/json" aria-label="Choose file"></label>
+      <details class="fold"><summary>Paste rows instead</summary><div class="inner stack"><textarea id="paste" aria-label="Rows, header included" placeholder="Business Name,Service Address,City,Zip,Account Number">${""}</textarea><button class="btn" data-act="parsepaste">Read rows</button></div></details>`;
     if(I.rows){
       const headers=I.rows[0];
       h += `<div class="card stack"><h3>${esc(I.fileName||"Pasted rows")} · ${I.rows.length-1} rows</h3>
@@ -1411,7 +1648,7 @@ function openImport(){
 async function importResearch(obj){
   const v = validateResearch(obj);
   if(!v.ok){ showImportReport({errors:v.errors, warnings:v.warnings, fatal:true}); return; }
-  if(S.demo){ toast("Import Brian's list first. Research only attaches to premises already on an approved list."); return; }
+  if(S.demo){ toast("Import your list first. Research only attaches to businesses already on your list."); return; }
   const r = applyResearch(v, S.accounts, S.notes);
   try{ for(const p of v.premises){ const id=matchAccount(p.match, S.accounts); if(id) await Store.saveNote(id); } }catch(e){ return; }
   showImportReport({...r, errors:v.errors, warnings:v.warnings});
@@ -1419,18 +1656,18 @@ async function importResearch(obj){
 function showImportReport(r){
   openSheet("Research import", ()=>`<div class="stack">
     ${r.fatal?`<div class="banner warn"><div><b>Nothing was imported.</b></div></div>`:`<div class="tiles"><div class="tile"><div class="n">${r.matched}</div><div class="l">Premises matched</div></div><div class="tile"><div class="n">${r.evidence}</div><div class="l">Findings added</div></div></div>`}
-    ${!r.fatal && r.unmatched && r.unmatched.length?`<div class="card small"><b>${r.unmatched.length} not on your list — not added.</b> Research can't add or approve prospects.<div class="muted">${esc(r.unmatched.slice(0,8).join(", "))}${r.unmatched.length>8?"…":""}</div></div>`:""}
-    ${r.suppressed?`<div class="card small"><b>${r.suppressed} suppressed on Brian's list.</b> Research is stored, but they stay suppressed.</div>`:""}
+    ${!r.fatal && r.unmatched && r.unmatched.length?`<div class="card small"><b>${r.unmatched.length} not on your list — not added.</b> Research can't add or approve prospects.<div class="muted">${esc(r.unmatched.filter(x=>!/^r[0-9a-z]{4,9}$/.test(x)).slice(0,8).join(", "))}${r.unmatched.length>8?"…":""}</div></div>`:""}
+    ${r.suppressed?`<div class="card small"><b>${r.suppressed} suppressed on your list.</b> Research is stored, but they stay suppressed.</div>`:""}
     ${r.changed?`<div class="card small">${r.changed} premise${r.changed===1?"":"s"} changed since earlier research. History is kept.</div>`:""}
     ${(r.warnings||[]).map(w=>`<div class="card small">${esc(w)}</div>`).join("")}
-    ${(r.errors||[]).length?`<details class="card small" ${r.fatal?"open":""}><summary>${r.errors.length} problem${r.errors.length===1?"":"s"} in the file</summary><ul>${r.errors.slice(0,50).map(e=>`<li>${esc(e)}</li>`).join("")}</ul></details>`:""}
+    ${(r.errors||[]).length?`<details class="card small" ${r.fatal?"open":""}><summary>${r.errors.length} problem${r.errors.length===1?"":"s"} in the file (details for whoever made it)</summary><ul>${r.errors.slice(0,50).map(e=>`<li>${esc(e)}</li>`).join("")}</ul></details>`:""}
   </div>`, `<button class="btn primary block" data-act="closereport">Done</button>`);
 }
 
 /* ---- Backup / export ---- */
 function visitsCSV(){
   const cols=["date","time","business","address","city","zip","account","list","outcome","official_disposition","detail","gates_reached","minutes","participation","kw","install_date","notes"];
-  const q = v => { const s=String(v??""); return /[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s; };
+  const q = csvCell;
   const lines=[cols.join(",")];
   for(const v of allVisits()){ const a=S.accounts[v.accountId], d=new Date(v.at);
     lines.push([todayStr(d), `${pad(d.getHours())}:${pad(d.getMinutes())}`, a.name, a.addr, a.city, a.zip, a.acct, a.list, OUTCOMES[v.result]?.label, OUTCOMES[v.result]?.official, v.sub&&SUBS[v.result]?SUBS[v.result].opts[v.sub]:"", (v.gates||[]).join(" "), v.minutes, v.level||"", v.kw||"", v.install||"", v.notes].map(q).join(","));
@@ -1465,9 +1702,22 @@ document.addEventListener("click", async e => {
   const id=b.dataset.id, act=b.dataset.act;
   if(act==="import") openImport();
   else if(act==="briefme") openBriefMe();
+  else if(act==="reviewinbox") openInbox();
+  else if(act==="acceptinbox") Inbox.accept();
+  else if(act==="queuenext" || act==="queuesaved"){
+    const ids=clusters(Object.keys(S.accounts)).flatMap(c=>c.ids).filter(id=>!S.notes[id]?.brief && !S.accounts[id].suppressed);
+    const qset=new Set(Inbox.queued.map(x=>x.ref));
+    const pick = act==="queuesaved" ? ids.filter(id=>S.notes[id]?.today && !qset.has(refOf(id))) : ids.filter(id=>!qset.has(refOf(id))).slice(0,15);
+    try{ const n=await Inbox.queue(pick); toast(`${n} stop${n===1?"":"s"} queued. Open Claude to run ${n===1?"it":"them"}.`); if(UI.sheet) UI.sheet.refresh(); }catch(e){}
+  }
   else if(act==="sources") openSources(id);
   else if(act==="closereport"){ UI.sheet=null; $("#sheet").hidden=true; setTab("route"); }
   else if(act==="reveal"){ UI.reveal = UI.reveal===id?null:id; UI.sheet&&UI.sheet.refresh(); }
+  else if(act==="liveresearch") openLiveResearch(b.dataset.id);
+  else if(act==="beginresearch") beginLiveResearch();
+  else if(act==="retryresearch"){ UI.liveResearch.state="ready"; UI.liveResearch.error=""; refreshLiveResearch(); }
+  else if(act==="attachresearch") attachLiveResearch();
+  else if(act==="discardresearch"){ const id=UI.liveResearch.id; UI.liveResearch=null; openAccount(id); }
   else if(act==="reqnext"){ const ids=clusters(Object.keys(S.accounts)).flatMap(c=>c.ids).filter(i=>!S.notes[i]?.brief && !S.accounts[i].suppressed).slice(0,15); copyText(researchRequest(ids), `Copied ${ids.length} businesses. Paste to Claude.`); }
   else if(act==="add") openAccountForm(null);
   else if(act==="editacct") openAccountForm(id);
@@ -1522,6 +1772,86 @@ document.addEventListener("keydown", e => {
   if((e.key==="Enter"||e.key===" ") && e.target.matches("[data-star]")){ e.preventDefault(); e.target.click(); }
 });
 
+/* ============ Local public-source research ============ */
+function researchSnapshot(a){ return JSON.stringify([a.name,a.addr,a.city,a.zip,a.list,!!a.suppressed]); }
+function openLiveResearch(id){
+  const a=S.accounts[id]; if(!a) return;
+  if(a.suppressed){ toast("Suppressed records cannot start research."); return; }
+  if(!a.name || !a.addr || !a.city){ toast("Add a business name, street address and city first."); return; }
+  if(UI.liveResearch && UI.liveResearch.id!==id && ["running","complete"].includes(UI.liveResearch.state)){
+    toast("Finish or discard the current research draft first."); showLiveResearch(); return;
+  }
+  if(!UI.liveResearch || UI.liveResearch.id!==id) UI.liveResearch={id,state:"ready"};
+  showLiveResearch();
+}
+function liveResearchBody(){
+  const r=UI.liveResearch, a=S.accounts[r.id];
+  let h=`<div class="stack"><div><b>${esc(nice(a?.name)||"Business removed")}</b><div class="small muted">${esc([nice(a?.addr),nice(a?.city)].filter(Boolean).join(", "))}</div></div><p class="small">Searches public sources using only the business name and address. Account numbers and history stay private.</p>`;
+  const localService = location.protocol==="http:" && location.hostname==="127.0.0.1";
+  if(r.state==="ready" && !localService) h+=`<div class="banner"><div><b>Automatic research runs in FieldMind on your computer.</b></div></div><p class="small">On this device, tap the center button to copy a research request, then import the results. They show up here the same way.</p>`;
+  else if(r.state==="ready") h+=`<p class="small muted">Findings come from public sources and still need checking on site. Nothing is saved until you review it.</p><button class="btn primary block" data-act="beginresearch">Start public research</button>`;
+  if(r.state==="running") h+=`<div class="banner"><div role="status">Researching public sources… ${Math.round((Date.now()-r.started)/1000)} seconds. You can close this panel and reopen it.</div></div>`;
+  if(r.error) h+=`<div class="banner warn" role="alert"><div>${esc(r.error)}</div></div>`;
+  if(r.state==="failed") h+=`<button class="btn block" data-act="retryresearch">Try again</button><p class="small muted">Automatic research needs FieldMind running on your computer.</p>`;
+  if(r.state==="complete"){
+    const p=r.result.draft.premises[0],m=r.result.metrics;
+    h+=`<div class="small muted">Checked ${Number(m.usable_pages)} page${Number(m.usable_pages)===1?"":"s"} in ${Math.round(Number(m.elapsed_seconds))} seconds · ${p.claims.length} finding${p.claims.length===1?"":"s"}</div><p class="small"><b>Check on site before relying on this.</b> Who operates here, who signs for the account, equipment and eligibility aren't confirmed.</p>`;
+    h+=(p.research_questions||[]).map(q=>`<div class="card small"><b>${esc(q.question)}</b><div>${esc(q.answer)}</div></div>`).join("");
+    h+=p.claims.map(c=>`<div class="card small"><b>${c.status==="historical"?"Older information":"Found in a public source"}</b><div>${esc(c.excerpt)}</div><div class="muted">Checked ${esc(fmtDate(todayStr(new Date(c.retrieved_at))))}</div>${safeHttpUrl(c.source.url)?`<a href="${esc(safeHttpUrl(c.source.url))}" target="_blank" rel="noopener noreferrer">Open source</a>`:""}</div>`).join("");
+    if(!p.claims.length) h+=`<p class="small">Nothing found in public sources. That doesn't mean there's nothing to find.</p>`;
+    if(r.result.failures.length || r.result.search_failures.length) h+=`<div class="card small"><b>Couldn't check</b>${r.result.failures.map(f=>`<div>${esc(f.url)}: ${esc(f.status||f.reason)}</div>`).join("")}${r.result.search_failures.map(f=>`<div>${esc(f.error||f.engines.map(e=>e.join(": ")).join("; "))}</div>`).join("")}</div>`;
+    h+=`<button class="btn primary block" data-act="attachresearch">Save to this business</button><p class="small muted">Saving adds these findings to this business. It doesn't confirm who operates here or who decides, and it doesn't change your list.</p>`;
+  }
+  if(r.state!=="running") h+=`<button class="btn block" data-act="discardresearch">Discard this draft</button>`;
+  return h+"</div>";
+}
+function showLiveResearch(){ openSheet("Public-source research",liveResearchBody,"",{researchId:UI.liveResearch.id,back:()=>openAccount(UI.liveResearch.id)}); }
+function refreshLiveResearch(){ if(UI.sheet?.researchId===UI.liveResearch?.id) UI.sheet.refresh(); }
+async function researchFetch(path,opts={}){
+  if(location.protocol!=="http:" || location.hostname!=="127.0.0.1") throw Error("Automatic research only works in FieldMind on your computer.");
+  const response=await fetch(path,{...opts,headers:{"X-FieldMind-Local":"1",...(opts.body?{"Content-Type":"application/json"}:{})},credentials:"same-origin",signal:AbortSignal.timeout(15000)});
+  const data=await response.json(); if(!response.ok) throw Error(data.error||"Research isn't available right now."); return data;
+}
+async function beginLiveResearch(){
+  const r=UI.liveResearch;if(!r || r.state==="running")return;const a=S.accounts[r.id];
+  if(!a || a.suppressed){ toast("Record removed or suppressed. Research was not started.");return; }
+  r.state="running";r.error="";r.started=Date.now();r.snapshot=researchSnapshot(a);r.notesSnapshot=JSON.stringify(S.notes[r.id]||null);r.ref=crypto.randomUUID().replaceAll("-","");refreshLiveResearch();
+  try{
+    const job=await researchFetch("/api/research",{method:"POST",body:JSON.stringify({name:a.name,addr:a.addr,city:a.city,ref:r.ref})});r.job=job.job_id;
+    while(Date.now()-r.started<210000){
+      const result=await researchFetch("/api/research/"+encodeURIComponent(r.job));
+      if(result.state==="failed")throw Error(result.error);
+      if(result.state==="complete"){r.result=result;r.state="complete";refreshLiveResearch();return;}
+      await new Promise(resolve=>setTimeout(resolve,1500));refreshLiveResearch();
+    }
+    throw Error("Timed out waiting for research. Nothing was saved.");
+  }catch(error){r.error=error.message;r.state="failed";refreshLiveResearch();}
+}
+async function attachLiveResearch(){
+  const r=UI.liveResearch;if(!r || r.state!=="complete" || r.saving)return;const a=S.accounts[r.id];
+  if(!a || a.suppressed || researchSnapshot(a)!==r.snapshot || JSON.stringify(S.notes[r.id]||null)!==r.notesSnapshot){r.error="This record changed during research. Nothing was saved. Review the record and start again.";refreshLiveResearch();return;}
+  const obj=JSON.parse(JSON.stringify(r.result.draft)),p=obj.premises?.[0];
+  if(obj.premises?.length!==1 || p?.match?.ref!==r.ref || p.occupant?.status!=="unknown" || p.decision_route?.route!=="unknown" || Object.values(p.profile||{}).some(f=>f.status!=="not_checked") || p.claims.some(c=>!["found","historical"].includes(c.status)||c.current_verified!==false||!safeHttpUrl(c.source?.url))){r.error="This result didn't pass FieldMind's checks, so nothing was saved.";refreshLiveResearch();return;}
+  const previous=S.notes[r.id]?JSON.parse(JSON.stringify(S.notes[r.id])):null,old=previous?.brief;
+  // Keep prior adjudicated information; this job supplies only qualified leads.
+  if(old){p.occupant=old.occupant||p.occupant;p.decision_route=old.decision||p.decision_route;p.profile={...p.profile,...old.profile};if(old.story?.summary)p.summary=old.story.summary+"\n\n"+p.summary;}
+  p.match={ref:refOf(r.id)};
+  const v=validateResearch(obj);if(!v.ok||v.errors.length){r.error="This result couldn't be read, so nothing was saved.";refreshLiveResearch();return;}
+  r.saving=true;
+  try{
+    applyResearch(v,{[r.id]:a},S.notes);
+    if(!S.demo){
+      await Store.saveNote(r.id);
+      if(Store.mode==="local"){
+        const saved=JSON.parse(localStorage.getItem("fieldmind.v1")||"null");
+        if(JSON.stringify(saved?.notes?.[r.id])!==JSON.stringify(S.notes[r.id]))throw Error("The brief could not be saved on this device.");
+      }
+    }
+    r.state="saved";UI.briefTab="overview";openAccount(r.id);toast(S.demo?"Saved to the examples only.":"Findings saved.");
+  }catch(error){if(previous)S.notes[r.id]=previous;else delete S.notes[r.id];r.error="Save failed. Your draft is still available; retry saving. "+error.message;refreshLiveResearch();}
+  finally{r.saving=false;}
+}
+
 /* ============ Boot ============ */
 loadDemo();
 render();
@@ -1529,3 +1859,4 @@ Store.init();
 </script>
 </body>
 </html>
+

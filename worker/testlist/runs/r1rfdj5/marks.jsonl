@@ -1,0 +1,6 @@
+{"phase": "prepare", "at": "2026-11-15T03:37:50+00:00"}
+{"phase": "retrieve", "at": "2026-11-15T03:37:50+00:00"}
+{"phase": "extract", "at": "2026-11-15T03:38:27+00:00"}
+{"checked_profile":["hours","hvac","owner"],"not_found":["Current owner or operator contact for Clouds Brewing at this location","HVAC or mechanical permits for 505 W Jones St"]}
+{"phase": "check", "at": "2026-11-15T03:38:27+00:00"}
+{"phase": "done", "at": "2026-11-15T03:38:27+00:00"}

@@ -1,0 +1,71 @@
+{
+ "ref": "r1qvebr",
+ "policy_version": "fm-research-policy-v0",
+ "synthetic": false,
+ "timing": {
+  "elapsed_seconds": 47,
+  "cap_seconds": 1200,
+  "within_cap": true,
+  "phases": {
+   "prepare": 0,
+   "retrieve": 26,
+   "extract": 21,
+   "check": 0
+  },
+  "started_at": "2026-11-15T03:40:12+00:00",
+  "finished_at": "2026-11-15T03:40:59+00:00"
+ },
+ "retrieval": {
+  "planned_steps": 8,
+  "searches": 2,
+  "fetches": 1,
+  "ok": 7,
+  "failures": []
+ },
+ "claims": {
+  "proposed": 7,
+  "accepted": 5,
+  "accepted_by_label": {
+   "verified": 0,
+   "found": 3,
+   "inferred": 1,
+   "historical": 1,
+   "conflicting": 0
+  },
+  "rejected": [
+   {
+    "id": "C03",
+    "text": "Incoming tenant is a franchisee: Devang Shah signed the lease (Sep 2026)",
+    "reason": "identity_merge_rejected",
+    "detail": "no address in source and the name is not tied to this address by another accepted source",
+    "subject": "8831 Six Forks Rd",
+    "about": "premises",
+    "address_in_source": null,
+    "retrieval": "F1"
+   },
+   {
+    "id": "C06",
+    "text": "Space is in Six Forks Station, a large shopping center managed by Kimco",
+    "reason": "identity_merge_rejected",
+    "detail": "no address in source and the name is not tied to this address by another accepted source",
+    "subject": "Six Forks Station",
+    "about": "landlord",
+    "address_in_source": null,
+    "retrieval": "V2"
+   }
+  ],
+  "rejected_by_reason": {
+   "identity_merge_rejected": 2
+  },
+  "contradictions": []
+ },
+ "unresolved_questions": [
+  "Who operates at 8831 Six Forks Rd, Raleigh, NC 27615 today?",
+  "business ownership: Who holds this authority now",
+  "business operations: Who holds this authority now",
+  "utility account: Account holder and signing authority; needs authorized confirmation",
+  "property: Who holds this authority now",
+  "hvac facilities: Who holds this authority now",
+  "Current HVAC and thermostat setup at this premises"
+ ]
+}

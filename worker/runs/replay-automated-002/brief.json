@@ -1,0 +1,316 @@
+{
+ "schema": "fieldmind.precontact-benchmark-brief/v1",
+ "record_ref": "r1kedpv",
+ "arm": "assisted",
+ "researcher_ref": "fmworker-prototype",
+ "research_as_of": "2026-11-14",
+ "policy_version": "fm-research-policy-v0",
+ "synthetic": false,
+ "program_context": {
+  "label": "Duke EnergyWise Business MIMO opportunity research",
+  "official_rule_version": null,
+  "current_eligibility": "not_established"
+ },
+ "q1_current_operator": {
+  "summary": "Candidate operator: Videri Chocolate Factory (address in source, suite not confirmed; R01). A candidate until a reviewer accepts the identity.",
+  "subject_and_suite": "327 W Davie St, Raleigh, NC 27601",
+  "state": "source_supported",
+  "candidate_identity_refs": [
+   "R01",
+   "R02"
+  ],
+  "accepted_identity_reference": null,
+  "claim_refs": [
+   "R01",
+   "R02"
+  ],
+  "listed_name_historical": "Videri Chocolate Factory",
+  "alternatives_not_merged": []
+ },
+ "q2_decision_authority": {
+  "business_ownership": {
+   "summary": "Not found in permitted public sources. Historical: R04",
+   "state": "unknown",
+   "claim_refs": [
+    "R04"
+   ],
+   "what_is_not_established": "Who holds this authority now"
+  },
+  "business_operations": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  },
+  "utility_account": {
+   "summary": "Not established. Public sources cannot show who holds or can sign for the utility account.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Account holder and signing authority; needs authorized confirmation"
+  },
+  "property": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  },
+  "hvac_facilities": {
+   "summary": "Not found in permitted public sources.",
+   "state": "unknown",
+   "claim_refs": [],
+   "what_is_not_established": "Who holds this authority now"
+  }
+ },
+ "q3_energy_hvac_context": {
+  "historical_participation": {
+   "summary": "None supplied with this request",
+   "claim_refs": []
+  },
+  "historical_equipment": {
+   "summary": "Not sent to the research worker (device fields stay in FieldMind)",
+   "claim_refs": []
+  },
+  "current_account": {
+   "summary": "Unknown. Not researchable from public sources.",
+   "state": "unknown",
+   "claim_refs": []
+  },
+  "current_hvac": {
+   "summary": "No current HVAC or controls facts found in permitted sources",
+   "state": "unknown",
+   "claim_refs": []
+  },
+  "current_eligibility": {
+   "state": "not_established",
+   "summary": "Not established by MIMO history or this research brief",
+   "official_review_ref": null
+  }
+ },
+ "q4_uncertainty": {
+  "historical": [
+   "R04: Sam Ratto described as owner (mentions 2023)"
+  ],
+  "stale": [
+   "R04: source dated more than 24 months before 2026-11-14"
+  ],
+  "inferred": [],
+  "unknown": [
+   "business_ownership: not established",
+   "business_operations: not established",
+   "utility_account: not established",
+   "property: not established",
+   "hvac_facilities: not established",
+   "Official registry, permit and property records (not in this run's selection)"
+  ],
+  "contradicted": []
+ },
+ "q5_verify_first": {
+  "question": "The list has no suite. Sources put Videri Chocolate Factory in Suite 100. Is this premises that suite?",
+  "reason": "The list address covers more than one tenant",
+  "risk_avoided": "Attaching another tenant's facts or account history to this premises",
+  "evidence_refs": [
+   "R01",
+   "R04"
+  ],
+  "requires_separate_contact_permission": true
+ },
+ "q6_priority_judgment": {
+  "before": null,
+  "after": null,
+  "changed": null,
+  "rationale": null,
+  "evidence_refs": [],
+  "human_judgment_not_eligibility": true,
+  "note": "Left for the rep. The worker does not score or rank."
+ },
+ "findings": [
+  {
+   "claim_id": "R01",
+   "text": "Videri Chocolate Factory is listed at 327 W Davie St, Sweet 100 Raleigh, NC 27601",
+   "subject": "Videri Chocolate Factory",
+   "scope": "327 W Davie St, Sweet 100 Raleigh, NC 27601",
+   "label": "source_supported",
+   "temporal": "current",
+   "claim_type": "occupant_identity",
+   "authority_role": null,
+   "retrieved_at": "2026-11-15T03:42:41.714106+00:00",
+   "published": null,
+   "effective_date": null,
+   "source_id": "S1",
+   "url": "https://viderichocolatefactory.com/contact",
+   "excerpt": "327 W Davie St, Sweet 100 Raleigh, NC 27601",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "R02",
+   "text": "Videri Chocolate Factory is listed at 327 W. Davie St., Ste. 100, Raleigh, NC 27601",
+   "subject": "Videri Chocolate Factory",
+   "scope": "327 W. Davie St., Ste. 100, Raleigh, NC 27601",
+   "label": "source_supported",
+   "temporal": "current",
+   "claim_type": "occupant_identity",
+   "authority_role": null,
+   "retrieved_at": "2026-11-15T03:42:45.512987+00:00",
+   "published": null,
+   "effective_date": null,
+   "source_id": "S2",
+   "url": "https://www.visitraleigh.com/listing/videri-chocolate-factory/67511/",
+   "excerpt": "327 W. Davie St., Ste. 100, Raleigh, NC 27601",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "R03",
+   "text": "Production signal on the business's own site: 'roast' (process load, not HVAC)",
+   "subject": "Videri Chocolate Factory",
+   "scope": "entity (name-tied)",
+   "label": "source_supported",
+   "temporal": "current",
+   "claim_type": "other",
+   "authority_role": null,
+   "retrieved_at": "2026-11-15T03:42:51.218806+00:00",
+   "published": null,
+   "effective_date": null,
+   "source_id": "S3",
+   "url": "https://viderichocolatefactory.com/sourcing",
+   "excerpt": "nd Oko Caribe in The Dominican Republic , Kokoa Kamili in Tanzania and Tien Giang in Vietnam . From there , we sort and roast beans to bring out their distinct flavors . While our commitment to ethical sustainable chocolate begins with cacao , i",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "R04",
+   "text": "Sam Ratto described as owner (mentions 2023)",
+   "subject": "Videri Chocolate Factory",
+   "scope": "entity (name-tied)",
+   "label": "historical",
+   "temporal": "historical",
+   "claim_type": "ownership",
+   "authority_role": "business_ownership",
+   "retrieved_at": "2026-11-15T03:42:51.218806+00:00",
+   "published": null,
+   "effective_date": "2023",
+   "source_id": "S3",
+   "url": "https://viderichocolatefactory.com/sourcing",
+   "excerpt": "In 2023 , Sam Ratto , the owner of Videri Chocolate Factory , visited one of our sources in Guatemala , Lachua , along with our chocolate makers Mordecai , Jazzi , and Carrie . Phot",
+   "derived_from": [],
+   "conflicts_with": []
+  },
+  {
+   "claim_id": "R05",
+   "text": "Production signal on the business's own site: 'roast' (process load, not HVAC)",
+   "subject": "Videri Chocolate Factory",
+   "scope": "entity (name-tied)",
+   "label": "source_supported",
+   "temporal": "current",
+   "claim_type": "other",
+   "authority_role": null,
+   "retrieved_at": "2026-11-15T03:42:55.343346+00:00",
+   "published": null,
+   "effective_date": null,
+   "source_id": "S4",
+   "url": "https://viderichocolatefactory.com/factory-tours",
+   "excerpt": "Did you know we sort all of our beans by hand ? Did you know we roast every bag of cocoa beans in our roaster ? Did you know a cacao tree produces fruit ? Come see our process and learn mor",
+   "derived_from": [],
+   "conflicts_with": []
+  }
+ ],
+ "source_register_refs": [
+  {
+   "id": "Q1",
+   "kind": "search",
+   "query": "\"Videri Chocolate Factory\" Raleigh address",
+   "url": null,
+   "outcome": "ok",
+   "source_type": "search_results",
+   "retrieved_at": "2026-11-15T03:42:31.345084+00:00",
+   "error": "engines blocked: [['brave', 'too many requests'], ['duckduckgo', 'CAPTCHA']]"
+  },
+  {
+   "id": "Q2",
+   "kind": "search",
+   "query": "\"Videri Chocolate Factory\" owner founder",
+   "url": null,
+   "outcome": "ok",
+   "source_type": "search_results",
+   "retrieved_at": "2026-11-15T03:42:33.038344+00:00",
+   "error": "engines blocked: [['brave', 'Suspended: too many requests'], ['duckduckgo', 'CAPTCHA']]"
+  },
+  {
+   "id": "Q3",
+   "kind": "search",
+   "query": "\"327 W Davie\" HVAC permit",
+   "url": null,
+   "outcome": "ok",
+   "source_type": "search_results",
+   "retrieved_at": "2026-11-15T03:42:33.853055+00:00",
+   "error": "engines blocked: [['brave', 'Suspended: too many requests'], ['duckduckgo', 'CAPTCHA']]"
+  },
+  {
+   "id": "Q4",
+   "kind": "search",
+   "query": "\"Videri Chocolate Factory\" energy solar cooling",
+   "url": null,
+   "outcome": "ok",
+   "source_type": "search_results",
+   "retrieved_at": "2026-11-15T03:42:34.444740+00:00",
+   "error": "engines blocked: [['brave', 'Suspended: too many requests'], ['duckduckgo', 'CAPTCHA']]"
+  },
+  {
+   "id": "S1",
+   "kind": "fetch",
+   "query": null,
+   "url": "https://viderichocolatefactory.com/contact",
+   "outcome": "ok",
+   "source_type": "business_site",
+   "retrieved_at": "2026-11-15T03:42:41.714106+00:00",
+   "error": null
+  },
+  {
+   "id": "S2",
+   "kind": "fetch",
+   "query": null,
+   "url": "https://www.visitraleigh.com/listing/videri-chocolate-factory/67511/",
+   "outcome": "ok",
+   "source_type": "listing",
+   "retrieved_at": "2026-11-15T03:42:45.512987+00:00",
+   "error": null
+  },
+  {
+   "id": "S3",
+   "kind": "fetch",
+   "query": null,
+   "url": "https://viderichocolatefactory.com/sourcing",
+   "outcome": "ok",
+   "source_type": "business_site",
+   "retrieved_at": "2026-11-15T03:42:51.218806+00:00",
+   "error": null
+  },
+  {
+   "id": "S4",
+   "kind": "fetch",
+   "query": null,
+   "url": "https://viderichocolatefactory.com/factory-tours",
+   "outcome": "ok",
+   "source_type": "business_site",
+   "retrieved_at": "2026-11-15T03:42:55.343346+00:00",
+   "error": null
+  },
+  {
+   "id": "S5",
+   "kind": "fetch",
+   "query": null,
+   "url": "https://viderichocolatefactory.com/sourcing",
+   "outcome": "failed",
+   "source_type": "business_site",
+   "retrieved_at": "2026-11-15T03:42:59.020773+00:00",
+   "error": "HTTP 302 (not usable as evidence)"
+  }
+ ],
+ "research_limitations": [
+  "S5 https://viderichocolatefactory.com/sourcing: failed (HTTP 302 (not usable as evidence))",
+  "Searched, not found: Official registry, permit and property records (not in this run's selection)",
+  "Captured text is the retrieval tool's extract of each page, not the raw page",
+  "Identity is a candidate until a reviewer accepts it"
+ ]
+}

@@ -1,0 +1,38 @@
+<!-- @dsCard height=300 -->
+<style>
+.cv{position:relative;width:960px;height:300px;background:var(--paper);overflow:hidden;font-family:var(--font-sans)}
+.cv svg{position:absolute;inset:0}
+.pink{fill:var(--signal-pink)}
+.deep{fill:var(--ink)}
+.cut{fill:var(--paper)}
+.point{fill:var(--citron)}
+.ring{fill:var(--carbon)}
+.oxide{fill:var(--iron-oxide)}
+.alu{fill:var(--aluminum)}
+.arch{fill:none;stroke:var(--signal-pink);stroke-width:12px;stroke-linecap:round;stroke-linejoin:round}
+.slab{rx:var(--radius-lg)}
+.chip{rx:var(--radius-sm)}
+.txt{position:absolute;left:48px;bottom:40px;max-width:440px}
+.nm{margin:0;font-size:80px;line-height:.95;font-weight:800;letter-spacing:-.035em;color:var(--ink)}
+.tg{margin:12px 0 0;font-size:14px;color:var(--ink-muted)}
+</style>
+<div class="cv">
+  <svg viewBox="0 0 960 300" width="960" height="300" aria-hidden="true">
+    <!-- blocks: signal-pink slab 200×320 (bleeds top/bottom) with a lobed edge, ink slab 240×260 radius-lg (bleeds right), citron point r14 in a carbon ring r19, iron-oxide chip 64×32 radius-sm, aluminum band 40×72 -->
+    <!-- arrangement: one tall pink slab whose right edge is a run of brain lobes, a deep slab beside it bleeding off the right edge, two small satellites -->
+    <!-- pattern: literal motif, the brain's lobes (README: "an abstract brain drawn as one thick, continuous, squiggled line"), half-rounds on the slab edge plus one stroked squiggle on the deep slab -->
+    <!-- scales: lobe radius 24 (space-6), stroke 12 (mark stroke), gaps space-8 32px, radii radius-lg 16 and radius-sm 9 -->
+    <rect class="pink" x="520" y="-10" width="176" height="320"></rect>
+    <circle class="pink" cx="696" cy="36" r="24"></circle><circle class="pink" cx="696" cy="84" r="24"></circle><circle class="pink" cx="696" cy="132" r="24"></circle><circle class="pink" cx="696" cy="180" r="24"></circle><circle class="pink" cx="696" cy="228" r="24"></circle><circle class="pink" cx="696" cy="276" r="24"></circle>
+    <circle class="ring" cx="600" cy="150" r="19"></circle>
+    <circle class="point" cx="600" cy="150" r="14"></circle>
+    <rect class="deep slab" x="752" y="56" width="240" height="260"></rect>
+    <path class="arch" d="M790 270 C 770 250 780 214 806 214 C 806 186 842 180 852 202 C 870 186 902 200 896 226 C 920 236 914 270 888 270 C 884 290 852 292 848 272"></path>
+    <rect class="oxide chip" x="752" y="0" width="64" height="32"></rect>
+    <rect class="alu" x="480" y="228" width="40" height="72"></rect>
+  </svg>
+  <div class="txt">
+    <h1 class="nm">FieldMind</h1>
+    <p class="tg">Know the brains of the operation.</p>
+  </div>
+</div>

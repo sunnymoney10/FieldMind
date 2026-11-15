@@ -1,0 +1,42 @@
+{
+ "schema_errors": [],
+ "app": {
+  "ok": true,
+  "matched": 4,
+  "unmatched": [],
+  "listUnchanged": true,
+  "premises": {
+   "TOBACCO ROAD SPORTS CAFE": {
+    "label": "Decision route unknown",
+    "suppressed": false,
+    "occupant": null,
+    "text": " W Jones St \u00b7 1 of 1 on Brian's list Clouds Brewing Operating here (found). Listed as: TOBACCO ROAD SPORTS CAFE 505 W JONES ST \u00b7 Raleigh, NC Decision-maker unknown MIMO Find out first Who owns Clouds Brewing, and do they decide on the utility account? Overview Business Energy Notes Opportunity prior participation Decision access Not established Research 2 of 7 established Business status Likely ac"
+   },
+   "BRIO ITALIAN GRILLE": {
+    "label": "Occupant unconfirmed",
+    "suppressed": false,
+    "occupant": null,
+    "text": " Glenwood Ave \u00b7 1 of 1 on Brian's list BRIO ITALIAN GRILLE Name from Brian's list. Current occupant not established. 4325 GLENWOOD AVE \u00b7 Raleigh, NC Verify occupant MIMO Find out first Who operates at 4325 Glenwood Ave, Raleigh, NC 27612 today? Overview Business Energy Notes Opportunity prior participation Decision access Not established Research 2 of 7 established Business status Likely active Ma"
+   },
+   "ZEST CAFE": {
+    "label": "Decision route unknown",
+    "suppressed": false,
+    "occupant": null,
+    "text": " Six Forks Rd \u00b7 1 of 1 on Brian's list ZEST CAFE Name from Brian's list. Current occupant not established. 8831 SIX FORKS RD \u00b7 Raleigh, NC Decision-maker unknown MIMO Find out first Who operates at 8831 Six Forks Rd, Raleigh, NC 27615 today? Overview Business Energy Notes Opportunity prior participation Decision access Not established Research 2 of 7 established Business status Likely active Paris"
+   },
+   "MARSHALL & TAYLOR PLLC": {
+    "label": "Decision route unknown",
+    "suppressed": false,
+    "occupant": null,
+    "text": " Church At North Hills St \u00b7 1 of 1 on Brian's list MARSHALL &amp; TAYLOR PLLC Name from Brian's list. Current occupant not established. 305 CHURCH AT NORTH HILLS ST STE 900 \u00b7 Raleigh, NC Decision-maker unknown MIMO Find out first Sources put MARSHALL &amp; TAYLOR PLLC at 305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609, not Ste 900. Is the list&#39;s suite out of date, or is a diffe"
+   },
+   "EXAMPLE DNC SHOP": {
+    "label": "Suppressed on list",
+    "suppressed": true,
+    "occupant": null,
+    "text": " Fictional Pl \u00b7 1 of 1 on Brian's list EXAMPLE DNC SHOP Name from Brian's list. Current occupant not established. 1 FICTIONAL PL \u00b7 Raleigh, NC Suppressed on list \u00b7 don't contact MIMO Not researched yet Tap the pink button below the list to send this business for research. Overview Business Energy Notes Prior program equipment SYNTH-T5 Historical Recorded for a previous account. Not evidence of cur"
+   }
+  }
+ },
+ "page_errors": []
+}

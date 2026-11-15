@@ -1,0 +1,6 @@
+{"phase": "prepare", "at": "2026-11-15T03:42:29.614571+00:00"}
+{"phase": "retrieve", "at": "2026-11-15T03:42:29.614571+00:00"}
+{"phase": "extract", "at": "2026-11-15T03:42:59.558120+00:00"}
+{"phase": "check", "at": "2026-11-15T03:42:59.559021+00:00"}
+{"phase": "done", "at": "2026-11-15T03:42:59.559021+00:00"}
+{"checked_profile": ["hours", "hvac", "owner"], "not_found": ["Official registry, permit and property records (not in this run's selection)"]}

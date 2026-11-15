@@ -1,0 +1,72 @@
+{
+ "ref": "r1qleq2",
+ "policy_version": "fm-research-policy-v0",
+ "synthetic": false,
+ "timing": {
+  "elapsed_seconds": 57,
+  "cap_seconds": 1200,
+  "within_cap": true,
+  "phases": {
+   "prepare": 0,
+   "retrieve": 23,
+   "extract": 34,
+   "check": 0
+  },
+  "started_at": "2026-11-15T03:38:52+00:00",
+  "finished_at": "2026-11-15T03:39:49+00:00"
+ },
+ "retrieval": {
+  "planned_steps": 8,
+  "searches": 3,
+  "fetches": 1,
+  "ok": 9,
+  "failures": []
+ },
+ "claims": {
+  "proposed": 9,
+  "accepted": 7,
+  "accepted_by_label": {
+   "verified": 0,
+   "found": 2,
+   "inferred": 0,
+   "historical": 2,
+   "conflicting": 3
+  },
+  "rejected": [
+   {
+    "id": "N01",
+    "text": "Fleming's Steakhouse operates at this premises",
+    "reason": "identity_merge_rejected",
+    "detail": "the list gives no suite and this source names a different business in a specific suite",
+    "subject": "Fleming's Steakhouse",
+    "about": "occupant",
+    "address_in_source": "4325 Glenwood Ave., Ste. 5004",
+    "retrieval": "V3"
+   },
+   {
+    "id": "C08",
+    "text": "Macerich is renovating the mall ($60M)",
+    "reason": "identity_merge_rejected",
+    "detail": "building or property facts need the exact address in the source",
+    "subject": "Macerich",
+    "about": "landlord",
+    "address_in_source": null,
+    "retrieval": "V5"
+   }
+  ],
+  "rejected_by_reason": {
+   "identity_merge_rejected": 2
+  },
+  "contradictions": [
+   "Sources disagree on brio_status: C01=operating; C02=closed; C03=closed"
+  ]
+ },
+ "unresolved_questions": [
+  "Who operates at 4325 Glenwood Ave, Raleigh, NC 27612 today?",
+  "business ownership: Who holds this authority now",
+  "business operations: Who holds this authority now",
+  "utility account: Account holder and signing authority; needs authorized confirmation",
+  "hvac facilities: Who holds this authority now",
+  "Current HVAC and thermostat setup at this premises"
+ ]
+}

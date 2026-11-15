@@ -1,0 +1,737 @@
+{
+ "schema": "fieldmind.research",
+ "version": 2,
+ "generated": "2026-11-15T03:42:03+00:00",
+ "researcher": "fmworker-prototype",
+ "run": {
+  "minutes": 2.8000000000000003,
+  "searches": 9,
+  "pages_read": 3
+ },
+ "premises": [
+  {
+   "match": {
+    "ref": "r1q1fio"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "unknown",
+    "name": null,
+    "evidence": []
+   },
+   "summary": "3 accepted claims from 7 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "Sources put MARSHALL & TAYLOR PLLC at 305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609, not Ste 900. Is the list's suite out of date, or is a different business in Ste 900?",
+   "can_infer": [
+    "In a large Class A office building, HVAC is usually run by building management, not the tenant"
+   ],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "unknown",
+    "status": "unknown"
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "not_found"
+    },
+    "structure": {
+     "status": "found",
+     "value": "329,214 SF office building",
+     "evidence": [
+      "C04"
+     ],
+     "source": "CommercialCafe",
+     "link": "https://www.commercialcafe.com/commercial-property/us/nc/raleigh/midtown-plaza/",
+     "date": "2026-11-15"
+    },
+    "property": {
+     "status": "not_checked"
+    },
+    "occupancy": {
+     "status": "found",
+     "value": "100% leased",
+     "evidence": [
+      "C05"
+     ],
+     "source": "Revere CRE",
+     "link": "https://platform.reverecre.com/project/3ccc8cb2-e4a0-4dca-9f11-e73822cd814f",
+     "date": "2026-11-15"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_checked"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "not_found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "not_found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "C04",
+     "claim": "The building is Midtown Plaza, a ~329,000 sq ft Class A multi-tenant office building",
+     "claim_type": "structure",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "CommercialCafe",
+      "type": "listing",
+      "url": "https://www.commercialcafe.com/commercial-property/us/nc/raleigh/midtown-plaza/"
+     },
+     "excerpt": "Property Size 329,214 SF"
+    },
+    {
+     "id": "C05",
+     "claim": "Midtown Plaza is described as 100% leased",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "Revere CRE",
+      "type": "listing",
+      "url": "https://platform.reverecre.com/project/3ccc8cb2-e4a0-4dca-9f11-e73822cd814f"
+     },
+     "excerpt": "Midtown Plaza is a 100% leased, 329,747 SF, core office building"
+    },
+    {
+     "id": "I01",
+     "claim": "In a large Class A office building, HVAC is usually run by building management, not the tenant",
+     "claim_type": "hvac",
+     "about": "premises",
+     "status": "inferred",
+     "basis": "inferred",
+     "observed_at": "2026-11-14",
+     "effective_date": null,
+     "dimension": "energy",
+     "derived_from": [
+      "C04"
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "ref": "r1qleq2"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "conflicting",
+    "name": null,
+    "evidence": [
+     "C01"
+    ]
+   },
+   "summary": "7 accepted claims from 9 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "Who operates at 4325 Glenwood Ave, Raleigh, NC 27612 today?",
+   "can_infer": [],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "unknown",
+    "status": "unknown"
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "not_found"
+    },
+    "structure": {
+     "status": "not_checked"
+    },
+    "property": {
+     "status": "found",
+     "value": "Macerich",
+     "evidence": [
+      "C05"
+     ],
+     "source": "CoStar News (Jun 24, 2025)",
+     "link": "https://www.costar.com/article/677832488/macerich-expands-to-southeast-us-with-290-million-mall-purchase",
+     "date": "2026-11-15"
+    },
+    "occupancy": {
+     "status": "found",
+     "value": "Maggiano's pending",
+     "evidence": [
+      "C04"
+     ],
+     "source": "WhatNow (Oct 29, 2026)",
+     "link": "https://whatnow.com/?p=450537",
+     "date": "2026-11-15"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_checked"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "not_found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "not_found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "claim": "Brio's own location page still lists Crabtree at 4325 Glenwood Ave Ste 5000 with hours (page undated)",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "conflicting",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Brio website (location page, undated)",
+      "type": "business_site",
+      "url": "https://www.brioitalian.com/locations/crabtree/"
+     },
+     "excerpt": "Address\n4325 Glenwood Ave, STE 5000, Raleigh, NC, 27612",
+     "conflicts_with": [
+      "C02",
+      "C03"
+     ]
+    },
+    {
+     "id": "C02",
+     "claim": "Brio closed its Crabtree Valley Mall restaurant in August 2025",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "conflicting",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-10-29",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Oct 29, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=450537"
+     },
+     "excerpt": "\"Brio Italian Grille closed its Crabtree Valley Mall restaurant in August 2025 after more than 15 years\"",
+     "conflicts_with": [
+      "C01",
+      "C03"
+     ]
+    },
+    {
+     "id": "C03",
+     "claim": "Raleigh Magazine (Sep 2025): Brio at Crabtree shuttered after a bankruptcy filing",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "conflicting",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2025-09-29",
+     "dimension": "business",
+     "source": {
+      "name": "Raleigh Magazine (Sep 2025)",
+      "type": "news",
+      "url": "https://raleighmag.com/2025/09/29/raleigh-food-news-october/"
+     },
+     "excerpt": "The Italian spot at Crabtree Valley Mall shuttered post-bankruptcy filing",
+     "conflicts_with": [
+      "C01",
+      "C02"
+     ]
+    },
+    {
+     "id": "C04",
+     "claim": "Maggiano's Little Italy (corporate chain) is preparing to open in the former Brio space; no opening date announced (Oct 2026)",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-10-29",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Oct 29, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=450537"
+     },
+     "excerpt": "\"at Crabtree Valley Mall, located at 4325 Glenwood Avenue.\""
+    },
+    {
+     "id": "C05",
+     "claim": "The address is a 1.3M sq ft mall; Macerich bought it in June 2025",
+     "claim_type": "property",
+     "about": "landlord",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2025-06-24",
+     "dimension": "infrastructure",
+     "source": {
+      "name": "CoStar News (Jun 24, 2025)",
+      "type": "news",
+      "url": "https://www.costar.com/article/677832488/macerich-expands-to-southeast-us-with-290-million-mall-purchase"
+     },
+     "excerpt": "it had purchased the market-dominant, Class A retail center, totaling 1.3 million square feet, at 4325 Glenwood Ave."
+    },
+    {
+     "id": "C06",
+     "claim": "Many tenants share 4325 Glenwood Ave under different suites (e.g. Ste 5004 Fleming's, Ste 2100 Seasons 52)",
+     "claim_type": "structure",
+     "about": "premises",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "Raleigh Magazine (Dec 2021)",
+      "type": "news",
+      "url": "https://raleighmag.com/2021/12/20/crabtree-restaurant-scene/"
+     },
+     "excerpt": "4325 Glenwood Ave., Ste. 5004, 919.571.6200, flemingssteakhouse.com"
+    },
+    {
+     "id": "C07",
+     "claim": "Brio's suite was given as Ste 5005 in 2021",
+     "claim_type": "occupant_identity",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Raleigh Magazine (Dec 2021)",
+      "type": "news",
+      "url": "https://raleighmag.com/2021/12/20/crabtree-restaurant-scene/"
+     },
+     "excerpt": "4325 Glenwood Ave., Ste. 5005, Raleigh, 919.589.1280, brioitalian.com"
+    }
+   ]
+  },
+  {
+   "match": {
+    "ref": "r1qvebr"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "unknown",
+    "name": null,
+    "evidence": []
+   },
+   "summary": "5 accepted claims from 7 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "Who operates at 8831 Six Forks Rd, Raleigh, NC 27615 today?",
+   "can_infer": [
+    "No operator is in the space now: Zest has closed and Paris Baguette has not opened"
+   ],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "unknown",
+    "status": "unknown"
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "not_found"
+    },
+    "structure": {
+     "status": "not_checked"
+    },
+    "property": {
+     "status": "found",
+     "value": "Available; 4,500 SF; former restaurant",
+     "evidence": [
+      "C04"
+     ],
+     "source": "Kimco Realty leasing page",
+     "link": "https://www.kimcorealty.com/properties/six-forks-station-sc/118970/space/00016/view",
+     "date": "2026-11-15"
+    },
+    "occupancy": {
+     "status": "found",
+     "value": "Paris Baguette pending (summer 2027)",
+     "evidence": [
+      "C02"
+     ],
+     "source": "WhatNow (Oct 30, 2026)",
+     "link": "https://whatnow.com/?p=450905",
+     "date": "2026-11-15"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_checked"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "not_found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "claim": "Zest Cafe & Home Art closed at the end of 2025 after about 30 years",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-10-30",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Oct 30, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=450905"
+     },
+     "excerpt": "\"before closing at the end of 2025.\""
+    },
+    {
+     "id": "C02",
+     "claim": "Paris Baguette franchisee Devang Shah signed a lease for the 4,500 sq ft former Zest space at 8831 Six Forks Rd; opening targeted summer 2027",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-10-30",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Oct 30, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=450905"
+     },
+     "excerpt": "\"Paris Baguette is taking over the former Zest Caf\u00e9 and Home Art space at 8831 Six Forks Road, Raleigh\""
+    },
+    {
+     "id": "C04",
+     "claim": "Landlord's leasing page lists Space 16 at 8831 Six Forks Rd as available, 4,500 SF, former restaurant",
+     "claim_type": "property",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "Kimco Realty leasing page",
+      "type": "listing",
+      "url": "https://www.kimcorealty.com/properties/six-forks-station-sc/118970/space/00016/view"
+     },
+     "excerpt": "8831 Six Forks Road, Raleigh, NC 27615"
+    },
+    {
+     "id": "C05",
+     "claim": "Zest was run by co-owners Ben and Amanda Swirsky (profile, undated)",
+     "claim_type": "ownership",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "people",
+     "source": {
+      "name": "Walter Magazine",
+      "type": "news",
+      "url": "https://waltermagazine.com/current-issue/zest-cafe-home-art/"
+     },
+     "excerpt": "\u2014Amanda Swirsky, co-owner, Zest Cafe & Home Art"
+    },
+    {
+     "id": "I01",
+     "claim": "No operator is in the space now: Zest has closed and Paris Baguette has not opened",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "inferred",
+     "basis": "inferred",
+     "observed_at": "2026-11-14",
+     "effective_date": null,
+     "dimension": "business",
+     "derived_from": [
+      "C02",
+      "C04"
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "ref": "r1rfdj5"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "found",
+    "name": "Clouds Brewing",
+    "evidence": [
+     "C01"
+    ]
+   },
+   "summary": "Clouds Brewing: 7 accepted claims from 7 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "Who owns Clouds Brewing, and do they decide on the utility account?",
+   "can_infer": [
+    "Large multi-bar venue in a historic building: likely substantial HVAC load across several zones"
+   ],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "unknown",
+    "status": "unknown"
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "not_found"
+    },
+    "structure": {
+     "status": "found",
+     "value": "Historic powerhouse building; multiple bars and event spaces",
+     "evidence": [
+      "C06"
+     ],
+     "source": "The Triangle Weekender directory",
+     "link": "https://thetriangleweekender.com/directory/drink/tobacco-road-sports-cafe-raleigh/",
+     "date": "2026-11-15"
+    },
+    "property": {
+     "status": "not_checked"
+    },
+    "occupancy": {
+     "status": "found",
+     "value": "acquired June 1, 2026",
+     "evidence": [
+      "C03"
+     ],
+     "source": "WhatNow (Jun 9, 2026)",
+     "link": "https://whatnow.com/?p=406072",
+     "date": "2026-11-15"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_checked"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "claim": "Clouds Brewing took over the 505 W Jones St space formerly occupied by Tobacco Road Sports Cafe (June 2026)",
+     "claim_type": "occupant_identity",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-06-09",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Jun 9, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=406072"
+     },
+     "excerpt": "\"Clouds Brewing plans to open a new location in the space formerly occupied by Tobacco Road Sports Cafe\" \"at 505 W. Jones Street"
+    },
+    {
+     "id": "C02",
+     "claim": "Clouds Brewing is open in its new Jones Street location (Sep 2026)",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-09-01",
+     "dimension": "business",
+     "source": {
+      "name": "Raleigh Magazine (Sep 2026)",
+      "type": "news",
+      "url": "https://raleighmag.com/2026/09/01/raleigh-foodie-news/"
+     },
+     "excerpt": "Clouds Brewing is officially back Downtown in its new Jones Street digs"
+    },
+    {
+     "id": "C03",
+     "claim": "Clouds acquired the assets and operations of the property effective June 1, 2026, keeping current employees",
+     "claim_type": "occupancy_change",
+     "about": "occupant",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": "2026-06-01",
+     "dimension": "business",
+     "source": {
+      "name": "WhatNow (Jun 9, 2026)",
+      "type": "news",
+      "url": "https://whatnow.com/?p=406072"
+     },
+     "excerpt": "\"it acquired the assets and operations of the downtown property effective June 1\""
+    },
+    {
+     "id": "C04",
+     "claim": "Tobacco Road Sports Cafe closed permanently around the end of May 2026",
+     "claim_type": "operating_status",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "business",
+     "source": {
+      "name": "Meetup event page",
+      "type": "listing",
+      "url": "https://www.meetup.com/triangle-libertarian/events/315715112"
+     },
+     "excerpt": "as the iconic sports bar was abruptly and permanently closing four days later"
+    },
+    {
+     "id": "C05",
+     "claim": "Tobacco Road (listed name) operated at 505 W Jones St; owners Brian and Alex Amra (2019)",
+     "claim_type": "ownership",
+     "about": "occupant",
+     "status": "historical",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "people",
+     "source": {
+      "name": "Raleigh Magazine breweries poster (2019)",
+      "type": "news",
+      "url": "https://raleighmag.com/storage/2019/03/Breweries_Poster.pdf"
+     },
+     "excerpt": "Owners:  \n\nBrian and Alex Amra"
+    },
+    {
+     "id": "C06",
+     "claim": "Building is the historic Raleigh Electric Company Powerhouse, with large dining areas, multiple bars and event spaces",
+     "claim_type": "structure",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "The Triangle Weekender directory",
+      "type": "listing",
+      "url": "https://thetriangleweekender.com/directory/drink/tobacco-road-sports-cafe-raleigh/"
+     },
+     "excerpt": "Located in the historic Raleigh Electric Company Powerhouse building"
+    },
+    {
+     "id": "I01",
+     "claim": "Large multi-bar venue in a historic building: likely substantial HVAC load across several zones",
+     "claim_type": "hvac",
+     "about": "premises",
+     "status": "inferred",
+     "basis": "inferred",
+     "observed_at": "2026-11-14",
+     "effective_date": null,
+     "dimension": "energy",
+     "derived_from": [
+      "C06"
+     ]
+    }
+   ]
+  }
+ ]
+}

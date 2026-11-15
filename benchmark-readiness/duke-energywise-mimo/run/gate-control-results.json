@@ -1,0 +1,26 @@
+[
+  {
+    "control_id": "GATE-MIMO-S04",
+    "state": "held_before_packet_read",
+    "source_packets_opened_for_research": 0,
+    "excluded_from_timing_and_accuracy": true
+  },
+  {
+    "control_id": "GATE-MIMO-S10",
+    "state": "held_before_packet_read",
+    "source_packets_opened_for_research": 0,
+    "excluded_from_timing_and_accuracy": true
+  },
+  {
+    "control_id": "GATE-MIMO-S18",
+    "state": "held_before_packet_read",
+    "source_packets_opened_for_research": 0,
+    "excluded_from_timing_and_accuracy": true
+  },
+  {
+    "control_id": "GATE-MIMO-S19",
+    "state": "held_before_packet_read",
+    "source_packets_opened_for_research": 0,
+    "excluded_from_timing_and_accuracy": true
+  }
+]

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=IBM+Plex+Mono:wght@500&family=Caveat:wght@600&display=swap");
+
+/* FieldMind components. Every value comes from tokens.css. */
+body{margin:0;background:var(--paper);color:var(--ink);font:500 16px/1.5 var(--font-sans);font-optical-sizing:auto;font-feature-settings:"ss04" 1}
+
+/* Button: one primary (pink) per screen */
+.fm-btn{min-height:var(--button-height);min-width:var(--target-min);padding:0 var(--space-4);border-radius:var(--radius-md);border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);font:700 16px/1 var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.fm-btn--primary{background:var(--signal-pink);border-color:var(--signal-pink);color:var(--carbon);font-weight:800}
+.fm-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+/* Tag: what changes the visit */
+.fm-tag{display:inline-flex;align-items:center;min-height:28px;padding:0 11px;border-radius:var(--radius-pill);font:700 14px/1 var(--font-sans)}
+.fm-tag--question{background:var(--citron);color:var(--carbon)}
+.fm-tag--conflict{background:var(--iron-oxide);color:#FFFFFF}
+.fm-tag--info{background:var(--aluminum);color:var(--carbon)}
+.fm-tag--done{background:var(--carbon);color:var(--raw-paper)}
+
+/* Certainty: how sure FieldMind is */
+.fm-sure{display:inline-flex;align-items:center;padding:3px 9px;border-radius:var(--radius-pill);font:800 13px/1.2 var(--font-sans);border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.fm-sure--yes{background:var(--ink);color:var(--paper)}
+.fm-sure--no{border-style:dashed;border-color:var(--line-strong);color:var(--ink-muted)}
+
+/* Find out first: the one question */
+.fm-fof{background:var(--surface);border:2px solid var(--ink);border-radius:14px;padding:14px 16px;box-shadow:0 5px 0 var(--signal-pink)}
+.fm-fof__k{display:block;font:800 14px/1.4 var(--font-sans);color:var(--pink-text)}
+.fm-fof__q{display:block;font:800 18px/1.35 var(--font-display);letter-spacing:-.015em}
+
+/* Answer card */
+.fm-answer{background:var(--surface);border-radius:var(--radius-lg);padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.fm-answer__head{display:flex;align-items:center;gap:var(--space-2)}
+.fm-answer__label{font:700 14px/1.4 var(--font-sans);color:var(--ink-muted)}
+.fm-source{font:500 14px/1.4 var(--font-mono);color:var(--ink-muted)}
+.fm-note{font:600 24px/1.15 var(--font-hand);color:var(--pink-text)}

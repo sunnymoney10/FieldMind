@@ -1,0 +1,147 @@
+{
+ "schema": "fieldmind.research",
+ "version": 2,
+ "generated": "2026-11-15T03:41:51+00:00",
+ "researcher": "fmworker-prototype",
+ "run": {
+  "minutes": 0.5,
+  "searches": 2,
+  "pages_read": 0
+ },
+ "premises": [
+  {
+   "match": {
+    "ref": "r1q1fio"
+   },
+   "researched_at": "2026-11-14",
+   "occupant": {
+    "status": "unknown",
+    "name": null,
+    "evidence": []
+   },
+   "summary": "3 accepted claims from 7 sources. Utility-account authority and eligibility not established.",
+   "find_out_first": "Sources put MARSHALL & TAYLOR PLLC at 305 Church at North Hills Street, Suite 1250, Raleigh, NC 27609, not Ste 900. Is the list's suite out of date, or is a different business in Ste 900?",
+   "can_infer": [
+    "In a large Class A office building, HVAC is usually run by building management, not the tenant"
+   ],
+   "cannot_conclude": [
+    "Who holds or can sign for the utility account",
+    "Current program eligibility",
+    "Installed thermostats or HVAC controls"
+   ],
+   "decision_route": {
+    "route": "unknown",
+    "status": "unknown"
+   },
+   "profile": {
+    "hours": {
+     "status": "not_found"
+    },
+    "owner": {
+     "status": "not_found"
+    },
+    "structure": {
+     "status": "found",
+     "value": "329,214 SF office building",
+     "evidence": [
+      "C04"
+     ],
+     "source": "CommercialCafe",
+     "link": "https://www.commercialcafe.com/commercial-property/us/nc/raleigh/midtown-plaza/",
+     "date": "2026-11-15"
+    },
+    "property": {
+     "status": "not_checked"
+    },
+    "occupancy": {
+     "status": "found",
+     "value": "100% leased",
+     "evidence": [
+      "C05"
+     ],
+     "source": "Revere CRE",
+     "link": "https://platform.reverecre.com/project/3ccc8cb2-e4a0-4dca-9f11-e73822cd814f",
+     "date": "2026-11-15"
+    },
+    "hvac": {
+     "status": "not_found"
+    },
+    "electrical": {
+     "status": "not_checked"
+    }
+   },
+   "coverage": [
+    {
+     "dimension": "business",
+     "checked": "planned searches for business",
+     "result": "not_found"
+    },
+    {
+     "dimension": "people",
+     "checked": "planned searches for people",
+     "result": "not_found"
+    },
+    {
+     "dimension": "infrastructure",
+     "checked": "planned searches for infrastructure",
+     "result": "found"
+    },
+    {
+     "dimension": "energy",
+     "checked": "planned searches for energy",
+     "result": "found"
+    }
+   ],
+   "claims": [
+    {
+     "id": "C04",
+     "claim": "The building is Midtown Plaza, a ~329,000 sq ft Class A multi-tenant office building",
+     "claim_type": "structure",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "CommercialCafe",
+      "type": "listing",
+      "url": "https://www.commercialcafe.com/commercial-property/us/nc/raleigh/midtown-plaza/"
+     },
+     "excerpt": "Property Size 329,214 SF"
+    },
+    {
+     "id": "C05",
+     "claim": "Midtown Plaza is described as 100% leased",
+     "claim_type": "occupancy_change",
+     "about": "premises",
+     "status": "found",
+     "basis": "observed",
+     "observed_at": "2026-11-15",
+     "effective_date": null,
+     "dimension": "infrastructure",
+     "source": {
+      "name": "Revere CRE",
+      "type": "listing",
+      "url": "https://platform.reverecre.com/project/3ccc8cb2-e4a0-4dca-9f11-e73822cd814f"
+     },
+     "excerpt": "Midtown Plaza is a 100% leased, 329,747 SF, core office building"
+    },
+    {
+     "id": "I01",
+     "claim": "In a large Class A office building, HVAC is usually run by building management, not the tenant",
+     "claim_type": "hvac",
+     "about": "premises",
+     "status": "inferred",
+     "basis": "inferred",
+     "observed_at": "2026-11-14",
+     "effective_date": null,
+     "dimension": "energy",
+     "derived_from": [
+      "C04"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "fieldmind.precontact-benchmark-brief/v1",
+  "record_ref": null,
+  "arm": null,
+  "researcher_ref": null,
+  "research_as_of": null,
+  "policy_version": null,
+  "program_context": {
+    "label": "Duke EnergyWise Business MIMO opportunity research",
+    "official_rule_version": null,
+    "current_eligibility": "not_established"
+  },
+  "q1_current_operator": {
+    "summary": null,
+    "subject_and_suite": null,
+    "state": "unknown",
+    "candidate_identity_refs": [],
+    "accepted_identity_reference": null,
+    "claim_refs": []
+  },
+  "q2_decision_authority": {
+    "business_ownership": {
+      "summary": null,
+      "state": "unknown",
+      "claim_refs": [],
+      "what_is_not_established": null
+    },
+    "business_operations": {
+      "summary": null,
+      "state": "unknown",
+      "claim_refs": [],
+      "what_is_not_established": null
+    },
+    "utility_account": {
+      "summary": null,
+      "state": "unknown",
+      "claim_refs": [],
+      "what_is_not_established": null
+    },
+    "property": {
+      "summary": null,
+      "state": "unknown",
+      "claim_refs": [],
+      "what_is_not_established": null
+    },
+    "hvac_facilities": {
+      "summary": null,
+      "state": "unknown",
+      "claim_refs": [],
+      "what_is_not_established": null
+    }
+  },
+  "q3_energy_hvac_context": {
+    "historical_participation": {
+      "summary": null,
+      "claim_refs": []
+    },
+    "historical_equipment": {
+      "summary": null,
+      "claim_refs": []
+    },
+    "current_account": {
+      "summary": null,
+      "state": "unknown",
+      "claim_refs": []
+    },
+    "current_hvac": {
+      "summary": null,
+      "state": "unknown",
+      "claim_refs": []
+    },
+    "current_eligibility": {
+      "state": "not_established",
+      "summary": "Not established by MIMO history or this research brief",
+      "official_review_ref": null
+    }
+  },
+  "q4_uncertainty": {
+    "historical": [],
+    "stale": [],
+    "inferred": [],
+    "unknown": [],
+    "contradicted": []
+  },
+  "q5_verify_first": {
+    "question": null,
+    "reason": null,
+    "risk_avoided": null,
+    "evidence_refs": [],
+    "requires_separate_contact_permission": true
+  },
+  "q6_priority_judgment": {
+    "before": null,
+    "after": null,
+    "changed": null,
+    "rationale": null,
+    "evidence_refs": [],
+    "human_judgment_not_eligibility": true
+  },
+  "findings": [],
+  "source_register_refs": [],
+  "research_limitations": []
+}

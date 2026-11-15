@@ -1,0 +1,247 @@
+{
+  "synthetic": true,
+  "seed": 20261115,
+  "participant_role_simulation_only": true,
+  "order": [
+    {
+      "order": 0,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S15",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 1,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S20",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 2,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S13",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 3,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S17",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 4,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S07",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 5,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S05",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 6,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S09",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 7,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S19",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 8,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S02",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 9,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S04",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 10,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S11",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 11,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S08",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 12,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S14",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 13,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S18",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 14,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S03",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 15,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S12",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 16,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S06",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 17,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S16",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 18,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S01",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 19,
+      "simulated_participant": "SIMULATED-RESEARCHER-A",
+      "record_ref": "MIMO-S10",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 20,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S16",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 21,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S08",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 22,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S03",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 23,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S12",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 24,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S19",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 25,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S02",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 26,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S05",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 27,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S06",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 28,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S15",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 29,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S18",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 30,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S14",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 31,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S04",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 32,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S09",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 33,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S01",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 34,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S10",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 35,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S17",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 36,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S11",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 37,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S13",
+      "lane": "assisted_protocol_replay"
+    },
+    {
+      "order": 38,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S20",
+      "lane": "manual_protocol_replay"
+    },
+    {
+      "order": 39,
+      "simulated_participant": "SIMULATED-RESEARCHER-B",
+      "record_ref": "MIMO-S07",
+      "lane": "manual_protocol_replay"
+    }
+  ]
+}

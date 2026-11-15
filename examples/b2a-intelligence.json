@@ -1,0 +1,410 @@
+{
+  "syntheticOnly": true,
+  "note": "Independent subject briefs from a known synthetic scenario; no real identity relationship accepted or migrated.",
+  "premise": {
+    "subject": {
+      "type": "premise",
+      "id": "p-0"
+    },
+    "findings": [
+      {
+        "claimId": "c-0-0",
+        "subject": {
+          "type": "premise",
+          "id": "p-0"
+        },
+        "predicate": "operating_status",
+        "value": "Operating",
+        "status": "source_supported",
+        "freshness": "current",
+        "usefulContext": true,
+        "epistemic": "source_reported",
+        "authorityState": "not_applicable",
+        "supportGrade": "documented",
+        "confidenceIsProbability": false,
+        "supportOrigins": [
+          "public_source"
+        ],
+        "supportAnchor": "2026-11-15",
+        "observedAt": "2026-11-15T12:00:00.000Z",
+        "effectivePeriod": {
+          "from": "2026-11-15",
+          "to": null
+        },
+        "expiresOn": "2026-11-22",
+        "policyVersion": "b2a-proposed-1",
+        "dependencyIds": [],
+        "conflictIds": [],
+        "reasons": [],
+        "provenance": {
+          "origin": "public_source",
+          "citations": [
+            {
+              "url": "https://example.com/synthetic/0/0",
+              "title": "Synthetic source",
+              "excerpt": "Entirely synthetic benchmark evidence",
+              "retrievedAt": "2026-11-15T12:00:00.000Z",
+              "publishedOn": null,
+              "scope": {
+                "type": "premise",
+                "id": "p-0"
+              }
+            }
+          ],
+          "sourceRowIds": [],
+          "fieldObservationIds": [],
+          "researchRunId": null
+        }
+      },
+      {
+        "claimId": "c-0-2",
+        "subject": {
+          "type": "premise",
+          "id": "p-0"
+        },
+        "predicate": "hvac_context",
+        "value": "Permit records cooling work",
+        "status": "source_supported",
+        "freshness": "current",
+        "usefulContext": true,
+        "epistemic": "source_reported",
+        "authorityState": "not_applicable",
+        "supportGrade": "documented",
+        "confidenceIsProbability": false,
+        "supportOrigins": [
+          "public_source"
+        ],
+        "supportAnchor": "2026-11-15",
+        "observedAt": "2026-11-15T12:00:00.000Z",
+        "effectivePeriod": {
+          "from": "2026-11-15",
+          "to": null
+        },
+        "expiresOn": "2027-02-13",
+        "policyVersion": "b2a-proposed-1",
+        "dependencyIds": [],
+        "conflictIds": [],
+        "reasons": [],
+        "provenance": {
+          "origin": "public_source",
+          "citations": [
+            {
+              "url": "https://example.com/synthetic/0/2",
+              "title": "Synthetic source",
+              "excerpt": "Entirely synthetic benchmark evidence",
+              "retrievedAt": "2026-11-15T12:00:00.000Z",
+              "publishedOn": null,
+              "scope": {
+                "type": "premise",
+                "id": "p-0"
+              }
+            }
+          ],
+          "sourceRowIds": [],
+          "fieldObservationIds": [],
+          "researchRunId": null
+        }
+      },
+      {
+        "claimId": "c-0-4",
+        "subject": {
+          "type": "premise",
+          "id": "p-0"
+        },
+        "predicate": "energy_experience",
+        "value": "Comfort mentioned",
+        "status": "source_supported",
+        "freshness": "current",
+        "usefulContext": true,
+        "epistemic": "source_reported",
+        "authorityState": "not_applicable",
+        "supportGrade": "documented",
+        "confidenceIsProbability": false,
+        "supportOrigins": [
+          "public_source"
+        ],
+        "supportAnchor": "2026-11-15",
+        "observedAt": "2026-11-15T12:00:00.000Z",
+        "effectivePeriod": {
+          "from": "2026-11-15",
+          "to": null
+        },
+        "expiresOn": "2026-12-15",
+        "policyVersion": "b2a-proposed-1",
+        "dependencyIds": [],
+        "conflictIds": [],
+        "reasons": [],
+        "provenance": {
+          "origin": "public_source",
+          "citations": [
+            {
+              "url": "https://example.com/synthetic/0/4",
+              "title": "Synthetic source",
+              "excerpt": "Entirely synthetic benchmark evidence",
+              "retrievedAt": "2026-11-15T12:00:00.000Z",
+              "publishedOn": null,
+              "scope": {
+                "type": "premise",
+                "id": "p-0"
+              }
+            }
+          ],
+          "sourceRowIds": [],
+          "fieldObservationIds": [],
+          "researchRunId": null
+        }
+      },
+      {
+        "claimId": "c-0-6",
+        "subject": {
+          "type": "premise",
+          "id": "p-0"
+        },
+        "predicate": "hvac_context",
+        "value": "Zoned cooling hypothesis",
+        "status": "inferred",
+        "freshness": "current",
+        "usefulContext": true,
+        "epistemic": "inference",
+        "authorityState": "not_applicable",
+        "supportGrade": "reasoned",
+        "confidenceIsProbability": false,
+        "supportOrigins": [
+          "public_source"
+        ],
+        "supportAnchor": "2026-11-15",
+        "observedAt": "2026-11-15T12:00:00.000Z",
+        "effectivePeriod": {
+          "from": "2026-11-15",
+          "to": null
+        },
+        "expiresOn": "2027-02-13",
+        "policyVersion": "b2a-proposed-1",
+        "dependencyIds": [
+          "c-0-2"
+        ],
+        "conflictIds": [],
+        "reasons": [
+          "Qualified hypothesis; inspect supporting claims"
+        ],
+        "provenance": {
+          "origin": "ai",
+          "citations": [],
+          "sourceRowIds": [],
+          "fieldObservationIds": [],
+          "researchRunId": "run"
+        }
+      },
+      {
+        "claimId": "c-0-7",
+        "subject": {
+          "type": "premise",
+          "id": "p-0"
+        },
+        "predicate": "energy_experience",
+        "value": "Comfort may affect decisions",
+        "status": "inferred",
+        "freshness": "current",
+        "usefulContext": true,
+        "epistemic": "inference",
+        "authorityState": "not_applicable",
+        "supportGrade": "reasoned",
+        "confidenceIsProbability": false,
+        "supportOrigins": [
+          "public_source"
+        ],
+        "supportAnchor": "2026-11-15",
+        "observedAt": "2026-11-15T12:00:00.000Z",
+        "effectivePeriod": {
+          "from": "2026-11-15",
+          "to": null
+        },
+        "expiresOn": "2026-12-15",
+        "policyVersion": "b2a-proposed-1",
+        "dependencyIds": [
+          "c-0-4",
+          "c-0-6"
+        ],
+        "conflictIds": [],
+        "reasons": [
+          "Qualified hypothesis; inspect supporting claims"
+        ],
+        "provenance": {
+          "origin": "ai",
+          "citations": [],
+          "sourceRowIds": [],
+          "fieldObservationIds": [],
+          "researchRunId": "run"
+        }
+      }
+    ],
+    "verifyFirst": {
+      "claimId": "c-0-6",
+      "reason": "Qualified hypothesis; inspect supporting claims"
+    },
+    "priorityRecommendation": "human_review",
+    "eligibility": "not_established",
+    "policyVersion": "b2a-proposed-1"
+  },
+  "business": {
+    "subject": {
+      "type": "business",
+      "id": "b-0"
+    },
+    "findings": [
+      {
+        "claimId": "c-0-1",
+        "subject": {
+          "type": "business",
+          "id": "b-0"
+        },
+        "predicate": "occupant_identity",
+        "value": "Synthetic operator 0",
+        "status": "source_supported",
+        "freshness": "current",
+        "usefulContext": true,
+        "epistemic": "source_reported",
+        "authorityState": "not_applicable",
+        "supportGrade": "documented",
+        "confidenceIsProbability": false,
+        "supportOrigins": [
+          "public_source"
+        ],
+        "supportAnchor": "2026-11-15",
+        "observedAt": "2026-11-15T12:00:00.000Z",
+        "effectivePeriod": {
+          "from": "2026-11-15",
+          "to": null
+        },
+        "expiresOn": "2026-11-29",
+        "policyVersion": "b2a-proposed-1",
+        "dependencyIds": [],
+        "conflictIds": [],
+        "reasons": [],
+        "provenance": {
+          "origin": "public_source",
+          "citations": [
+            {
+              "url": "https://example.com/synthetic/0/1",
+              "title": "Synthetic source",
+              "excerpt": "Entirely synthetic benchmark evidence",
+              "retrievedAt": "2026-11-15T12:00:00.000Z",
+              "publishedOn": null,
+              "scope": {
+                "type": "business",
+                "id": "b-0"
+              }
+            }
+          ],
+          "sourceRowIds": [],
+          "fieldObservationIds": [],
+          "researchRunId": null
+        }
+      },
+      {
+        "claimId": "c-0-5",
+        "subject": {
+          "type": "business",
+          "id": "b-0"
+        },
+        "predicate": "authority.business_ownership",
+        "value": "Owner hypothesis",
+        "status": "inferred",
+        "freshness": "current",
+        "usefulContext": true,
+        "epistemic": "inference",
+        "authorityState": "inferred",
+        "supportGrade": "reasoned",
+        "confidenceIsProbability": false,
+        "supportOrigins": [
+          "public_source"
+        ],
+        "supportAnchor": "2026-11-15",
+        "observedAt": "2026-11-15T12:00:00.000Z",
+        "effectivePeriod": {
+          "from": "2026-11-15",
+          "to": null
+        },
+        "expiresOn": "2026-11-29",
+        "policyVersion": "b2a-proposed-1",
+        "dependencyIds": [
+          "c-0-1"
+        ],
+        "conflictIds": [],
+        "reasons": [
+          "Qualified hypothesis; inspect supporting claims"
+        ],
+        "provenance": {
+          "origin": "ai",
+          "citations": [],
+          "sourceRowIds": [],
+          "fieldObservationIds": [],
+          "researchRunId": "run"
+        }
+      }
+    ],
+    "verifyFirst": {
+      "claimId": "c-0-5",
+      "reason": "Qualified hypothesis; inspect supporting claims"
+    },
+    "priorityRecommendation": "human_review",
+    "eligibility": "not_established",
+    "policyVersion": "b2a-proposed-1"
+  },
+  "historicalAccount": {
+    "subject": {
+      "type": "utilityAccount",
+      "id": "a-0"
+    },
+    "findings": [
+      {
+        "claimId": "c-0-3",
+        "subject": {
+          "type": "utilityAccount",
+          "id": "a-0"
+        },
+        "predicate": "historical_equipment",
+        "value": "Synthetic thermostat",
+        "status": "historical",
+        "freshness": "historical",
+        "usefulContext": true,
+        "epistemic": "source_reported",
+        "authorityState": "not_applicable",
+        "supportGrade": "unresolved",
+        "confidenceIsProbability": false,
+        "supportOrigins": [
+          "manager_list"
+        ],
+        "supportAnchor": "2026-11-15",
+        "observedAt": "2026-11-15T12:00:00.000Z",
+        "effectivePeriod": {
+          "from": null,
+          "to": null
+        },
+        "expiresOn": null,
+        "policyVersion": "b2a-proposed-1",
+        "dependencyIds": [],
+        "conflictIds": [],
+        "reasons": [
+          "Historical context; not evidence of present conditions"
+        ],
+        "provenance": {
+          "origin": "manager_list",
+          "citations": [],
+          "sourceRowIds": [
+            "r-0"
+          ],
+          "fieldObservationIds": [],
+          "researchRunId": null
+        }
+      }
+    ],
+    "verifyFirst": {
+      "claimId": "c-0-3",
+      "reason": "Historical context; not evidence of present conditions"
+    },
+    "priorityRecommendation": "human_review",
+    "eligibility": "not_established",
+    "policyVersion": "b2a-proposed-1"
+  }
+}

@@ -1,0 +1,6 @@
+{"phase": "prepare", "at": "2026-11-15T03:38:52+00:00"}
+{"phase": "retrieve", "at": "2026-11-15T03:38:52+00:00"}
+{"phase": "extract", "at": "2026-11-15T03:39:15+00:00"}
+{"checked_profile": ["hours", "hvac", "owner"], "not_found": ["Which suite the listed premises is (list gives none; Brio was Ste 5000/5005)", "Maggiano's opening date", "Tenant HVAC arrangements in the mall"]}
+{"phase": "check", "at": "2026-11-15T03:39:49+00:00"}
+{"phase": "done", "at": "2026-11-15T03:39:49+00:00"}

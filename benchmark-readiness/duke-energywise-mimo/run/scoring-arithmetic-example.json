@@ -1,0 +1,37 @@
+{
+  "label": "Invented arithmetic fixture, NOT research measurements",
+  "result": {
+    "synthetic_only": true,
+    "not_real_benchmark_results": true,
+    "documentary_counts": {
+      "correct": 1,
+      "incorrect": 1,
+      "unverifiable": 1
+    },
+    "documentary_accuracy": 0.5,
+    "unverifiable_rate": 0.3333333333333333,
+    "authority_counts": {
+      "correct": 0,
+      "incorrect": 0,
+      "unverifiable": 0
+    },
+    "decision_authority_accuracy": null,
+    "critical_errors": {
+      "wrong_business": 0,
+      "wrong_suite": 0,
+      "unsupported_verified_authority": 0,
+      "history_current_conflation": 0,
+      "fabricated_source": 0
+    },
+    "hard_integrity_gate": "PASS_SYNTHETIC_ONLY",
+    "useful_verification_steps": 1,
+    "usefulness_denominator": 1,
+    "priority_changed_count": 1,
+    "supported_priority_change_count": 1,
+    "source_usefulness_rate": 0.5,
+    "complete_timing_pairs": 1,
+    "excluded_timing_rows": 0,
+    "median_paired_elapsed_reduction_percent": 25.0,
+    "real_execution_authorized": false
+  }
+}
