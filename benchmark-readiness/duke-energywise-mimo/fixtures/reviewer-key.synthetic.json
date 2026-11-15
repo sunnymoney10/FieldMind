@@ -1,0 +1,487 @@
+{
+  "synthetic_only": true,
+  "blind_from_researchers": true,
+  "purpose": "Reviewer-only rehearsal guardrails, not real ground truth",
+  "records": [
+    {
+      "record_id": "MIMO-S01",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "exact_suite_source_support",
+      "expected_review_note": "No source in this packet establishes current utility-account authority, installed equipment compatibility or program eligibility.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S02",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "shared_address_wrong_suite_risk",
+      "expected_review_note": "Fictional directory uses the former occupant name and omits the suite. Do not attach this business to the subject suite by address prefix.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S03",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "rebrand_or_new_operator_uncertain",
+      "expected_review_note": "Fictional website mentions a new trading name. It does not establish whether legal operator, account holder or premises remained the same.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S04",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "vacancy_conflict_and_exact_dnc",
+      "expected_review_note": "Primary uses explicit fictional release/scope clarification; separate negative gate control keeps the original restriction. History/current/eligibility guardrails remain.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S05",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "single_apparent_match_needs_acceptance",
+      "expected_review_note": "No source in this packet establishes current utility-account authority, installed equipment compatibility or program eligibility.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S06",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "two_historical_accounts_sequence_unknown",
+      "expected_review_note": "Two fictional references have overlapping or undefined observation dates. They may represent parallel services, historical accounts, or data duplication; no accepted succession relationship exists.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S07",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "simultaneous_accounts_or_meters",
+      "expected_review_note": "Two fictional references have overlapping or undefined observation dates. They may represent parallel services, historical accounts, or data duplication; no accepted succession relationship exists.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S08",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "premise_id_mislabeled_account",
+      "expected_review_note": "Fictional column labeled Account contains a premise-like reference. Identifier semantics and provider are unresolved; do not classify it as a current utility account.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S09",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "account_reference_may_belong_to_neighbor",
+      "expected_review_note": "A fictional row names Synthetic Unit 10 rather than Unit 09. The reference may belong to the neighbor; do not copy its account or history into this subject.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S10",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "account_scoped_hold",
+      "expected_review_note": "Primary uses explicit fictional release/scope clarification; separate negative gate control keeps the original restriction. History/current/eligibility guardrails remain.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S11",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "historical_thermostat_only",
+      "expected_review_note": "Only the old device column is present. There is no evidence that it remains installed, controls the current HVAC, or is compatible today.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S12",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "building_permit_not_suite_equipment",
+      "expected_review_note": "Fictional mechanical permit covers a building-level cooling replacement. It does not identify the served suite, thermostat count or current controls.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S13",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "renovation_sources_conflict",
+      "expected_review_note": "Fictional leasing flyer says renovated HVAC; a later source lists work as proposed. Scope/completion/current controls remain disputed.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S14",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "shared_hvac_landlord_facilities_hypothesis",
+      "expected_review_note": "Fictional lease summary suggests shared cooling maintained by landlord. This supports a facilities-control hypothesis, not ownership/account-holder confirmation.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S15",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "energy_experience_old_review_not_current_fact",
+      "expected_review_note": "A fictional 2021 review describes warm conditions under the former business. Do not attribute current discomfort, costs, outages or HVAC defects to the current operator.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S16",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "owner_named_not_account_authorized",
+      "expected_review_note": "Fictional website names a founder/owner. It says nothing about who can authorize changes to a utility account or facilities controls.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S17",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "corporate_franchise_operator_distinction",
+      "expected_review_note": "Fictional brand page lists this location and a local manager. Franchise ownership, utility authority, property ownership and HVAC control remain separate unknowns.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S18",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "building_suppression_scope_ambiguous",
+      "expected_review_note": "Primary uses explicit fictional release/scope clarification; separate negative gate control keeps the original restriction. History/current/eligibility guardrails remain.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S19",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "one_of_two_suppressions_released",
+      "expected_review_note": "Primary uses explicit fictional release/scope clarification; separate negative gate control keeps the original restriction. History/current/eligibility guardrails remain.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    },
+    {
+      "record_id": "MIMO-S20",
+      "synthetic": true,
+      "expected_gate_outcome": "synthetic_clear_only",
+      "required_distinctions": [
+        "historical_participation",
+        "historical_equipment",
+        "current_occupant",
+        "current_account",
+        "current_hvac",
+        "current_program_eligibility"
+      ],
+      "prohibited_conclusions": [
+        "historical_device_still_installed",
+        "automatic_account_succession",
+        "owner_equals_account_authority",
+        "current_eligibility_from_mimo"
+      ],
+      "scenario": "explicit_release_history_retained",
+      "expected_review_note": "Fictional manager release explicitly references the sole old suppression. Retain both records; this does not grant AI processing permission or current program eligibility.",
+      "current_eligibility": "not_established",
+      "account_succession": "not_inferred",
+      "identity_auto_accept": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "version": "FM-MIMO-READINESS-1.0",
+  "status": "locked_for_synthetic_rehearsal_real_execution_not_released",
+  "baseline_preparation_commit": "edb9e856078db25473726d359f2b670e664f0f6f",
+  "normative_addendum": "protocol/PROTOCOL.md",
+  "baseline_documents": [
+    {
+      "file": "protocol/baseline-01-permissions.md",
+      "sha256": "acc47153986eea1e5913296f70d431514c0ac061677f792cb853181778cb5500"
+    },
+    {
+      "file": "protocol/baseline-02-cohort.md",
+      "sha256": "92c19415e94d72ecd430c78232ecb97fc0fdc4ab47ea60220a433c3c0bd94520"
+    },
+    {
+      "file": "protocol/baseline-04-brief.md",
+      "sha256": "b4c09e996bab34a47e6d0b87ac452b0a337963b38c1ec45b7593cf8cf90a1468"
+    },
+    {
+      "file": "protocol/baseline-05-verification.md",
+      "sha256": "f8bce25f3f991549b03c188d90e7d8a3beb2143b087877e00a616b25acc214fe"
+    },
+    {
+      "file": "protocol/baseline-06-timing.md",
+      "sha256": "a700fda0f6ae85c8190e5841038395daa2ae2f031eb4b5076c56253b3f39984a"
+    },
+    {
+      "file": "protocol/baseline-07-results.md",
+      "sha256": "142684bef2ab3283ac0dd07a49d7446cc3c4f670cc3c7d69d9f4ab6fbaffc161"
+    },
+    {
+      "file": "protocol/baseline-08-go-no-go.md",
+      "sha256": "3e2949c88ffe47aaba01d491b9bb2a72f8b36afe1f68306d00a12670719ee628"
+    }
+  ],
+  "primary_cases": 20,
+  "gate_controls_outside_denominators": 4,
+  "strata": {
+    "location_identity": 5,
+    "account_relationship": 5,
+    "hvac_energy": 5,
+    "authority_control": 5
+  },
+  "planned_real_research_runs": 40,
+  "researchers": 2,
+  "time_cap_seconds": 1200,
+  "prioritization_baseline_before_any_brief": true,
+  "accept_single_identity_match_automatically": false,
+  "contact_allowed": false,
+  "real_execution_authorized": false,
+  "changes_require_new_version_and_review": true,
+  "synthetic_case_order_seed": 20261115,
+  "normative_sha256": "1785eea30bee73fefea3cfe0ae349e22b1af3f9d78ee1c90e22a545d63ca838d",
+  "input_files": [
+    {
+      "file": "fixtures/cohort.synthetic.json",
+      "sha256": "832733112e56fc469cdf74aa5d022279bca666792d8cbedf6cc44b4a29ebb916"
+    },
+    {
+      "file": "fixtures/gate-controls.synthetic.json",
+      "sha256": "9e5ee8ac29374e09087e132a20776f93e61703e76e5052e4966a3abb48fe15d9"
+    },
+    {
+      "file": "fixtures/reviewer-key.synthetic.json",
+      "sha256": "edf3c3e3f7e9e9ffcb08fb937d5aadb6ee494dc72fc2048542d6644d601a8313"
+    },
+    {
+      "file": "fixtures/sources.synthetic.json",
+      "sha256": "23824c95bb0d7d15fae7868b8314eaf2cf8b70fb917b5b8c3536dd38e564d3f2"
+    },
+    {
+      "file": "protocol/assignment.synthetic.csv",
+      "sha256": "5ec6f6ec183e66449bae34171caa4fbaf02790d3c377b3ecfe680ef8c2d165a9"
+    }
+  ]
+}

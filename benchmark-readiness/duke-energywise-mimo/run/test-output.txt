@@ -1,0 +1,21 @@
+test_absent_measurements_remain_unknown (__main__.ReadinessTests.test_absent_measurements_remain_unknown) ... ok
+test_all_twenty_two_lanes (__main__.ReadinessTests.test_all_twenty_two_lanes) ... ok
+test_authority_accuracy_separate_and_critical_error_blocks (__main__.ReadinessTests.test_authority_accuracy_separate_and_critical_error_blocks) ... ok
+test_citation_and_missing_premise_cannot_verify_inference (__main__.ReadinessTests.test_citation_and_missing_premise_cannot_verify_inference) ... ok
+test_contradiction_and_uncertainty_must_stay_visible (__main__.ReadinessTests.test_contradiction_and_uncertainty_must_stay_visible) ... ok
+test_fabricated_cross_record_and_misquoted_sources_fail (__main__.ReadinessTests.test_fabricated_cross_record_and_misquoted_sources_fail) ... ok
+test_four_gate_controls_stop_before_research (__main__.ReadinessTests.test_four_gate_controls_stop_before_research) ... ok
+test_history_cannot_become_current_account_or_equipment (__main__.ReadinessTests.test_history_cannot_become_current_account_or_equipment) ... ok
+test_reported_confirmations_do_not_release_real_execution (__main__.ReadinessTests.test_reported_confirmations_do_not_release_real_execution) ... ok
+test_research_cannot_create_eligibility_or_authorization (__main__.ReadinessTests.test_research_cannot_create_eligibility_or_authorization) ... ok
+test_scorer_rejects_real_unmarked_input (__main__.ReadinessTests.test_scorer_rejects_real_unmarked_input) ... ok
+test_single_candidate_does_not_accept_identity (__main__.ReadinessTests.test_single_candidate_does_not_accept_identity) ... ok
+test_unknown_and_unverifiable_do_not_inflate_accuracy (__main__.ReadinessTests.test_unknown_and_unverifiable_do_not_inflate_accuracy) ... ok
+test_website_owner_cannot_become_verified_account_authority (__main__.ReadinessTests.test_website_owner_cannot_become_verified_account_authority) ... ok
+test_wrong_business_and_wrong_suite_rejected (__main__.ReadinessTests.test_wrong_business_and_wrong_suite_rejected) ... ok
+test_zero_missing_aborted_and_software_times_not_human_speed (__main__.ReadinessTests.test_zero_missing_aborted_and_software_times_not_human_speed) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.007s
+
+OK

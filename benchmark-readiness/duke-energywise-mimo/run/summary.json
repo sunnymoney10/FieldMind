@@ -1,0 +1,36 @@
+{
+  "protocol_version": "FM-MIMO-READINESS-1.0",
+  "generated_at": "2026-11-15T02:26:17.517249+00:00",
+  "synthetic_rehearsal": "PASS",
+  "real_pilot_readiness": "BLOCKED",
+  "reported_authorization_categories": 6,
+  "permission_to_use_list_for_ai_research_benchmarking": "confirmed_by_user_no_reconfirmation_requested",
+  "primary_synthetic_cases": 20,
+  "protocol_replay_briefs": 40,
+  "fixture_reviews_passed": 40,
+  "fixture_attribution_checks": 120,
+  "gate_controls_held": 4,
+  "unit_test_status": "PASS",
+  "test_case_count": 16,
+  "real_records_processed": 0,
+  "actual_human_research_runs": 0,
+  "actual_ai_endpoint_research_runs": 0,
+  "actual_independent_human_reviews": 0,
+  "real_documentary_accuracy": null,
+  "real_decision_authority_accuracy": null,
+  "real_source_usefulness": null,
+  "real_prioritization_changes": null,
+  "real_time_saved": null,
+  "blocked_dependencies": [
+    "Exact approved AI/research workspace and storage locations not identified/verified",
+    "Allowed-field/source settings, participant roles and retention/deletion setup not yet recorded for that environment",
+    "Real pilot execution held for readiness review; no actual cohort opened"
+  ],
+  "unmeasured_pilot_outcomes": [
+    "Actual manual-versus-AI research",
+    "Independent human review",
+    "Rep usefulness, priority changes and end-to-end time saved"
+  ],
+  "next_action": "Review readiness package, finalize the approved handling setup, then explicitly release the real twenty-prospect execution step",
+  "can_process_real_records": false
+}

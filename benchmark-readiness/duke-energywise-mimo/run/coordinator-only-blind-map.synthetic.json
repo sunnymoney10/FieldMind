@@ -1,0 +1,282 @@
+[
+  {
+    "blind_brief_id": "BLIND-026",
+    "record_ref": "MIMO-S15",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 0
+  },
+  {
+    "blind_brief_id": "BLIND-008",
+    "record_ref": "MIMO-S20",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 1
+  },
+  {
+    "blind_brief_id": "BLIND-040",
+    "record_ref": "MIMO-S13",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 2
+  },
+  {
+    "blind_brief_id": "BLIND-029",
+    "record_ref": "MIMO-S17",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 3
+  },
+  {
+    "blind_brief_id": "BLIND-017",
+    "record_ref": "MIMO-S07",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 4
+  },
+  {
+    "blind_brief_id": "BLIND-031",
+    "record_ref": "MIMO-S05",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 5
+  },
+  {
+    "blind_brief_id": "BLIND-003",
+    "record_ref": "MIMO-S09",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 6
+  },
+  {
+    "blind_brief_id": "BLIND-015",
+    "record_ref": "MIMO-S19",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 7
+  },
+  {
+    "blind_brief_id": "BLIND-011",
+    "record_ref": "MIMO-S02",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 8
+  },
+  {
+    "blind_brief_id": "BLIND-038",
+    "record_ref": "MIMO-S04",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 9
+  },
+  {
+    "blind_brief_id": "BLIND-013",
+    "record_ref": "MIMO-S11",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 10
+  },
+  {
+    "blind_brief_id": "BLIND-034",
+    "record_ref": "MIMO-S08",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 11
+  },
+  {
+    "blind_brief_id": "BLIND-009",
+    "record_ref": "MIMO-S14",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 12
+  },
+  {
+    "blind_brief_id": "BLIND-005",
+    "record_ref": "MIMO-S18",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 13
+  },
+  {
+    "blind_brief_id": "BLIND-028",
+    "record_ref": "MIMO-S03",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 14
+  },
+  {
+    "blind_brief_id": "BLIND-023",
+    "record_ref": "MIMO-S12",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 15
+  },
+  {
+    "blind_brief_id": "BLIND-007",
+    "record_ref": "MIMO-S06",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 16
+  },
+  {
+    "blind_brief_id": "BLIND-019",
+    "record_ref": "MIMO-S16",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 17
+  },
+  {
+    "blind_brief_id": "BLIND-001",
+    "record_ref": "MIMO-S01",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 18
+  },
+  {
+    "blind_brief_id": "BLIND-020",
+    "record_ref": "MIMO-S10",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-A",
+    "execution_order": 19
+  },
+  {
+    "blind_brief_id": "BLIND-036",
+    "record_ref": "MIMO-S16",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 20
+  },
+  {
+    "blind_brief_id": "BLIND-010",
+    "record_ref": "MIMO-S08",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 21
+  },
+  {
+    "blind_brief_id": "BLIND-004",
+    "record_ref": "MIMO-S03",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 22
+  },
+  {
+    "blind_brief_id": "BLIND-006",
+    "record_ref": "MIMO-S12",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 23
+  },
+  {
+    "blind_brief_id": "BLIND-039",
+    "record_ref": "MIMO-S19",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 24
+  },
+  {
+    "blind_brief_id": "BLIND-035",
+    "record_ref": "MIMO-S02",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 25
+  },
+  {
+    "blind_brief_id": "BLIND-014",
+    "record_ref": "MIMO-S05",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 26
+  },
+  {
+    "blind_brief_id": "BLIND-024",
+    "record_ref": "MIMO-S06",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 27
+  },
+  {
+    "blind_brief_id": "BLIND-002",
+    "record_ref": "MIMO-S15",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 28
+  },
+  {
+    "blind_brief_id": "BLIND-022",
+    "record_ref": "MIMO-S18",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 29
+  },
+  {
+    "blind_brief_id": "BLIND-033",
+    "record_ref": "MIMO-S14",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 30
+  },
+  {
+    "blind_brief_id": "BLIND-021",
+    "record_ref": "MIMO-S04",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 31
+  },
+  {
+    "blind_brief_id": "BLIND-027",
+    "record_ref": "MIMO-S09",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 32
+  },
+  {
+    "blind_brief_id": "BLIND-018",
+    "record_ref": "MIMO-S01",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 33
+  },
+  {
+    "blind_brief_id": "BLIND-037",
+    "record_ref": "MIMO-S10",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 34
+  },
+  {
+    "blind_brief_id": "BLIND-012",
+    "record_ref": "MIMO-S17",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 35
+  },
+  {
+    "blind_brief_id": "BLIND-030",
+    "record_ref": "MIMO-S11",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 36
+  },
+  {
+    "blind_brief_id": "BLIND-016",
+    "record_ref": "MIMO-S13",
+    "protocol_lane": "assisted_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 37
+  },
+  {
+    "blind_brief_id": "BLIND-032",
+    "record_ref": "MIMO-S20",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 38
+  },
+  {
+    "blind_brief_id": "BLIND-041",
+    "record_ref": "MIMO-S07",
+    "protocol_lane": "manual_protocol_replay",
+    "simulated_participant": "SIMULATED-RESEARCHER-B",
+    "execution_order": 39
+  }
+]
