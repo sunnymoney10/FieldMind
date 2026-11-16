@@ -8,3 +8,15 @@ research/.venv/
 research/upstream/
 __pycache__/
 *.pyc
+
+# Local secrets and settings
+.env
+.env.*
+!.env.example
+
+# Real prospect data never belongs in this repo
+real_*
+*.mimo.csv
+
+# OS clutter
+.DS_Store
