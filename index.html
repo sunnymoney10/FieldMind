@@ -233,6 +233,10 @@ nav.tabs .center button svg{width:34px;height:34px}
 .fof{background:var(--surface);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;box-shadow:0 5px 0 var(--accent)}
 .fof .k{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--accent-text);text-transform:uppercase}
 .fof .q{font-size:17px;font-weight:700;line-height:1.3;margin-top:2px}
+.fof.attn{border-color:#B94F3D;box-shadow:0 5px 0 #B94F3D}
+.fof.attn .k{color:#B94F3D}
+.fof.ok{border-color:#3D8B5E;box-shadow:0 5px 0 #3D8B5E}
+.fof.ok .k{color:#3D8B5E}
 .orows{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:2px 12px}
 .orow{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid var(--line)}
 .orow:first-child{border-top:0}
@@ -757,12 +761,42 @@ const READY = {
   check:{t:"Verify occupant", tone:"warn"},
   unknown:{t:"Decision-maker unknown", tone:""},
   none:{t:"Not researched", tone:""},
-  suppressed:{t:"Suppressed on list", tone:"bad"}
+  suppressed:{t:"Suppressed on list", tone:"bad"},
+  locked_out:{t:"Not yet eligible", tone:"warn"}
 };
 // Labels describe evidence, not enrollment readiness. "Local owner likely" needs a found/verified occupant
 // AND an owner-operator route with a stated basis.
+
+/* Deactivation / 12-month lockout detection.
+   Returns {eligible:false, deactivatedAt:Date, eligibleAfter:Date} when the
+   most recent list record has a removal/deactivation status, otherwise null. */
+const DEACT_STATUS_RE = /removed?|deactivat|ineligible|disconnect|terminated|inactive|closed|dropout|withdrawn/i;
+function deactivationInfo(id){
+  const a=S.accounts[id]; if(!a) return null;
+  const recs=listRecords(a);
+  if(!recs.length) return null;
+  // Use the most recent record (highest created date). If status looks like a removal, check eligibility.
+  const sorted=recs.slice().sort((x,y)=>((parseDate(y.created)||0)-(parseDate(x.created)||0)));
+  const latest=sorted[0];
+  if(!latest.status || !DEACT_STATUS_RE.test(latest.status)) return null;
+  const deactivatedAt = parseDate(latest.created);
+  if(!deactivatedAt) return {eligible:false, deactivatedAt:null, eligibleAfter:null, status:latest.status};
+  const eligibleAfter = new Date(deactivatedAt);
+  eligibleAfter.setFullYear(eligibleAfter.getFullYear()+1);
+  const now = new Date();
+  const eligible = now >= eligibleAfter;
+  return {eligible, deactivatedAt, eligibleAfter, status:latest.status};
+}
+function fmtEligMonth(d){ if(!d) return ""; return d.toLocaleDateString(undefined,{month:"long",year:"numeric"}); }
+
 function readiness(id){
   const a=S.accounts[id]; if(a && a.suppressed) return {k:"suppressed", ...READY.suppressed, reason:"Marked "+(a.listStatus||"suppressed")+" on your list. Don't contact."};
+  // Check deactivation / 12-month lockout before anything else
+  const deact=deactivationInfo(id);
+  if(deact && !deact.eligible){
+    const when = deact.eligibleAfter ? "Eligible again: "+fmtEligMonth(deact.eligibleAfter)+"." : "Eligibility date unknown.";
+    return {k:"locked_out", ...READY.locked_out, reason:"Account was deactivated ("+esc(deact.status)+"). "+when+" Confirm with the call center before stopping.", eligibleAfter:deact.eligibleAfter};
+  }
   const b=S.notes[id]?.brief;
   if(!b) return {k:"none", ...READY.none, reason:""};
   const p=b.profile||{}, d=b.decision||{}, occ=p.occupancy?.status, who=b.occupant;
@@ -934,7 +968,9 @@ function accountRow(id, extra=""){
   const stripe = st.k==="returning" && n.ret.date<=todayStr() ? "bad" : (st.tone==="good"?"good":st.k==="returning"?"info":st.k==="closed"?"":"");
   const rd = readiness(id), alts = a.altNames||[];
   const allMimo = S._allMimo;
-  const tag = rd.k==="suppressed" ? `<span class="pill bad">Don't contact</span>` : extra ? "" : st.k!=="new" ? `<span class="pill ${st.tone}">${esc(st.t)}</span>` : n?.brief ? `<span class="pill ${rd.tone}">${esc(rd.t)}</span>` : "";
+  const tag = rd.k==="suppressed" ? `<span class="pill bad">Don't contact</span>` :
+    rd.k==="locked_out" ? `<span class="pill warn">Not eligible${rd.eligibleAfter?" · "+fmtEligMonth(rd.eligibleAfter):""}</span>` :
+    extra ? "" : st.k!=="new" ? `<span class="pill ${st.tone}">${esc(st.t)}</span>` : n?.brief ? `<span class="pill ${rd.tone}">${esc(rd.t)}</span>` : "";
   return `<button class="item" data-open="${esc(id)}"><span class="stripe ${stripe}"></span><span class="main"><span class="t">${esc(nice(a.name)||"(no name)")}</span><span class="s" style="display:block">${esc([nice(a.addr),nice(a.city)].filter(Boolean).join(", "))}</span><span class="pills">${a.list==="mimo"&&!allMimo?'<span class="pill">MIMO</span>':""}${tag}${extra}</span></span><span class="iconbtn ${n?.today?"on":""}" data-star="${esc(id)}" role="button" aria-label="${n?.today?"Remove from saves":"Save for today"}" tabindex="0">${starSvg(n?.today)}</span></button>`;
 }
 const starSvg = on => `<svg viewBox="0 0 24 24" fill="${on?"currentColor":"none"}" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>`;
@@ -1160,6 +1196,85 @@ function openInbox(){
   }, (()=>{ const k=Inbox.items.filter(it=>matchAccount(((it.research?.premises||[])[0]||{}).match, S.accounts)).length; return k?`<button class="btn primary block" data-act="acceptinbox">Add ${k} brief${k===1?"":"s"}</button>`:`<button class="btn primary block" data-act="acceptinbox">Clear</button>`; })(), {inbox:true});
 }
 
+/* ============ Approach line — who to ask for ============
+   Derives a specific pre-visit script line from business-name signals,
+   suite presence, decision route, thermostat estimate, and known occupant name.
+   Returns {line, context} or null when not enough signal is available. */
+function approachLine(id){
+  const a=S.accounts[id]; if(!a) return null;
+  const b=S.notes[id]?.brief;
+  const d=b?.decision||{}, occ=b?.occupant, name=occ?.name||"";
+  const bizName=String(a.name||"").toUpperCase();
+  const addr=String(a.addr||"");
+
+  // 1. Detect large-facility signals from the business name
+  const isMfg    = /manufactur|processing|warehouse|distribution|industrial|plant|factory|logistics|freight/i.test(bizName);
+  const isChain  = /\b(LLC|INC|CORP|CO\.|LTD|GROUP|NATIONAL|ENTERPRISES?|HOLDINGS?)\b/i.test(bizName) && !/BARBER|SALON|SPA|STUDIO|SHOP|NAIL/i.test(bizName);
+  const isLargeOffice = /MEDICAL|DENTAL|LAW|HEALTH|CLINIC|CENTER|HOSPITAL|URGENT|GOVERNMENT|COUNTY|MUNICIPAL|UNIVERSITY|COLLEGE|SCHOOL|ACADEMY/i.test(bizName);
+  const isHotel  = /HOTEL|INN|SUITES|LODGE|MOTEL|MARRIOTT|HILTON|HAMPTON|HOLIDAY/i.test(bizName);
+  const isRetail = /STORE|MARKET|GROCERY|FOOD|PIZZA|RESTAURANT|CAFE|COFFEE|DELI|BAR\b|GRILL|BUFFET|WING|TACO|NAIL|BARBER|SALON|SPA|LAUNDRY/i.test(bizName);
+
+  // 2. Detect large-footprint address signals (suite/unit implies shared building with management)
+  const hasSuite = /\b(ste|suite|unit|fl|floor|bldg|building)\b/i.test(addr);
+  const hasTherm = b?.thermostats?.low >= 3; // 3+ thermostats = not a small single-occupant space
+
+  // 3. Decide approach context
+  // A. Known occupant from research — use their name
+  if(name && occ && (occ.status==="verified"||occ.status==="found")){
+    const firstName = name.trim().split(/\s+/)[0];
+    return {
+      line: `Ask for ${esc(firstName)} or whoever handles the Duke Energy account.`,
+      context: "Known occupant"
+    };
+  }
+
+  // B. Known decision route with a named person or title
+  if(d.who){
+    return {
+      line: `Ask for ${esc(d.who)}.`,
+      context: ROUTES[d.route]||"Decision route on file"
+    };
+  }
+
+  // C. Manufacturing / warehouse / industrial — multi-meter environment
+  if(isMfg || (hasTherm && (isChain||isLargeOffice))){
+    return {
+      line: "Ask for the facilities manager or whoever oversees building utilities.",
+      context: isMfg ? "Manufacturing or industrial — multi-meter site" : "Large facility with multiple thermostats"
+    };
+  }
+
+  // D. Hotel / large hospitality — engineering or facilities
+  if(isHotel){
+    return {
+      line: "Ask for the facilities or engineering manager.",
+      context: "Hotel or hospitality property"
+    };
+  }
+
+  // E. Medical, dental, clinic, government building — office manager or administrator
+  if(isLargeOffice || hasSuite){
+    return {
+      line: "Ask for the office manager or whoever handles the utility bill.",
+      context: isLargeOffice ? "Professional or institutional building" : "Suite in a shared building"
+    };
+  }
+
+  // F. Retail / food service — single-location, likely local owner or manager on duty
+  if(isRetail){
+    return {
+      line: "Ask for the owner or manager and ask who handles the Duke Energy account.",
+      context: "Retail or food service"
+    };
+  }
+
+  // G. Generic small business fallback — avoid "the owner" per rep feedback
+  return {
+    line: "Ask for whoever handles the electricity or Duke Energy account.",
+    context: "Small business — decision-maker not yet established"
+  };
+}
+
 /* ============ Brief ============ */
 const IC = {
   store:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 9l1.5-5h13L20 9M4 9v11h16V9M4 9h16M9 20v-6h6v6"/></svg>`,
@@ -1179,6 +1294,7 @@ function clusterPos(id){ const cls=clusters(Object.keys(S.accounts)); for(const 
 function headerChips(id){
   const a=S.accounts[id], b=S.notes[id]?.brief, p=b?.profile||{}, rd=readiness(id), out=[];
   if(rd.k==="suppressed") out.push(`<span class="chip attn">Suppressed on list · don't contact</span>`);
+  if(rd.k==="locked_out") out.push(`<span class="chip warn">Not yet eligible${rd.eligibleAfter?" · "+fmtEligMonth(rd.eligibleAfter):""}</span>`);
   if(a.origin==="rep") out.push(`<span class="chip line">Added by you · not on an approved list</span>`);
   if(rd.k==="ready") out.push(`<span class="chip ok">${esc(rd.t)}</span>`);
   else if(rd.k==="check") out.push(`<span class="chip warn">Verify occupant</span>`);
@@ -1201,6 +1317,17 @@ function accountBody(id){
   const m=entityModel(id), cur=m.currentOccupant, other=m.names.filter(x=>!cur||x!==cur.name);
   let h = `<div class="hero"><h1>${esc(nice(cur?cur.name:(m.listedName||"(no name)")))}</h1>${cur&&cur.name!==m.listedName?`<div class="addr">Listed as ${esc(nice(m.listedName))}</div>`:""}<div class="addr">${esc([nice(a.addr),nice(a.city)].filter(Boolean).join(", "))}</div><div class="chips" style="margin-top:10px">${headerChips(id)}</div></div>`;
   h += `<div class="panel paper">`;
+  // Deactivation lockout warning — shown prominently before any research content
+  const deact=deactivationInfo(id);
+  if(deact && !deact.eligible){
+    const eligWhen = deact.eligibleAfter ? "Eligible again: <b>"+esc(fmtEligMonth(deact.eligibleAfter))+"</b>." : "Eligibility date unknown.";
+    h += `<div class="fof attn"><div class="k">⚠ Not yet eligible</div><div class="q">Account was deactivated (<b>${esc(deact.status)}</b>). ${eligWhen} Confirm with the call center before stopping — don't waste the drive.</div></div>`;
+  } else if(deact && deact.eligible){
+    h += `<div class="fof ok"><div class="k">Previously deactivated — now eligible</div><div class="q">Account was deactivated but the 12-month window has passed. Confirm current eligibility with the call center before enrolling.</div></div>`;
+  }
+  // Who to ask for — context-aware pre-visit approach line
+  const appr=approachLine(id);
+  if(appr) h += `<div class="fof"><div class="k">Who to ask for</div><div class="q">${appr.line}${appr.context?` <span class="chip dim" style="vertical-align:middle">${esc(appr.context)}</span>`:""}</div></div>`;
   if(b && b.askFirst) h += `<div class="fof"><div class="k">Find out first</div><div class="q">${esc(b.askFirst)}</div></div>`;
   if(!b) h += `<div class="fof"><div class="k">Not researched yet</div><div class="q">Tap Research below.</div></div>`;
   const tabs=[["overview","Overview"],["business","Business"],["energy","Energy"],["notes","Notes"]];
