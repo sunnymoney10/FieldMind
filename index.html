@@ -913,7 +913,7 @@ function loadDemo(){
   const now = new Date(), iso = (dDays,h) => { const d=new Date(now); d.setDate(d.getDate()+dDays); d.setHours(h,15,0,0); return d.toISOString(); };
   const t = (dDays) => { const d=new Date(now); d.setDate(d.getDate()+dDays); return todayStr(d); };
   const A = [
-    {name:"Brightline Dental Studio", addr:"412 Example Pkwy, Ste 3", city:"Raleigh", zip:"27606", acct:"EX-10021", bizType:"Dental office", list:"approved"},
+    {name:"Brightline Dental Studio", addr:"412 Example Pkwy, Ste 3", city:"Raleigh", zip:"27606", acct:"EX-10021", bizType:"Dental office", list:"approved", phone:"(919) 555-0141"},
     {name:"Copper Kettle Bakery", addr:"88 Sample St", city:"Raleigh", zip:"27606", acct:"EX-10022", bizType:"Bakery", list:"approved"},
     {name:"Northside Auto Glass", addr:"1500 Demo Rd", city:"Raleigh", zip:"27609", acct:"EX-10023", bizType:"Auto service", list:"mimo", device:"IntelliTemp"},
     {name:"Lotus Nail Lounge", addr:"220 Placeholder Ave, Ste 110", city:"Cary", zip:"27511", acct:"EX-10024", bizType:"Salon", list:"approved"},
@@ -1308,14 +1308,23 @@ function headerChips(id){
 function openAccount(id){
   const a=S.accounts[id]; if(!a) return;
   const n=note(id), srcN = n.evidence.length + (a.device||a.list==="mimo"?1:0);
-  openSheet("", ()=>accountBody(id), `<button class="btn" data-act="liveresearch" data-id="${esc(id)}" ${a.suppressed?"disabled":""}>Research</button><button class="btn" data-act="sources" data-id="${esc(id)}">Sources</button><button class="btn primary" data-act="visit" data-id="${esc(id)}">Log visit</button>`,
+  const rd=readiness(id);
+  const noContact = a.suppressed || rd.k==="locked_out";
+  openSheet("", ()=>accountBody(id), `<button class="btn" data-act="liveresearch" data-id="${esc(id)}" ${noContact?"disabled":""}>Research</button><button class="btn" data-act="sources" data-id="${esc(id)}">Sources</button><button class="btn primary" data-act="visit" data-id="${esc(id)}" ${noContact?"disabled title=\"Not eligible — cannot log a visit\"":""}>Log visit</button>`,
     {account:id, brand:true, head:`<button class="iconbtn ${n.today?"on":""}" id="sheetStar" data-star="${esc(id)}" aria-label="Save for today">${starSvg(n.today)}</button><button class="iconbtn" data-act="editacct" data-id="${esc(id)}" aria-label="Edit account"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>`});
 }
 function accountBody(id){
   const a=S.accounts[id], n=note(id), b=n.brief, pos=clusterPos(id);
   const addr=[a.addr,a.city].filter(Boolean).join(" · ");
   const m=entityModel(id), cur=m.currentOccupant, other=m.names.filter(x=>!cur||x!==cur.name);
-  let h = `<div class="hero"><h1>${esc(nice(cur?cur.name:(m.listedName||"(no name)")))}</h1>${cur&&cur.name!==m.listedName?`<div class="addr">Listed as ${esc(nice(m.listedName))}</div>`:""}<div class="addr">${esc([nice(a.addr),nice(a.city)].filter(Boolean).join(", "))}</div><div class="chips" style="margin-top:10px">${headerChips(id)}</div></div>`;
+  const mapsUrl="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent([a.name,a.addr,a.city].filter(Boolean).join(" "));
+  const addrLine=esc([nice(a.addr),nice(a.city)].filter(Boolean).join(", "));
+  const heroActions=`<div class="hero-actions" style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">`+
+    `<a class="btn" href="${mapsUrl}" target="_blank" rel="noopener" style="font-size:13px;padding:5px 10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" style="margin-right:5px;vertical-align:-2px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Navigate</a>`+
+    (a.phone?`<a class="btn" href="tel:${esc(a.phone.replace(/[^+\d]/g,""))}" style="font-size:13px;padding:5px 10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" style="margin-right:5px;vertical-align:-2px"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.9 19.9 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0122 16.9z"/></svg>Call ${esc(a.phone)}</a>`:"") +
+    `<button class="btn" data-act="copyaddr" data-id="${esc(id)}" style="font-size:13px;padding:5px 10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" style="margin-right:5px;vertical-align:-2px"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copy address</button>`+
+    `</div>`;
+  let h = `<div class="hero"><h1>${esc(nice(cur?cur.name:(m.listedName||"(no name)")))}</h1>${cur&&cur.name!==m.listedName?`<div class="addr">Listed as ${esc(nice(m.listedName))}</div>`:""}<div class="addr">${addrLine}</div>${heroActions}<div class="chips" style="margin-top:8px">${headerChips(id)}</div></div>`;
   h += `<div class="panel paper">`;
   // Deactivation lockout warning — shown prominently before any research content
   const deact=deactivationInfo(id);
@@ -1491,6 +1500,7 @@ function visitCard(id,v){
 
 /* ---- Visit form ---- */
 function openVisit(id, opts={}){
+  const _a=S.accounts[id]; if(_a && (_a.suppressed || readiness(id).k==="locked_out")){ toast("Cannot log a visit — account is not eligible for contact."); return; }
   const n=note(id), back=()=>openAccount(id);
   const V = {result:"", sub:"", gates:[], minutes:10, notes:"", retDate:"", retTime:"", retKind:"", retNote:"", dmName:n.dm?.name||"", dmRole:n.dm?.role||"", dmBest:n.dm?.best||"", level:"", kw:"", install:""};
   const radios = (name, obj, val) => `<div class="opts" role="radiogroup">${Object.entries(obj).map(([k,t])=>`<label class="opt"><input type="radio" name="${name}" value="${k}" ${val===k?"checked":""}><span>${esc(t)}</span></label>`).join("")}</div>`;
@@ -1749,6 +1759,7 @@ document.addEventListener("click", async e => {
   else if(act==="savedispute"){ const t=($("#dnote").value||"").trim(); if(!t){ toast("Say what's actually true."); return; } const ev=note(id).evidence.find(x=>x.id===b.dataset.ev); if(ev){ ev.disputed={note:t, at:new Date().toISOString()}; ev.verified=false; try{ await Store.saveNote(id); }catch(e){ return; } } openSources(id); }
   else if(act==="undispute"){ const ev=note(id).evidence.find(x=>x.id===b.dataset.ev); if(ev){ delete ev.disputed; await Store.saveNote(id).catch(()=>{}); UI.sheet.refresh(); } }
   else if(act==="verify"){ const ev=note(id).evidence.find(x=>x.id===b.dataset.ev); if(ev){ ev.verified=true; ev.verifiedAt=new Date().toISOString(); ev.time="current"; await Store.saveNote(id).catch(()=>{}); UI.sheet.refresh(); } }
+  else if(act==="copyaddr"){ const a=S.accounts[id]; if(a) copyText([a.addr,a.city,a.zip].filter(Boolean).join(", "), "Address copied"); }
   else if(act==="clearret"){ note(id).ret=null; await Store.saveNote(id).catch(()=>{}); UI.sheet.refresh(); }
   else if(act==="delvisit"){ if(await ask("Delete this visit?","Your stats will update.")){ const n=note(id); n.visits=n.visits.filter(v=>v.id!==b.dataset.v); await Store.saveNote(id).catch(()=>{}); UI.sheet.refresh(); } }
   else if(act==="savevisit") UI.saveVisit();
@@ -1798,6 +1809,7 @@ function researchSnapshot(a){ return JSON.stringify([a.name,a.addr,a.city,a.zip,
 function openLiveResearch(id){
   const a=S.accounts[id]; if(!a) return;
   if(a.suppressed){ toast("Suppressed records cannot start research."); return; }
+  const _rd=readiness(id); if(_rd.k==="locked_out"){ toast("Account is not yet eligible. Confirm eligibility with the call center before researching."); return; }
   if(!a.name || !a.addr || !a.city){ toast("Add a business name, street address and city first."); return; }
   if(UI.liveResearch && UI.liveResearch.id!==id && ["running","complete"].includes(UI.liveResearch.state)){
     toast("Finish or discard the current research draft first."); showLiveResearch(); return;
