@@ -33,7 +33,12 @@ a{color:var(--accent-text)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 
-.app{display:flex;flex-direction:column;height:100%;max-width:640px;margin:0 auto}
+/* Lock the app shell to the visible mobile viewport; only its content pane scrolls.
+   Prevents iOS standalone/Safari page scroll restoration from shifting the entire UI down. */
+html,body{height:100%;height:100dvh;overflow:hidden;overscroll-behavior:none}
+.app{display:flex;flex-direction:column;position:fixed;inset:0;height:100%;height:100dvh;width:100%;max-width:640px;margin:0 auto;overflow:hidden}
+.app > main{min-height:0;min-width:0;overscroll-behavior-y:contain}
+.app > header,.app > nav{flex-shrink:0}
 header.top{display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top) + 12px) 16px 10px;}
 header.top h1{font-size:22px;font-weight:800}
 header.top .sync{margin-left:auto;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
