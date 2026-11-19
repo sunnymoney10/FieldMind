@@ -1334,6 +1334,11 @@ function accountBody(id){
   } else if(deact && deact.eligible){
     h += `<div class="fof ok"><div class="k">Previously deactivated — now eligible</div><div class="q">Account was deactivated but the 12-month window has passed. Confirm current eligibility with the call center before enrolling.</div></div>`;
   }
+  // MIMO evidence: premises history is not proof of current occupant, equipment, or eligibility.
+  if(a.list==="mimo"){
+    const prior=devicesOf(a);
+    h += `<div class="fof"><div class="k">MIMO · Previously participating premises</div><div class="q">This location participated under an earlier account. ${prior.length?"Previously installed: <b>"+esc(prior.join(" and "))+"</b>. ":""}Equipment may remain, but presence, function, occupant identity and current eligibility are unverified. Confirm the exact suite and account decision-maker before treating this as an enrollment opportunity.</div></div>`;
+  }
   // Who to ask for — context-aware pre-visit approach line
   const appr=approachLine(id);
   if(appr) h += `<div class="fof"><div class="k">Who to ask for</div><div class="q">${appr.line}${appr.context?` <span class="chip dim" style="vertical-align:middle">${esc(appr.context)}</span>`:""}</div></div>`;
@@ -1398,7 +1403,7 @@ function tabBusiness(id){
 }
 function tabEnergy(id){
   const a=S.accounts[id], b=note(id).brief, g=gatesFor(id), p=b?.profile||{}, t=b?.thermostats, sal=SALIENCE[b?.salience];
-  let h = secRows("Energy", [ sal?drow("Relevance", esc(sal.t)+` <span class="chip line">Inferred</span>`):"", t?drow("Thermostat estimate", `<b>${esc(t.low)}${t.high&&t.high!=t.low?"–"+esc(t.high):""}</b> <span class="chip line">Inferred</span>${t.basis?`<div class="src">${esc(t.basis)}</div>`:""}<div class="src">Not a count. Confirm on site.</div>`):"", (p.hvac&&p.hvac.status==="found")?drow("Last HVAC work", fieldHtml(p.hvac)):"", (p.electrical&&p.electrical.status==="found")?drow("Last electrical", fieldHtml(p.electrical)):"", (devicesOf(a).length||a.list==="mimo")?drow("Program history", `${devicesOf(a).length?`Previous occupant had <b>${esc(devicesOf(a).join(" and "))}</b>. `:"Previous occupant took part. "}Not current equipment.`):"" ]);
+  let h = secRows("Energy", [ sal?drow("Relevance", esc(sal.t)+` <span class="chip line">Inferred</span>`):"", t?drow("Thermostat estimate", `<b>${esc(t.low)}${t.high&&t.high!=t.low?"–"+esc(t.high):""}</b> <span class="chip line">Inferred</span>${t.basis?`<div class="src">${esc(t.basis)}</div>`:""}<div class="src">Not a count. Confirm on site.</div>`):"", (p.hvac&&p.hvac.status==="found")?drow("Last HVAC work", fieldHtml(p.hvac)):"", (p.electrical&&p.electrical.status==="found")?drow("Last electrical", fieldHtml(p.electrical)):"", (devicesOf(a).length||a.list==="mimo")?drow("Program history", `${devicesOf(a).length?`Previously recorded equipment: <b>${esc(devicesOf(a).join(" and "))}</b>. `:"This premises previously participated. "}Not current equipment.`):"" ]);
   h += `<section><h3 class="h-sub">Progress · ${Object.keys(g).length} of ${GATES.length}</h3><div class="card gates">${GATES.map(x=>`<div class="gate ${g[x.k]?"done":""}"><span class="g">${g[x.k]?"✓":""}</span><span>${x.t}</span>${g[x.k]?`<span class="when">${fmtDate(todayStr(new Date(g[x.k])))}</span>`:""}</div>`).join("")}</div></section>`;
   return h;
 }
